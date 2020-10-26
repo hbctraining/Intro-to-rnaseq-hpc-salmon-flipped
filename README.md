@@ -17,7 +17,7 @@ This repository has teaching materials for a 2-day Introduction to RNA-sequencin
 
 ### Lessons
 
-[Click here](https://hbctraining.github.io/Intro-to-rnaseq-hpc-salmon/schedule/) for links to lessons and the suggested schedule.
+[Click here](https://hbctraining.github.io/Intro-to-rnaseq-hpc-salmon-flipped/schedule/) for links to lessons and the suggested schedule.
 
 ### Installation Requirements
 
@@ -34,10 +34,6 @@ This repository has teaching materials for a 2-day Introduction to RNA-sequencin
 * [GitBash](https://git-scm.com/download/win)
 * Plain text editor like [Notepad++](http://notepad-plus-plus.org/) or similar
 
-### Dataset
-
-* Day 1 - [Introduction to Shell: Dataset](https://www.dropbox.com/s/3lua2h1oo18gbug/unix_lesson.tar.gz?dl=1)
-* Days 2 and 3 - RNA-seq analysis (coming soon)
 
 ***
 *These materials have been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
