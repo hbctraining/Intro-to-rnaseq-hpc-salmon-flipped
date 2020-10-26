@@ -106,7 +106,7 @@ Next, we will search our files for specific patterns and redirect the results to
 
 ### Permissions
 
-* https://hbctraining.github.io/Intro-to-shell-flipped/lessons/07_permissions_and_environment_variables.html
+* [Interpreting the permissions string](https://hbctraining.github.io/Intro-to-shell-flipped/lessons/07_permissions_and_environment_variables.html#permissions)
 
 The output of `ls -l /n/groups/hbctraining/intro_rnaseq_hpc/` is displayed below:
 
@@ -139,6 +139,8 @@ drwxrwsr-x  2 mm573 hbctraining  306 Oct  6  2015 trimmed_fastq
 
 
 ### Environment variables
+
+* [Understanding environment variables](https://hbctraining.github.io/Intro-to-shell-flipped/lessons/07_permissions_and_environment_variables.html#environment-variables)
 
 23. Display the contents of the `$HOME` variable on your computer.
 24. Use the `which` command to check where the executable file for the `pwd` command lives in the directory structure.
