@@ -55,3 +55,27 @@ Make sure that your command prompt is now preceded by a character string that co
 [rc_training10@compute-a-16-163 ~]$
 ```
 
+
+**LMOD system**
+
+24. Load the `gcc/6.2.0` module.
+25. Has `$PATH` changed? 
+26. Load the `bowtie2/2.3.4.3` module.
+27. List the modules that are loaded.
+
+****
+
+## Some setting up for the rest of the workshop
+
+### Add a path to `$PATH`
+
+We need to use one tool that is unavailable as a module on O2, but it is available in a folder on O2, so we are going to add it to our $PATH. If we just add it using the `export` command, it will only be available to us in this specific interactive session. However, if we place that export command in a script that is run everytime a new interactive session is started, it is more efficient.
+
+* Use `vim` to open `~/.bashrc`
+* Add the following line at the end of the file `export PATH=/n/app/bcbio/tools/bin:$PATH`
+* Save and quit out of `vim`
+
+### Resources on O2 and asking Slurm for them
+
+Finally, let's review some of the information for O2 and slurm in [these slides](https://hbctraining.github.io/Intro-to-rnaseq-hpc-salmon/lectures/HPC_intro_O2_review.pdf)
+
