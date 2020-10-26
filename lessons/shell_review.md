@@ -14,7 +14,7 @@ The Introduction to RNA-seq workshop assumes that you have either a) taken our [
 
 ### Opening up a terminal window
 
-*NOTE: This mandatory pre-work does not require you to login to the O2 cluster.*
+> *NOTE: This mandatory pre-work does not require you to login to the O2 cluster.*
 
 On your local laptop, you will need to open up your terminal window. This will be different depending on what kind of operating system (OS) you are working on.
 
