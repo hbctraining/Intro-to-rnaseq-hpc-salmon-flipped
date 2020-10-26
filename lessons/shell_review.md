@@ -104,45 +104,47 @@ Next, we will search our files for specific patterns and redirect the results to
       * Dump out the first 40 lines into a new file that will be saved in `~/unix_lesson/shell_review/`
 17. Place the above `for` loop into a shell script using `vim` and run it.
 
-**Permissions**
+### Permissions
 
-18. List `/n/groups/hbctraining/intro_rnaseq_hpc/` directory in long listing format
-      * How many owners have files in this folder?
-      * How many groups?
-      * Are there any executable *files* in this folder?
-      * What kind of access do you have to the `full_dataset/` directory?
-      * What could user `mm573` do to take away your ability to look inside the `full_dataset/` directory?
+* https://hbctraining.github.io/Intro-to-shell-flipped/lessons/07_permissions_and_environment_variables.html
 
-**Environment variables**
+The output of `ls -l /n/groups/hbctraining/intro_rnaseq_hpc/` is displayed below:
 
-19. Display the contents of the `$HOME` variable.
-20. Use the `which` command to check where the executable file for the `pwd` command lives in the directory structure.
-21. How does shell know where to find the executable file for the `pwd` command?
-22. Display the contents of the variable that stores the various paths to folders containing executable command files.
-23. Can you run the `bowtie2` command? What do you think you might need to do to run this command?
+``` bash
+total 714
+drwxrwsr-x  3 mm573 hbctraining 1111 Aug 22  2017 bam_STAR
+drwxrwsr-x  8 mp298 hbctraining 1914 May 21  2018 bam_STAR38
+drwxrwsr-x  2 mm573 hbctraining  522 Oct  6  2015 bam_tophat
+drwxrwsr-x  2 mm573 hbctraining  240 Oct 19  2015 counts
+drwxrwsr-x  2 mm573 hbctraining  260 Oct 19  2015 counts_STAR
+-rw-rw-r--  1 mm573 hbctraining 2416 Aug 22  2017 DE_script.R
+-rw-rw-r--  1 mm573 hbctraining 2064 Mar 28  2018 DESeq2_script.R
+drwxrwsr-x  2 mm573 hbctraining  705 Oct  6  2015 fastqc
+drwxrwsr-x  2 mm573 hbctraining  272 Jan 31  2018 full_dataset
+-rw-rw-r--  1 mm573 hbctraining  216 Nov 10  2015 install_libraries.R
+-rw-rw-r--  1 mm573 hbctraining  117 Oct 19  2015 install_libraries.sh
+drwxrwsr-x 78 mm573 hbctraining 1969 Aug 22  2017 R-3.3.1
+drwxrwsr-x  3 mp298 hbctraining  234 Feb 27  2019 reference_data_ensembl38
+drwxrwsr-x  2 mm573 hbctraining  555 Oct  5  2015 reference_STAR
+drwxrwsr-x  2 rsk27 hbctraining  260 Aug 22  2017 salmon.ensembl37.idx
+drwxrwsr-x  2 mm573 hbctraining  306 Oct  6  2015 trimmed_fastq
 
-**LMOD system**
+```
 
-24. Load the `gcc/6.2.0` module.
-25. Has `$PATH` changed? 
-26. Load the `bowtie2/2.3.4.3` module.
-27. List the modules that are loaded.
+18. How many owners have files in this folder?
+19. How many groups?
+20. Are there any executable *files* in this folder?
+21. What kind of access does the user `mm573` have to the `full_dataset/` directory?
+22. You are considered as "other" or everyone else on this system (i.e you are not part of the group `hbctraining`. What command would allow the user `mm573` do to take away your ability to look inside the `full_dataset/` directory?
 
-****
 
-## Some setting up for the rest of the workshop
+### Environment variables
 
-### Add a path to `$PATH`
+23. Display the contents of the `$HOME` variable on your computer.
+24. Use the `which` command to check where the executable file for the `pwd` command lives in the directory structure.
+25. How does shell know where to find the executable file for the `pwd` command?
+26. Display the contents of the variable that stores the various paths to folders containing executable command files.
 
-We need to use one tool that is unavailable as a module on O2, but it is available in a folder on O2, so we are going to add it to our $PATH. If we just add it using the `export` command, it will only be available to us in this specific interactive session. However, if we place that export command in a script that is run everytime a new interactive session is started, it is more efficient.
-
-* Use `vim` to open `~/.bashrc`
-* Add the following line at the end of the file `export PATH=/n/app/bcbio/tools/bin:$PATH`
-* Save and quit out of `vim`
-
-### Resources on O2 and asking Slurm for them
-
-Finally, let's review some of the information for O2 and slurm in [these slides](https://hbctraining.github.io/Intro-to-rnaseq-hpc-salmon/lectures/HPC_intro_O2_review.pdf)
 
 ****
 
