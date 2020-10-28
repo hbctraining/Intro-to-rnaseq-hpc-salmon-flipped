@@ -8,6 +8,7 @@ Approximate time: 90 minutes
 
 ## Learning Objectives:
 
+* Understand what is RNA-sequencing
 * Describe the process of RNA-seq library preparation
 * Describe the Illumina sequencing method
 
@@ -18,17 +19,23 @@ RNA-seq is an exciting experimental technique that is utilized to explore and/or
 
 As we know, genes provide instructions to make proteins, which perform some function within the cell. Although **all cells contain the same DNA sequence**, muscle cells are different from nerve cells and other types of cells because of the **different genes that are turned on in these cells and the different RNAs and proteins produced**. 
 
- <img src="../img/gene_expression_cells.png" width="600">
+<p align="center">
+<img src="../img/gene_expression_cells.png" width="600">
+</p>
 
 Different biological processes, as well as mutations, can affect which genes are turned on and which are turned off, in addition to, *how much* specific genes are turned on/off.
 
 To make proteins, the DNA is transcribed into messenger RNA, or mRNA, which is translated by the ribosome into protein. However, some genes encode RNA that does not get translated into protein; these RNAs are called non-coding RNAs, or ncRNAs. Often these RNAs have a function in and of themselves and include rRNAs, tRNAs, and siRNAs, among others. All RNAs transcribed from genes are called transcripts.
 
+<p align="center">
  <img src="../img/Gene_products.png" width="400">
+</p>
 
 To be translated into proteins, the RNA must undergo processing to generate the mRNA. In the figure below, the top strand in the image represents a gene in the DNA, comprised of the untranslated regions (UTRs) and the open read frame. Genes are transcribed into pre-mRNA, which still contains the intronic sequences.  After post-transciptional processing, the introns are spliced out and a polyA tail and 5' cap are added to yield mature mRNA transcripts, which can be translated into proteins.
 
+<p align="center">
  <img src="../img/Gene_structure.png" width="600">
+</p>
 
 **While mRNA transcripts have a polyA tail, many of the non-coding RNA transcripts do not as the post-transcriptional processing is different for these transcripts.**
 
@@ -48,8 +55,10 @@ When starting an RNA-seq experiment, for every sample the RNA needs to be isolat
 
 **Briefly, the RNA is isolated from the sample and contaminating DNA is removed with DNase.**
 
+<p align="center">
  <img src="../img/libraryprep_step1-2.png" width="400">
- 
+</p>
+
 **The RNA sample then undergoes either selection of the mRNA (polyA selection) or depletion of the rRNA. The resulting RNA is fragmented.** 
 
 > Generally, ribosomal RNA represents the majority of the RNAs present in a cell, while messenger RNAs represent a small percentage of total RNA, ~2% in humans. Therefore, if we want to study the protein-coding genes, we need to enrich for mRNA or deplete the rRNA. **For differential gene expression analysis, it is best to enrich for Poly(A)+, unless you are aiming to obtain information about long non-coding RNAs, then do a ribosomal RNA depletion.**
@@ -57,7 +66,9 @@ When starting an RNA-seq experiment, for every sample the RNA needs to be isolat
 
 > *The size of the target fragments in the final library is a key parameter for library construction. DNA fragmentation is typically done by physical methods (i.e., acoustic shearing and sonication) or enzymatic methods (i.e., non-specific endonuclease cocktails and transposase tagmentation reactions.*
  
+ <p align="center">
  <img src="../img/libraryprep_step3.png" width="450">
+</p>
 
 **The RNA is then reverse transcribed into double-stranded cDNA and sequence adapters are then added to the ends of the fragments.**
 
@@ -69,12 +80,16 @@ When starting an RNA-seq experiment, for every sample the RNA needs to be isolat
 > * Reverse (firststrand) – reads resemble the complement of the gene sequence or firststrand cDNA sequence (TruSeq)
 > * Unstranded
 
+<p align="center">
  <img src="../img/libraryprep_step4-5.png" width="450">
+</p>
  
 **Finally, the fragments are PCR amplified if needed, and the fragments are size selected (usually ~300-500bp) to finish the library.**
 
+<p align="center">
  <img src="../img/libraryprep_step6.png" width="450">
- 
+</p>
+
  *Image credit: [Martin J.A. and Wang Z., Nat. Rev. Genet. (2011) 12:671–682](https://www.nature.com/articles/nrg3068)*
 
 
@@ -84,7 +99,9 @@ When starting an RNA-seq experiment, for every sample the RNA needs to be isolat
 
 After preparation of the libraries, sequencing can be performed to generate the nucleotide sequences of the ends of the fragments, which are called **reads**. You will have the choice of sequencing a single end of the cDNA fragments (single-end reads) or both ends of the fragments (paired-end reads).
 
+<p align="center">
 <img src="../img/paired_end_reads.png" width="500">
+</p>
 
 - SE - Single end dataset => Only Read1
 - PE - Paired-end dataset => Read1 + Read2
@@ -96,13 +113,16 @@ Generally single-end sequencing is sufficient unless it is expected that the rea
 
 There are a variety of Illumina platforms to choose from to sequence the cDNA libraries.
 
+<p align="center">
 <img src="../img/illumina_platforms.png" width="600">
-
+</p>
  *Image credit: Adapted from [Illumina](www.illumina.com)*
 
 Differences in platform can alter the length of reads generated, the quality of reads, as well as the total number of reads sequenced per run and the amount of time required to sequence the libraries. The different platforms each use a different flow cell, which is a glass surface coated with an arrangement of paired oligos that are complementary to the adapters added to your template molecules. **The flow cell is where the sequencing reactions take place**.
 
+<p align="center">
 <img src="../img/flow_cells.png" width="400">
+</p>
 
  *Image credit: Adapted from [Illumina](www.illumina.com)*
  
