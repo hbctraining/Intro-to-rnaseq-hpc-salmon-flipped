@@ -130,19 +130,31 @@ Differences in platform can alter the length of reads generated, the quality of 
 
 Illumina sequencing technology uses a sequencing-by-synthesis approach which is described in more detail below. 
 
-In the step, the DNA fragments in the cDNA library are denatured and applied to the glass flow cell. These denatured fragments bind to the complementary oligos that are already covalently bound to the flow cell lanes, resulting in attachment.
-
-<img src="../img/illumina_sequencing_process.png" width="600">
-
 #### Cluster Generation
 
-Once the fragments have attached, a phase called **cluster generation begins**. During this step, single fragments are clonally amplified to create a cluster (fragments in close proximity) of identical fragments. This is necessary so that the fluorescence can be readily captured from each cluster, instead of a single fragment, during nucleotide incorporation in the next step.
+The DNA fragments in the cDNA library are denatured and applied to the glass flow cell. These denatured fragments bind to the complementary oligos that are already covalently bound to the flow cell lanes, resulting in attachment. Once the fragments have attached, a phase called **cluster generation begins**. 
 
-> * Synthesize the complement with polymerase
-> * dsDNA is denatured, and original DNA washed away leaving synthesized strand covalently bound to flow cell.
-> * Single strand hybridises with adjacent adapter to form a ‘bridge’
-> * dsDNA is extended by polymerase. Each strand covalently bound to different adapter. 
-> * Repeat many times to clonally amplify all unique fragments on flow cell to form clusters of identical sequence.
+During this step, single fragments are clonally amplified to create a cluster (fragments in close proximity) of identical fragments. This is necessary so that the fluorescence can be readily captured from each cluster (during nucleotide incorporation), instead of just a single fragment. The process of cluster generation is described in the four steps below, using a single fragment as an example.
+
+1. Synthesize the complement with polymerase.
+2. The dsDNA is denatured, and the original DNA is washed away leaving the synthesized strand covalently bound to the flow cell.
+3. The single strand hybridises with an adjacent adapter to form a ‘bridge’.
+4. dsDNA is extended by polymerase. Now each strand is covalently bound to a different adapter on the flow cell. 
+
+<p align="center">
+<img src="../img/cluster_generation.png" width="800">
+</p>
+
+
+The process above is repeated many times to clonally amplify all unique fragments on flow cell to form clusters of identical sequence.
+
+<p align="center">
+<img src="../img/clonal_amplification.png" width="600">
+</p>
+
+
+> **NOTE:** Keep in mind, this is happening for millions of fragments in parallel on the flow cell.
+
 
 #### Sequencing by synthesis (& image acquisition)
 
