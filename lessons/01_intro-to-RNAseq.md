@@ -116,7 +116,9 @@ There are a variety of Illumina platforms to choose from to sequence the cDNA li
 <p align="center">
 <img src="../img/illumina_platforms.png" width="600">
 </p>
- *Image credit: Adapted from [Illumina](www.illumina.com)*
+
+
+*Image credit: Adapted from [Illumina](www.illumina.com)*
 
 Differences in platform can alter the length of reads generated, the quality of reads, as well as the total number of reads sequenced per run and the amount of time required to sequence the libraries. The different platforms each use a different flow cell, which is a glass surface coated with an arrangement of paired oligos that are complementary to the adapters added to your template molecules. **The flow cell is where the sequencing reactions take place**.
 
@@ -209,7 +211,7 @@ Typically, charges for sequencing are per lane of the flow cell and you will be 
 > 
 > Advantages and disadvantages of these technologies can be explored in the table below:
 >
-> <img src="../img/long_read_tech.png" width="700">
+> <img src="../img/long_read_tech.png" width="600">
 
 
 ---
