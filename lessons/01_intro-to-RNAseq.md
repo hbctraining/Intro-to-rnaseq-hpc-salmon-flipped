@@ -171,12 +171,14 @@ The number of cycles (length of the reads) will depend on sequencing platform us
 
 ### Multiplexing
 
-Depending on the Illumina platform (MiSeq, HiSeq, NextSeq), the number of lanes per flow cell, and the number of reads that can be obtained per lane varies widely. **You will need to decide on how many reads you would like per sample** (i.e. the sequencning depth) and then based on the platform you choose calculate how many total lanes you will require for your set of samples. We will talk more about considerations when making this decision in the next lesson on [Experimental Considerations](https://hbctraining.github.io/Intro-to-rnaseq-hpc-salmon/lessons/experimental_planning_considerations.html)
+Depending on the Illumina platform (MiSeq, HiSeq, NextSeq), the number of lanes per flow cell, and the number of reads that can be obtained per lane varies widely. **You will need to decide on how many reads you would like per sample** (i.e. the sequencning depth) and then based on the platform you choose calculate how many total lanes you will require for your set of samples. We will talk more about considerations when making this decision in the next lesson on [Experimental Considerations](02_experimental_planning_considerations.md)
 
 
 Typically, charges for sequencing are per lane of the flow cell and you will be able to run multiple samples per lane. Illumina has therefore devised a nice multiplexing method which allows libraries from several samples to be pooled and sequenced simultaneously in the same lane of a flow cell. This method requires **the addition of indices** (within the Illumina adapter) or special barcodes (outside the Illumina adapter) as described in the schematic below.
 
+<p align="center">
 <img src="../img/demultiplexing.png" width="800">
+</p>
 
 > **NOTE:** The workflow presented in this lesson is specific to Illumina sequencing, which is currently the most utilized sequencing method. But there are other long-read sequencing methods worth noting, such as:
 >
