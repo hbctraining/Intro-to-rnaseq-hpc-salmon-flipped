@@ -121,7 +121,7 @@ There are a variety of Illumina platforms to choose from to sequence the cDNA li
 Differences in platform can alter the length of reads generated, the quality of reads, as well as the total number of reads sequenced per run and the amount of time required to sequence the libraries. The different platforms each use a different flow cell, which is a glass surface coated with an arrangement of paired oligos that are complementary to the adapters added to your template molecules. **The flow cell is where the sequencing reactions take place**.
 
 <p align="center">
-<img src="../img/flow_cells.png" width="400">
+<img src="../img/flow_cell_oligos.png" width="700">
 </p>
 
  *Image credit: Adapted from [Illumina](www.illumina.com)*
