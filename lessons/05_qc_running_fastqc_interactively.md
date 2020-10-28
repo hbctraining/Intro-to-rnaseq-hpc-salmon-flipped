@@ -7,10 +7,9 @@ duration: 45 minutes
 
 ## Learning Objectives:
 
-* Understanding the quality values in a FASTQ file
-* Using FASTQC to create a quality report
-* Create and run a job submission script to automate quality assessment
-
+* Understand the quality values in a FASTQ file
+* Create a quality report using FASTQC
+ 
 ## Quality Control of FASTQ files
 
 
@@ -22,14 +21,14 @@ The first step in the RNA-Seq workflow is to take the FASTQ files received from 
 
 ### Unmapped read data (FASTQ)
 
-The [FASTQ](https://en.wikipedia.org/wiki/FASTQ_format) file format is the defacto file format for sequence reads generated from next-generation sequencing technologies. This file format evolved from FASTA in that it contains sequence data, but also contains quality information. Similar to FASTA, the FASTQ file begins with a header line. The difference is that the FASTQ header is denoted by a `@` character. For a single record (sequence read) there are four lines, each of which are described below:
+The [FASTQ](https://en.wikipedia.org/wiki/FASTQ_format) file format is the defacto file format for sequence reads generated from next-generation sequencing technologies. This file format evolved from FASTA in that it contains sequence data, but also contains quality information. Similar to FASTA, the FASTQ file begins with a header line. The difference is that the FASTQ header is denoted by a `@` character. For a single record (sequence read), there are four lines, each of which are described below:
 
 |Line|Description|
 |----|-----------|
-|1|Always begins with '@' and then information about the read|
+|1|Always begins with '@', followed by information about the read|
 |2|The actual DNA sequence|
-|3|Always begins with a '+' and sometimes the same info in line 1|
-|4|Has a string of characters which represent the quality scores; must have same number of characters as line 2|
+|3|Always begins with a '+', and sometimes the same info as in line 1|
+|4|Has a string of characters representing the quality scores; must have same number of characters as line 2|
 
 Let's use the following read as an example:
 
@@ -47,7 +46,7 @@ The line 4 has characters encoding the quality of each nucleotide in the read. T
     Quality score: 0........10........20........30........40                                
 ```
  
-Using the quality encoding character legend, the first nucelotide in the read (C) is called with a quality score of 31 and our Ns are called with a score of 2. **As you can tell by now, this is a bad read.** 
+Using the quality encoding character legend, the first nucelotide in the read (C) is called with a quality score of 31 (corresponding to encoding character `@`), and our Ns are called with a score of 2 (corresponding to encoding character `#`). **As you can tell by now, this is a bad read.** 
 
 Each quality score represents the probability that the corresponding nucleotide call is incorrect. This quality score is logarithmically based and is calculated as:
 
@@ -56,7 +55,7 @@ Each quality score represents the probability that the corresponding nucleotide 
 These probabaility values are the results from the base calling algorithm and dependent on how much signal was captured for the base incorporation. The score values can be interpreted as follows:
 
 |Phred Quality Score |Probability of incorrect base call |Base call accuracy|
-|:-------------------|:---------------------------------:|-----------------:|
+|:-------------------:|:---------------------------------:|:-----------------:|
 |10	|1 in 10 |	90%|
 |20	|1 in 100|	99%|
 |30	|1 in 1000|	99.9%|
@@ -68,7 +67,7 @@ Therefore, for the first nucleotide in the read (C), there is less than a 1 in 1
 
 Now we understand what information is stored in a FASTQ file, the next step is to examine quality metrics for our data.
 
-[FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) provides a simple way to do some quality control checks on raw sequence data coming from high throughput sequencing pipelines. It provides a modular set of analyses which you can use to give a quick impression of whether your data has any problems of which you should be aware before doing any further analysis.
+[FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) provides a simple way to do some quality control checks on raw sequence data coming from high throughput sequencing pipelines. It provides a modular set of analyses, which you can use to give a quick impression of whether your data has any problems of which you should be aware before doing any further analysis.
 
 The main functions of FastQC are:
 
