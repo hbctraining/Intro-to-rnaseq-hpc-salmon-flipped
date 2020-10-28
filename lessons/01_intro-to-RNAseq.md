@@ -121,7 +121,7 @@ There are a variety of Illumina platforms to choose from to sequence the cDNA li
 Differences in platform can alter the length of reads generated, the quality of reads, as well as the total number of reads sequenced per run and the amount of time required to sequence the libraries. The different platforms each use a different flow cell, which is a glass surface coated with an arrangement of paired oligos that are complementary to the adapters added to your template molecules. **The flow cell is where the sequencing reactions take place**.
 
 <p align="center">
-<img src="../img/flow_cell_oligos.png" width="700">
+<img src="../img/flow_cell_oligos.png" width="600">
 </p>
 
  *Image credit: Adapted from [Illumina](www.illumina.com)*
@@ -142,7 +142,7 @@ During this step, single fragments are clonally amplified to create a cluster (f
 4. dsDNA is extended by polymerase. Now each strand is covalently bound to a different adapter on the flow cell. 
 
 <p align="center">
-<img src="../img/cluster_generation.png" width="800">
+<img src="../img/cluster_generation.png" width="700">
 </p>
 
 
@@ -160,15 +160,24 @@ The process above is repeated many times to clonally amplify all unique fragment
 
 After cluster generation, fluorescently-tagged nucleotides are incorporated one at a time (cyclically) and fluorescence images are captured to identify which nucleotide gets incorporated into each cluster in each cycle.  
 
-> * Denature clusters and the block 3’ ends to prevent unwanted priming.
-> * Hybridize sequencing primers to adapter sequence at the loose ends. 
-> * Cycle four NTPs with fluorescent markers and terminator sequence and polymerases.
-> * Once NTP is incorporated, the cluster is excited by a light source and a characteristic fluroscent signal is emitted. 
-> * The color is recorded, then the terminator on dye is cleaved and washed. Process repeats for specifioed number of cycles.
+* Denature clusters and then block 3’ ends to prevent unwanted priming.
+* Hybridize sequencing primers to the adapter sequence at the loose ends. 
+* Cycle four NTPs with fluorescent markers, terminator sequence and polymerases.
+* Once an NTP is incorporated, the cluster is excited by a light source and a characteristic fluorescent signal is emitted. 
+* The color is recorded by the camera, then the terminator on dye is cleaved and washed. The **process repeats for a specified number of cycles**.
+
+<p align="center">
+<img src="../img/sbs_image.png" width="500">
+</p>
 
 #### Base Calling
 
-Illumina has proprietary software that goes through all the images captured in the previous stage and generates text files with sequence information about each cluster based on the fluorescence. In addition to calling the bases, this software assigns a probablity score to indicate how certain it was about the calling something an "A", a "T", a "G" or a "C". 
+Illumina has a proprietary software that goes through all the images captured in the previous stage and generates text files with sequence information about each cluster based on the levels of fluorescence observed. In addition to calling the bases, this software assigns a probablity score to indicate how certain it was about the calling something an "A", a "T", a "G" or a "C". 
+
+<p align="center">
+<img src="../img/base_calling.png" width="500">
+</p>
+
 
 > If there are any ambiguities, e.g. at a certain cycle the image for a cluster does not have a distinct color that can be associated with a specific nucleotide, the base calling software will have a low probability associated with it and would assign an "N" instead of "A", "T", "G" or "C".
 
