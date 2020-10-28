@@ -17,21 +17,29 @@ duration: 35
 
 ## Data Management
 
-One of the most important parts of research that involves large amounts of data, is how best to manage it. We tend to prioritize the analysis, but there are many other important aspects that are  often overlooked in the excitement to get a first look at new data. 
+One of the most important parts of research that involves large amounts of data is how best to manage it. Once data is generated we tend to prioritize the analysis. In the excitement to get a first look at new data, there are many important aspects that are often overlooked.
 
-The data management lifecycle displayed below, courtesy of the [HMS Data Management Working Group](https://datamanagement.hms.harvard.edu/hms-data-management-working-group), illustrates some things to consider beyond the data creation and analysis components:
+The data management lifecycle displayed below, courtesy of the [HMS Data Management Working Group](https://datamanagement.hms.harvard.edu/hms-data-management-working-group), illustrates some things to consider beyond data creation and analysis :
 
-<img src="../img/data_life_cycle_gouldv2.png" width="350">
+<p align="center">
+<img src="../img/data-lifecycle-base.png" width="600">
+</p>
 
-_Image aquired from the [Harvard Biomedical Data Management Website](https://datamanagement.hms.harvard.edu/hms-data-lifecycle)_
+_Image acquired from the [Harvard Biomedical Data Management Website](https://datamanagement.hms.harvard.edu/data-lifecycle)_
+
+
+
 
 We will cover some parts of this lifecycle by talking about best practices for the **Research** half of the above lifecycle. Later in this workshop we will talk a little more about the data storage. For more information about the full lifecycle and more guidelines for data management, please look at the resources linked below.
+
+> ### Why should I care about data management?
+> 
 
 **Resources**
 
 * The [HMS Data Management Working Group (DMWG)'s website](https://datamanagement.hms.harvard.edu/)
 * A guide from the [Harvard library](http://guides.library.harvard.edu/dmp).
-* Sign-up for the [DMWG quarterly newsletter](https://datamanagement.hms.harvard.edu/dmwg-newsletter) for helpful tips, classes and events related to data management
+* **Sign-up** for the [DMWG quarterly newsletter](https://datamanagement.hms.harvard.edu/dmwg-newsletter) for helpful tips, classes and events related to data management
 
 ### Planning
 
