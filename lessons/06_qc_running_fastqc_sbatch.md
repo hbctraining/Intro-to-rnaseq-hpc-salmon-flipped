@@ -64,9 +64,9 @@ fastqc -t 6 *.fq
 ## Moving files to our results directory
 mv *fastqc* ../results/fastqc/
 ```
-> **NOTE:** These are the same commands we used in the interactive session. Since we are writing them as a script, the `tab` completion function will not work here. So be aware of any potential typos!
+> **NOTE:** These are the same commands we used in the interactive session. Since we are writing them in a script, the `tab` completion function will not work here. So be aware of any potential typos!
 
-Once done with your script, click `esc` to exit the INSERT mode. Then save and quit the script by typing `:wq`. You may double check your script by typing `cat mov10_fastqc.run`. Now, if everything looks good, let's submit the job to the slurm:
+Once done with your script, click `esc` to exit the INSERT mode. Then save and quit the script by typing `:wq`. You may double check your script by typing `less mov10_fastqc.run`. Now, if everything looks good, let's submit the job to the slurm:
 
 ```bash
 $ sbatch mov10_fastqc.run
@@ -82,22 +82,22 @@ Look for the row that corresponds to your `JobID`. The third column indicates th
 
 > **NOTE:** Other helpful options for checking/managing jobs are available as a [cheatsheet](https://wiki.rc.hms.harvard.edu/display/O2/O2+Command+CheatSheet) from HMS-RC.
 
-Check out the output files in your directory.
+Check out the output files in your directory:
 ```bash
 $ ls -lh ../results/fastqc/
 ```
-There should also be a standard error (`.err`) and standard out (`.out`) files from the job listed in `~/rnaseq/scripts`. You can move these over to your `logs` directory and give them more intuitive names:
+There should also be one standard error (`.err`) and one standard out (`.out`) files from the job listed in `~/rnaseq/scripts`. You can move these over to your `logs` directory and give them more intuitive names:
 
 ```bash
 $ mv *.err ../logs/fastqc.err
 $ mv *.out ../logs/fastqc.out
 ```
-> **NOTE:** The `.err` and `.out` files store log information during the script running. They are helpful resources, especially when your script does not run as expected, and you need to troubleshoot the script. In our case, these two files store the progresses of FASTQC running, information that you would see in the terminal when using the interactive session.
+> **NOTE:** The `.err` and `.out` files store log information during the script running. They are helpful resources, especially when your script does not run as expected, and you need to troubleshoot the script. In our case, these two files store the progresses of FASTQC running, information that you would see in the terminal if using the interactive session.
 
 ***
 **Exercise**
 
-How would you change the `mov10_fastqc.run` script if you had 9 fastq files you wanted to run in parallel.
+How would you change the `mov10_fastqc.run` script if you had 9 fastq files you wanted to run in parallel?
 
 ---
 *This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
