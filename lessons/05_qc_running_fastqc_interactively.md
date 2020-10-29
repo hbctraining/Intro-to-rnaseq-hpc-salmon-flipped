@@ -153,7 +153,7 @@ How did I know about the -t argument for FastQC?
 ```bash
 $ fastqc --help
 ```
-
+> `-t` argument specifies the number of files which can be processed simultaneously. You may explore other arguments as well based on your needs.
 
 Now, let's create a home for our results
 
