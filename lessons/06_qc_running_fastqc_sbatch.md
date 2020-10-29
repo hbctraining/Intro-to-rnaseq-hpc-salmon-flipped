@@ -1,5 +1,5 @@
 ---
-title: "Quality control using FASTQC"
+title: "Quality control using FASTQC - script running"
 author: "Mary Piper, Radhika Khetani"
 date: Wednesday, September 20, 2017
 duration: 45 minutes
@@ -7,8 +7,6 @@ duration: 45 minutes
 
 ## Learning Objectives:
 
-* Understanding the quality values in a FASTQ file
-* Using FASTQC to create a quality report
 * Create and run a job submission script to automate quality assessment
 
 ## Quality Control of FASTQ files
@@ -24,9 +22,9 @@ So far in our FASTQC analysis, we have been directly submitting commands to O2 u
 $ sbatch job_submission_script.run
 ```
 
-Submission of the script using the `sbatch` command allows slurm to run your job when its your turn. Let's create a job submission script to load the FASTQC module, run FASTQC on all of our fastq files, and move the files to the appropriate directory.
+Submission of the script using the `sbatch` command allows slurm to run your job when its your turn. Let's create a job submission script to automate what we have done in previous lesson: loading the FASTQC module, running FASTQC on all of our fastq files, and moving the files to the appropriate directory.
 
-Change directories to `~/rnaseq/scripts`, and create a script named `mov10_fastqc.run` using `vim`.
+Let's first change the directory to `~/rnaseq/scripts`, and create a script named `mov10_fastqc.run` using `vim`.
 
 ```bash
 $ cd ~/rnaseq/scripts
@@ -34,7 +32,7 @@ $ cd ~/rnaseq/scripts
 $ vim mov10_fastqc.run
 ```
 
-The first thing we need in our script is the **shebang line**:
+Once in the vim editor, click `i` to enter INSERT mode. The first thing we need in our script is the **shebang line**:
 
 ```bash
 #!/bin/bash
@@ -44,14 +42,14 @@ Following the shebang line are the O2 options. For the script to run, we need to
 
 ```bash
 #SBATCH -p short 		# partition name
-#SBATCH -t 0-2:00 		# hours:minutes runlimit after which job will be killed
+#SBATCH -t 0-2:00 		# hours:minutes run limit, after which the job will be killed
 #SBATCH -c 6 		# number of cores requested -- this needs to be greater than or equal to the number of cores you plan to use to run your job
 #SBATCH --mem 6G
 #SBATCH --job-name rnaseq_mov10_fastqc 		# Job name
 #SBATCH -o %j.out			# File to which standard out will be written
 #SBATCH -e %j.err 		# File to which standard err will be written
 ```
-Now in the body of the script, we can include any commands we want run:
+Now in the body of the script, we can include any commands we want to run. In this case, it will be the following:
 
 ```bash
 ## Changing directories to where the fastq files are located
@@ -66,30 +64,35 @@ fastqc -t 6 *.fq
 ## Moving files to our results directory
 mv *fastqc* ../results/fastqc/
 ```
+> **NOTE:** These are the same commands we used in the interactive session. Since we are writing them as a script, the `tab` completion function will not work here. So be aware of any potential typos!
 
-Save and quit the script. Now, let's submit the job to the slurm:
+Once done with your script, click `esc` to exit the INSERT mode. Then save and quit the script by typing `:wq`. You may double check your script by typing `cat mov10_fastqc.run`. Now, if everything looks good, let's submit the job to the slurm:
 
 ```bash
 $ sbatch mov10_fastqc.run
 ```
 
-You can check on the status of your job with:
+You should immediately see a prompt saying `Submitted batch job JobID`. Your job is assigned with that unique identifier `JobID`. You can check on the status of your job with:
 
 ```bash
 $ O2sacct
 ```
 
+Look for the row that corresponds to your `JobID`. The third column indicates the state of your job. Possible states include `PENDING`, `RUNNING`, `COMPLETED`. Once your job state is `RUNNING`, you should expect it to finish in less than two minutes. When the state is `COMPLETED`, that means your job is finished.
+
 > **NOTE:** Other helpful options for checking/managing jobs are available as a [cheatsheet](https://wiki.rc.hms.harvard.edu/display/O2/O2+Command+CheatSheet) from HMS-RC.
 
+Check out the output files in your directory.
 ```bash
 $ ls -lh ../results/fastqc/
 ```
-There should also be standard error (`.err`) and standard out (`.out`) files from the job listed in `~/rnaseq/scripts`. You can move these over to your `logs` directory and give them more intuitive names:
+There should also be a standard error (`.err`) and standard out (`.out`) files from the job listed in `~/rnaseq/scripts`. You can move these over to your `logs` directory and give them more intuitive names:
 
 ```bash
 $ mv *.err ../logs/fastqc.err
 $ mv *.out ../logs/fastqc.out
 ```
+> **NOTE:** The `.err` and `.out` files store log information during the script running. They are helpful resources, especially when your script does not run as expected, and you need to troubleshoot the script. In our case, these two files store the progresses of FASTQC running, information that you would see in the terminal when using the interactive session.
 
 ***
 **Exercise**
