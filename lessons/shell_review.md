@@ -74,14 +74,13 @@ We are going to start this review with some basic commands pertaining to navigat
 
 1. Change directory into the `unix_lesson/` directory.
 2. Take a quick look at the `Mov10_oe_1.subset.fq` file using `less` from `unix_lesson/`, without changing directories.
-3. Move up to your home directory (parent of `unix_lesson/`).
-4. With a single command change directories to the `raw_fastq/` folder.
-5. With a shortest possible command change directories back to the home directory.
-6. What does the `~` in the command prompt mean?
-7. What is the full path to your home directory?
-8. Change directories to `raw_fastq` and list all the files. (*Hint: you will need to first get into your Downloads directory*)
+3. Use a shortcut to move out of the directory to the parent of `unix_lesson/`.
+4. With a single command change directories in to the `raw_fastq/` folder.
+5. What does the `~` in the command prompt mean?
+6. What is the full path to the `unix_lesson` directory?
+8. List all the files in the `raw_fastq` directory.
 8. Modify the above command using the `*` wildcard to only list those files that have "oe" in their names.
-10. How many and which commands have you run so far today?
+10. How many and which commands have you run so far?
 
 ### Searching and redirection
 Next, we will search our files for specific patterns and redirect the results to file. Helpful reference materials are listed below:
@@ -89,8 +88,8 @@ Next, we will search our files for specific patterns and redirect the results to
 * [Searching and redirection](https://hbctraining.github.io/Intro-to-shell-flipped/lessons/04_searching_files.html)
 
 12. Create a new directory called `shell_review/` within the `unix_lesson/` directory.
-13. Search the file `~/unix_lesson/reference_data/chr1-hg19_genes.gtf` for lines containing the string "MOV10". Save the output in the `shell_review/` directory with a new name - "Mov10_hg19.gtf".
-14. Use `vim` to open the newly created file `~/unix_lesson/shell_review/Mov10_hg19.gtf` and add a comment at the top specifying how this file was created and the source of the content. Save the modified file and quit `vim`.
+13. Search the file `unix_lesson/reference_data/chr1-hg19_genes.gtf` for lines containing the string "MOV10". Save the output in the `shell_review/` directory with a new name - "Mov10_hg19.gtf".
+14. Use `vim` to open the newly created file `unix_lesson/shell_review/Mov10_hg19.gtf` and add a comment at the top specifying how this file was created and the source of the content. Save the modified file and quit `vim`.
 15. In the new file "Mov10_hg19.gtf", how many lines contain the word "exon"?
 
 ### Loops and shell scripts
@@ -98,17 +97,17 @@ Next, we will search our files for specific patterns and redirect the results to
 * [Shell scripts and variables in Shell](https://hbctraining.github.io/Intro-to-shell-flipped/lessons/05_shell-scripts_variable.html)
 * [Loops and automation](https://hbctraining.github.io/Intro-to-shell-flipped/lessons/06_loops_and_automation.html)
 
-16. Use the `for` loop to iterate over each FASTQ file in `~/unix_lesson/raw_fastq/` and do the following:
+16. Use the `for` loop to iterate over each FASTQ file in `raw_fastq` and do the following:
       * Print the name of the current file
       * Generate a prefix to use for naming our output files, and store it inside a variable called `sample`.
-      * Dump out the first 40 lines into a new file that will be saved in `~/unix_lesson/shell_review/`
+      * Dump out the first 40 lines into a new file that will be saved in `shell_review`
 17. Place the above `for` loop into a shell script using `vim` and run it.
 
 ### Permissions
 
 * [Interpreting the permissions string](https://hbctraining.github.io/Intro-to-shell-flipped/lessons/07_permissions_and_environment_variables.html#permissions)
 
-The output of `ls -l /n/groups/hbctraining/intro_rnaseq_hpc/` is displayed below:
+There is a folder in the HBC training shared space on the O2 cluster called `intro_rnaseq_hpc`. Below we have displayed a long listing of its contents. 
 
 ``` bash
 total 714
