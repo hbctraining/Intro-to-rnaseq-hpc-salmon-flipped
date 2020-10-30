@@ -1,7 +1,7 @@
 ---
 title: "Quality control using FASTQC"
-author: "Mary Piper, Radhika Khetani"
-date: Wednesday, September 20, 2017
+author: "Mary Piper, Radhika Khetani, Meeta Mistry, Jihe Liu"
+date: Friday, October 30, 2020
 duration: 45 minutes
 ---
 
@@ -126,15 +126,28 @@ $ module list
 $ echo $PATH
 ```
 
+Now, let's create a directory to store our results:
+
+```bash
+$ mkdir ~/rnaseq/results/fastqc
+```
+
+We will need to specify this directory in the command to run FastQC. How do we know which argument to use?
+
+```bash
+$ fastqc --help
+```
+> **NOTE:** From the help manual, we know that `-o` (or `--outdir`) will create all output files in the specified output directory. Note that `-t` argument specifies the number of files which can be processed simultaneously. We will use this argument later. You may explore other arguments as well based on your needs.
+
 FastQC will accept multiple file names as input, so we can use the `*.fq` wildcard.
 
 ```bash
-$ fastqc *.fq
+$ fastqc -o ~/rnaseq/results/fastqc/ *.fq
 ```
 
 *Did you notice how each file was processed serially? How do we speed this up?*
 
-Exit the interactive session and start a new one with 6 cores, and use the multi-threading functionality of FastQC to run 6 jobs at once.
+Exit the interactive session and start a new one with 6 cores, and use the multi-threading functionality of FastQC to run 6 jobs at once. This time, we will add an additional argument `-t`.
 
 ```bash
 $ exit  #exit the current interactive session
@@ -145,28 +158,8 @@ $ module load fastqc/0.11.3  #reload the module for the new session
 
 $ cd ~/rnaseq/raw_data
 
-$ fastqc -t 6 *.fq  #note the extra parameter we specified for 6 threads
+$ fastqc -o ~/rnaseq/results/fastqc/ -t 6 *.fq  #note the extra parameter we specified for 6 threads
 ```
-
-How did I know about the -t argument for FastQC?
-
-```bash
-$ fastqc --help
-```
-> `-t` argument specifies the number of files which can be processed simultaneously. You may explore other arguments as well based on your needs.
-
-Now, let's create a home for our results
-
-```bash
-$ mkdir ~/rnaseq/results/fastqc
-```
-
-...and move them there (recall, we are still in `~/rnaseq/raw_data/`)
-
-```bash
-$ mv *fastqc* ~/rnaseq/results/fastqc/
-```
-
 
 ---
 *This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
