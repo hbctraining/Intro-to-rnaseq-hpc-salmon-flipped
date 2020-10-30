@@ -137,7 +137,7 @@ We will need to specify this directory in the command to run FastQC. How do we k
 ```bash
 $ fastqc --help
 ```
-> **NOTE:** From the help manual, we know that `-o` (or `--outdir`) will create all output files in the specified output directory. Note that `-t` argument specifies the number of files which can be processed simultaneously. We will use this argument later. You may explore other arguments as well based on your needs.
+> **NOTE:** From the help manual, we know that `-o` (or `--outdir`) will create all output files in the specified output directory. Note that another argument, `-t`, specifies the number of files which can be processed simultaneously. We will use `-t` argument later. You may explore other arguments as well based on your needs.
 
 FastQC will accept multiple file names as input, so we can use the `*.fq` wildcard.
 
