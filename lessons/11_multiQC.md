@@ -1,33 +1,35 @@
 ---
 title: MultiQC
-authors: Radhika Khetani, Mary Piper
+authors: Radhika Khetani, Mary Piper, Jihe Liu, Meeta Mistry
 ---
 
 Approximate time: 30 minutes
 
 ## Documenting results and gathering QC metrics
 
-As you go through the RNA-seq workflow (or any data analysis workflow), it is important to document the parameters you are using to run the analysis, in addition it is very important to document the results at every step, or some metric that speaks to the results. Evaluating these is a form of QC and it will enable you to identify any issues with the data and/or the parameters you are using, as well as alert you to the presence of contamination or systematic biases, etc.  
+As you go through the RNA-seq workflow (or any data analysis workflow), it is important to document the parameters you used for running the analysis. In addition, it is also very important to document the metrics/results at every step. Careful evaluation of metrics is a form of QC, and it will enable you to identify any issues with the data and/or the parameters you are using, as well as alert you to the presence of contamination or systematic biases, etc.  
 
-With the RNA-seq workflow there are several metrics that you can evaluate, but below are 3 important ones that you should keep track of for each sample:
+There are several metrics you can evaluate in the RNA-seq workflow. Below are 3 important ones that you should keep track of for each sample:
 
 * number of raw reads
 * percentage of reads aligned to genome
 * percentage of reads associated with genes 
 
-An important QC step is to make sure these metrics are consistent across the samples for a given experiment, and any outliers should be investigated further.
+An important QC step is to make sure that these metrics are consistent across the samples for a given experiment, and any outliers should be investigated further.
 
-Manually tracking these metrics is tedious and prone to errors. Several tools exist that help you with the documentation and QC assessment. Some of these also have really nice visualizations to easily identify any issues, e.g. [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/), [Qualimap](http://qualimap.bioinfo.cipf.es/doc_html/index.html), [MultiQC](http://multiqc.info/). Some of these tools have some overlap, but tend to focus on QC related to a specific step in the RNA-seq workflow, whereas MultiQC is able to make a report from the output of many different tools (for RNA-seq analysis and other NGS workflows) and is a little simpler to use.
+Manually tracking these metrics is tedious and error-prone. Many tools can help you with the documentation and QC assessment, some of which also have really nice visualizations to easily identify any issues, e.g. [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/), [Qualimap](http://qualimap.bioinfo.cipf.es/doc_html/index.html), [MultiQC](http://multiqc.info/). Some of these tools tend to focus on QC related to a specific step in the RNA-seq workflow, whereas MultiQC is able to make a report from the output of many different tools (for RNA-seq analysis and other NGS workflows). MultiQC is also a little simpler to use.
 
 ### Tracking and aggregating results from workflow tools with *MultiQC*
 
-Today we will be using MultiQC, which aggregates results from several tools and generates a single HTML report with plots to visualize and compare various QC metrics between the samples.
+In this lesson, we will be using MultiQC, which aggregates results from several tools and generates a single HTML report with plots to visualize and compare various QC metrics between the samples.
 
-MultiQC can generate this report from 36 different bioinformatics tools, and these tools span various NGS analyses, e.g., basic QC, RNA-seq, ChIP-seq, variant calling, genome annotation, etc. Today we are going to use it to aggregate information from the results of [FastQC](http://multiqc.info/docs/#fastqc), [STAR](http://multiqc.info/docs/#star), [Qualimap](http://multiqc.info/docs/#qualimap), and [salmon](http://multiqc.info/docs/#salmon). MultiQC can parse the information from specific output files from each of these tools and the manual page specifies the required output from each of the tools that should be used as input to MultiQC.
+MultiQC can generate this report from 36 different bioinformatics tools, and these tools span various NGS analyses, e.g., basic QC, RNA-seq, ChIP-seq, variant calling, genome annotation, etc. We are going to use it to aggregate information from the results of [FastQC](http://multiqc.info/docs/#fastqc), [STAR](http://multiqc.info/docs/#star), [Qualimap](http://multiqc.info/docs/#qualimap), and [salmon](http://multiqc.info/docs/#salmon). MultiQC can parse the information from specific output files of these tools, and use them as input for MultiQC.
 
-We are going to start by creating a directory in the `~/rnaseq/results/` directory called `multiqc_report`, and navigating to it. You should already be in the `~/rnaseq/` directory.
+We are going to start by creating a directory in the `~/rnaseq/results/` directory called `multiqc_report`, and navigating to it. We then load three necessary modules needed to run MultiQC: `gcc`, `python`, `multiqc`.
 
 ```bash
+$ cd ~/rnaseq/
+
 $ mkdir results/multiqc_report
 
 $ cd results/multiqc_report
@@ -57,9 +59,9 @@ $ multiqc -n multiqc_report_rnaseq \
 
 > If you want to save the output on the terminal into a log file, you can use `2>` operator to redirect it to a file.
 
-The multiQC report is relatively quick to generate and provides a really clear method for comparing the samples to determine consistency, and to identify problematic samples.
+It takes a couple of minutes to generate the multiQC report. The report provides nice visualizations across samples, to determine consistency and to identify problematic samples.
 
-The output of multiQC is 1 HTML file and a data folder. Let's transfer the interactive HTML report over to our laptops using **FileZilla** and visualize the outputs of the 4 tools we used to generate the report.
+The output of multiQC is one HTML file (`multiqc_report_rnaseq.html`) and a data folder. Let's transfer the interactive HTML report over to our laptops using **FileZilla**, and visualize the outputs of the four tools we used to generate the report.
 
 ## Assessing the quality control metrics
 
