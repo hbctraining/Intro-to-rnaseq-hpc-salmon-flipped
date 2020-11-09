@@ -30,7 +30,7 @@ Before you start with the self-learning portion of the workshop, please check th
 * Quality Control of Sequence Data: Evaluating FASTQC reports
 
 ### Assignment #1
-* All exercise questions from the self-learning lessons have been put together in a [text file](https://raw.githubusercontent.com/hbctraining/Intro-to-shell-flipped/master/homework/Day1_assignment.txt) (download for local access).
+* All exercise questions from the self-learning lessons have been put together in a text file (download for local access).
   * The text file can be opened with any text editor application (i.e. Notepad++, TextWrangler) on your local computer
 * Add your solutions to the exercises in the downloaded .txt file and **upload the saved text file** to Dropbox **day before the next class**.
 * [Email us](mailto:hbctraining@hsph.harvard.edu) about questions regarding the homework that you need answered before the next class.
@@ -54,7 +54,7 @@ Before you start with the self-learning portion of the workshop, please check th
 * Documenting Steps in the Workflow with MultiQC
 
 ### Assignment #2
-* All exercise questions from the self-learning lessons have been put together in a [text file](https://raw.githubusercontent.com/hbctraining/Intro-to-shell-flipped/master/homework/Day2_assignment.txt) (download for local access).
+* All exercise questions from the self-learning lessons have been put together in a text file (download for local access).
   * The text file can be opened with any text editor application (i.e. Notepad++, TextWrangler) on your local computer
 * Add your solutions to the exercises in the downloaded .txt file and **upload the saved text file** to Dropbox **day before the next class**.
 * [Email us](mailto:hbctraining@hsph.harvard.edu) about questions regarding the homework that you need answered before the next class.
