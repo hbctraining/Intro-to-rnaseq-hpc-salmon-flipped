@@ -1,7 +1,7 @@
 ---
 title: Data Management and Project Organization
-author: Mary Piper, Meeta Mistry, Michael Steinbaugh, Radhika Khetani
-date: Wednesday, September 20, 2017
+author: Mary Piper, Meeta Mistry, Michael Steinbaugh, Radhika Khetani, Jihe Liu
+date: November 9, 2020
 duration: 35
 ---
 
@@ -10,10 +10,10 @@ duration: 35
 
 ## Learning Objectives
 
+- Describe the RNA-seq experiment and its objectives.
 - Recognize the need for data management.
-- Plan a good genomics experiment and getting started with project organization.
-- Explain the RNA-seq experiment and its objectives.
-- Define "metadata" and describe it for the example experiment.
+- Demonstrate strategies for good project organization.
+
 
 ## The Dataset
 
@@ -27,7 +27,9 @@ From this study we are using the [RNA-seq](http://www.ncbi.nlm.nih.gov/geo/query
 
 ### Metadata
 
-In addition to the raw sequence data we also need to collect **information about the data**, also known as **metadata**.  We are usually quick to want to begin analysis of the sequence data (FASTQ files), but how useful is it if we know nothing about the samples that this sequence data originated from? Some relevant metadata for our dataset is provided below:
+In addition to the raw sequence data we also need to collect **information about the data**, also known as **metadata**.  We are usually quick to want to begin analysis of the sequence data (FASTQ files), but how useful is it if we know nothing about the samples that this sequence data originated from? 
+
+Some relevant metadata for our dataset is provided below:
 
 * The RNA was extracted from **HEK293F cells** that were transfected with a **MOV10 transgene**, **MOV10 siRNA**, or an **irrelevant siRNA**.  (*For this workshop we won't be using the MOV10 knock down samples.*)
 * The libraries for this dataset are **stranded** and were generated using the standard Tru-seq prep kit (using the dUTP method). 
@@ -57,11 +59,12 @@ The data management lifecycle displayed below, courtesy of the [HMS Data Managem
 _Image acquired from the [Harvard Biomedical Data Management Website](https://datamanagement.hms.harvard.edu/data-lifecycle)_
 
 ### Plan and Design
-You should approach your sequencing project in a very similar way to how you do a biological experiment, and ideally, begins with **experimental design**. We're going to assume that you've already designed a beautiful sequencing experiment to address your biological question, collected appropriate samples, and that you have enough statistical power.
+You should approach your sequencing project in a very similar way you do with any biological experiment, and ideally, begins with a good **experimental design**. You want to think about experiment at the outsete and collect appropriate samples such that you have enough statistical power to make the comparisons you need. In a later lesson, we delve into the details of planning and the [experimental design considerations](02_experimental_planning_considerations.md). 
 
-During this stage it is important to keep track of how the experiment was performed and clearly tracking the source of starting materials and kits used. It is also best practice to include information about any small variations within the experiment or variation relative to standard experiments. 
 
 ### Collect and Create
+The next step is collecting samples and and preparing them as required. During this stage it is important to keep track of how the experiment was performed, making sure to clearly document the source of starting materials and kits used. It is also best practice to include any information about any small variations within the experiment (across the different samples being prepared) or any changes relative to standard experiments. 
+
 ### Analyze and Collaborate
 ### Evaluate and Archive
 ### Disseminate and share
