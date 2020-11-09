@@ -73,7 +73,7 @@ We are going to start this review with some basic commands pertaining to navigat
 * [Examining and creating files](https://hbctraining.github.io/Intro-to-shell-flipped/lessons/03_working_with_files.html)
 
 1. Change directory into the `unix_lesson/` directory.
-2. Take a quick look at the `Mov10_oe_1.subset.fq` file using `less` from `unix_lesson/`, without changing directories.
+2. Take a quick look at the `Mov10_oe_1.subset.fq` file (located in `raw_fastq` directory) using `less` from `unix_lesson/`, without changing directories.
 3. Use a shortcut to move out of the directory to the parent of `unix_lesson/`.
 4. With a single command change directories in to the `raw_fastq/` folder.
 5. What does the `~` in the command prompt mean?
