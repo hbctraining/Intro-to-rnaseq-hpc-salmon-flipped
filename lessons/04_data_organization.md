@@ -68,7 +68,7 @@ The next step is preparing samples as required. During this stage it is importan
 Once you have the sequencing data back from the sequencing facility, it's time to analyze it. The process of data analysis should be well documented to ensure reproducibility and also for ease of collaboration. We will spend some more time on this component of the lifecycle later in this lesson, as it applies to our dataset.
 
 ### Evaluate and Archive
-For each experiment you work on and analyze data for, it is considered best practice to get organized by creating a planned storage space (directory structure). Once the analysis is complete you will want to think about which files are most pertinent to keep. Consider long-term storage options for your data that meet requirements of NIH, other granting agencies, and the researcher's institution.
+When the analysis is complete you will want to think about which files are most pertinent to keep. Consider long-term storage options for your data that meet requirements of NIH, other granting agencies, and the researcher's institution.
 
 ### Disseminate and share
 The results of your analysis will hopefully generate some exciting findings that will be beneficial to the scientific community. At this stage in the lifecycle you rely on your previous steps of documentation to turn those notes into a clear and concise methods section of your manuscript. 
@@ -101,23 +101,23 @@ In addition to sharing information on the analysis, you should plan for sharing 
 
 ## Implementing data management best practices
 
+### Planning and organization
 
-We will start by creating a directory that we can use for the rest of the RNA-seq session. Log into O2 using `ssh` if you are not already in and start an interactive session on the cluster:
-
-```bash
-$ srun --pty -p interactive -t 0-12:00 --mem 1G --reservation=HBC1 /bin/bash
-```
-
-Next, let's make sure that you are in your home directory.
+For each experiment you work on and analyze data for, it is considered best practice to get organized by creating a planned storage space (directory structure). We will start by creating a directory that we can use for the rest of the workshop. First, make sure that you are in your home directory.
 
 ```bash
+$ cd
 $ pwd
 ```
 
-This should return `/home/username`.
-`
+This should return `/home/rc_training`. Create the directory `rnaseq` and move into it.
 
-Before we start any analysis, we will create a project directory and set up the following structure to keep files organized. 
+```bash
+$ mkdir rnaseq
+$ cd rnaseq
+```
+
+Next, we will create a project directory and set up the following structure to keep our files organized. 
 
 ```bash
 rnaseq
@@ -128,34 +128,65 @@ rnaseq
   └── scripts
 ```
 
-*This is a generic structure and can be tweaked based on personal preference and analysis workflow.*
+*This is a generic structure and can be tweaked based on personal preference and the analysis workflow.*
 
 - `logs`: to keep track of the commands run and the specific parameters used, but also to have a record of any standard output that is generated while running the command. 
-- `meta`: for any information that describes the samples you are using, which we refer to as [metadata](https://datamanagement.hms.harvard.edu/metadata-overview). We will discuss this in more detail as it pertains to our example dataset, later in this lesson.
+- `meta`: for any information that describes the samples you are using, which we refer to as [metadata](https://datamanagement.hms.harvard.edu/metadata-overview). 
 - `raw_data`: for any **unmodified** (raw) data obtained prior to computational analysis here, e.g. FASTQ files from the sequencing center. We strongly recommend leaving this directory unmodified through the analysis.
 - `results`: for output from the different tools you implement in your workflow. Create sub-folders specific to each tool/step of the workflow within this folder. 
 - `scripts`: for scripts that you write and use to run analyses/workflow.
 
-Here, you can use the parents flag (`-p` or `--parents`) with `mkdir` to complete the file path by creating any parent directories that do not exist. In our case, we have not yet created the `rnaseq` directory and so since it does not exist it will be created. This flag can be very useful when scripting workflows. 
-
 
 ```bash
 
-$ mkdir -p rnaseq/logs rnaseq/meta rnaseq/raw_data rnaseq/results rnaseq/scripts
+$ mkdir logs meta raw_data results scripts
 ``` 
 
-Verify that the project directory and subdirectories now exist.
+> #### File naming conventions
+> 
+> Another aspect of staying organized is making sure that all the directories and filenames for an analysis are as consistent as possible. You want to avoid names like `alignment1.bam`, and rather have names like `20170823_kd_rep1_gmap-1.4.bam` which provide a basic levele of information about the file. [This link](https://datamanagement.hms.harvard.edu/file-naming-conventions) and [this slideshow](http://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf) have some good guidelines for file naming dos and don'ts.
 
-```bash
 
-$ cd rnaseq
-$ ls -l
+### Documentation
+
+In your lab notebook, you likely keep track of the different reagents and kits used for a specific protocol. Similarly, recording information about the tools used in the workflow is important for documenting your computational experiments. 
+
+- **Make note of the software you use.** Do your research and find out what tools are best for the data you are working with. Don't just work with tools that you are able to easily install.
+- **Keep track of software versions.** Keep up with the literature and make sure you are using the most up-to-date versions.
+- **Record information on parameters used and summary statistics** at every step (e.g., how many adapters were removed, how many reads did not align)
+    - A general rule of thumb is to test on a single sample or a subset of the data before running your entire dataset through. This will allow you to debug quicker and give you a chance to also get a feel for the tool and the different parameters.
+    - Different tools have different ways of reporting log messages to the terminal. You might have to experiment a bit to figure out what output to capture. You can redirect standard output with the `>` symbol which is equivalent to `1> (standard out)`; other tools might require you to use `2>` to re-direct the `standard error` instead.
+ 
+#### README files
+
+After setting up the directory structure it is useful to have a **[README file](https://datamanagement.hms.harvard.edu/readme-files) within your project directory**. This is a plain text file containing a short summary about the project and a description of the files/directories found within it. An example README is shown below. It can also be helpful to include a README within each sub-directory with any information pertaining to the analysis.
 
 ```
+## README ##
+## This directory contains data generated during the Introduction to RNA-seq workshop
+## Date: 
 
-Let's populate the `rnaseq/` project with our example RNA-seq FASTQ data.
+There are six subdirectories in this directory:
 
-The FASTQ files are located inside `~/unix_lesson/raw_fastq/`, and we need to copy them to `raw_data/`. We can match them by file extension with `*.fq`.
+raw_data : contains raw data
+meta:  contains...
+logs:
+results:
+scripts:
+```
+
+*** 
+
+**Exercise**
+
+1. Take a moment to create a README for the `rnaseq/` folder (hint: use `vim` to create the file). Give a short description of the project and brief descriptions of the types of files you will be storing within each of the sub-directories. 
+
+*** 
+
+
+### Obtaining data
+
+Let's populate the `rnaseq/` project with our example RNA-seq FASTQ data. The FASTQ files are located on the O2 cluster in the `/n/groups` space. Copy them over from the path shown below, into your `raw_data` directory:
 
 ```bash
 $ cp /n/groups/hbctraining/unix_lesson/raw_fastq/*.fq ~/rnaseq/raw_data/
@@ -163,7 +194,7 @@ $ cp /n/groups/hbctraining/unix_lesson/raw_fastq/*.fq ~/rnaseq/raw_data/
 
 > **NOTE**: When obtaining data from your sequencing facility, the data will not be stored on O2 and so a simple copy command (`cp`) will not suffice. The raw sequence data will likely be located on another remote computer/server that is hosted by the sequencing facility and you will be given login credentials to access it. To copy it over you can use commands like `rsync`, `wget` or `scp`. These are all commands that can help securely copy the data over to the appropriate location on O2. We have some information [linked here](https://hbctraining.github.io/In-depth-NGS-Data-Analysis-Course/sessionVI/lessons/more_bash.html#copying-files-to-and-from-the-cluster-) if you would like to learn more. 
 
-Perfect, now the structure of `rnaseq/` should look like this:
+Now the structure of `rnaseq/` should look like this:
 
 ```bash
 rnaseq
@@ -180,49 +211,7 @@ rnaseq
   └── scripts
 ```
 
-> #### File naming conventions
-> 
-> Another aspect of staying organized is making sure that all the filenames in an analysis are as consistent as possible, and are not things like `alignment1.bam`, but more like `20170823_kd_rep1_gmap-1.4.bam`. [This link](https://datamanagement.hms.harvard.edu/file-naming-conventions) and [this slideshow](http://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf) have some good guidelines for file naming dos and don'ts.
-
-
-### Documentation
-
-**Documentation doesn't stop at the sequencer!** Keeping notes on what happened in what order, and what was done, is essential for reproducible research.
-
-#### Log files
-
-In your lab notebook, you likely keep track of the different reagents and kits used for a specific protocol. Similarly, recording information about the tools and parameters is important for documenting your computational experiments. 
-
-- **Make note of the software you use.** Do your research and find out what tools are best for the data you are working with. Don't just work with tools that you are able to easily install.
-- **Keep track of software versions.** Keep up with the literature and make sure you are using the most up-to-date versions.
-- **Record information on parameters used and summary statistics** at every step (e.g., how many adapters were removed, how many reads did not align)
-    - A general rule of thumb is to test on a single sample or a subset of the data before running your entire dataset through. This will allow you to debug quicker and give you a chance to also get a feel for the tool and the different parameters.
-    - Different tools have different ways of reporting log messages and you might have to experiment a bit to figure out what output to capture. You can redirect standard output with the `>` symbol which is equivalent to `1> (standard out)`; other tools might require you to use `2>` to re-direct the `standard error` instead.
- 
-#### README files
-
-After setting up the directory structure and when the analysis is running it is useful to have a **[README file](https://datamanagement.hms.harvard.edu/readme-files) within your project directory**. This file will usually contain a quick one line summary about the project and any other lines that follow will describe the files/directories found within it. An example README is shown below. Within each sub-directory you can also include README files to describe the analysis and the files that were generated.
-
-```
-## README ##
-## This directory contains data generated during the Intro to RNA-seq course
-## Date: 
-
-There are six subdirectories in this directory:
-
-raw_data : contains raw data
-meta:  contains...
-logs:
-results:
-scripts:
-```
-
-*** 
-
-### Homework exercise
-
-- Take a moment to create a README for the `rnaseq/` folder (hint: use `vim` to create the file). Give a short description of the project and brief descriptions of the types of files you will be storing within each of the sub-directories. 
-
+Okay we are all set to begin the analysis!
 
 
 ---
