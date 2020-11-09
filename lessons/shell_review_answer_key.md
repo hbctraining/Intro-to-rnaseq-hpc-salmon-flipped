@@ -89,12 +89,14 @@ $ cd ..
 $ cd unix_lesson/raw_fastq/
 ```
 5. What does the `~` in the command prompt mean?
-`~` means home directory.
+Answer: `~` means home directory.
+
 6. What is the full path to the `unix_lesson` directory?
 ```bash
 $ pwd
 ```
-/Users/your_username/Downloads/unix_lesson (the result varies based on your computer setting)
+Answer: /Users/your_username/Downloads/unix_lesson (the result varies based on your computer setting)
+
 8. List all the files in the `raw_fastq` directory.
 ```bash
 # First make sure that you navigate to the `raw_fastq` directory
@@ -109,7 +111,7 @@ $ ls -l *oe*
 ```bash
 $ history
 ```
-Result varies based on your activity.
+Answer: Result varies based on your activity.
 
 ### Searching and redirection
 Next, we will search our files for specific patterns and redirect the results to file. Helpful reference materials are listed below:
@@ -117,9 +119,23 @@ Next, we will search our files for specific patterns and redirect the results to
 * [Searching and redirection](https://hbctraining.github.io/Intro-to-shell-flipped/lessons/04_searching_files.html)
 
 12. Create a new directory called `shell_review/` within the `unix_lesson/` directory.
+```bash
+# First make sure that you navigate to the `unix_lesson/` directory
+$ mkdir shell_review
+```
 13. Search the file `unix_lesson/reference_data/chr1-hg19_genes.gtf` for lines containing the string "MOV10". Save the output in the `shell_review/` directory with a new name - "Mov10_hg19.gtf".
+```bash
+# First make sure that you navigate to the `unix_lesson/` directory
+$ grep MOV10 reference_data/chr1-hg19_genes.gtf > shell_review/Mov10_hg19.gtf
+```
 14. Use `vim` to open the newly created file `unix_lesson/shell_review/Mov10_hg19.gtf` and add a comment at the top specifying how this file was created and the source of the content. Save the modified file and quit `vim`.
+Answer: Open file - `vim shell_review/Mov10_hg19.gtf`; Edit file - `i`; Exit edit mode - `esc`; Save and quit - `:wq`.
 15. In the new file "Mov10_hg19.gtf", how many lines contain the word "exon"?
+```bash
+# First make sure that you navigate to the `unix_lesson/` directory
+$ grep exon shell_review/Mov10_hg19.gtf | wc -l
+```
+Answer: 42
 
 ### Loops and shell scripts
 
