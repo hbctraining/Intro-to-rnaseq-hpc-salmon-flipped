@@ -59,7 +59,7 @@ The data management lifecycle displayed below, courtesy of the [HMS Data Managem
 _Image acquired from the [Harvard Biomedical Data Management Website](https://datamanagement.hms.harvard.edu/data-lifecycle)_
 
 ### Plan and Design
-You should approach your sequencing project in a very similar way you do with any biological experiment, and ideally, begins with a good **experimental design**. You want to think about experiment at the outsete and collect appropriate samples such that you have enough statistical power to make the comparisons you need. In a later lesson, we delve more into the details of planning and the [experimental design considerations](02_experimental_planning_considerations.md). 
+You should approach your sequencing project in a very similar way you do with any biological experiment, and ideally, begins with a good **experimental design**. You want to think about experiment at the outsete and collect appropriate samples such that you have enough statistical power to make the comparisons you need. In a later lesson, we delve more into the details of planning and the [experimental design considerations](02_experimental_planning_considerations.md). Planning for your computational work is just as important. Every computational analysis you do is going to spawn many files and you will want to think about short-term storage options for your data and computational resources for analyzing it. 
 
 ### Collect and Create
 The next step is preparing samples as required. During this stage it is important to keep track of how the experiment was performed, making sure to clearly document the source of starting materials and kits used. It is also best practice to include any information about any small variations within the experiment (across the different samples being prepared) or any changes relative to standard experiment protocols. This collection of information serves as the metadata of the experiment which will prove to be very useful during the analysis stage. 
@@ -68,22 +68,30 @@ The next step is preparing samples as required. During this stage it is importan
 Once you have the sequencing data back from the sequencing facility, it's time to analyze it. The process of data analysis should be well documented to ensure reproducibility and also for ease of collaboration. We will spend some more time on this component of the lifecycle later in this lesson, as it applies to our dataset.
 
 ### Evaluate and Archive
-Every computational analysis you do is going to spawn many files, and inevitability you'll want to run some of those analyses again. For each experiment you work on and analyze data for, it is considered best practice to get organized by creating a planned storage space (directory structure). Once the analysis is complete you will want to think about which files are most pertinent to keep. Consider long-term storage options for your data that meet requirements of NIH, other granting agencies, and the researcher's institution.
+For each experiment you work on and analyze data for, it is considered best practice to get organized by creating a planned storage space (directory structure). Once the analysis is complete you will want to think about which files are most pertinent to keep. Consider long-term storage options for your data that meet requirements of NIH, other granting agencies, and the researcher's institution.
 
 ### Disseminate and share
-The results of your analysis will hopefully generate some exciting findings that will be beneficial to the scientific community. At this stage in the lifecycle you rely on your previous steps of documentation to turn those notes into a methods section of your manuscript. 
+The results of your analysis will hopefully generate some exciting findings that will be beneficial to the scientific community. At this stage in the lifecycle you rely on your previous steps of documentation to turn those notes into a clear and concise methods section of your manuscript. 
 
 ### Access and Reuse
-In addition to sharing information on the analysis, you should plan for sharing the data. It has become increasingly common for researchers to make their data available to others when they complete a study. While a major reason for sharing is compliance (with journals or research funding organizations), there also important research benefits including:
+In addition to sharing information on the analysis, you should plan for sharing the data. It has become increasingly common for researchers to make their data available to others when they complete a study. While a major reason for sharing is compliance (with journals or research funding organizations), there also important research benefits including:ing
 
 * Finding your own data years after you finish a project
 * Enabling others to replicate your work
 * Enabling others to conduct new analyses using your data
 
 
-### Why should I care about data management?
- 
+> ### Why should I care about data management?
+> Data management can be hard to get excited about. However, ignoring it can be detrimental to your research. 
+> 
+> Here are a few reasons why it matters:
+> * It will make your life easier. It's easier to analyze organized, documented data.
+> * Your future self will thank you. Managing well from the get-go means it's easier to retrieve at a later date.
+> * Data is precious. Thinking ahead about storage means you reduce risk of losing it.
+> * Funding agencies are increasingly mandating that research projects are developed with a data management plan.
+>
 
+ 
 **Resources**
 
 * The [HMS Data Management Working Group (DMWG)'s website](https://datamanagement.hms.harvard.edu/)
