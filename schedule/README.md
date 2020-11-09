@@ -1,14 +1,19 @@
 # Workshop Schedule
 
 > **NOTE:** The *Basic Data Skills* [Introduction to the command-line interface](https://hbctraining.github.io/Intro-to-Shell-flipped/schedule/) workshop is a prerequisite.
+## Pre-reading
+* Shell basics
+* Introduction to RNA-seq
+
 ## Day 1
 
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
-| 10:00 - 10:30 | [Workshop introduction](../lectures/Intro_to_workshop.pdf) | Radhika |
-| 10:30 - 11:45 | [Introduction to Shell](../lessons/01_the_filesystem.md) | Radhika|
-| 11:45 - 12:00 | Overview of self-learning materials and homework submission | Jihe |
-
+| 09:30 - 09:45 | Workshop introduction | Radhika |
+| 09:45 - 10:25 | Working in an HPC environment | Radhika |
+| 10:25 - 11:05 | Project Organization and Best Practices in Data Management | Radhika |
+| 11:05 - 11:45 | Quality Control of Sequence Data: Running FASTQC | Radhika |
+| 11:45 - 12:00 | Overview of self-learning materials and homework submission | Radhika |
 
 ### Self Learning #1
 
@@ -16,22 +21,21 @@ Before you start with the self-learning portion of the workshop, please check th
 
 > If you are not logged into O2 or are not on a compute node, please follow the steps below as appropriate before you start with the self-learning lessons:
 > 1. Log in using `ssh rc_trainingXX@o2.hms.harvard.edu` and enter your password (HMSXXcluster) (replace the "XX" in both the username and the password with the number you were assigned in class). 
-> 2. Once you are on the login node, use `srun --pty -p interactive -t 0-2:00 --mem 1G /bin/bash` to get on a compute node.
+> 2. Once you are on the login node, use `srun --pty -p interactive -t 0-2:00 --mem 1G /bin/bash` to get on a compute node. ***Note, the lesson may have guidance on which arguments to modify, e.g. you may need to use more memory or more cores***.
 > 3. Proceed with the self learning once your command prompt has the word `compute` in it.
 > 4. If you log out between lessons (using the `exit` command twice), please follow points 1. and 2. above to log back in and get on a compute node when you restart with the self learning.
 
-* [Wildcards and shortcuts in Shell](../lessons/02_wildcards_shortcuts.md)
-* [Examining and creating files](../lessons/03_working_with_files.md)
-* [Searching and redirection](../lessons/04_searching_files.md)
-* [Shell scripts and variables in Shell](../lessons/05_shell-scripts_variable.md)
+* Experimental design considerations
+* Quality Control of Sequence Data: Running FASTQC on multiple samples
+* Quality Control of Sequence Data: Evaluating FASTQC reports
 
 ### Assignment #1
 * All exercise questions from the self-learning lessons have been put together in a [text file](https://raw.githubusercontent.com/hbctraining/Intro-to-shell-flipped/master/homework/Day1_assignment.txt) (download for local access).
   * The text file can be opened with any text editor application (i.e. Notepad++, TextWrangler) on your local computer
-* Add your solutions to the exercises in the downloaded .txt file and **upload the saved text file** to [Dropbox](https://www.dropbox.com/request/WG2XCQEmvMbw84H8s0PM) **day before the next class**.
+* Add your solutions to the exercises in the downloaded .txt file and **upload the saved text file** to Dropbox **day before the next class**.
 * [Email us](mailto:hbctraining@hsph.harvard.edu) about questions regarding the homework that you need answered before the next class.
 * Post questions that you would like to have reviewed in class [here](https://PollEv.com/hbctraining945).
-* [Answer key](../homework/Day1_answer_key.txt)
+* Answer key
 
 ***
 
@@ -39,20 +43,23 @@ Before you start with the self-learning portion of the workshop, please check th
 
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
-| 09:30 - 10:45 | Self-learning lessons review | All |
-| 10:45 - 12:00 | [Loops and automation](../lessons/06_loops_and_automation.md) | Meeta |
+| 09:30 - 10:30 | Self-learning lessons review | All |
+| 10:30 - 11:10 | Sequence Alignment Theory | Meeta |
+| 11:10 - 11:50 | Quantifying expression using alignment-free methods (Salmon) | Meeta |
+| 11:50 - 12:00 | Review of workflow | |
 
 ### Self Learning #2
-* [Permissions and Environment Variables](../lessons/07_permissions_and_environment_variables.md)
-* [Introduction to High-performance computing](../lessons/08_HPC_intro_and_terms.md)
+* Quantifying expression using alignment-free methods (Salmon on multiple samples)
+* QC with Alignment Data
+* Documenting Steps in the Workflow with MultiQC
 
 ### Assignment #2
 * All exercise questions from the self-learning lessons have been put together in a [text file](https://raw.githubusercontent.com/hbctraining/Intro-to-shell-flipped/master/homework/Day2_assignment.txt) (download for local access).
   * The text file can be opened with any text editor application (i.e. Notepad++, TextWrangler) on your local computer
-* Add your solutions to the exercises in the downloaded .txt file and **upload the saved text file** to [Dropbox](https://www.dropbox.com/request/6zPM8itMzGcTOgSxKQrc) **day before the next class**.
+* Add your solutions to the exercises in the downloaded .txt file and **upload the saved text file** to Dropbox **day before the next class**.
 * [Email us](mailto:hbctraining@hsph.harvard.edu) about questions regarding the homework that you need answered before the next class.
 * Post questions that you would like to have reviewed in class [here](https://PollEv.com/hbctraining945).
-* [Answer key](../homework/Day2_answer_key.txt)
+* Answer key
 
 ***
 
@@ -61,24 +68,13 @@ Before you start with the self-learning portion of the workshop, please check th
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
 | 09:30 - 10:00 | Self-learning lessons review | All |
-| 10:00 - 11:00 | [Introduction to the O2 cluster](../lectures/HPC_intro_O2_October2020.pdf)| Radhika |
-| 11:00 - 11:30 | [Exercise](../activities/sbatch_exercise.md)|  |
-| 11:30 - 11:45 | [Introduction to the O2 cluster - data storage](../lectures/HPC_intro_O2_October2020.pdf)| Radhika |
-| 11:45 - 12:00 | [Wrap up](../lectures/shell-wrapup-nanocourse.pdf) | Radhika |
+| 10:00 - 11:00 | Automating the RNA-seq workflow| Radhika |
+| 11:00 - 11:30 | Troubleshooting RNA-seq Data Analysis |  |
+| 11:45 - 12:00 | Wrap up | Radhika |
 
 ***
 
 ## Resources
-
-Bash/Shell Cheat sheets:
-* [http://fosswire.com/post/2007/08/unixlinux-command-cheat-sheet/](http://fosswire.com/post/2007/08/unixlinux-command-cheat-sheet/)
-* [https://github.com/swcarpentry/boot-camps/blob/master/shell/shell_cheatsheet.md](https://github.com/swcarpentry/boot-camps/blob/master/shell/shell_cheatsheet.md)
-* [tldr_ : Simplified version of the `man` pages (online and searchable)](https://tldr.ostera.io/)
-
-## Advanced bash commands
-If you are interested in learning some more advanced tools for working on the command-line, we encourage you to walk-through the materials linked below:
-
-* [More fun with bash (advanced)](../lessons/extra_bash_tools.md)
 
 
 
