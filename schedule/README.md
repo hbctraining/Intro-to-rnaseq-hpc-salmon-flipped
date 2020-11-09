@@ -11,9 +11,9 @@
 |:-----------:|:----------:|:--------:|
 | 09:30 - 09:45 | Workshop introduction | Radhika |
 | 09:45 - 10:25 | Working in an HPC environment | Radhika |
-| 10:25 - 11:05 | Project Organization and Best Practices in Data Management | Radhika |
-| 11:05 - 11:45 | Quality Control of Sequence Data: Running FASTQC | Radhika |
-| 11:45 - 12:00 | Overview of self-learning materials and homework submission | Radhika |
+| 10:25 - 11:05 | Project Organization and Best Practices in Data Management | Meeta |
+| 11:05 - 11:45 | Quality Control of Sequence Data: Running FASTQC | Jihe |
+| 11:45 - 12:00 | Overview of self-learning materials and homework submission | Jihe/Meeta |
 
 ### Self Learning #1
 
@@ -45,8 +45,8 @@ Before you start with the self-learning portion of the workshop, please check th
 |:-----------:|:----------:|:--------:|
 | 09:30 - 10:30 | Self-learning lessons review | All |
 | 10:30 - 11:10 | Sequence Alignment Theory | Meeta |
-| 11:10 - 11:50 | Quantifying expression using alignment-free methods (Salmon) | Meeta |
-| 11:50 - 12:00 | Review of workflow | |
+| 11:10 - 11:50 | Quantifying expression using alignment-free methods (Salmon) | Radhika |
+| 11:50 - 12:00 | Review of workflow | Radhika |
 
 ### Self Learning #2
 * Quantifying expression using alignment-free methods (Salmon on multiple samples)
@@ -69,7 +69,7 @@ Before you start with the self-learning portion of the workshop, please check th
 |:-----------:|:----------:|:--------:|
 | 09:30 - 10:10 | Self-learning lessons review | All |
 | 10:10 - 11:10 | Automating the RNA-seq workflow| Radhika |
-| 11:10 - 11:45 | Troubleshooting RNA-seq Data Analysis |  |
+| 11:10 - 11:45 | Troubleshooting RNA-seq Data Analysis | Meeta |
 | 11:45 - 12:00 | Wrap up | Radhika |
 
 ***
