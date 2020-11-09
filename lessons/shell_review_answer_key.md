@@ -156,6 +156,7 @@ $ for file in *fq
 > done
 ```
 17. Place the above `for` loop into a shell script using `vim` and run it.
+
 Answer: Navigate to the `raw_fastq/` directory, and create a script `vim generate_first40.sh`
 ```bash
 #!/bin/bash 
@@ -168,7 +169,7 @@ done
 ```
 Run the script with the following command:
 ```bash
-sh generate_first40.sh
+$ sh generate_first40.sh
 ```
 
 ### Permissions
@@ -199,21 +200,39 @@ drwxrwsr-x  2 mm573 hbctraining  306 Oct  6  2015 trimmed_fastq
 ```
 
 18. How many owners have files in this folder?
-19. How many groups?
-20. Are there any executable *files* in this folder?
-21. What kind of access does the user `mm573` have to the `full_dataset/` directory?
-22. You are considered as "other" or everyone else on this system (i.e you are not part of the group `hbctraining`. What command would allow the user `mm573` do to take away your ability to look inside the `full_dataset/` directory?
+Answer: 3
 
+19. How many groups?
+Answer: 1
+
+20. Are there any executable *files* in this folder?
+Answer: Yes
+
+21. What kind of access does the user `mm573` have to the `full_dataset/` directory?
+Answer: r(read), w(write/edit), and x(execute).
+
+22. You are considered as "other" or everyone else on this system (i.e you are not part of the group `hbctraining`. What command would allow the user `mm573` do to take away your ability to look inside the `full_dataset/` directory?
+Answer: chmod o-r full_dataset/ 
 
 ### Environment variables
 
 * [Understanding environment variables](https://hbctraining.github.io/Intro-to-shell-flipped/lessons/07_permissions_and_environment_variables.html#environment-variables)
 
 23. Display the contents of the `$HOME` variable on your computer.
+```bash
+$ echo $HOME
+```
 24. Use the `which` command to check where the executable file for the `pwd` command lives in the directory structure.
+```bash
+$ which pwd
+```
 25. How does shell know where to find the executable file for the `pwd` command?
-26. Display the contents of the variable that stores the various paths to folders containing executable command files.
+Answer: the shell searches through each path in $PATH until it finds an executable file for the `pwd` command.
 
+26. Display the contents of the variable that stores the various paths to folders containing executable command files.
+```bash
+$ echo $PATH
+```
 
 ****
 
