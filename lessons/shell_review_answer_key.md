@@ -73,14 +73,43 @@ We are going to start this review with some basic commands pertaining to navigat
 * [Examining and creating files](https://hbctraining.github.io/Intro-to-shell-flipped/lessons/03_working_with_files.html)
 
 1. Change directory into the `unix_lesson/` directory.
-2. Take a quick look at the `Mov10_oe_1.subset.fq` file using `less` from `unix_lesson/`, without changing directories.
+```bash
+$ cd unix_lesson
+```
+2. Take a quick look at the `Mov10_oe_1.subset.fq` file (located in `raw_fastq` directory) using `less` from `unix_lesson/`, without changing directories.
+```bash
+$ less raw_fastq/Mov10_oe_1.subset.fq
+```
 3. Use a shortcut to move out of the directory to the parent of `unix_lesson/`.
-4. With a single command change directories in to the `raw_fastq/` folder.
+```bash
+$ cd ..
+```
+4. Change directories into the `raw_fastq/` folder with a single command.
+```bash
+$ cd unix_lesson/raw_fastq/
+```
 5. What does the `~` in the command prompt mean?
+`~` means home directory.
 6. What is the full path to the `unix_lesson` directory?
+```bash
+$ pwd
+```
+/Users/your_username/Downloads/unix_lesson (the result varies based on your computer setting)
 8. List all the files in the `raw_fastq` directory.
+```bash
+# First make sure that you navigate to the `raw_fastq` directory
+$ ls -l
+```
 8. Modify the above command using the `*` wildcard to only list those files that have "oe" in their names.
+```bash
+# First make sure that you navigate to the `raw_fastq` directory
+$ ls -l *oe*
+```
 10. How many and which commands have you run so far?
+```bash
+$ history
+```
+Result varies based on your activity.
 
 ### Searching and redirection
 Next, we will search our files for specific patterns and redirect the results to file. Helpful reference materials are listed below:
