@@ -146,7 +146,30 @@ Answer: 42
       * Print the name of the current file
       * Generate a prefix to use for naming our output files, and store it inside a variable called `sample`.
       * Dump out the first 40 lines into a new file that will be saved in `shell_review`
+```bash
+# First make sure that you navigate to the `raw_fastq/` directory
+$ for file in *fq
+> do 
+> echo $file
+> sample=`basename $file .subset.fq`
+> head -n 40 $file > ../shell_review/${sample}_first40.fq
+> done
+```
 17. Place the above `for` loop into a shell script using `vim` and run it.
+Answer: Navigate to the `raw_fastq/` directory, and create a script `vim generate_first40.sh`
+```bash
+#!/bin/bash 
+for file in *fq
+do 
+echo $file
+sample=`basename $file .subset.fq`
+head -n 40 $file > ../shell_review/${sample}_first40.fq
+done
+```
+Run the script with the following command:
+```bash
+sh generate_first40.sh
+```
 
 ### Permissions
 
