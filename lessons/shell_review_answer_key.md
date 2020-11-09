@@ -89,6 +89,7 @@ $ cd ..
 $ cd unix_lesson/raw_fastq/
 ```
 5. What does the `~` in the command prompt mean?
+
 Answer: `~` means home directory.
 
 6. What is the full path to the `unix_lesson` directory?
@@ -129,6 +130,7 @@ $ mkdir shell_review
 $ grep MOV10 reference_data/chr1-hg19_genes.gtf > shell_review/Mov10_hg19.gtf
 ```
 14. Use `vim` to open the newly created file `unix_lesson/shell_review/Mov10_hg19.gtf` and add a comment at the top specifying how this file was created and the source of the content. Save the modified file and quit `vim`.
+
 Answer: Open file - `vim shell_review/Mov10_hg19.gtf`; Edit file - `i`; Exit edit mode - `esc`; Save and quit - `:wq`.
 15. In the new file "Mov10_hg19.gtf", how many lines contain the word "exon"?
 ```bash
@@ -200,18 +202,23 @@ drwxrwsr-x  2 mm573 hbctraining  306 Oct  6  2015 trimmed_fastq
 ```
 
 18. How many owners have files in this folder?
+
 Answer: 3
 
 19. How many groups?
+
 Answer: 1
 
 20. Are there any executable *files* in this folder?
+
 Answer: Yes
 
 21. What kind of access does the user `mm573` have to the `full_dataset/` directory?
+
 Answer: r(read), w(write/edit), and x(execute).
 
 22. You are considered as "other" or everyone else on this system (i.e you are not part of the group `hbctraining`. What command would allow the user `mm573` do to take away your ability to look inside the `full_dataset/` directory?
+
 Answer: chmod o-r full_dataset/ 
 
 ### Environment variables
@@ -227,6 +234,7 @@ $ echo $HOME
 $ which pwd
 ```
 25. How does shell know where to find the executable file for the `pwd` command?
+
 Answer: the shell searches through each path in $PATH until it finds an executable file for the `pwd` command.
 
 26. Display the contents of the variable that stores the various paths to folders containing executable command files.
