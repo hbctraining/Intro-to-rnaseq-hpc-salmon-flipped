@@ -59,16 +59,27 @@ The data management lifecycle displayed below, courtesy of the [HMS Data Managem
 _Image acquired from the [Harvard Biomedical Data Management Website](https://datamanagement.hms.harvard.edu/data-lifecycle)_
 
 ### Plan and Design
-You should approach your sequencing project in a very similar way you do with any biological experiment, and ideally, begins with a good **experimental design**. You want to think about experiment at the outsete and collect appropriate samples such that you have enough statistical power to make the comparisons you need. In a later lesson, we delve into the details of planning and the [experimental design considerations](02_experimental_planning_considerations.md). 
-
+You should approach your sequencing project in a very similar way you do with any biological experiment, and ideally, begins with a good **experimental design**. You want to think about experiment at the outsete and collect appropriate samples such that you have enough statistical power to make the comparisons you need. In a later lesson, we delve more into the details of planning and the [experimental design considerations](02_experimental_planning_considerations.md). 
 
 ### Collect and Create
-The next step is collecting samples and and preparing them as required. During this stage it is important to keep track of how the experiment was performed, making sure to clearly document the source of starting materials and kits used. It is also best practice to include any information about any small variations within the experiment (across the different samples being prepared) or any changes relative to standard experiments. 
+The next step is preparing samples as required. During this stage it is important to keep track of how the experiment was performed, making sure to clearly document the source of starting materials and kits used. It is also best practice to include any information about any small variations within the experiment (across the different samples being prepared) or any changes relative to standard experiment protocols. This collection of information serves as the metadata of the experiment which will prove to be very useful during the analysis stage. 
 
 ### Analyze and Collaborate
+Once you have the sequencing data back from the sequencing facility, it's time to analyze it. The process of data analysis should be well documented to ensure reproducibility and also for ease of collaboration. We will spend some more time on this component of the lifecycle later in this lesson, as it applies to our dataset.
+
 ### Evaluate and Archive
+Every computational analysis you do is going to spawn many files, and inevitability you'll want to run some of those analyses again. For each experiment you work on and analyze data for, it is considered best practice to get organized by creating a planned storage space (directory structure). Once the analysis is complete you will want to think about which files are most pertinent to keep. Consider long-term storage options for your data that meet requirements of NIH, other granting agencies, and the researcher's institution.
+
 ### Disseminate and share
+The results of your analysis will hopefully generate some exciting findings that will be beneficial to the scientific community. At this stage in the lifecycle you rely on your previous steps of documentation to turn those notes into a methods section of your manuscript. 
+
 ### Access and Reuse
+In addition to sharing information on the analysis, you should plan for sharing the data. It has become increasingly common for researchers to make their data available to others when they complete a study. While a major reason for sharing is compliance (with journals or research funding organizations), there also important research benefits including:
+
+* Finding your own data years after you finish a project
+* Enabling others to replicate your work
+* Enabling others to conduct new analyses using your data
+
 
 ### Why should I care about data management?
  
@@ -80,9 +91,8 @@ The next step is collecting samples and and preparing them as required. During t
 * **Sign-up** for the [DMWG quarterly newsletter](https://datamanagement.hms.harvard.edu/dmwg-newsletter) for helpful tips, classes and events related to data management
 
 
-### Organization
+## Implementing data management best practices
 
-Every computational analysis you do is going to spawn many files, and inevitability you'll want to run some of those analyses again. For each experiment you work on and analyze data for, it is considered best practice to get organized by creating a planned storage space (directory structure).
 
 We will start by creating a directory that we can use for the rest of the RNA-seq session. Log into O2 using `ssh` if you are not already in and start an interactive session on the cluster:
 
@@ -204,15 +214,6 @@ scripts:
 ### Homework exercise
 
 - Take a moment to create a README for the `rnaseq/` folder (hint: use `vim` to create the file). Give a short description of the project and brief descriptions of the types of files you will be storing within each of the sub-directories. 
-
-***
-
-
-## Analysis Workflow
-
-We will be using the dataset described above to perform and end-to-end differential expression analysis. We will begin with the raw sequence reads and go step-by-step through the workflow depicted below, describing in detail some theory, the tools/algorithms and how they work, and the different file formats encountered along the way.
-
-<img src="../img/full_workflow_2019.png">
 
 
 
