@@ -75,7 +75,7 @@ We are going to start this review with some basic commands pertaining to navigat
 1. Change directory into the `unix_lesson/` directory.
 2. Take a quick look at the `Mov10_oe_1.subset.fq` file (located in `raw_fastq` directory) using `less` from `unix_lesson/`, without changing directories.
 3. Use a shortcut to move out of the directory to the parent of `unix_lesson/`.
-4. With a single command change directories in to the `raw_fastq/` folder.
+4. Change directories into the `raw_fastq/` folder with a single command.
 5. What does the `~` in the command prompt mean?
 6. What is the full path to the `unix_lesson` directory?
 8. List all the files in the `raw_fastq` directory.
