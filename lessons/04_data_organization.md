@@ -74,14 +74,10 @@ When the analysis is complete you will want to think about which files are most 
 The results of your analysis will hopefully generate some exciting findings that will be beneficial to the scientific community. At this stage in the lifecycle you rely on your previous steps of documentation to turn those notes into a clear and concise methods section of your manuscript. 
 
 ### Access and Reuse
-In addition to sharing information on the analysis, you should plan for sharing the data. It has become increasingly common for researchers to make their data available to others when they complete a study. While a major reason for sharing is compliance (with journals or research funding organizations), there also important research benefits including:ing
-
-* Finding your own data years after you finish a project
-* Enabling others to replicate your work
-* Enabling others to conduct new analyses using your data
+In addition to sharing information on the analysis, you should plan for sharing the data. It has become increasingly common for researchers to make their data available to others when they complete a study. While a major reason for sharing is compliance (with journals or research funding organizations), there are also important research benefits including reproducibility and data sharing and reuse.
 
 
-> ### Why should I care about data management?
+> #### Why should I care about data management?
 > Data management can be hard to get excited about. However, ignoring it can be detrimental to your research. 
 > 
 > Here are a few reasons why it matters:
@@ -186,7 +182,7 @@ scripts:
 
 ### Obtaining data
 
-Let's populate the `rnaseq/` project with our example RNA-seq FASTQ data. The FASTQ files are located on the O2 cluster in the `/n/groups` space. Copy them over from the path shown below, into your `raw_data` directory:
+Let's populate the `rnaseq/` project with some data. The FASTQ files are located on the O2 cluster in the `/n/groups` space. Copy them over from the path shown below, into your `raw_data` directory:
 
 ```bash
 $ cp /n/groups/hbctraining/unix_lesson/raw_fastq/*.fq ~/rnaseq/raw_data/
