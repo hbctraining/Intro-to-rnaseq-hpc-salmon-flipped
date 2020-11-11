@@ -28,7 +28,9 @@ We will go over each of these considerations in detail, discussing best practice
 
 Experimental replicates can be performed as **technical replicates** or **biological replicates**. 
 
+<p align="center">
 <img src="../img/replicates.png" width="500">
+</p>
 
 *Image credit: [Klaus B., EMBO J (2015) **34**: 2727-2730](https://dx.doi.org/10.15252%2Fembj.201592958)*
 
@@ -42,7 +44,9 @@ In contrast, **biological replicates are absolutely essential** for differential
 
 For differential expression analysis, the more biological replicates, the better the estimates of biological variation and the more precise our estimates of the mean expression levels. This leads to more accurate modeling of our data and identification of more differentially expressed genes.
 
+<p align="center">
 <img src="../img/de_replicates_img2.png" width="500">
+</p>
 
 *Image credit: [Liu, Y., et al., Bioinformatics (2014) **30**(3): 301–304](https://doi.org/10.1093/bioinformatics/btt688)*
 
@@ -98,7 +102,9 @@ A confounded RNA-Seq experiment is one where you **cannot distinguish the separa
 
 For example, we know that sex has large effects on gene expression, and if all of our *control* mice were female and all of the *treatment* mice were male, then our treatment effect would be confounded by sex. **We could not differentiate the effect of treatment from the effect of sex.**
 
+<p align="center">
 <img src="../img/confounded_design.png" width="500">  
+</p>
 
 **To AVOID confounding:**
 
@@ -106,13 +112,17 @@ For example, we know that sex has large effects on gene expression, and if all o
 
 - If not possible, then ensure to split the animals equally between conditions
 
+<p align="center">
   <img src="../img/non_confounded_design.png" width="400">
+</p>
 
 ## Batch effects
 
 Batch effects are a significant issue for RNA-Seq analyses, since you can see significant differences in expression due solely to the batch effect. 
 
+<p align="center">
 <img src="../img/batch_effect_pca.png" width="600">
+</p>
 
 *Image credit: [Hicks SC, et al., bioRxiv (2015)](https://www.biorxiv.org/content/early/2015/08/25/025528)*
 
@@ -152,7 +162,9 @@ If *any* of the answers is **‘No’**, then you have batches.
     
   - **DO** include batch information in your **experimental metadata**. During the analysis, we can regress out the variation due to batch if not confounded so it doesn’t affect our results if we have that information.
 
+<p align="center">
     <img src="../img/metadata_batch.png" width="300">
+	</p>
     
  > **NOTE:** *The sample preparation of cell line "biological" replicates "should be performed as independently as possible" (as batches), "meaning that cell culture media should be prepared freshly for each experiment, different frozen cell stocks and growth factor batches, etc. should be used [[2](http://paasp.net/accurate-design-of-in-vitro-experiments-why-does-it-matter/)]." However, preparation across all conditions should be performed at the same time.*
     
