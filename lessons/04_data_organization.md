@@ -188,7 +188,7 @@ Let's populate the `rnaseq/` project with some data. The FASTQ files are located
 $ cp /n/groups/hbctraining/unix_lesson/raw_fastq/*.fq ~/rnaseq/raw_data/
 ```
 
-> **NOTE**: When obtaining data from your sequencing facility, the data will not be stored on O2 and so a simple copy command (`cp`) will not suffice. The raw sequence data will likely be located on another remote computer/server that is hosted by the sequencing facility and you will be given login credentials to access it. To copy it over you can use commands like `rsync`, `wget` or `scp`. These are all commands that can help securely copy the data over to the appropriate location on O2. We have some information [linked here](https://hbctraining.github.io/In-depth-NGS-Data-Analysis-Course/sessionVI/lessons/more_bash.html#copying-files-to-and-from-the-cluster-) if you would like to learn more. 
+> **NOTE**: When obtaining data from your sequencing facility, the data will not be stored on O2 and so a simple copy command (`cp`) will not suffice. The raw sequence data will likely be located on another remote computer/server that is hosted by the sequencing facility and you will be given login credentials to access it. To copy it over you can use commands like `rsync`, `wget` or `scp`. These are all commands that can help securely copy the data over to the appropriate location on O2. We have some information [linked here](more_bash_cluster.md#copying-files-to-and-from-the-cluster-) if you would like to learn more. 
 
 Now the structure of `rnaseq/` should look like this:
 
