@@ -131,7 +131,12 @@ $ grep MOV10 reference_data/chr1-hg19_genes.gtf > shell_review/Mov10_hg19.gtf
 ```
 14. Use `vim` to open the newly created file `unix_lesson/shell_review/Mov10_hg19.gtf` and add a comment at the top specifying how this file was created and the source of the content. Save the modified file and quit `vim`.
 
-Answer: Open file - `vim shell_review/Mov10_hg19.gtf`; Edit file - `i`; Exit edit mode - `esc`; Save and quit - `:wq`.
+Answer: 
+* Open file - `vim shell_review/Mov10_hg19.gtf`
+* Edit file - `i`- Add text using `#` to indicate comment
+* Exit edit mode - `esc`
+* Save and quit - `:wq`.
+
 15. In the new file "Mov10_hg19.gtf", how many lines contain the word "exon"?
 ```bash
 # First make sure that you navigate to the `unix_lesson/` directory
@@ -148,6 +153,7 @@ Answer: 42
       * Print the name of the current file
       * Generate a prefix to use for naming our output files, and store it inside a variable called `sample`.
       * Dump out the first 40 lines into a new file that will be saved in `shell_review`
+      
 ```bash
 # First make sure that you navigate to the `raw_fastq/` directory
 $ for file in *fq
@@ -160,6 +166,7 @@ $ for file in *fq
 17. Place the above `for` loop into a shell script using `vim` and run it.
 
 Answer: Navigate to the `raw_fastq/` directory, and create a script `vim generate_first40.sh`
+
 ```bash
 #!/bin/bash 
 for file in *fq
@@ -170,6 +177,7 @@ head -n 40 $file > ../shell_review/${sample}_first40.fq
 done
 ```
 Run the script with the following command:
+
 ```bash
 $ sh generate_first40.sh
 ```
@@ -238,6 +246,7 @@ $ which pwd
 Answer: the shell searches through each path in $PATH until it finds an executable file for the `pwd` command.
 
 26. Display the contents of the variable that stores the various paths to folders containing executable command files.
+
 ```bash
 $ echo $PATH
 ```
