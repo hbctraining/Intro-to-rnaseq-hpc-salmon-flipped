@@ -147,19 +147,37 @@ $ fastqc -o ~/rnaseq/results/fastqc/ *.fq
 
 *Did you notice how each file was processed serially? How do we speed this up?*
 
-Exit the interactive session and start a new one with 6 cores, and use the multi-threading functionality of FastQC to run 6 jobs at once. This time, we will add an additional argument `-t`.
+FastQC has the capacbility of splitting up a single process to run on multiple cores! However, to do this we will need to specify an additional argument `-t` indicating how many cores. We will also need to exit the current interactive session since we initially had only asked for one core. We cannot have a tool use more cores without first requesting the resources from O2. 
+
+Exit the interactive session and start a new one with 6 cores:
 
 ```bash
-$ exit  #exit the current interactive session
+$ exit  #exit the current interactive session (you will be back on a login node)
 
 $ srun --pty -c 6 -p interactive -t 0-12:00 --mem 6G --reservation=HBC /bin/bash  #start a new one with 6 cpus (-c 6) and 6G RAM (--mem 6G)
 
-$ module load fastqc/0.11.3  #reload the module for the new session
+```
 
+Now that we are in a new interactive session with the appropriate resources, we will need to load the module again for this new session.
+
+```bash
+$ module load fastqc/0.11.3  #reload the module for the new session
+```
+
+We will also move to the `raw_fastq` directory (remember we are on a new computer now):
+
+```bash
 $ cd ~/rnaseq/raw_data
+```
+
+Run FastQC and use the multi-threading functionality of FastQC to run 6 jobs at once (with and additional argument `-t`).
+
+```bash
 
 $ fastqc -o ~/rnaseq/results/fastqc/ -t 6 *.fq  #note the extra parameter we specified for 6 threads
 ```
+
+*Do you notice a difference? Is there anything in the ouput that suggests this is no longer running serially?*
 
 ---
 *This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
