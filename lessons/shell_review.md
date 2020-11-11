@@ -147,6 +147,10 @@ drwxrwsr-x  2 mm573 hbctraining  306 Oct  6  2015 trimmed_fastq
 26. Display the contents of the variable that stores the various paths to folders containing executable command files.
 
 
+
+### Review your answers
+* [Answer key](shell_review_answer_key.md)
+
 ****
 
 *This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
