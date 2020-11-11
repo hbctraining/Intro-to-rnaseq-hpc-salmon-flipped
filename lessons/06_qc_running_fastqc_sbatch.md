@@ -13,11 +13,17 @@ duration: 45 minutes
 
 
 ### Performing quality assessment using job submission scripts
-So far in our FASTQC analysis, we have been directly submitting commands to O2 using an interactive session (ie. `srun --pty -c 6 -p interactive -t 0-12:00 --mem 6G --reservation=HBC /bin/bash`). However, there are many more partitions available on O2 than just the interactive partition. We can submit commands or series of commands to these partitions using job submission scripts. 
+So far in our FASTQC analysis, we have been directly submitting commands to O2 using an interactive session (ie. `srun --pty -c 6 -p interactive -t 0-12:00 --mem 6G --reservation=HBC /bin/bash`). However, there are many [more partitions available on O2](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-Partitions(akaQueues)) than just the interactive partition. We can submit a command or series of commands to these partitions using job submission scripts. 
 
-**Job submission scripts** for O2 are just regular scripts, but contain the slurm **options/directives** for job submission, such as *number of cores, name of partition, runtime limit, etc*. 
+**Job submission scripts** for O2 are just regular shell scripts, but contain the Slurm **options/directives** for our job submission. These directives define the various resources we are requesting for our job (i.e *number of cores, name of partition, runtime limit* )
 
-Submission of the script using the `sbatch` command allows slurm to run your job when its your turn. Let's create a job submission script to automate what we have done in previous lesson: loading the FASTQC module, running FASTQC on all of our fastq files, and moving the files to the appropriate directory.
+Submission of the script using the `sbatch` command allows Slurm to run your job when its your turn. Let's create a job submission script to automate what we have done in [previous lesson](05_qc_running_fastqc_interactively.md).
+
+Our script will do the following:
+
+1. Change directories to where the FASTQ files are located
+2. Load the FastQC module
+3. Run FastQC on all of our FASTQ files
 
 Let's first change the directory to `~/rnaseq/scripts`, and create a script named `mov10_fastqc.run` using `vim`.
 
@@ -68,7 +74,7 @@ fastqc -o ~/rnaseq/results/fastqc/ -t 6 *.fq
 ```
 > **NOTE:** These are the same commands we used in the interactive session. Since we are writing them in a script, the `tab` completion function will not work here. So be aware of any potential typos!
 
-Once done with your script, click `esc` to exit the INSERT mode. Then save and quit the script by typing `:wq`. You may double check your script by typing `less mov10_fastqc.run`. Now, if everything looks good, let's submit the job to the slurm:
+Once done with your script, click `esc` to exit the INSERT mode. Then save and quit the script by typing `:wq`. You may double check your script by typing `less mov10_fastqc.run`. Now, if everything looks good, let's submit the job to the Slurm:
 
 ```bash
 $ sbatch mov10_fastqc.run
