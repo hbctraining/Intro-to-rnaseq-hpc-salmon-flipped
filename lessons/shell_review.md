@@ -54,7 +54,6 @@ $ unzip unix_lesson.zip
 Check to see that you have the folder `unix_lesson` before proceeding.
 
 ```bash
-
 $ ls -l unix_lesson
 ```
 
