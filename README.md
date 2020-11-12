@@ -17,7 +17,7 @@ This repository has teaching materials for a 2-day Introduction to RNA-sequencin
 
 ### Lessons
 
-[Click here](https://hbctraining.github.io/Intro-to-rnaseq-hpc-salmon-flipped/schedule/) for links to lessons and the suggested schedule.
+[Click here](schedule/) for links to lessons and the suggested schedule.
 
 ### Installation Requirements
 
