@@ -3,7 +3,7 @@
 > **NOTE:** The *Basic Data Skills* [Introduction to the command-line interface](https://hbctraining.github.io/Intro-to-shell-flipped/schedule/) workshop is a prerequisite.
 
 ## Pre-reading
-* [Shell basics review](../lessons/shell_review.md) & Answer key
+* [Shell basics review](../lessons/shell_review.md)
 * [Introduction to RNA-seq](../lessons/01_intro-to-RNAseq.md)
 
 ## Day 1
