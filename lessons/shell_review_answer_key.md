@@ -54,7 +54,6 @@ $ unzip unix_lesson.zip
 Check to see that you have the folder `unix_lesson` before proceeding.
 
 ```bash
-
 $ ls -l unix_lesson
 ```
 
@@ -71,43 +70,49 @@ We are going to start this review with some basic commands pertaining to navigat
 ```bash
 $ cd unix_lesson
 ```
+
 2. Take a quick look at the `Mov10_oe_1.subset.fq` file (located in `raw_fastq` directory) using `less` from `unix_lesson/`, without changing directories.
 ```bash
 $ less raw_fastq/Mov10_oe_1.subset.fq
 ```
+
 3. Use a shortcut to move out of the directory to the parent of `unix_lesson/`.
 ```bash
 $ cd ..
 ```
+
 4. Change directories into the `raw_fastq/` folder with a single command.
 ```bash
 $ cd unix_lesson/raw_fastq/
 ```
-5. What does the `~` in the command prompt mean?
 
+5. What does the `~` in the command prompt mean?
 Answer: `~` means home directory.
 
 6. What is the full path to the `unix_lesson` directory?
-```bash
-$ pwd
-```
-Answer: /Users/your_username/Downloads/unix_lesson (the result varies based on your computer setting)
+Answer: `/Users/your_username/Downloads/unix_lesson` (**the result will vary based on your computer's file system**)
 
 8. List all the files in the `raw_fastq` directory.
 ```bash
-# First make sure that you navigate to the `raw_fastq` directory
-$ ls -l
+# (option 1) You can navigate to the `raw_fastq` directory and say
+$ ls -l 
+
+# (option 2) You can identify your location and give the full or relative path to raw_fastq
 ```
+
 8. Modify the above command using the `*` wildcard to only list those files that have "oe" in their names.
 ```bash
-# First make sure that you navigate to the `raw_fastq` directory
-$ ls -l *oe*
+# (option 1) You can navigate to the `raw_fastq` directory and say
+$ ls -l *oe* 
+
+# (option 2) You can identify your location and give the full or relative path to raw_fastq
 ```
+
 10. How many and which commands have you run so far?
 ```bash
 $ history
 ```
-Answer: Result varies based on your activity.
+Answer: Result will vary based on your activity.
 
 ### Searching and redirection
 Next, we will search our files for specific patterns and redirect the results to file. Helpful reference materials are listed below:
