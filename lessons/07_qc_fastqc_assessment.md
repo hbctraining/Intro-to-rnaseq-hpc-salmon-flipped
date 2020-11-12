@@ -19,7 +19,7 @@ $ ls -lh ~/rnaseq/results/fastqc/
 
 The first is **an HTML file** which is saved is a self-contained document with all of the graphs embedded into it. Each of the graphs evaluate different quality aspects of our data, we will discuss in more detail in this lesson. Alongside the HTML file is **a zip file** (with the same name as the HTML file, but with .zip added to the end). This file contains the graphs from the report as separate files but also contains data files which are designed to be easily parsed to allow for a more detailed and automated evaluation of the raw data on which the QC report is built.
 
-> ### How do I access files in the `.zip` file?
+> #### How do I access files in the `.zip` file?
 > These .zip files need to be unpacked with the `unzip` program. We could try to `unzip` them all at once:
 >
 > ```bash
