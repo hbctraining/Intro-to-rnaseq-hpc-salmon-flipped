@@ -34,27 +34,22 @@ Please find and open Git BASH.
 
 ### Downloading the example data folder
 
-The data you will be working with can be downloaded using the link below. Clicking on the link will automatically place a file called `unix_lesson.tar.gz` to your `Downloads` folder on your computer.
+The data you will be working with can be downloaded using the link below. Clicking on the link will automatically place a file called `unix_lesson.zip` to your `Downloads` folder on your computer.
 
-- [Introduction to Shell: Dataset](https://www.dropbox.com/s/3lua2h1oo18gbug/unix_lesson.tar.gz?dl=1)
+- [Introduction to Shell: Dataset](https://github.com/hbctraining/Training-modules/blob/master/Intro_shell/data/unix_lesson.zip?raw=true)
 
 Now, in you terminal window change directories into your `Downloads` folder and check that the file is listed there:
 
 ```bash
 $ cd ~/Downloads
-$ ls -l unix_lesson.tar.gz 
+$ ls -l unix_lesson.zip 
 ```
 
-To decompress the file into a folder called `unix_lesson` we use the `tar` command:
+To decompress the file into a folder called `unix_lesson` we use the `unzip` command:
 
 ```bash
-$ tar xvzf unix_lesson.tar.gz
+$ unzip unix_lesson.zip
 ```
-
-- `x`: This option tells tar to extract the files.
-- `v`: The “v” stands for “verbose.” This option will list all of the files one by one in the archive.
-- `z`: The z option is very important and tells the tar command to uncompress the file (gzip).
-- `f`: This options tells tar that you are going to give it a file name to work with (so your resulting file or folder will be named with the text before the `tar.gz` extension)
 
 Check to see that you have the folder `unix_lesson` before proceeding.
 
