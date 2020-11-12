@@ -219,7 +219,7 @@ Answer: 1
 
 20. Are there any executable *files* in this folder?
 
-Answer: Yes
+Answer: No
 
 21. What kind of access does the user `mm573` have to the `full_dataset/` directory?
 
