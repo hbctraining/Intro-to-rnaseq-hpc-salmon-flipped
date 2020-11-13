@@ -15,7 +15,7 @@ Approximate time: 1.25 hours
 
 ## Lightweight alignment and quantification of gene expression
 
-Now that we have explored the quality of our raw reads, we can move on to quantifying expression at the transcript level. The goal of this step is to identify from which transcript each of the reads originated from and the total number of reads associated with each transcript.
+Now that we have explored the quality of our raw reads, we can move on to quantifying expression at the transcript level. The goal of this step is to identify from which transcript each of the reads originated from and get an estimate of expression associated with each transcript.
 
 <p align="center">
 <img src="../img/rnaseq_salmon_workflow.png" width="400">
