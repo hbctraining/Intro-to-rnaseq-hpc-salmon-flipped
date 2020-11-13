@@ -44,20 +44,19 @@ Next, we are going to run multiQC on the following 4 outputs from our workflow:
 * `.qualimap` files from Qualimap
 * `.salmon` directories from salmon
 
-Generally we run multiQC to explore our samples and compare metrics across samples. So far, we have only run FastQC, STAR, Qualimap, and salmon on the single `Mov10_oe_1` file. Therefore, to accurately compare QC metrics across samples, we ran these tools on the FASTQ files for the full dataset for each of our samples. 
-
+Generally we run multiQC to explore our samples and compare metrics across samples. Yet, so far we have only run FastQC, STAR, Qualimap, and salmon on the single `Mov10_oe_1` file. To accurately compare QC metrics across samples, our team has ran these tools for the full dataset for each of our samples, and stored the result in the directory `/n/groups/hbctraining/rna-seq_2019_02/snapshots/full_dataset_results`. We will directly use these results as input for multiQC analysis.
 
 Now, let's run multiQC!
 
 ```bash
 $ multiqc -n multiqc_report_rnaseq \
-/n/groups/hbctraining/ngs-data-analysis-longcourse/rnaseq/snapshots/full_dataset_results/fastqc/*zip \
-/n/groups/hbctraining/ngs-data-analysis-longcourse/rnaseq/snapshots/full_dataset_results/STAR/*Log.final.out \
-/n/groups/hbctraining/ngs-data-analysis-longcourse/rnaseq/snapshots/full_dataset_results/qualimap/* \
-/n/groups/hbctraining/ngs-data-analysis-longcourse/rnaseq/snapshots/full_dataset_results/salmon/*salmon
+/n/groups/hbctraining/rna-seq_2019_02/snapshots/full_dataset_results/fastqc/*zip \
+/n/groups/hbctraining/rna-seq_2019_02/snapshots/full_dataset_results/STAR/*Log.final.out \
+/n/groups/hbctraining/rna-seq_2019_02/snapshots/full_dataset_results/qualimap/* \
+/n/groups/hbctraining/rna-seq_2019_02/snapshots/full_dataset_results/salmon/*salmon
 ```
 
-> If you want to save the output on the terminal into a log file, you can use `2>` operator to redirect it to a file.
+> Note: You will see the progress of analysis printed out on the terminal as the tool runs. If you want to save this output into a log file (for future reference), you can use `2>` operator to redirect it to a file. For example, at the end of script, add `2> log.txt`.
 
 It takes a couple of minutes to generate the multiQC report. The report provides nice visualizations across samples, to determine consistency and to identify problematic samples.
 
