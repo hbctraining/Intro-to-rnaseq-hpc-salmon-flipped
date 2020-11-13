@@ -147,7 +147,7 @@ $ fastqc -o ~/rnaseq/results/fastqc/ *.fq
 
 *Did you notice how each file was processed serially? How do we speed this up?*
 
-FastQC has the capacbility of splitting up a single process to run on multiple cores! However, to do this we will need to specify an additional argument `-t` indicating how many cores. We will also need to exit the current interactive session since we initially had only asked for one core. We cannot have a tool use more cores without first requesting the resources from O2. 
+FastQC has the capability of splitting up a single process to run on multiple cores! To do this, we will need to specify an additional argument `-t` indicating number of cores. We will also need to exit the current interactive session, since we initially had only asked for one core. We cannot have a tool to use more cores without first requesting the resources from O2. 
 
 Exit the interactive session and start a new one with 6 cores:
 
@@ -164,13 +164,13 @@ Now that we are in a new interactive session with the appropriate resources, we 
 $ module load fastqc/0.11.3  #reload the module for the new session
 ```
 
-We will also move to the `raw_fastq` directory (remember we are on a new computer now):
+We will also move to the `raw_data` directory (remember we are on a new compute node now):
 
 ```bash
 $ cd ~/rnaseq/raw_data
 ```
 
-Run FastQC and use the multi-threading functionality of FastQC to run 6 jobs at once (with and additional argument `-t`).
+Run FastQC and use the multi-threading functionality of FastQC to run 6 jobs at once (with an additional argument `-t`).
 
 ```bash
 
