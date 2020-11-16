@@ -1,7 +1,7 @@
 # Working in an HPC environment
 
 
-### Connect to a *login* node on O2
+## Connect to a *login* node on O2
 
 Type in the following command with your username to login:
 
@@ -24,7 +24,7 @@ About nodes:
 * There are several compute nodes on O2 available for performing your analysis/work. 
 
 
-### Connect to a *compute* node on O2
+## Connect to a *compute* node on O2
 
 You can access compute nodes in 2 ways using a job scheduler or resource manager like Slurm.
 1. Directly using an interactive session (Slurm's `srun` command): 
@@ -56,18 +56,24 @@ In the above command the parameters we are using are requesting specific resourc
 You are now working on a compute node directly in an "interactive" session!
 
 
-**LMOD system**
+## More about Slurm
 
-24. Load the `gcc/6.2.0` module.
-25. Has `$PATH` changed? 
-26. Load the `bowtie2/2.3.4.3` module.
-27. List the modules that are loaded.
+### Requesting resources
 
-****
 
-## Some setting up for the rest of the workshop
 
-### Add a path to `$PATH`
+## Using software on O2
+
+### LMOD system
+
+* Load the `gcc/6.2.0` module.
+* Has `$PATH` changed? 
+* Load the `bowtie2/2.3.4.3` module.
+* List the modules that are loaded.
+
+## Filesystems on O2
+
+### Scratch space
 
 We need to use one tool that is unavailable as a module on O2, but it is available in a folder on O2, so we are going to add it to our $PATH. If we just add it using the `export` command, it will only be available to us in this specific interactive session. However, if we place that export command in a script that is run everytime a new interactive session is started, it is more efficient.
 
@@ -75,7 +81,5 @@ We need to use one tool that is unavailable as a module on O2, but it is availab
 * Add the following line at the end of the file `export PATH=/n/app/bcbio/tools/bin:$PATH`
 * Save and quit out of `vim`
 
-### Resources on O2 and asking Slurm for them
-
-Finally, let's review some of the information for O2 and slurm in [these slides](https://hbctraining.github.io/Intro-to-rnaseq-hpc-salmon/lectures/HPC_intro_O2_review.pdf)
-
+***
+*This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
