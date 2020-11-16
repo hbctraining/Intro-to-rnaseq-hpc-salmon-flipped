@@ -85,7 +85,7 @@ An `sbatch` job submission script is essentially a normal shell script with the 
 * on 4 cores (30 minutes for each core)
 * using 400MBs (100MB for each core)
 
-***DO NOT RUN**
+***DO NOT RUN***
 ```
 #! /bin/sh
 
@@ -138,15 +138,17 @@ Some key LMOD commands are listed below:
 * Storage filesystems can be quite complex, with large spaces dedicated to a pre-defined purpose.
 * Filesystems are accessed over the internal network by all the nodes on the cluster.
 * There are 3 major groups on the cluster, each with their features and constraints:
-   1. `/n/data1`, `/n/data2`, `/n/groups` - Large datasets are stored in these parent directories (see features/contraints in the image above)
-   2. `/home` - the home directories of all users are under this parent directory. (see features/contraints in the image above)
-   3. `/n/sctratch3` - scratch space for temporary storage
-      * For data only needed temporarily during analyses
-      * Each user can use up to 10 TB and 1 million files/directories
-      * Files not accessed for 30 days are automatically purged
-      * No backups!
-      * Create your own folder using this command `/n/cluster/bin/scratch3_create.sh`
+   1. `/n/data1`, `/n/data2`, `/n/groups` - Large datasets are stored in these parent directories (see features/contraints in the image above).
+   2. `/home` - the home directories of all users are under this parent directory (see features/contraints in the image above).
+   3. `/n/sctratch3` - scratch space for temporary storage.
 
+### More about `/n/sctratch3`
+
+* It is for data only needed temporarily during analyses.
+* Each user can use up to 10 TB and 1 million files/directories.
+* Files not accessed for 30 days are automatically deleted.
+* **No backups!**
+* You can create your own folder using this command `/n/cluster/bin/scratch3_create.sh`
 
 ***
 *This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
