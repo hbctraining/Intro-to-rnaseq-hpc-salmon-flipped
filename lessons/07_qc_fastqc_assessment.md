@@ -23,7 +23,7 @@ $ ls -lh ~/rnaseq/results/fastqc/
 
 ## Viewing the HTML report
 
-We will only need to look at the HTML report for a given input file. It is not possible to view HTML files directly on the cluster and we'll have to transfer the file over to our laptops to view it in a web browser. We will do this for `Mov10_oe_1.subset.fq` using a tool called [*Filezilla*](https://filezilla-project.org/) which you shoud have already downloaded to your laptop in preparation for this workshop.
+We will only need to look at the HTML report for a given input file. It is not possible to view HTML files directly on the cluster and we'll have to transfer the file over to our laptops to view it in a web browser. We will do this for `Mov10_oe_1.subset.fq` using a tool called [*Filezilla*](https://filezilla-project.org/) which you should have already downloaded to your laptop in preparation for this workshop.
 
 > ### What is FileZilla?
 > FileZilla is a file transfer (FTP) client with lots of useful features and an intuitive graphical user interface. It basically allows you to reliably move files securely between two computers using a point and click environment. It has cross-platform compatability so you can install it on any operating system.
@@ -182,7 +182,7 @@ Since our data is just a subset of the original data and it contains the over-ex
 
 ## Summary
 
-As our report only represents a subset of reads (chromosome 1) for `Mov10_oe_1.subset.fq`, which can skew the QC results. We encourage you to look at the [report for the full set of reads](../fastqc/Mov10oe_1-fastqc_report.html), and note how the QC results differ when using the entire dataset.
+As our report only represents a subset of reads (chromosome 1) for `Mov10_oe_1.subset.fq`, which can skew the QC results. We encourage you to look at the [report for the full set of reads](https://github.com/hbctraining/Intro-to-rnaseq-hpc-salmon-flipped/raw/main/fastqc/Mov10oe_1-fastqc_report.html), and note how the QC results differ when using the entire dataset.
 
 If the quality of the raw data is acceptable, we can move on to the next step and quantify gene expression. Note that the quantification tools we use (salmon and STAR) are able to account for some of the quality issues that you may encounter like adapter contamination, vector contamination and low-quality bases at the ends of reads. It is not necessary (any more) to perform a trimming step prior to quantification.
 
