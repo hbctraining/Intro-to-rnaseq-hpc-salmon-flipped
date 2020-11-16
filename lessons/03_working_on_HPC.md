@@ -22,17 +22,26 @@ About nodes:
 * There are dedicated login nodes and compute nodes.
 * A login node's only function is to enable users to log in to a cluster, it is not meant to be used for any actual work/computing. There are 6 login nodes on O2.
 * There are several compute nodes on O2 available for performing your analysis/work. 
-* You can access compute nodes in 2 ways using a job scheduler or resource manager like Slurm.
-    1. Directly using an interactive session (Slurm's `srun` command): The `srun` command with a few mandatory parameters will create an "interactive session" on O2. This is essentially a way for us to do work on the compute node directly from the terminal. If the connectivity to the cluster is lost in the middle of a command being run that work will be lost in an interactive session.
-    2. By starting a batch job (Slurm's `sbatch` command): The `sbatch` command with a few mandatory parameters + a specialized shell script will result in the script being run on a compute node. This "job" will not be accessible directly from the Terminal and will run in the background. Users do not need to remain connected to the cluster when such a "batch job" is running.
+
 
 ### Connect to a *compute* node on O2
 
-You will get practice with running batch jobs, for now we are going to start an interactive session on O2 using `srun`. 
+You can access compute nodes in 2 ways using a job scheduler or resource manager like Slurm.
+1. Directly using an interactive session (Slurm's `srun` command): 
+    * The `srun` command with a few mandatory parameters will create an "interactive session" on O2. 
+    * This is essentially a way for us to do work on the compute node directly from the terminal. 
+    * If the connectivity to the cluster is lost in the middle of a command being run that work will be lost in an interactive session.
+1. By starting a "batch" job (Slurm's `sbatch` command): 
+    * The `sbatch` command with a few mandatory parameters + a specialized shell script will result in the script being run on a compute node. 
+    * This "job" will not be accessible directly from the Terminal and will run in the background. 
+    * Users do not need to remain connected to the cluster when such a "batch job" is running.
+
+For now let's start an interactive session on O2 using `srun`. 
 
 ```bash
 $ srun --pty -p interactive -t 0-3:00 --mem 1G --reservation=HBC1 /bin/bash
 ```
+
 In the above command the parameters we are using are requesting specific resources:
 * `--pty` - Start an interactive session
 * `-p interactive` - on the "partition" called "interactive" (a partition is a group of computers dedicated to certain types of jobs, interactive, long, short, high-memory, etc.)
