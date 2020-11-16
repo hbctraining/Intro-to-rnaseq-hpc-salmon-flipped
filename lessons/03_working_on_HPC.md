@@ -129,13 +129,24 @@ Some key LMOD commands are listed below:
 
 ## Filesystems on O2
 
-### Scratch space
+<p align="center">
+<img src="../img/O2_primary_storage.png" width="500">
+</p>
 
-We need to use one tool that is unavailable as a module on O2, but it is available in a folder on O2, so we are going to add it to our $PATH. If we just add it using the `export` command, it will only be available to us in this specific interactive session. However, if we place that export command in a script that is run everytime a new interactive session is started, it is more efficient.
+* Storage on HPC systems is organized differently than on your personal machine.
+* Each node on the cluster does not have storage; instead, it is on disks bundled together externally.
+* Storage filesystems can be quite complex, with large spaces dedicated to a pre-defined purpose.
+* Filesystems are accessed over the internal network by all the nodes on the cluster.
+* There are 3 major groups on the cluster, each with their features and constraints:
+   1. /n/data1, /n/data2, /n/groups - Large datasets are stored in these parent directories (see features/contraints in the image above)
+   2. /home - the home directories of all users are under this parent directory. (see features/contraints in the image above)
+   3. /n/sctratch3 - scratch space for temporary storage
+      * For data only needed temporarily during analyses
+      * Each user can use up to 10 TB and 1 million files/directories
+      * Files not accessed for 30 days are automatically purged
+      * No backups!
+      * Create your own folder using this command `/n/cluster/bin/scratch3_create.sh`
 
-* Use `vim` to open `~/.bashrc`
-* Add the following line at the end of the file `export PATH=/n/app/bcbio/tools/bin:$PATH`
-* Save and quit out of `vim`
 
 ***
 *This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
