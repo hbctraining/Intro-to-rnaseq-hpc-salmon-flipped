@@ -48,7 +48,7 @@ This step involves creating an index to evaluate the sequences for all possible 
 - a suffix array (SA) of the reference transcriptome
 - a hash table to map each transcript in the reference transcriptome to it's location in the SA (is not required, but improves the speed of mapping drastically)
 
-To create the index, we use the `salmon index` command as detailed in the code below. However, **we are not going to run this code in class** as it can take a few minutes to run. Instead, we will have you point to an index that we have genertaed for you located at ``/n/groups/hbctraining/rna-seq_2019_02/reference_data/salmon.ensembl38.idx.09-06-2019`.
+To create the index, we use the `salmon index` command as detailed in the code below. However, **we are not going to run this code in class** as it can take a few minutes to run. Instead, we will have you point to an index that we have genertaed for you located at `/n/groups/hbctraining/rna-seq_2019_02/reference_data/salmon.ensembl38.idx.09-06-2019`.
 
 We will however, describe the parameters for the indexing step:
 
