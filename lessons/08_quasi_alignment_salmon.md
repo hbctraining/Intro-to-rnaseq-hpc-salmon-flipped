@@ -173,18 +173,18 @@ $ salmon quant -i /n/groups/hbctraining/rna-seq_2019_02/reference_data/salmon.en
 	--validateMappings
 ```
 	
-	> **NOTE:** Mapping validation can generally improve both the sensitivity and specificity of mapping, with only a moderate increase in use of computational resources. Unless there is a specific reason to do this (e.g. testing on clean simulated data), `--validateMappings` is generally recommended.
+> **NOTE:** Mapping validation can generally improve both the sensitivity and specificity of mapping, with only a moderate increase in use of computational resources. Unless there is a specific reason to do this (e.g. testing on clean simulated data), `--validateMappings` is generally recommended.
 
-	> **Paired-end data:** If using paired-end reads, then the command would require both sets of reads to be given:
+> **Paired-end data:** If using paired-end reads, then the command would require both sets of reads to be given:
 `salmon quant -i transcripts_index -l A -1 reads1.fq -2 reads2.fq -o transcripts_quant`
-	> 
-	> **RNA-seq bias correction:** To have Salmon correct for RNA-Seq biases you will need to specify the appropriate parameters when you run it. As noted, when describing the FASTQC results, with RNA-seq data you will always observe sequence-specific biases due to the random hexamer priming and so we would always want to have that correction turned on. Before using the remaining parameters it is advisable to assess your data using tools like [Qualimap](http://qualimap.bioinfo.cipf.es/) to look specifically for the presence of these biases in your data and decide on which parameters would be appropriate. 
-	> 
-	> To correct for the various sample-specific biases you could add the following parameters to the Salmon command:
-	>
-	> * `--gcBias` to learn and correct for fragment-level GC biases in the input data
-	> * `--posBias` will enable modeling of a position-specific fragment start distribution
-	>
+> 
+> **RNA-seq bias correction:** To have Salmon correct for RNA-Seq biases you will need to specify the appropriate parameters when you run it. As noted, when describing the FASTQC results, with RNA-seq data you will always observe sequence-specific biases due to the random hexamer priming and so we would always want to have that correction turned on. Before using the remaining parameters it is advisable to assess your data using tools like [Qualimap](http://qualimap.bioinfo.cipf.es/) to look specifically for the presence of these biases in your data and decide on which parameters would be appropriate. 
+> 
+> To correct for the various sample-specific biases you could add the following parameters to the Salmon command:
+>
+> * `--gcBias` to learn and correct for fragment-level GC biases in the input data
+> * `--posBias` will enable modeling of a position-specific fragment start distribution
+>
 
 ## Salmon output
 
