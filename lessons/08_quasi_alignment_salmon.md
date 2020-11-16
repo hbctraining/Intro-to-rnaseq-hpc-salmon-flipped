@@ -48,41 +48,11 @@ This step involves creating an index to evaluate the sequences for all possible 
 - a suffix array (SA) of the reference transcriptome
 - a hash table to map each transcript in the reference transcriptome to it's location in the SA (is not required, but improves the speed of mapping drastically)
 
-To create the transcriptome index with Salmon, let's start an interactive session and create a new directory in our `results` folder for the Salmon output:
+To create the index, we use the `salmon index` command as detailed in the code below. However, **we are not going to run this code in class** as it can take a few minutes to run. Instead, we will have you point to an index that we have genertaed for you located at ``/n/groups/hbctraining/rna-seq_2019_02/reference_data/salmon.ensembl38.idx.09-06-2019`.
 
-```bash
-$ srun --pty -p interactive -t 0-12:00 --mem 8G --reservation=HBC /bin/bash
+We will however, describe the parameters for the indexing step:
 
-$ mkdir ~/rnaseq/results/salmon
-
-$ cd ~/rnaseq/results/salmon
-```   
-
-Salmon is not available as a module on O2, but it is installed as part of the bcbio pipeline. Therefore, we need to add the appropriate path (`/n/app/bcbio/tools/bin/`) in our `$PATH` variable so that we can use it by simply typing in `salmon`. This directory contains executables for many tools useful for NGS analysis. We can add this location by including an `export` command to do this at the end of the `.bashrc` file, this will make it so that when you start a new shell session the location will always be in your path. 
-
-Open the `.bashrc` file using `vim` and at the end of the file add the export command that adds a specific location to the list in `$PATH`. 
-
-```bash
-$ vim ~/.bashrc
-
-# at the end of the file type in the following:
-export PATH=/n/app/bcbio/tools/bin:$PATH
-
-# Don't forget the ":" between the full path and the "$PATH"!
-```
-
-Exit `vim` and re-read the `.bashrc` file using the `source` command:
-
-```bash
-$ source ~/.bashrc
-
-$ echo $PATH
-```
-
-Now, we could create the index using the `salmon index` command as detailed below; however, we are not going to run this in class as it can take a few minutes to run. 
-The parameters for the indexing step are as follows:
-
-- **`-t`:** the path to the transcriptome (in FASTA format)
+- **`-t`:** the path to the transcriptome file (in FASTA format)
 - **`-i`:** the path to the folder to store the indices generated
 - **`-k`:** the length of kmer to use to create the indices (will output all sequences in transcriptome of length k)
     
@@ -157,7 +127,29 @@ The quasi-mapping approach estimates where the reads best map to on the transcri
 
 	If not accounted for, these biases can lead to unacceptable false positive rates in differential expression studies [[1](http://salmon.readthedocs.io/en/latest/salmon.html#quasi-mapping-based-mode-including-lightweight-alignment)]. The **Salmon algorithm can learn these sample-specific biases and account for them in the transcript abundance estimates**. Generally, this step results in more accurate transcript abundance estimation.
 
-	To perform the quasi-mapping and transcript abundance quantification, we can run the `salmon quant` command. The parameters for the command are described below (more information on parameters can be found [here](http://salmon.readthedocs.io/en/latest/salmon.html#id5)):
+Let's start by opening up an interactive session and creating a new directory in our `results` folder for the Salmon output:
+
+```bash
+$ srun --pty -p interactive -t 0-3:00 --mem 8G --reservation=HBC2 /bin/bash
+
+$ mkdir ~/rnaseq/results/salmon
+
+$ cd ~/rnaseq/results/salmon
+```   
+
+Salmon is available as a module on O2. To find out more on this module we can use `module spider`:
+
+```bash
+$ module spider salmon
+```
+
+We see that there are no dependency modules and we can simply just load and Salmon and get started.
+
+```bash
+$ module load salmon
+```
+
+To perform the quasi-mapping and transcript abundance quantification, we will use the `salmon quant` command. The parameters for the command are described below (more information on parameters can be found [here](http://salmon.readthedocs.io/en/latest/salmon.html#id5)):
 
 	* `-i`: specify the location of the index directory; for us it is `/n/groups/hbctraining/rna-seq_2019_02/reference_data/salmon.ensembl38.idx.09-06-2019`
 	* `-l A`: Format string describing the library. `A` will automatically infer the most likely library type (more info available [here](http://salmon.readthedocs.io/en/latest/salmon.html#what-s-this-libtype))
@@ -168,7 +160,7 @@ The quasi-mapping approach estimates where the reads best map to on the transcri
 	* `--validateMappings`: developed for finding and scoring the potential mapping loci of a read by performing base-by-base alignment of the reads to the potential loci, scoring the loci, and removing loci falling below a threshold score. This option improves the sensitivity and specificity of the mapping.
 
 
-	To run the quantification step on a single sample we have the command provided below. Let's try running it on our subset sample for `Mov10_oe_1.subset.fq`:
+	To run the quantification step on a single sample we have the command provided below. Let's try running it on the `Mov10_oe_1.subset.fq` sample:
 
 	```bash
 	$ salmon quant -i /n/groups/hbctraining/rna-seq_2019_02/reference_data/salmon.ensembl38.idx.09-06-2019 \
@@ -201,7 +193,7 @@ You should see a new directory has been created that is named by the string valu
     
 There is a logs directory, which contains all of the text that was printed to screen as Sailfish was running. Additionally, there is a file called `quant.sf`. 
 
-This is the **quantification file** in which each row corresponds to a transcript, listed by Ensembl ID, and the columns correspond to metrics for each transcript:
+This is the **quantification file** in which each row corresponds to a transcript, listed by Ensembl ID. The columns correspond to metrics for each transcript:
 
 ```bash
 Name    Length  EffectiveLength TPM     NumReads
@@ -222,7 +214,7 @@ ENST00000439842.1       11      2.95387 0       0
 * Salmon outputs 'pseudocounts' or 'abundance estimates' which predict the relative abundance of different isoforms in the form of three possible metrics (FPKM, RPKM, and TPM). **TPM (transcripts per million)** is a commonly used normalization method as described in [[1]](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2820677/) and is computed based on the effective length of the transcript. **We do NOT recommend FPKM or RPKM**.
 * Estimated **number of reads**, which is the estimate of the number of reads drawn from this transcript given the transcript’s relative abundance and length)
 
- 
+This file is used as input for downstream analyses including differential gene expression analysis. For each file that you run through Salmon, you will get a correpsonding `quant.sf` file. Downstream tools like [`tximport`](https://bioconductor.org/packages/release/bioc/html/tximport.html) take these files and aggregate them to obtain expression matrices for your dataset. 
 
 ---
 
