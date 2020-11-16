@@ -141,9 +141,9 @@ Some key LMOD commands are listed below:
 | `module spider modulename` | List all possible versions of that module |
 | `module avail` | List available modules available on the cluster |
 | `module avail string` | List available modules containing that string |
-| `module load modulename` | Add the full path to the tool to `$PATH` |
+| `module load modulename/version` | Add the full path to the tool to `$PATH` |
 | `module list` | List loaded modules | 
-| `module unload modulename` | Unload a specific module |
+| `module unload modulename/version` | Unload a specific module |
 | `module purge` | Unload all loaded modules |
 
 ## Filesystems on O2
