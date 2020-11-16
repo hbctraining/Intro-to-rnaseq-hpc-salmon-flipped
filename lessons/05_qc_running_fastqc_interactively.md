@@ -76,17 +76,19 @@ The main functions of FastQC are:
 * Summary graphs and tables to quickly assess your data
 * Export of results as an HTML-based report
 
+***
+
+> NOTE: Before we run FastQC, **you should be on a compute node** in an interactive session. Please run the following srun command if you are not on a compute node.
+> 
+> ```bash
+> $ srun --pty -p interactive -t 0-3:00 --mem 1G --reservation=HBC1 /bin/bash
+> ```
+>
+> ***An interactive session is very useful to test tools and workflows.***
+
 ### Run FastQC  
 
-Before we run FastQC, let's start an interactive session on the cluster (if you don't already have one going):
-
-```bash
-$ srun --pty -p interactive -t 0-12:00 --mem 1G --reservation=HBC1 /bin/bash
-```
-
-***An interactive session is very useful to test tools, workflows, run jobs that open new interactive windows (X11-forwarding) and so on.***
-
-Once your interactive job starts, notice that the command prompt has changed; this is because we are working on a compute node now, not on a login node. Change directories to `raw_data`.
+Change directories to `raw_data`.
 
 ```bash
 $ cd ~/rnaseq/raw_data
