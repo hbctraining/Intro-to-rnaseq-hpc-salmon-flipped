@@ -1,29 +1,23 @@
 ---
 title: "Quantification of transcript abundance using Salmon"
-author: "Mary Piper and Meeta Mistry"
-date: "Wednesday, February 27, 2019"
+author: "Mary Piper, Meeta Mistry, Radhika Khetani, Jihe Liu"
+date: "November 16, 2020
 ---
 
-Contributors: Mary Piper and Meeta Mistry
-
-Approximate time: 1.25 hours
+Approximate time: 20 minutes
 
 ## Learning Objectives
 
-* Explore using lightweight algorithms to quantify reads to abundance estimates
-* Understand how Salmon performs quasi-mapping and transcript abundance estimation
-
+* Create a job submission script to run Salamon on all samples in the dataset
 
  
 ## Running Salmon on multiple samples 
 
-We just ran Salmon on a single sample, but we would like to run this on **all samples**. To do so, we will need to create a job submission script.
+In class we talked in depth about how the Salmon algorithm works, and provided the command required to run Salmon on a single sample. In this lesson we walk through the steps required to **efficiently run Salmon on all samples** in the dataset. Unlike our experience with FastQC, where we could use one command and simply provide all files with the use of a wildcard (`*`), Salmon is only able to take a single file as input.
 
-> *NOTE:* We are iterating over FASTQ files in the **`raw_data` directory**.
+Rather than typing out the Salmon command six times, we will use **a for loop to iterate over all FASTQ files in our dataset** (inside the `raw_fastq` directory). Furthermore, rather than running this for loop interactively, we will put the for loop inside a text file and create a **job submission script**.
 
 ### Create a job submission script to run Salmon in serial
-
-Since Salmon is only able to take a single file as input, one way in which we can do this is to use a 'for loop' to run Salmon on all samples in serial. What this means is that Salmon will process the dataset one sample at a time.
 
 Let's start by opening up a script in `vim`:
 
@@ -31,7 +25,7 @@ Let's start by opening up a script in `vim`:
 $ vim salmon_all_samples.sbatch
 ```
 
-Let's start our script with a **shebang line followed by SBATCH directives which describe the resources we are requesting from O2**. We will ask for 6 cores and take advantage of Salmon's multi-threading capabilities. 
+Let's start our script with a **shebang line followed by Slurm directives which describe the resources we are requesting from O2**. We will ask for 6 cores and take advantage of Salmon's multi-threading capabilities. 
 
 Next we can **create a for loop to iterate over all FASTQ samples**. Inside the loop we will create a variable that stores the prefix we will use for naming output files, then we run Salmon. 
 
