@@ -130,7 +130,7 @@ Some key LMOD commands are listed below:
 ## Filesystems on O2
 
 <p align="center">
-<img src="../img/O2_primary_storage.png" width="500">
+<img src="../img/O2_primary_storage.png" width="600">
 </p>
 
 * Storage on HPC systems is organized differently than on your personal machine.
@@ -138,9 +138,9 @@ Some key LMOD commands are listed below:
 * Storage filesystems can be quite complex, with large spaces dedicated to a pre-defined purpose.
 * Filesystems are accessed over the internal network by all the nodes on the cluster.
 * There are 3 major groups on the cluster, each with their features and constraints:
-   1. /n/data1, /n/data2, /n/groups - Large datasets are stored in these parent directories (see features/contraints in the image above)
-   2. /home - the home directories of all users are under this parent directory. (see features/contraints in the image above)
-   3. /n/sctratch3 - scratch space for temporary storage
+   1. `/n/data1`, `/n/data2`, `/n/groups` - Large datasets are stored in these parent directories (see features/contraints in the image above)
+   2. `/home` - the home directories of all users are under this parent directory. (see features/contraints in the image above)
+   3. `/n/sctratch3` - scratch space for temporary storage
       * For data only needed temporarily during analyses
       * Each user can use up to 10 TB and 1 million files/directories
       * Files not accessed for 30 days are automatically purged
