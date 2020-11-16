@@ -163,7 +163,8 @@ Some key LMOD commands are listed below:
 1. Load `multiqc/1.9`. Did you have to load any additional modules?
 1. List all the modules loaded in your environment
 1. Try running the `multiqc` command again. What do you get as output?
-1. Check the contents of the `$PATH` environment variable again. Any changes from before?
+1. Use the `which` command to find out where the `multiqc` tool is in the file system.
+1. Check the contents of the `$PATH` environment variable again. Any changes compared to before?
 
 ***
 
