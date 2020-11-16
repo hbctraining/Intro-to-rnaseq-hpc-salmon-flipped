@@ -17,8 +17,8 @@ For each individual FASTQ file that is input to FastQC, there are **two output f
 $ ls -lh ~/rnaseq/results/fastqc/
 ```
 
-1. The first is **an HTML file** which is saved is a self-contained document with all of the graphs embedded into it. Each of the graphs evaluate different quality aspects of our data, we will discuss in more detail in this lesson. 
-2. Alongside the HTML file is **a zip file** (with the same name as the HTML file, but with .zip added to the end). This file contains the graphs from the report as separate files but also contains data files which are designed to be easily parsed to allow for a more detailed and automated evaluation of the raw data on which the QC report is built.
+1. The first is **an HTML file** which is a self-contained document with various graphs embedded into it. Each of the graphs evaluate different quality aspects of our data, we will discuss in more detail in this lesson. 
+2. Alongside the HTML file is **a zip file** (with the same name as the HTML file, but with .zip added to the end). This file contains the different plots  from the report as separate image files but also contains data files which are designed to be easily parsed to allow for a more detailed and automated evaluation of the raw data on which the QC report is built.
 
 
 ## Viewing the HTML report
