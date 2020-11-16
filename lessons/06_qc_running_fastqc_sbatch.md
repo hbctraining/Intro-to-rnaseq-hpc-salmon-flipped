@@ -39,7 +39,7 @@ Once in the vim editor, click `i` to enter INSERT mode. The first thing we need 
 #!/bin/bash
 ```
 
-Following the shebang line are the O2 options. For the script to run, we need to include options for **queue/partition (-p) and runtime limit (-t)**. To specify our options, we precede the option with `#SBATCH`, which tells O2 that the line contains options for job submission to slurm. Some key resources to specify are:
+Following the shebang line are the Slurm directives. For the script to run, we need to include options for **queue/partition (-p) and runtime limit (-t)**. To specify our options, we precede the option with `#SBATCH`. Some key resources to specify are:
 
 |Resource|Flag|Description|
 |:----:|:----:|:----:|
@@ -54,27 +54,28 @@ Let's specify those options as follows:
 #SBATCH -p short 		# partition name
 #SBATCH -t 0-2:00 		# time limit
 #SBATCH -c 6 		# number of cores
-#SBATCH --mem 6G
+#SBATCH --mem 6G   # requested memory
 #SBATCH --job-name rnaseq_mov10_fastqc 		# Job name
-#SBATCH -o %j.out			# File to which standard out will be written
-#SBATCH -e %j.err 		# File to which standard err will be written
+#SBATCH -o %j.out			# File to which standard output will be written
+#SBATCH -e %j.err 		# File to which standard error will be written
 ```
 
 Now in the body of the script, we can include any commands we want to run. In this case, it will be the following:
 
 ```bash
-## Changing directories to where the fastq files are located
+## Change directories to where the fastq files are located
 cd ~/rnaseq/raw_data
 
-## Loading modules required for script commands
+## Load modules required for script commands
 module load fastqc/0.11.3
 
-## Running FASTQC
+## Run FASTQC
 fastqc -o ~/rnaseq/results/fastqc/ -t 6 *.fq
 ```
-> **NOTE:** These are the same commands we used in the interactive session. Since we are writing them in a script, the `tab` completion function will not work here. So be aware of any potential typos!
 
-Once done with your script, click `esc` to exit the INSERT mode. Then save and quit the script by typing `:wq`. You may double check your script by typing `less mov10_fastqc.run`. Now, if everything looks good, let's submit the job to the Slurm:
+> **NOTE:** These are the same commands we used when running FASTQC in the interactive session. Since we are writing them in a script, the `tab` completion function will **not work**, so please make sure you don't have any typos when writing the script!
+
+Once done with your script, click `esc` to exit the INSERT mode. Then save and quit the script by typing `:wq`. You may double check your script by typing `less mov10_fastqc.run`. If everything looks good submit the job!
 
 ```bash
 $ sbatch mov10_fastqc.run
@@ -100,7 +101,7 @@ There should also be one standard error (`.err`) and one standard out (`.out`) f
 $ mv *.err ../logs/fastqc.err
 $ mv *.out ../logs/fastqc.out
 ```
-> **NOTE:** The `.err` and `.out` files store log information during the script running. They are helpful resources, especially when your script does not run as expected, and you need to troubleshoot the script.
+> **NOTE:** The `.err` and `.out` files store log information during the script running. They are helpful resources, especially when your script does not run as expected and you need to troubleshoot the script.
 
 ***
 **Exercise**
