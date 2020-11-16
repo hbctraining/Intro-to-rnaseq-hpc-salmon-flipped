@@ -1,5 +1,7 @@
 
-- [Working in an HPC environment](#working-in-an-hpc-environment)
+# Working in an HPC environment
+
+## Table of contents
   * [Connect to a *login* node on O2](#connect-to-a--login--node-on-o2)
   * [Connect to a *compute* node on O2](#connect-to-a--compute--node-on-o2)
   * [More about Slurm](#more-about-slurm)
@@ -11,8 +13,6 @@
     + [More about `/n/sctratch3`](#more-about---n-sctratch3-)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
-# Working in an HPC environment
 
 ## Connect to a *login* node on O2
 
