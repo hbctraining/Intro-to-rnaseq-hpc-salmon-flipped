@@ -159,8 +159,7 @@ Some key LMOD commands are listed below:
 
 1. What are the contents of the `$PATH` environment variable?
 1. Try running the `multiqc` command. What do you get as output?
-1. Check if the `multiqc` tool is available as a module?
-1. How many versions of `multiqc` are available?
+1. Check if the `multiqc` tool is available as a module. How many versions of `multiqc` are available?
 1. Load `multiqc/1.9`. Did you have to load any additional modules?
 1. List all the modules loaded in your environment
 1. Try running the `multiqc` command again. What do you get as output?
