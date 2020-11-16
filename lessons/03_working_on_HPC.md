@@ -130,7 +130,7 @@ Some key LMOD commands are listed below:
 ## Filesystems on O2
 
 <p align="center">
-<img src="../img/O2_primary_storage.png" width="600">
+<img src="../img/O2_primary-storage.png" width="600">
 </p>
 
 * Storage on HPC systems is organized differently than on your personal machine.
