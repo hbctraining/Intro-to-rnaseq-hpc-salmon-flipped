@@ -1,3 +1,9 @@
+---
+title: Working on HPC
+author: Radhika Khetani, Meeta Mistry, Mary Piper, Jihe Liu
+date: November 16, 2020
+duration: 35
+---
 
 # Working in an HPC environment
 
