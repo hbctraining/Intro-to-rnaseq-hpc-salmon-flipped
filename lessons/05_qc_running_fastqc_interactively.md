@@ -81,7 +81,7 @@ The main functions of FastQC are:
 Before we run FastQC, let's start an interactive session on the cluster (if you don't already have one going):
 
 ```bash
-$ srun --pty -p interactive -t 0-12:00 --mem 1G --reservation=HBC /bin/bash
+$ srun --pty -p interactive -t 0-12:00 --mem 1G --reservation=HBC1 /bin/bash
 ```
 
 ***An interactive session is very useful to test tools, workflows, run jobs that open new interactive windows (X11-forwarding) and so on.***
@@ -109,7 +109,7 @@ $ echo $PATH
 To run the FastQC program, we first need to load the appropriate module, so it puts the program into our path. To find the FastQC module to load we need to search the versions available:
 
 ```bash
-$ module spider
+$ module spider fastqc
 ```
 
 Then we can load the FastQC module:
@@ -154,17 +154,16 @@ Exit the interactive session and start a new one with 6 cores:
 ```bash
 $ exit  #exit the current interactive session (you will be back on a login node)
 
-$ srun --pty -c 6 -p interactive -t 0-12:00 --mem 6G --reservation=HBC /bin/bash  #start a new one with 6 cpus (-c 6) and 6G RAM (--mem 6G)
-
+$ srun --pty -c 6 -p interactive -t 0-12:00 --mem 6G --reservation=HBC1 /bin/bash  #start a new one with 6 cpus (-c 6) and 6G RAM (--mem 6G)
 ```
 
 Now that we are in a new interactive session with the appropriate resources, we will need to load the module again for this new session.
 
 ```bash
-$ module load fastqc/0.11.3  #reload the module for the new session
+$ module load fastqc/0.11.3  #reload the module for the new (6-core) interactive session
 ```
 
-We will also move to the `raw_data` directory (remember we are on a new compute node now):
+We will also move into the `raw_data` directory (remember we are on a new compute node now):
 
 ```bash
 $ cd ~/rnaseq/raw_data
@@ -173,7 +172,6 @@ $ cd ~/rnaseq/raw_data
 Run FastQC and use the multi-threading functionality of FastQC to run 6 jobs at once (with an additional argument `-t`).
 
 ```bash
-
 $ fastqc -o ~/rnaseq/results/fastqc/ -t 6 *.fq  #note the extra parameter we specified for 6 threads
 ```
 
