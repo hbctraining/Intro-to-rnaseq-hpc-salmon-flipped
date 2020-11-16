@@ -118,7 +118,7 @@ For example, we know that sex has large effects on gene expression, and if all o
 
 ## Batch effects
 
-Batch effects are a significant issue for RNA-Seq analyses, since you can see significant differences in expression due solely to the batch effect. 
+Batch effects are a significant issue for RNA-Seq analyses. This is illustrated in the figure below taken from [Hicks SC, et al., bioRxiv (2015)](https://www.biorxiv.org/content/early/2015/08/25/025528). On the right-hand side the experimental design is depicted, demonstrating a good use of batches by having samples from both sample groups present in each batch. On the far right hand side, an example PCA is plotted with the samples segregating by batch. The effect of batches on gene expression can often be larger than the effect from the experimental variable of interest, and it is therefore important to design your experiments such that we are able to account for this in our statistical model. We discuss this in more detail below.
 
 <p align="center">
 <img src="../img/batch_effect_pca.png" width="600">
