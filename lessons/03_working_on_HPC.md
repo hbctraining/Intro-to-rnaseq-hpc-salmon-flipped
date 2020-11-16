@@ -74,6 +74,12 @@ In the above command the parameters we are using are requesting specific resourc
 **Make sure that your command prompt now contains the word "compute", *e.g. `[rc_training10@compute-a-16-163 ~]$`*.** 
 You are now working on a compute node directly in an "interactive" session!
 
+Let's check how many jobs we have running currently, and what resources they are using.
+
+```bash
+$ O2squeue
+```
+
 ## More about Slurm
 
 * Slurm = Simple Linux Utility for Resource Management
@@ -99,7 +105,7 @@ Below is table with some of the arguments you can specify when requesting resour
 
 ### `sbatch` job submission script
 
-An `sbatch` job submission script is essentially a normal shell script with the Slurm resources specified at the top. Below is an example of an sbatch shell script that is requesting the following: 
+An `sbatch` job submission script is essentially a normal shell script with the Slurm resources specified at the top (Slurm directives). Below is an example of an sbatch shell script that is requesting the following: 
 * the "short" partition for 2 hours 
 * on 4 cores (30 minutes for each core)
 * using 400MBs (100MB for each core)
@@ -146,6 +152,22 @@ Some key LMOD commands are listed below:
 | `module unload modulename/version` | Unload a specific module |
 | `module purge` | Unload all loaded modules |
 
+> Note: On O2, a lot of tools used for analysis of sequencing data need to have the `gcc` compiler module loaded (`module load gcc/6.2.0`) prior to loading the tool of interest.
+
+*** 
+**Exercise**
+
+1. What are the contents of the `$PATH` environment variable?
+1. Try running the `multiqc` command. What do you get as output?
+1. Check if the `multiqc` tool is available as a module?
+1. How many versions of `multiqc` are available?
+1. Load `multiqc/1.9`. Did you have to load any additional modules?
+1. List all the modules loaded in your environment
+1. Try running the `multiqc` command again. What do you get as output?
+1. Check the contents of the `$PATH` environment variable again. Any changes from before?
+
+***
+
 ## Filesystems on O2
 
 <p align="center">
@@ -157,8 +179,8 @@ Some key LMOD commands are listed below:
 * Storage filesystems can be quite complex, with large spaces dedicated to a pre-defined purpose.
 * Filesystems are accessed over the internal network by all the nodes on the cluster.
 * There are 3 major groups on the cluster, each with their features and constraints:
-   1. `/n/data1`, `/n/data2`, `/n/groups` - Large datasets are stored in these parent directories (see features/contraints in the image above).
-   2. `/home` - the home directories of all users are under this parent directory (see features/contraints in the image above).
+   1. `/n/data1`, `/n/data2`, `/n/groups` - Large datasets are stored in these parent directories (see features/constraints in the image above).
+   2. `/home` - the home directories of all users are under this parent directory (see features/constraints in the image above).
    3. `/n/sctratch3` - scratch space for temporary storage.
 
 ### More about `/n/sctratch3`
