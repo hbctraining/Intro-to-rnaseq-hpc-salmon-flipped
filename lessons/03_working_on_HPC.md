@@ -1,5 +1,18 @@
-# Working in an HPC environment
 
+- [Working in an HPC environment](#working-in-an-hpc-environment)
+  * [Connect to a *login* node on O2](#connect-to-a--login--node-on-o2)
+  * [Connect to a *compute* node on O2](#connect-to-a--compute--node-on-o2)
+  * [More about Slurm](#more-about-slurm)
+    + [Requesting resources from Slurm](#requesting-resources-from-slurm)
+    + [`sbatch` job submission script](#-sbatch--job-submission-script)
+  * [Using software on O2](#using-software-on-o2)
+    + [LMOD system](#lmod-system)
+  * [Filesystems on O2](#filesystems-on-o2)
+    + [More about `/n/sctratch3`](#more-about---n-sctratch3-)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+# Working in an HPC environment
 
 ## Connect to a *login* node on O2
 
