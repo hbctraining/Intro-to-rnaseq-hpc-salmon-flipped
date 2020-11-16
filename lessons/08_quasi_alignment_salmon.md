@@ -127,7 +127,7 @@ The quasi-mapping approach estimates where the reads best map to on the transcri
 
 	If not accounted for, these biases can lead to unacceptable false positive rates in differential expression studies [[1](http://salmon.readthedocs.io/en/latest/salmon.html#quasi-mapping-based-mode-including-lightweight-alignment)]. The **Salmon algorithm can learn these sample-specific biases and account for them in the transcript abundance estimates**. Generally, this step results in more accurate transcript abundance estimation.
 
-Let's start by opening up an interactive session and creating a new directory in our `results` folder for the Salmon output:
+Now we know a little bit about how it works, let's map our data using Salmon. We can begin by opening up an interactive session and creating a new directory in our `results` folder for the Salmon output:
 
 ```bash
 $ srun --pty -p interactive -t 0-3:00 --mem 8G --reservation=HBC2 /bin/bash
@@ -137,47 +137,48 @@ $ mkdir ~/rnaseq/results/salmon
 $ cd ~/rnaseq/results/salmon
 ```   
 
-Salmon is available as a module on O2. To find out more on this module we can use `module spider`:
+Salmon is available as a module on O2. To find out more on how to use this module we can use `module spider`:
 
 ```bash
 $ module spider salmon
 ```
 
-We see that there are no dependency modules and we can simply just load and Salmon and get started.
+We see that there are no dependency modules and we can simply just load Salmon and get started.
 
 ```bash
 $ module load salmon
+
 ```
 
 To perform the quasi-mapping and transcript abundance quantification, we will use the `salmon quant` command. The parameters for the command are described below (more information on parameters can be found [here](http://salmon.readthedocs.io/en/latest/salmon.html#id5)):
 
-	* `-i`: specify the location of the index directory; for us it is `/n/groups/hbctraining/rna-seq_2019_02/reference_data/salmon.ensembl38.idx.09-06-2019`
-	* `-l A`: Format string describing the library. `A` will automatically infer the most likely library type (more info available [here](http://salmon.readthedocs.io/en/latest/salmon.html#what-s-this-libtype))
-	* `-r`: sample file
-	* `-o`: output quantification file name
-	* `--useVBOpt`: use variational Bayesian EM algorithm rather than the ‘standard EM’ to optimize abundance estimates (more accurate) 
-	* `--seqBias` will enable it to learn and correct for sequence-specific biases in the input data
-	* `--validateMappings`: developed for finding and scoring the potential mapping loci of a read by performing base-by-base alignment of the reads to the potential loci, scoring the loci, and removing loci falling below a threshold score. This option improves the sensitivity and specificity of the mapping.
+* `-i`: specify the location of the index directory; for us it is `/n/groups/hbctraining/rna-seq_2019_02/reference_data/salmon.ensembl38.idx.09-06-2019`
+* `-l A`: Format string describing the library. `A` will automatically infer the most likely library type (more info available [here](http://salmon.readthedocs.io/en/latest/salmon.html#what-s-this-libtype))
+* `-r`: sample file
+* `-o`: output quantification file name
+* `--useVBOpt`: use variational Bayesian EM algorithm rather than the ‘standard EM’ to optimize abundance estimates (more accurate) 
+* `--seqBias` will enable it to learn and correct for sequence-specific biases in the input data
+* `--validateMappings`: developed for finding and scoring the potential mapping loci of a read by performing base-by-base alignment of the reads to the potential loci, scoring the loci, and removing loci falling below a threshold score. This option improves the sensitivity and specificity of the mapping.
 
 
-	To run the quantification step on a single sample we have the command provided below. Let's try running it on the `Mov10_oe_1.subset.fq` sample:
+To run the quantification step on a single sample we have the command provided below. Let's try running it on the `Mov10_oe_1.subset.fq` sample:
 
-	```bash
-	$ salmon quant -i /n/groups/hbctraining/rna-seq_2019_02/reference_data/salmon.ensembl38.idx.09-06-2019 \
-	 -l A \
+```bash
+$ salmon quant -i /n/groups/hbctraining/rna-seq_2019_02/reference_data/salmon.ensembl38.idx.09-06-2019 \
+        -l A \
  	-r ~/rnaseq/raw_data/Mov10_oe_1.subset.fq \
  	-o Mov10_oe_1.subset.salmon \
  	--useVBOpt \
 	--seqBias \
 	--validateMappings
-	```
+```
 	
 	> **NOTE:** Mapping validation can generally improve both the sensitivity and specificity of mapping, with only a moderate increase in use of computational resources. Unless there is a specific reason to do this (e.g. testing on clean simulated data), `--validateMappings` is generally recommended.
 
 	> **Paired-end data:** If using paired-end reads, then the command would require both sets of reads to be given:
 `salmon quant -i transcripts_index -l A -1 reads1.fq -2 reads2.fq -o transcripts_quant`
 	> 
-	> **RNA-seq bias correctoin:** To have Salmon correct for RNA-Seq biases you will need to specify the appropriate parameters when you run it. As noted, when describing the FASTQC results, with RNA-seq data you will always observe sequence-specific biases due to the random hexamer priming and so we would always want to have that correction turned on. Before using the remaining parameters it is advisable to assess your data using tools like [Qualimap](http://qualimap.bioinfo.cipf.es/) to look specifically for the presence of these biases in your data and decide on which parameters would be appropriate. 
+	> **RNA-seq bias correction:** To have Salmon correct for RNA-Seq biases you will need to specify the appropriate parameters when you run it. As noted, when describing the FASTQC results, with RNA-seq data you will always observe sequence-specific biases due to the random hexamer priming and so we would always want to have that correction turned on. Before using the remaining parameters it is advisable to assess your data using tools like [Qualimap](http://qualimap.bioinfo.cipf.es/) to look specifically for the presence of these biases in your data and decide on which parameters would be appropriate. 
 	> 
 	> To correct for the various sample-specific biases you could add the following parameters to the Salmon command:
 	>
