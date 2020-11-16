@@ -36,7 +36,7 @@ There are multiple ways to connect with, and do work on, a compute node; a compu
 You will get practice with running batch jobs, for now we are going to start an interactive session on O2 using `srun`. 
 
 ```bash
-$ srun --pty -p interactive -t 0-8:00 --mem 1G --reservation=HBC1 /bin/bash
+$ srun --pty -p interactive -t 0-3:00 --mem 1G --reservation=HBC1 /bin/bash
 ```
 
 In the above command the parameters we are using are requesting specific resources:
