@@ -58,8 +58,6 @@ You will see messages printed in the message window in the top window pane, givi
 
 You will see two panels in the interface. On the left hand side you will see your the files in your laptop and on the right hand side you have your home directory on O2. Both panels have a directory tree at the top and a detailed listing of the selected directory's contents underneath. In the right hand panel, navigate to where the HTML files are located on O2 `~/rnaseq/results/fastqc/`. Then decide where you would like to copy those files to on your computer and move to that directory on the left hand panel.
 
-**Add a screenshot here?**
-
 Once you have found the html output for `Mov10_oe1` **copy it over** by double clicking it or drag it over to right hand side panel. Once you have the HTML file copied over to your laptop, you can leave the Filezilla interface. You can then locate the HTML file on your computer and open it up in a browser. 
 
 ## Interpreting the HTML report
@@ -83,7 +81,6 @@ The first module gives the basic statistics for the sample. Generally it is a go
 One of the most important analysis modules is the **"Per base sequence quality"** plot. This plot provides the distribution of quality scores at each position in the read across all reads. The y-axis gives the quality scores, while the x-axis represents the position in the read. The color coding of the plot denotes what are considered high, medium and low quality scores. 
 
 This plot can alert us to whether there were any problems occuring during sequencing and whether we might need to contact the sequencing facility.
-
 
 <p align="center">
 <img src="../img/FastQC_seq_qual.png">
@@ -183,7 +180,7 @@ Since our data is just a subset of the original data and it contains the over-ex
 <img src="../img/FastQC_contam.png"
      </p>
 
-## Conclusion
+## Summary
 
 As our report only represents a subset of reads (chromosome 1) for `Mov10_oe_1.subset.fq`, which can skew the QC results. We encourage you to look at the [report for the full set of reads](../fastqc/Mov10oe_1-fastqc_report.html), and note how the QC results differ when using the entire dataset.
 
