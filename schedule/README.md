@@ -10,7 +10,7 @@
 
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
-| 09:30 - 09:45 | [Workshop introduction](../lectures/) | Radhika |
+| 09:30 - 09:45 | [Workshop introduction](../lectures/Intro_to_workshop.pdf) | Radhika |
 | 09:45 - 10:25 | [Working in an HPC environment - Review](../lessons/03_working_on_HPC.md) | Radhika |
 | 10:25 - 11:05 | [Project Organization and Best Practices in Data Management](../lessons/04_data_organization.md) | Meeta |
 | 11:05 - 11:45 | [Quality Control of Sequence Data: Running FASTQC](../lessons/05_qc_running_fastqc_interactively.md) | Jihe |
