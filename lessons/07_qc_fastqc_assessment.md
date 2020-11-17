@@ -180,6 +180,13 @@ Since our data is just a subset of the original data and it contains the over-ex
 <img src="../img/FastQC_contam.png"
      </p>
 
+***
+**Exercise**
+
+1. **Upload your HTML report for Mov10_oe2 to the DropBox link on the schedule page.**
+
+***
+
 ## Summary
 
 As our report only represents a subset of reads (chromosome 1) for `Mov10_oe_1.subset.fq`, which can skew the QC results. We encourage you to look at the [report for the full set of reads](https://www.dropbox.com/sh/uptwzpg7fbxpnmx/AACfQsDGmnCS05_dA7T9xzOGa?dl=1), and note how the QC results differ when using the entire dataset.
