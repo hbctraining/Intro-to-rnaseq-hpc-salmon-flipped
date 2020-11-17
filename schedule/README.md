@@ -10,8 +10,8 @@
 
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
-| 09:30 - 09:45 | Workshop introduction | Radhika |
-| 09:45 - 10:25 | Working in an HPC environment | Radhika |
+| 09:30 - 09:45 | [Workshop introduction](../lectures/) | Radhika |
+| 09:45 - 10:25 | [Working in an HPC environment - Review](../lessons/03_working_on_HPC.md) | Radhika |
 | 10:25 - 11:05 | [Project Organization and Best Practices in Data Management](../lessons/04_data_organization.md) | Meeta |
 | 11:05 - 11:45 | [Quality Control of Sequence Data: Running FASTQC](../lessons/05_qc_running_fastqc_interactively.md) | Jihe |
 | 11:45 - 12:00 | Overview of self-learning materials and homework submission | Jihe/Meeta |
@@ -32,7 +32,7 @@ Before you start with the self-learning portion of the workshop, please check th
 * [Quality Control of Sequence Data: Evaluating FASTQC reports](../lessons/07_qc_fastqc_assessment.md)
 
 ### Assignment #1
-* Once the self-learning lessons exercises are complete, please identify the apprpopriate files as specified in the lesson (i.e. Excel file, or text/script files) and **upload** to Dropbox the **day before the next class**.
+* Once the self-learning lessons exercises are complete, please identify the apprpopriate files as specified in the lesson (i.e. Excel file, or text/script files) and **upload** to [Dropbox](https://www.dropbox.com/request/iE82DOpC35d86Jh87zrG) the **day before the next class**.
 * [Email us](mailto:hbctraining@hsph.harvard.edu) about questions regarding the homework that you need answered before the next class.
 * Post questions that you would like to have reviewed in class [here](https://PollEv.com/hbctraining945).
 * Answer key
@@ -56,7 +56,7 @@ Before you start with the self-learning portion of the workshop, please check th
 ### Assignment #2
 * All exercise questions from the self-learning lessons have been put together in a text file (download for local access).
   * The text file can be opened with any text editor application (i.e. Notepad++, TextWrangler) on your local computer
-* Add your solutions to the exercises in the downloaded .txt file and **upload the saved text file** to Dropbox **day before the next class**.
+* Add your solutions to the exercises in the downloaded .txt file and **upload the saved text file** to [Dropbox](https://www.dropbox.com/request/9fWybJi6KfW8jjZXOQqK) **day before the next class**.
 * [Email us](mailto:hbctraining@hsph.harvard.edu) about questions regarding the homework that you need answered before the next class.
 * Post questions that you would like to have reviewed in class [here](https://PollEv.com/hbctraining945).
 * Answer key
