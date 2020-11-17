@@ -161,7 +161,7 @@ $ srun --pty -c 6 -p interactive -t 0-3:00 --mem 2G --reservation=HBC1 /bin/bash
 Once you are on the compute node, check what job(s) you have running and what resources you are using.
 
 ```bash
-O2squeue
+$ O2squeue
 ```
 
 Now that we are in a new interactive session with the appropriate resources, we will need to load the module again for this new session.
