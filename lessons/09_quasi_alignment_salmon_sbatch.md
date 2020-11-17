@@ -33,27 +33,28 @@ Begin the script with a **shebang line**.
 ```
 **Exercise 1**
 
-Next, we will add the Slurm directives requesting specific resources from O2 for our job. The resources we need are listed below. Use this [linked lecture](https://github.com/hbctraining/Intro-to-shell-flipped/blob/master/lectures/HPC_intro_O2_October2020.pdf) as a resource to help figure out the correct directive (`#SBATCH`) to add to your script. The [HMSRC O2 Wiki](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic) is also a useful reference guide.
+Next, we will add the Slurm directives requesting specific resources from O2 for our job. The resources we need are listed below. Use this [linked lecture](https://github.com/hbctraining/Intro-to-shell-flipped/blob/master/lectures/HPC_intro_O2_October2020.pdf) as a resource to help figure out the correct directives ( i.e `#SBATCH`) to add to your script. The [HMSRC O2 Wiki](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic) is also a useful reference guide.
 
-1. Use the `short` partition
-2. Request 6 cores to take advantage of Salmon's multi-threading capabilities
-3. Request 12 hours of runtime
-4. Request 8G of memory 
-5. Give your job the name `salmon_in_serial`
-6. Add an email and request to be notified when the job is complete
+* Use the `short` partition
+* Request 6 cores to take advantage of Salmon's multi-threading capabilities
+* Request 12 hours of runtime
+* Request 8G of memory 
+* Give your job the name `salmon_in_serial`
+* Add an email and request to be notified when the job is complete
 
 
 **Exercise 2**
 
-Now that we have the resources requested, we can add the code for our shell script. Begin by loading the Salmon module. Then change directories to where the salmon results will be output (be sure to use a full path here).
+Now that we have the resources requested, we can begin to **add the code for our shell script**. Add lines of code to do the following:
 
-Next we can **create a for loop to iterate over all FASTQ samples**. Inside the loop we will create a variable that stores the prefix we will use for naming output files, then we run Salmon. 
+* Load the Salmon module
+* Change directories to where the Salmon results will be output (be sure to use a full path here).
 
 > *Add comments to your script liberally, wherever you feel it's needed.*
 
 **Exercise 3**
 
-The last piece of our shell script is the for loop code provided below. Copy and paste this into your script.
+The last piece of our shell script is the **for loop** code provided below. **Copy and paste this into your script**.
 
 ```bash
 
