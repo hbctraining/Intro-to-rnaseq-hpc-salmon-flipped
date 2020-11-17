@@ -178,12 +178,12 @@ Since our data is just a subset of the original data and it contains the over-ex
 
 <p align="center">
 <img src="../img/FastQC_contam.png"
-     </p>
+</p>
 
 ***
 **Exercise**
 
-1. **Upload your HTML report for Mov10_oe2 to the DropBox link on the schedule page.**
+* **Upload your HTML report for Mov10_oe2 to the DropBox link on the schedule page.**
 
 ***
 
