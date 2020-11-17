@@ -12,8 +12,8 @@
 |:-----------:|:----------:|:--------:|
 | 09:30 - 09:45 | Workshop introduction | Radhika |
 | 09:45 - 10:25 | Working in an HPC environment | Radhika |
-| 10:25 - 11:05 | Project Organization and Best Practices in Data Management | Meeta |
-| 11:05 - 11:45 | Quality Control of Sequence Data: Running FASTQC | Jihe |
+| 10:25 - 11:05 | [Project Organization and Best Practices in Data Management](../lessons/04_data_organization.md) | Meeta |
+| 11:05 - 11:45 | [Quality Control of Sequence Data: Running FASTQC](../lessons/05_qc_running_fastqc_interactively.md) | Jihe |
 | 11:45 - 12:00 | Overview of self-learning materials and homework submission | Jihe/Meeta |
 
 ### Self Learning #1
@@ -23,18 +23,16 @@ Before you start with the self-learning portion of the workshop, please check th
 > If you are not logged into O2 or are not on a compute node, please follow the steps below as appropriate before you start with the self-learning lessons:
 > 1. Log in using `ssh rc_trainingXX@o2.hms.harvard.edu` and enter your password (HMSXXcluster) (replace the "XX" in both the username and the password with the number you were assigned in class). 
 > 2. Once you are on the login node, use `srun --pty -p interactive -t 0-2:00 --mem 1G /bin/bash` to get on a compute node. ***The lesson may have guidance on which arguments to modify, e.g. you may need to use more memory or more cores***.
->> ***NOTE: You do NOT need to specify a `reservation` as we do in-class.*** 
+>> ***NOTE: You do NOT need to specify a `reservation`.*** 
 > 3. Proceed with the self learning once your command prompt has the word `compute` in it.
 > 4. If you log out between lessons (using the `exit` command twice), please follow points 1. and 2. above to log back in and get on a compute node when you restart with the self learning.
 
-* Experimental design considerations
-* Quality Control of Sequence Data: Running FASTQC on multiple samples
-* Quality Control of Sequence Data: Evaluating FASTQC reports
+* [Experimental design considerations](../lessons/02_experimental_planning_considerations.md)
+* [Quality Control of Sequence Data: Running FASTQC on multiple samples](../lessons/06_qc_running_fastqc_sbatch.md)
+* [Quality Control of Sequence Data: Evaluating FASTQC reports](../lessons/07_qc_fastqc_assessment.md)
 
 ### Assignment #1
-* All exercise questions from the self-learning lessons have been put together in a text file (download for local access).
-  * The text file can be opened with any text editor application (i.e. Notepad++, TextWrangler) on your local computer
-* Add your solutions to the exercises in the downloaded .txt file and **upload the saved text file** to Dropbox **day before the next class**.
+* Once the self-learning lessons exercises are complete, please identify the apprpopriate files as specified in the lesson (i.e. Excel file, or text/script files) and **upload** to Dropbox the **day before the next class**.
 * [Email us](mailto:hbctraining@hsph.harvard.edu) about questions regarding the homework that you need answered before the next class.
 * Post questions that you would like to have reviewed in class [here](https://PollEv.com/hbctraining945).
 * Answer key
