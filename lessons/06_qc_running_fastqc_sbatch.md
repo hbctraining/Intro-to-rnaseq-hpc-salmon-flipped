@@ -106,7 +106,8 @@ $ mv *.out ../logs/fastqc.out
 ***
 **Exercise**
 1. Take a look at what's inside the `.err` and `.out` files. What do you observe? Do you remember where you see those information when using the interactive session?
-2. How would you change the `mov10_fastqc.run` script if you had 9 fastq files you wanted to run in parallel?
+2. How would you change the `mov10_fastqc.run` script if you had 9 fastq files you wanted to run in parallel? 
+3. **Write out your answers in a text file and upload to the DropBox link on the schedule page.**
 
 ---
 *This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
