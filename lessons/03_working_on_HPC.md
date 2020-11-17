@@ -118,15 +118,15 @@ Below is table with some of the arguments you can specify when requesting resour
 | -t | how much time to allocate to job | 0-03:00, 5:00:00 | [O2 Wiki - Time limits for each partition](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-Timelimits) |
 | -c | max cores | 4, 8 | [O2 Wiki - How many cores?](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-Howmanycores?) |
 | --mem | max memory | 8G, 8000 | [O2 Wiki - Memory requirements](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-Memoryrequirements) |
-| -o | name of file to create with standard output | %j.out | [O2 Wiki - `sbatch` options quick reference](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-sbatchoptionsquickreference) |
-| -e | name of file to create with standard error | %j.err | [O2 Wiki - `sbatch` options quick reference](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-sbatchoptionsquickreference) |
-| -J | name of the job | Fastqc_run, rnaseq_workflow_mov10 | [O2 Wiki - `sbatch` options quick reference](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-sbatchoptionsquickreference) |
-| --mail-type | send an email when job starts, ends or errors out  | END, ALL | [O2 Wiki - `sbatch` options quick reference](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-sbatchoptionsquickreference) |
-| --mail-user | send email to this address | xyz10@harvard.edu | [O2 Wiki - `sbatch` options quick reference](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-sbatchoptionsquickreference) |
+| -o | name of file to create with standard output | %j.out | [O2 Wiki](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-sbatchoptionsquickreference) |
+| -e | name of file to create with standard error | %j.err | [O2 Wiki](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-sbatchoptionsquickreference) |
+| -J | name of the job | Fastqc_run, rnaseq_workflow_mov10 | [O2 Wiki](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-sbatchoptionsquickreference) |
+| --mail-type | send an email when job starts, ends or errors out  | END, ALL | [O2 Wiki](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-sbatchoptionsquickreference) |
+| --mail-user | send email to this address | xyz10@harvard.edu | [O2 Wiki](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-sbatchoptionsquickreference) |
 
 ### `sbatch` job submission script
 
-An `sbatch` job submission script is essentially a normal shell script with the Slurm resources specified at the top (Slurm directives). Below is an example of an sbatch shell script that is requesting the following: 
+An `sbatch` job submission script is essentially a normal shell script with the Slurm resource request specified at the top (Slurm directives) preceded by `#SBATCH`. Below is an example of an sbatch shell script that is requesting the following: 
 * the "short" partition for 2 hours 
 * on 4 cores (30 minutes for each core)
 * using 400MBs (100MB for each core)
@@ -156,7 +156,7 @@ fastqc -t 4 file1_1.fq file1_2.fq file2_1.fq file2_2.fq
 
 ### LMOD system
 
-In the above example we have used the FastQC tool, and prior to using it we have used the command `module load fastqc/0.11.5`. The `module load` command is part of the LMOD system available on O2. It enables users to access software installed on O2 easily, and manages every software's dependency. LMOD system adds directory paths of software and their dependencies (if any) into the `$PATH` variable.
+In the above example we want to run the FastQC tool on four files. However, before we use the `fastqc` command, we've used the command `module load fastqc/0.11.5`. This `module load` command is part of the LMOD system available on O2. It enables users to access software installed on O2 easily, and manages every software's dependency. The LMOD system adds directory paths of software executables and their dependencies (if any) into the `$PATH` variable.
 
 So, instead of using `/n/app/fastqc/0.11.5/bin/fastqc` as our command, we can load the module and use `fastqc` as the command. 
 
@@ -211,8 +211,6 @@ Some key LMOD commands are listed below:
 * Files not accessed for 30 days are automatically deleted.
 * **No backups!**
 * You can create your own folder using this command `/n/cluster/bin/scratch3_create.sh`
-
-
 
 ***
 *This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
