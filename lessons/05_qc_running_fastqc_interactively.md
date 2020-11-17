@@ -65,20 +65,18 @@ Therefore, for the first nucleotide in the read (C), there is less than a 1 in 1
 
 ## Assessing quality with FastQC
 
-Now we understand what information is stored in a FASTQ file, the next step is to examine quality metrics for our data.
+Now that we understand what information is stored in a FASTQ file, the next step is to examine quality metrics for our data.
 
-[FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) provides a simple way to do some quality control checks on raw sequence data coming from high throughput sequencing pipelines. It provides a modular set of analyses, which you can use to give a quick impression of whether your data has any problems of which you should be aware before doing any further analysis.
+[FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) provides a simple way to do some quality checks on raw sequence data coming from high throughput sequencing pipelines. It provides a modular set of analyses, which you can use to obtain an impression of whether your data has any problems that you should be aware of before moving on to the next analysis.
 
-The main functions of FastQC are:
-
-* Import of data from FASTQ files (also accepts BAM and SAM alignment files)
-* Quick overview of any likely sequencing problems
-* Summary graphs and tables to quickly assess your data
-* Export of results as an HTML-based report
+FastQC does the following:
+* accepts FASTQ files (or BAM files) as input
+* generates summary graphs and tables to help assess your data
+* generates an easy-to-view HTML-based report with the graphs and tables
 
 ***
 
-> NOTE: Before we run FastQC, **you should be on a compute node** in an interactive session. Please run the following srun command if you are not on a compute node.
+> NOTE: Before we run FastQC, **you should be on a compute node** in an interactive session. Please run the following `srun` command if you are not on a compute node.
 > 
 > ```bash
 > $ srun --pty -p interactive -t 0-3:00 --mem 1G --reservation=HBC1 /bin/bash
@@ -94,7 +92,7 @@ Change directories to `raw_data`.
 $ cd ~/rnaseq/raw_data
 ```  
 
-Before we start using software, we have to load the environments for each software package. On the O2 cluster, this is done using an **LMOD** system. 
+Before we start using software, we have to load the module for each tool. On O2, this is done using an **LMOD** system. 
 
 If we check which modules we currently have loaded, we should not see FastQC.
 
@@ -102,7 +100,7 @@ If we check which modules we currently have loaded, we should not see FastQC.
 $ module list
 ```
 
-This is because the FastQC program is not in our $PATH (i.e. its not in a directory that shell will automatically check to run commands/programs).
+This is because the FastQC program is not in our $PATH (i.e. it's not in a directory that shell will automatically check to run commands/programs).
 
 ```bash
 $ echo $PATH
@@ -114,7 +112,7 @@ To run the FastQC program, we first need to load the appropriate module, so it p
 $ module spider fastqc
 ```
 
-Then we can load the FastQC module:
+Once we know which version we want to use (0.11.3), we can load the FastQC module:
 
 ```bash
 $ module load fastqc/0.11.3
@@ -128,7 +126,7 @@ $ module list
 $ echo $PATH
 ```
 
-Now, let's create a directory to store our results:
+Now, let's create a directory to store the output of FastQC:
 
 ```bash
 $ mkdir ~/rnaseq/results/fastqc
@@ -139,6 +137,7 @@ We will need to specify this directory in the command to run FastQC. How do we k
 ```bash
 $ fastqc --help
 ```
+
 > **NOTE:** From the help manual, we know that `-o` (or `--outdir`) will create all output files in the specified output directory. Note that another argument, `-t`, specifies the number of files which can be processed simultaneously. We will use `-t` argument later. You may explore other arguments as well based on your needs.
 
 FastQC will accept multiple file names as input, so we can use the `*.fq` wildcard.
@@ -149,14 +148,20 @@ $ fastqc -o ~/rnaseq/results/fastqc/ *.fq
 
 *Did you notice how each file was processed serially? How do we speed this up?*
 
-FastQC has the capability of splitting up a single process to run on multiple cores! To do this, we will need to specify an additional argument `-t` indicating number of cores. We will also need to exit the current interactive session, since we initially had only asked for one core. We cannot have a tool to use more cores without first requesting the resources from O2. 
+FastQC has the capability of splitting up a single process to run on multiple cores! To do this, we will need to specify an additional argument `-t` indicating number of cores. We will also need to exit the current interactive session, since we started this interactive session with only 1 core. We cannot have a tool to use more cores than requested on a compute node. 
 
 Exit the interactive session and start a new one with 6 cores:
 
 ```bash
 $ exit  #exit the current interactive session (you will be back on a login node)
 
-$ srun --pty -c 6 -p interactive -t 0-12:00 --mem 6G --reservation=HBC1 /bin/bash  #start a new one with 6 cpus (-c 6) and 6G RAM (--mem 6G)
+$ srun --pty -c 6 -p interactive -t 0-3:00 --mem 2G --reservation=HBC1 /bin/bash  #start a new one with 6 cores (-c 6) and 2GB RAM (--mem 2G)
+```
+
+Once you are on the compute node, check what job(s) you have running and what resources you are using.
+
+```bash
+O2squeue
 ```
 
 Now that we are in a new interactive session with the appropriate resources, we will need to load the module again for this new session.
