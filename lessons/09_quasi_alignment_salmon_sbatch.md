@@ -4,7 +4,7 @@ author: "Mary Piper, Meeta Mistry, Radhika Khetani, Jihe Liu"
 date: "November 16, 2020
 ---
 
-Approximate time: 20 minutes
+Approximate time: 30 minutes
 
 ## Learning Objectives
 
@@ -33,9 +33,9 @@ Begin the script with a **shebang line**.
 ```
 **Exercise 1**
 
-Next, we will add the Slurm directives requesting specific resources from O2 for our job. The resources we need are listed below. Use this [linked lecture](https://github.com/hbctraining/Intro-to-shell-flipped/blob/master/lectures/HPC_intro_O2_October2020.pdf) as a resource to help figure out the correct directives ( i.e `#SBATCH`) to add to your script. The [HMSRC O2 Wiki](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic) is also a useful reference guide.
+Next, we will add the Slurm directives requesting specific resources from O2 for our job. The resources we need are listed below. Use this [linked lesson](03_working_on_HPC.md#requesting-resources-from-slurm) as a resource to help figure out the correct Slurm directives ( i.e `#SBATCH`) to add to your script. The [HMSRC O2 Wiki](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic) is also a good reference guide.
 
-* Use the `short` partition
+* Your job will use the `short` partition
 * Request 6 cores to take advantage of Salmon's multi-threading capabilities
 * Request 12 hours of runtime
 * Request 8G of memory 
