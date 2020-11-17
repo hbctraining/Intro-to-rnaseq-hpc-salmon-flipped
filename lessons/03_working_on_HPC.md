@@ -7,22 +7,44 @@ duration: 35
 
 # Working in an HPC environment
 
-## Table of contents
-  * [Connect to a *login* node on O2](#connect-to-a--login--node-on-o2)
-  * [Connect to a *compute* node on O2](#connect-to-a--compute--node-on-o2)
-  * [More about Slurm](#more-about-slurm)
-    + [Requesting resources from Slurm](#requesting-resources-from-slurm)
-    + [`sbatch` job submission script](#-sbatch--job-submission-script)
-  * [Using software on O2](#using-software-on-o2)
-    + [LMOD system](#lmod-system)
-  * [Filesystems on O2](#filesystems-on-o2)
-    + [More about `/n/sctratch3`](#more-about---n-sctratch3-)
+## Clarifying some terminology
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+### Cores 
+CPUs (Central Processing Units) are composed of a single or multiple cores. If I have a processor with 4 "cores", i.e. a "quad-core" processor. This means that my processor can do 4 distinct computations at the same time. 
+
+### Data Storage
+Data storage is measured in bytes, usually Gigabytes (GB), Terabytes (TB), Petabytes (PB). My laptop has 1 TB of storage, which is pretty standard for laptops.
+
+### Memory
+Memory is a small amount of volatile or temporary information storage. This is distinct from data storage we discussed in the previous point. It is an essential component of any computer, as this is where data is stored *when some computation is being performed* on it. If you have ever used R, all the objects in your environment are usually stored in memory until you save your environment. My laptop has 16 GB of memory, which is a little higher than average.
+
+## Why use the cluster or an HPC environment?
+
+1. A lot of software is designed to work with the resources on an HPC environment and is either unavailable for, or unusable on, a personal computer.
+2. If you are performing analysis on large data files (e.g. high-throughput sequencing data), you should work on the cluster to avoid issues with memory and to get the analysis done a lot faster with the superior processing capacity. Essentially, a cluster has:
+    * 100s of cores for processing!
+    * 100s of Gigabytes or Petabytes of storage!
+    * 100s of Gigabytes of memory!
+
+### Parallelization
+
+Point #2 in the last section brings us to the idea of **parallelization** or parallel computing that enables us to efficiently use the resources available on the cluster.
+
+What if we had 3 input files that we wanted to analyze? Well, we could process these files **in serial**, i.e. use the same core(s) over and over again, with or without multithreading, as shown in the image below.
+
+<p align="center">
+<img src="../img/serial_hpc_3samples.png" width="450">
+</p>
+
+This is great, but it is not as efficient as multithreading each analysis, and using a set of 8 cores for each of the three input samples. With this type of parallelization, several samples can be analysed at the same time!
+
+<p align="center">
+<img src="../img/multithreaded_hpc_3samples.png" width="650">
+</p>
 
 ## Connect to a *login* node on O2
 
-Type in the following command with your username to login:
+Let's get started with the hands-on component by typing in the following command to log in to O2:
 
 ```bash
 ssh username@o2.hms.harvard.edu
@@ -41,7 +63,6 @@ About nodes:
 * There are dedicated login nodes and compute nodes.
 * A login node's only function is to enable users to log in to a cluster, it is not meant to be used for any actual work/computing. There are 6 login nodes on O2.
 * There are several compute nodes on O2 available for performing your analysis/work. 
-
 
 ## Connect to a *compute* node on O2
 
@@ -95,7 +116,7 @@ Below is table with some of the arguments you can specify when requesting resour
 |:-----------:|:----------:|:--------:|:----------:|
 | -p | name of compute partition | short, medium, interactive | [O2 Wiki - Guidelines for choosing a partition](https://wiki.rc.hms.harvard.edu/display/O2/How+to+choose+a+partition+in+O2) | 
 | -t | how much time to allocate to job | 0-03:00, 5:00:00 | [O2 Wiki - Time limits for each partition](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-Timelimits) |
-| -c | max cores | 4, 8, 20 | [O2 Wiki - How many cores?](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-Howmanycores?) |
+| -c | max cores | 4, 8 | [O2 Wiki - How many cores?](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-Howmanycores?) |
 | --mem | max memory | 8G, 8000 | [O2 Wiki - Memory requirements](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-Memoryrequirements) |
 | -o | name of file to create with standard output | %j.out | [O2 Wiki - `sbatch` options quick reference](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-sbatchoptionsquickreference) |
 | -e | name of file to create with standard error | %j.err | [O2 Wiki - `sbatch` options quick reference](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-sbatchoptionsquickreference) |
@@ -190,6 +211,8 @@ Some key LMOD commands are listed below:
 * Files not accessed for 30 days are automatically deleted.
 * **No backups!**
 * You can create your own folder using this command `/n/cluster/bin/scratch3_create.sh`
+
+
 
 ***
 *This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
