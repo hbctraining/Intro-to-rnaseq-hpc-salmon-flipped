@@ -82,42 +82,42 @@ In the above image, the description column is helpful in interpretating the tabl
 
 STAR provides information about *uniquely mapping reads* in the `%Aligned` column. A good quality sample will have **at least 75% of the reads uniquely mapped**. Once the value starts to drop below 60%, it's advisable to start troubleshooting. Low number of uniquely mapping reads means that more reads are mapping to multiple locations. 
 
-The 'STAR: Alignment Scores' plot visually represents much of this information. The % uniquely mapping, multimapping, and unmapped reads can be easily compared between samples to get a nice overview of the quality of the samples.
+The 'STAR: Alignment Scores' plot visually represents this mapping information. The % uniquely mapped, multimapped, and unmapped reads can be easily compared between samples to get a nice overview of the quality of the samples.
 
 <img src="../img/multiqc_alignment_scores.png" width="600">
 
-> NOTE: The thresholds suggested above will vary depending on the organism that you are working with. Much of what is discussed here is in the context of working with human or mouse data. For example, 75% of mapped reads holds true only if the genome is good or mature. For badly assembled genomes we may not observe a high mapping rate, even if the actual sequence sample is good.
+> NOTE: The thresholds suggested above will vary depending on the organism that you are working with. Much of what is discussed here is in the context of working with human or mouse data. For example, 75% of mapped reads holds true only if the genome is good or mature. For badly assembled genomes, we may not observe a high mapping rate, even if the actual sequences from the sample are good.
 
-Salmon also gives a `%Aligned` column representing the percent of mapped reads. We will be using the salmon abundance estimates for downstream analysis, so these numbers are particularly important for our analysis.
+Salmon also provides a `%Aligned` column representing the percent of mapped reads. The percentage from Salmon is different than that of STAR, because STAR is based on the alignment to genome reference, while Salmon is based on the alignment to transcriptome reference. Since we will be using the salmon abundance estimates for downstream analysis, these numbers are particularly important for our analysis.
 
 
 ### Complexity
 
-The complexity of the RNA-seq library can be explored a bit with the `%Dups` column. If a large percentage of the library is duplicated, then this could indicate either a library of low complexity or over-amplification. If there are differences between libraries in the complexity or amplification, then this can lead to biases in the data, such as differing %GC content.
+The complexity of the RNA-seq library can be explored with the `%Dups` column. If a large percentage of the library is duplicated, then this could indicate a library of either low complexity or over-amplification. If huge differences of `%Dups` exist between samples, this can lead to biases in the data, such as different %GC content.
 
 ### Exploring biases
 
-Within this report we can also explore the bias metrics output by Qualimap and FastQC. The `5'-3' bias` column denotes whether our data has any 5' or 3' biases. These biases could be due to RNA degradation or sample preparation techniques. Generally, we should explore our data more if we have biases approaching 0.5 or 2. 
+Within this report we can also explore the bias metrics output by Qualimap and FastQC. The `5'-3' bias` column denotes whether our data has any 5' or 3' biases. These biases could be due to RNA degradation or different sample preparation techniques. Generally, we should explore our data more if we have biases approaching 0.5 or 2. 
 
-The transcript position plot can also help identify 5' or 3' bias in addition to any other coverage issues. We generally expect roughly even coverage.
+The transcript position plot can also help identify 5' or 3' bias, in addition to any other coverage issues. We generally expect roughly even coverage.
 
-<img src="../img/Qualimap_coverage_profile.png" width="600">
+<img src="../img/multiqc_coverage_profile.png" width="600">
 
-In addition, we can see whether our different samples have differences in `%GC`. A GC bias in our data can present as differences in composition of %GC. These biases could be caused by low-complexity libraries, differences in amplification, or library-specific causes.
+In addition, we can see whether our different samples have differences in `%GC` column. GC bias could be caused by low-complexity libraries, differences in amplification, or library-specific causes. We expect to observe similar GC content aross samples.
 
 ### Contamination
 
-We can also identify problems with our library or contamination of our samples by looking at the percent of reads that are exonic, intronic or intergenic. High levels of intergenic reads is indicative of DNA contamination (>30%). Also, if a polyA selection of messenger RNAs was performed, then high percentages of intronic reads would be concerning. 
+We can also identify possible contamination of our samples by inspecting the percentage of reads that are exonic, intronic or intergenic. High levels of intergenic reads is indicative of DNA contamination (>30%). Also, if polyA selection of messenger RNAs was performed in library preparation, then high percentages of intronic reads would also be concerning. 
 
 <img src="../img/qualimap_genomic_origin.png" width="600">
 
-Generally in a good library, we expect over 60% of reads to map to exons for mouse and human organisms. For other organisms the percentage depends on how well annotated is the genome.
+Generally speaking, in a good library, we expect over 60% of reads to be mapped to exons for mouse or human organisms. For other organisms, the percentage depends on how well the genome is annotated.
 
 ### Fragment length distribution 
 
-The auxiliary directory generated from Salmon will contain a file called `fld.gz`. This file contains an approximation of the observed fragment length distribution. This is more meaningful for paired-end data where the length can be estimated based on the fact that we have reads from both ends of the fragment. These plots can be compared to what we expect based on our knowledge of the size selection step performed during the library preparation stage.
+The auxiliary directory generated from Salmon will contain a file called `fld.gz`. This file contains an approximation of the observed fragment length distribution. This is more meaningful for paired-end data, where the length can be estimated based on the location from both ends of the fragment. These plots can be compared to what we expect based on our knowledge of the size selection step performed during the library preparation stage.
 
-> **NOTE:** For single end data (as we have), Salmon reports a fixed insert length distribution assumption and so the values are identical for all samples. When values are identical then the plot will only be possible to get a tooltip for the topmost plotted sample, hence the reason we only observe one of the Mov10_oe samples.
+> **NOTE:** For single end data (which is what we have), Salmon reports a fixed insert length distribution. Therefore, the values are identical for all samples, and we only observe one distribution curve in the plot.
 
 <img src="../img/salmon_plot_multiqc.png" width="600">
 
