@@ -70,17 +70,17 @@ The main metrics to explore first are:
 * percentage of reads aligned to genome
 * percentage of reads associated with genes 
 
-To view the total number of reads, we may need to configure the columns, which is a button just underneath the 'General Statistics' heading. 
+> Note: If you don't see exact columns as ours, you may need to configure the columns, which is a button just underneath the 'General Statistics' heading. 
 
 <img src="../img/multiqc_table.png" width="750">
 
-We are going to choose the following columns:
+Using `Configure Columns` button, we are going to choose the following columns:
 
 <img src="../img/multiqc_columns.png" width="600">
 
-The descriptions of each of these columns are also helpful in interpretation of the table. Upon perusal of the table, we can see input from FastQC, STAR, Qualimap and salmon. The total number of raw reads is given in the `M Seqs` column on the far right of the table. 
+In the above image, the description column is helpful in interpretating the table. Upon perusal of the table, we can see input from FastQC, STAR, Qualimap and salmon. For example, the total number of raw reads is given in the `M Seqs` column on the far right of the table. 
 
-STAR gives information about *uniquely mapping reads* in the `%Aligned` column. A good quality sample will have **at least 75% of the reads uniquely mapped**. Once values start to drop lower than 60% it's advisable to start troubleshooting. The lower the number of uniquely mapping reads means the higher the number of reads that are mapping to multiple locations. 
+STAR provides information about *uniquely mapping reads* in the `%Aligned` column. A good quality sample will have **at least 75% of the reads uniquely mapped**. Once the value starts to drop below 60%, it's advisable to start troubleshooting. Low number of uniquely mapping reads means that more reads are mapping to multiple locations. 
 
 The 'STAR: Alignment Scores' plot visually represents much of this information. The % uniquely mapping, multimapping, and unmapped reads can be easily compared between samples to get a nice overview of the quality of the samples.
 
