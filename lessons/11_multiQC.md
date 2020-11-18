@@ -80,7 +80,7 @@ Using `Configure Columns` button, we are going to choose the following columns:
 
 In the above image, the description column is helpful in interpretating the table. Upon perusal of the table, we can see input from FastQC, STAR, Qualimap and salmon. For example, the total number of raw reads is given in the `M Seqs` column on the far right of the table. 
 
-STAR provides information about *uniquely mapping reads* in the `%Aligned` column. A good quality sample will have **at least 75% of the reads uniquely mapped**. Once the value starts to drop below 60%, it's advisable to start troubleshooting. Low number of uniquely mapping reads means that more reads are mapping to multiple locations. 
+STAR provides information about *uniquely mapping reads* in the `%Aligned` column. A good quality sample will have **at least 75% of the reads uniquely mapped**. Once the value starts to drop below 60%, it's advisable to start troubleshooting. Low number of uniquely mapping reads means that more reads are mapped to multiple locations. 
 
 The 'STAR: Alignment Scores' plot visually represents this mapping information. The % uniquely mapped, multimapped, and unmapped reads can be easily compared between samples to get a nice overview of the quality of the samples.
 
@@ -88,22 +88,22 @@ The 'STAR: Alignment Scores' plot visually represents this mapping information. 
 
 > NOTE: The thresholds suggested above will vary depending on the organism that you are working with. Much of what is discussed here is in the context of working with human or mouse data. For example, 75% of mapped reads holds true only if the genome is good or mature. For badly assembled genomes, we may not observe a high mapping rate, even if the actual sequences from the sample are good.
 
-Salmon also provides a `%Aligned` column representing the percent of mapped reads. The percentage from Salmon is different than that of STAR, because STAR is based on the alignment to genome reference, while Salmon is based on the alignment to transcriptome reference. Since we will be using the salmon abundance estimates for downstream analysis, these numbers are particularly important for our analysis.
+Salmon also provides a `%Aligned` column representing the percent of mapped reads. The percentage from Salmon is different from that of STAR, because STAR is based on the alignment to genome reference, while Salmon is based on the alignment to transcriptome reference. Since we will be using the salmon abundance estimates for downstream analysis, these numbers are particularly important for our analysis.
 
 
 ### Complexity
 
-The complexity of the RNA-seq library can be explored with the `%Dups` column. If a large percentage of the library is duplicated, then this could indicate a library of either low complexity or over-amplification. If huge differences of `%Dups` exist between samples, this can lead to biases in the data, such as different %GC content.
+The complexity of the RNA-seq library can be explored with the `%Dups` column. If a large percentage of the library is duplicated, then this could indicate a library of either low complexity or over-amplification. If huge differences of `%Dups` exist between samples, this may lead to biases in the data, such as different %GC content.
 
 ### Exploring biases
 
-Within this report we can also explore the bias metrics output by Qualimap and FastQC. The `5'-3' bias` column denotes whether our data has any 5' or 3' biases. These biases could be due to RNA degradation or different sample preparation techniques. Generally, we should explore our data more if we have biases approaching 0.5 or 2. 
+Within this report, we can also explore the bias metrics output by Qualimap and FastQC. The `5'-3' bias` column denotes whether our data has any 5' or 3' biases. These biases could be due to RNA degradation or different sample preparation techniques. Generally, we should explore our data more if we have biases approaching 0.5 or 2. 
 
-The transcript position plot can also help identify 5' or 3' bias, in addition to any other coverage issues. We generally expect roughly even coverage.
+The transcript position plot can also help identify 5' or 3' bias, in addition to other coverage issues. We generally expect roughly even coverage.
 
 <img src="../img/multiqc_coverage_profile.png" width="600">
 
-In addition, we can see whether our different samples have differences in `%GC` column. GC bias could be caused by low-complexity libraries, differences in amplification, or library-specific causes. We expect to observe similar GC content aross samples.
+In addition, we can see whether our different samples have differences in `%GC` column. GC bias could be caused by low-complexity libraries, differences in amplification, or library-specific issues. We expect to observe similar GC content aross samples.
 
 ### Contamination
 
@@ -115,7 +115,7 @@ Generally speaking, in a good library, we expect over 60% of reads to be mapped 
 
 ### Fragment length distribution 
 
-The auxiliary directory generated from Salmon will contain a file called `fld.gz`. This file contains an approximation of the observed fragment length distribution. This is more meaningful for paired-end data, where the length can be estimated based on the location from both ends of the fragment. These plots can be compared to what we expect based on our knowledge of the size selection step performed during the library preparation stage.
+The auxiliary directory generated from Salmon will contain a file called `fld.gz`. This file contains an approximation of the observed fragment length distribution. This is more meaningful for paired-end data, where the length can be estimated based on the location from both ends of the fragment. These plots can be compared to our expectations based on our knowledge of the size selection step performed during the library preparation stage.
 
 > **NOTE:** For single end data (which is what we have), Salmon reports a fixed insert length distribution. Therefore, the values are identical for all samples, and we only observe one distribution curve in the plot.
 
