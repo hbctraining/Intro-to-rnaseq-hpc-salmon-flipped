@@ -152,7 +152,7 @@ $ module load salmon
 
 To perform the quasi-mapping and transcript abundance quantification, we will use the `salmon quant` command. The parameters for the command are described below (more information on parameters can be found [here](http://salmon.readthedocs.io/en/latest/salmon.html#id5)):
 
-* `-i`: specify the location of the index directory; for us it is `/n/groups/hbctraining/rna-seq_2019_02/reference_data/salmon.ensembl38.idx.09-06-2019`
+* `-i`: specify the location of the index directory; for us it is `/n/groups/hbctraining/rna-seq_2019_02/reference_data/salmon_index`
 * `-l A`: Format string describing the library. `A` will automatically infer the most likely library type (more info available [here](http://salmon.readthedocs.io/en/latest/salmon.html#what-s-this-libtype))
 * `-r`: sample file
 * `-o`: output quantification file name
@@ -164,7 +164,7 @@ To perform the quasi-mapping and transcript abundance quantification, we will us
 To run the quantification step on a single sample we have the command provided below. Let's try running it on the `Mov10_oe_1.subset.fq` sample:
 
 ```bash
-$ salmon quant -i /n/groups/hbctraining/rna-seq_2019_02/reference_data/salmon.ensembl38.idx.09-06-2019 \
+$ salmon quant -i /n/groups/hbctraining/rna-seq_2019_02/reference_data/salmon_index \
         -l A \
  	-r ~/rnaseq/raw_data/Mov10_oe_1.subset.fq \
  	-o Mov10_oe_1.subset.salmon \
