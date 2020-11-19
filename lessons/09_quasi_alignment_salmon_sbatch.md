@@ -80,7 +80,7 @@ done
 
 Note, that our for loop is iterating over all FASTQ files in the `raw_fastq` directory. For each file, a prefix is generated to name the output file and then the Salmon command is run with the same parameters as used in the single sample run.
 
-**Now add two additional parameters to the current Salmon command (remember to use "\" if dissecting one command in multiple lines)**: 
+**Now add two additional parameters to the current Salmon command (remember to use "`\`" if dissecting one command in multiple lines)**: 
 
 * `-p`: specifies the number of processors or cores we would like to use for **multithreading**. What value will you provide here, knowing what we asked for in our Slurm directives?
 * `--numBootstraps`: specifies computation of bootstrapped abundance estimates. **Bootstraps are required for isoform level differential expression analysis for estimation of technical variance**. Here, you can set the value to 30.
@@ -89,13 +89,13 @@ Note, that our for loop is iterating over all FASTQ files in the `raw_fastq` dir
 >
 > _The bootstraps estimate technical variation per gene by calculating the abundance estimates for all genes using a different sub-sample of reads during each round of bootstrapping. The variation in the abundance estimates output from each round of bootstrapping is used for the estimation of the technical variance for each gene._
 
-Save and close the script. **Submit the script file as part of your assignment.** 
-
-This script is now ready to run.
+Save and close the script. This script is now ready to run.
 
 ```
 $ sbatch salmon_all_samples.sbatch
 ```
+
+**After you confirmed that the script runs as expected, copy and paste your final script to a txt file and submit that as part of your assignment.** 
 
 ---
 
