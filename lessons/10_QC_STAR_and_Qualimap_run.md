@@ -41,7 +41,7 @@ To determine where on the human genome our reads originated from, we will align 
 To get started with this lesson, start an interactive session with 6 cores and 8G of memory:
 
 ```bash
-$ srun --pty -p interactive -t 0-12:00 -c 6 --mem 8G --reservation=HBC /bin/bash	
+$ srun --pty -p interactive -t 0-12:00 -c 6 --mem 8G /bin/bash	
 ```
 
 You should have a directory tree setup similar to that shown below. It is best practice to have all files you intend on using for your workflow present within the same directory. 
