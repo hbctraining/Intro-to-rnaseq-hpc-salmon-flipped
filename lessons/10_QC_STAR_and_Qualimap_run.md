@@ -197,7 +197,7 @@ $ module load java/jdk-1.8u112 qualimap/2.2.1
 Now we can run Qualimap on our aligned data. There are different tools or modules available through Qualimap, and the [documentation](http://qualimap.bioinfo.cipf.es/doc_html/command_line.html) details the tools and options available. We are interested in the `rnaseq` tool. To see the arguments available for this tool we can search the help:
 
 ```bash
-$ qualimap rnaseq --help
+$ qualimap rnaseq 
 ```
 
  We will be running Qualimap with the following specifications:
