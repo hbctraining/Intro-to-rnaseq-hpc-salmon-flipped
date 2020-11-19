@@ -80,10 +80,10 @@ done
 
 Note, that our for loop is iterating over all FASTQ files in the `raw_fastq` directory. For each file, a prefix is generated to name the output file and then the Salmon command is run with the same parameters as used in the single sample run.
 
-**Add the following new parameters to the Salmon command**: 
+**Now add two additional parameters to the current Salmon command (remember to use "\" if dissecting one command in multiple lines)**: 
 
 * `-p`: specifies the number of processors or cores we would like to use for **multithreading**. What value will you provide here, knowing what we asked for in our Slurm directives?
-* `--numBootstraps`: specifies computation of bootstrapped abundance estimates. **Bootstraps are required for isoform level differential expression analysis for estimation of technical variance**. Here, you can set the value to30.
+* `--numBootstraps`: specifies computation of bootstrapped abundance estimates. **Bootstraps are required for isoform level differential expression analysis for estimation of technical variance**. Here, you can set the value to 30.
 	
 > _**NOTE:** `--numBootstraps` is necessary if performing **isoform-level differential expression analysis** with Sleuth, but not for gene-level differential expression analysis. Due to the statistical procedure required to assign reads to gene isoforms, in addition to the random processes underlying RNA-Seq, there will be **technical variability in the abundance estimates** output from the pseudo-alignment tool [[2](https://rawgit.com/pachterlab/sleuth/master/inst/doc/intro.html), [3](https://www.nature.com/articles/nmeth.4324)] for the isoform level abundance estimates (not necessary for gene-level estimates). Therefore, **we would need technical replicates to distinguish technical variability from the biological variability** for gene isoforms._
 >
