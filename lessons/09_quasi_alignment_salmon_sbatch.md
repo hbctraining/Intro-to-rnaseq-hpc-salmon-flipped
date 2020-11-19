@@ -8,24 +8,24 @@ Approximate time: 30 minutes
 
 ## Learning Objectives
 
-* Create a job submission script to run Salamon on all samples in the dataset
+* Create a job submission script to run Salmon on all samples in the dataset
 
  
 ## Running Salmon on multiple samples 
 
 In class we talked in depth about how the Salmon algorithm works, and provided the command required to run Salmon on a single sample. In this lesson we walk through the steps required to **efficiently run Salmon on all samples** in the dataset. Unlike our experience with FastQC, where we could use one command and simply provide all files with the use of a wildcard (`*`), Salmon is only able to take a single file as input.
 
-Rather than typing out the Salmon command six times, we will use **a for loop to iterate over all FASTQ files in our dataset** (inside the `raw_fastq` directory). Furthermore, rather than running this for loop interactively, we will put the for loop inside a text file and create a **job submission script**.
+Rather than typing out the Salmon command six times, we will use **a for loop to iterate over all FASTQ files in our dataset** (inside the `raw_fastq` directory). Furthermore, rather than running this `for` loop interactively, we will put the it inside a text file and create a **job submission script**.
 
 ### Create a job submission script to run Salmon in serial
 
-Let's start by opening up a script in `vim`:
+Let's start by opening up a text file in `vim`:
 
 ```
 $ vim salmon_all_samples.sbatch
 ```
 
-Begin the script with a **shebang line**. 
+Begin the script starting with the **shebang line**. 
 
 ```bash
 #!/bin/bash
@@ -33,7 +33,7 @@ Begin the script with a **shebang line**.
 ```
 **Exercise 1**
 
-Next, we will add the Slurm directives requesting specific resources from O2 for our job. The resources we need are listed below. Use this [linked lesson](03_working_on_HPC.md#requesting-resources-from-slurm) as a resource to help figure out the correct Slurm directives ( i.e `#SBATCH`) to add to your script. The [HMSRC O2 Wiki](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic) is also a good reference guide.
+Next, add the Slurm directives requesting specific resources from O2 for our job. The resources we need are listed below. Use this [linked lesson](03_working_on_HPC.md#requesting-resources-from-slurm) as a resource to help figure out the correct Slurm directives ( i.e `#SBATCH`) to add to your script. The [HMS-RC's O2 Wiki](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic) is also a good reference guide.
 
 * Your job will use the `short` partition
 * Request 6 cores to take advantage of Salmon's multi-threading capabilities
@@ -45,7 +45,7 @@ Next, we will add the Slurm directives requesting specific resources from O2 for
 
 **Exercise 2**
 
-Now that we have the resources requested, we can begin to **add the code for our shell script**. Add lines of code to do the following:
+Now that we have the resources requested, we can begin to **add the commands into our shell script**. Add lines of code to do the following:
 
 * Load the Salmon module
 * Change directories to where the Salmon results will be output (be sure to use a full path here).
@@ -54,10 +54,9 @@ Now that we have the resources requested, we can begin to **add the code for our
 
 **Exercise 3**
 
-The last piece of our shell script is the **for loop** code provided below. **Copy and paste this into your script**.
+The last piece of the shell script is the **for loop** code provided below. **Copy and paste this into your script**.
 
 ```bash
-
 for fq in ~/rnaseq/raw_data/*.fq
 
 do
@@ -75,7 +74,6 @@ salmon quant -i /n/groups/hbctraining/rna-seq_2019_02/reference_data/salmon.ense
  --validateMappings
 
 done
-
 ```
 
 Note, that our for loop is iterating over all FASTQ files in the `raw_fastq` directory. For each file, a prefix is generated to name the output file and then the Salmon command is run with the same parameters as used in the single sample run.
