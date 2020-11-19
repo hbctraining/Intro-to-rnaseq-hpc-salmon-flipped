@@ -188,10 +188,10 @@ By default, Qualimap will try to open a GUI to run Qualimap, so we need to run t
 $ unset DISPLAY
 ```
 
-We also need to add the location of the Qualimap tool to our PATH variable:
+We also need to load the qualimap module:
 
 ```bash
-$ export PATH=/n/app/bcbio/dev/anaconda/bin:$PATH
+$ module load java/jdk-1.8u112 qualimap/2.2.1
 ```
 
 Now we can run Qualimap on our aligned data. There are different tools or modules available through Qualimap, and the [documentation](http://qualimap.bioinfo.cipf.es/doc_html/command_line.html) details the tools and options available. We are interested in the `rnaseq` tool. To see the arguments available for this tool we can search the help:
