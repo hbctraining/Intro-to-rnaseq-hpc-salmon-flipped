@@ -54,9 +54,7 @@ Before you start with the self-learning portion of the workshop, please check th
 * Documenting Steps in the Workflow with MultiQC
 
 ### Assignment #2
-* All exercise questions from the self-learning lessons have been put together in a text file (download for local access).
-  * The text file can be opened with any text editor application (i.e. Notepad++, TextWrangler) on your local computer
-* Add your solutions to the exercises in the downloaded .txt file and **upload the saved text file** to [Dropbox](https://www.dropbox.com/request/9fWybJi6KfW8jjZXOQqK) **day before the next class**.
+* Once the self-learning lessons exercises are complete, please identify the apprpopriate files as specified in the lesson (i.e. Excel file, or text/script files) and **upload** to [Dropbox](https://www.dropbox.com/request/9fWybJi6KfW8jjZXOQqK) **day before the next class**.
 * [Email us](mailto:hbctraining@hsph.harvard.edu) about questions regarding the homework that you need answered before the next class.
 * Post questions that you would like to have reviewed in class [here](https://PollEv.com/hbctraining945).
 * Answer key
