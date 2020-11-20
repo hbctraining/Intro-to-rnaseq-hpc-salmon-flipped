@@ -35,7 +35,7 @@ Before you start with the self-learning portion of the workshop, please check th
 * Once the self-learning lessons exercises are complete, please identify the apprpopriate files as specified in the lesson (i.e. Excel file, or text/script files) and **upload** to [Dropbox](https://www.dropbox.com/request/iE82DOpC35d86Jh87zrG) the **day before the next class**.
 * [Email us](mailto:hbctraining@hsph.harvard.edu) about questions regarding the homework that you need answered before the next class.
 * Post questions that you would like to have reviewed in class [here](https://PollEv.com/hbctraining945).
-* Answer keys: [Experimental design (one possible solution)](https://www.dropbox.com/s/524mevuyba34l5b/exp_design_table.xlsx?dl=0), [sbatch script](https://www.dropbox.com/s/9wdyhfqpic05l6p/mov10_fastqc.run?dl=0), [.out file](https://www.dropbox.com/s/l7puf8oahtbwmpk/22914006.out?dl=0), [.err file](https://www.dropbox.com/s/8a1g6o9t2kxit30/22914006.err?dl=0).
+* Donwloadable Answer Keys: [Experimental design (one possible solution)](https://www.dropbox.com/s/524mevuyba34l5b/exp_design_table.xlsx?dl=1), [sbatch script](https://www.dropbox.com/s/9wdyhfqpic05l6p/mov10_fastqc.run?dl=1), [.out file](https://www.dropbox.com/s/l7puf8oahtbwmpk/22914006.out?dl=1), [.err file](https://www.dropbox.com/s/8a1g6o9t2kxit30/22914006.err?dl=1).
 
 ***
 
