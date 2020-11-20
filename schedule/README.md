@@ -49,9 +49,9 @@ Before you start with the self-learning portion of the workshop, please check th
 | 11:50 - 12:00 | [Review of workflow](../lectures/workflow_overview.pdf) | Radhika |
 
 ### Self Learning #2
-* Quantifying expression using alignment-free methods (Salmon on multiple samples)
+* [Quantifying expression using alignment-free methods (Salmon on multiple samples)](../lessons/09_quasi_alignment_salmon_sbatch.md)
 * QC with Alignment Data
-* Documenting Steps in the Workflow with MultiQC
+* [Documenting Steps in the Workflow with MultiQC](../lessons/11_multiQC.md)
 
 ### Assignment #2
 * Once the self-learning lessons exercises are complete, please identify the apprpopriate files as specified in the lesson (i.e. Excel file, or text/script files) and **upload** to [Dropbox](https://www.dropbox.com/request/9fWybJi6KfW8jjZXOQqK) **day before the next class**.
