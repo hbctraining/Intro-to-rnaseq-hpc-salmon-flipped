@@ -77,7 +77,7 @@ $ salmon index \
 
 **Exercise:**
 	
-In your RNA-seq experiment, you expressed a GFP transgene in your mice, and you would like to quantify the expression of GFP. We know that the sequence is not present in the human transcriptome. What would you do?
+In your RNA-seq experiment, you expressed a GFP transgene in your mice, and you would like to quantify the expression of GFP. We know that the sequence is not present in the mice transcriptome. What would you do?
 
 - **a.** Try laboratory techniques like quantitative PCR to act as a proxy for expression level
 - **b.** Add the sequence of the GFP transcript to the FASTA reference file
