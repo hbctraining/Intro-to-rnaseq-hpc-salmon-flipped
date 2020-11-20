@@ -45,8 +45,8 @@ Before you start with the self-learning portion of the workshop, please check th
 |:-----------:|:----------:|:--------:|
 | 09:30 - 10:30 | Self-learning lessons review | All |
 | 10:30 - 11:10 | [Sequence Alignment Theory](../lectures/alignment_quantification.pdf) | Meeta |
-| 11:10 - 11:50 | Quantifying expression using alignment-free methods (Salmon) | Radhika |
-| 11:50 - 12:00 | Review of workflow | Radhika |
+| 11:10 - 11:50 | [Quantifying expression using alignment-free methods (Salmon)](../lessons/08_quasi_alignment_salmon.md) | Radhika |
+| 11:50 - 12:00 | [Review of workflow](../lectures/workflow_overview.pdf) | Radhika |
 
 ### Self Learning #2
 * Quantifying expression using alignment-free methods (Salmon on multiple samples)
