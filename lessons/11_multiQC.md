@@ -25,28 +25,47 @@ In this lesson, we will be using MultiQC, which aggregates results from several 
 
 MultiQC can generate this report from 36 different bioinformatics tools, and these tools span various NGS analyses, e.g., basic QC, RNA-seq, ChIP-seq, variant calling, genome annotation, etc. We are going to use it to aggregate information from the results of [FastQC](http://multiqc.info/docs/#fastqc), [STAR](http://multiqc.info/docs/#star), [Qualimap](http://multiqc.info/docs/#qualimap), and [salmon](http://multiqc.info/docs/#salmon). MultiQC can parse the information from specific output files of these tools, and use them as input for MultiQC.
 
-We are going to start by creating a directory in the `~/rnaseq/results/` directory called `multiqc_report`, and navigating to it. We then load three necessary modules needed to run MultiQC: `gcc`, `python`, `multiqc`.
+We are going to start by creating a directory for our output called `multiqc_report`:
 
 ```bash
 $ cd ~/rnaseq/
 
 $ mkdir results/multiqc_report
+```
 
+and then navigate into that directory: 
+
+```bash
+$ cd results/multiqc_report
+```
+
+We then load three necessary modules needed to run MultiQC: `gcc`, `python`, `multiqc`.
+
+```bash
 $ cd results/multiqc_report
 
 $ module load gcc/6.2.0 python/2.7.12 multiqc/1.5
 ```
 
-Next, we are going to run multiQC on the following 4 outputs from our workflow:
+> *How did we know which additional modules to load?*
+
+We are going to run MultiQC on the following 4 outputs from our workflow:
 
 * `.zip` files from FastQC
 * `.Log.final.out` files from STAR
 * `.qualimap` files from Qualimap
 * `.salmon` directories from salmon
 
-Generally we run multiQC to explore our samples and compare metrics across samples. Yet, so far we have only run FastQC, STAR, Qualimap, and salmon on the single `Mov10_oe_1` file. To accurately compare QC metrics across samples, our team has ran these tools for the full dataset for each of our samples, and stored the result in the directory `/n/groups/hbctraining/rna-seq_2019_02/snapshots/full_dataset_results`. We will directly use these results as input for multiQC analysis.
+Generally we run MultiQC on the full set of samples in our datset so we can compare metrics. However, so far in this workshop we have only run FastQC, STAR, Qualimap, and salmon on the single `Mov10_oe_1` file. Additionally, the data we have been using is a subset of the full dataset.
 
-Now, let's run multiQC!
+To create a more meaningful report to look at we thought it best to run MultiQC on the full dataset. As such we have run each of these tools on the full dataset and stored the result in the directory `/n/groups/hbctraining/rna-seq_2019_02/snapshots/full_dataset_results`. We will point to these files as input for our MultiQC analysis.
+
+To run MultiQC, we can provide it two things at minimum:
+
+1. a name for our output report and folder
+2. the paths to our results files
+
+> **NOTE:** MultiQC has additional parameters we could include; use `multiqc -h` to know more.
 
 ```bash
 $ multiqc -n multiqc_report_rnaseq \
@@ -56,11 +75,13 @@ $ multiqc -n multiqc_report_rnaseq \
 /n/groups/hbctraining/rna-seq_2019_02/snapshots/full_dataset_results/salmon/*salmon
 ```
 
-> Note: You will see the progress of analysis printed out on the terminal as the tool runs. If you want to save this output into a log file (for future reference), you can use `2>` operator to redirect it to a file. For example, at the end of script, add `2> log.txt`.
+> **NOTE**: You will see the progress of analysis printed out on the terminal as the tool runs. If you want to save this output into a log file (for future reference), you can use `2>` operator to redirect it to a file. For example, at the end of script, add `2> log.txt`.
 
-It takes a couple of minutes to generate the multiQC report. The report provides nice visualizations across samples, to determine consistency and to identify problematic samples.
+It takes a couple of minutes to generate the MultiQC report. The report provides nice visualizations across samples, to determine consistency and to identify problematic samples.
 
-The output of multiQC is one HTML file (`multiqc_report_rnaseq.html`) and a data folder. Let's transfer the interactive HTML report over to our laptops using **FileZilla**, and visualize the outputs of the four tools we used to generate the report.
+The output of MultiQC is one HTML file (`multiqc_report_rnaseq.html`) and a data folder. Transfer the interactive HTML report over to our laptops using **FileZilla**, and visualize the outputs of the four tools we used to generate the report.
+
+> *For a refresher on using Filezilla, please refer back to our [FastQC assessment lesson](07_qc_fastqc_assessment.md).*
 
 ## Assessing the quality control metrics
 
@@ -72,11 +93,15 @@ The main metrics to explore first are:
 
 > Note: If you don't see exact columns as ours, you may need to configure the columns, which is a button just underneath the 'General Statistics' heading. 
 
+<p align="center">
 <img src="../img/multiqc_table.png" width="750">
+  </p>
 
 Using `Configure Columns` button, we are going to choose the following columns:
 
+<p align="center">
 <img src="../img/multiqc_columns.png" width="600">
+  </p>
 
 In the above image, the description column is helpful in interpretating the table. Upon perusal of the table, we can see input from FastQC, STAR, Qualimap and salmon. For example, the total number of raw reads is given in the `M Seqs` column on the far right of the table. 
 
@@ -84,7 +109,9 @@ STAR provides information about *uniquely mapping reads* in the `%Aligned` colum
 
 The 'STAR: Alignment Scores' plot visually represents this mapping information. The % uniquely mapped, multimapped, and unmapped reads can be easily compared between samples to get a nice overview of the quality of the samples.
 
+<p align="center">
 <img src="../img/multiqc_alignment_scores.png" width="600">
+  </p>
 
 > NOTE: The thresholds suggested above will vary depending on the organism that you are working with. Much of what is discussed here is in the context of working with human or mouse data. For example, 75% of mapped reads holds true only if the genome is good or mature. For badly assembled genomes, we may not observe a high mapping rate, even if the actual sequences from the sample are good.
 
@@ -101,7 +128,9 @@ Within this report, we can also explore the bias metrics output by Qualimap and 
 
 The transcript position plot can also help identify 5' or 3' bias, in addition to other coverage issues. We generally expect roughly even coverage.
 
+<p align="center">
 <img src="../img/multiqc_coverage_profile.png" width="600">
+  </p>
 
 In addition, we can see whether our different samples have differences in `%GC` column. GC bias could be caused by low-complexity libraries, differences in amplification, or library-specific issues. We expect to observe similar GC content aross samples.
 
@@ -109,7 +138,9 @@ In addition, we can see whether our different samples have differences in `%GC` 
 
 We can also identify possible contamination of our samples by inspecting the percentage of reads that are exonic, intronic or intergenic. High levels of intergenic reads is indicative of DNA contamination (>30%). Also, if polyA selection of messenger RNAs was performed in library preparation, then high percentages of intronic reads would also be concerning. 
 
+<p align="center">
 <img src="../img/qualimap_genomic_origin.png" width="600">
+  </p>
 
 Generally speaking, in a good library, we expect over 60% of reads to be mapped to exons for mouse or human organisms. For other organisms, the percentage depends on how well the genome is annotated.
 
@@ -119,8 +150,9 @@ The auxiliary directory generated from Salmon will contain a file called `fld.gz
 
 > **NOTE:** For single end data (which is what we have), Salmon reports a fixed insert length distribution. Therefore, the values are identical for all samples, and we only observe one distribution curve in the plot.
 
+<p align="center">
 <img src="../img/salmon_plot_multiqc.png" width="600">
-
+</p>
 
 ---
 *This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
