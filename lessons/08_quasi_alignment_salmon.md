@@ -27,9 +27,9 @@ Common to all of these tools is that **base-to-base alignment of the reads is av
 
 [Salmon](http://salmon.readthedocs.io/en/latest/salmon.html#using-salmon) uses the reference transcriptome (in FASTA format) and raw sequencing reads (in FASTQ format) as input to perform both mapping and quantification of the reads.
 
-The "quasi-mapping" approach utilized by Salmon **requires a reference index** to determine the position and orientation information for where the fragments best map prior to quantification [[2](https://academic.oup.com/bioinformatics/article/32/12/i192/2288985/RapMap-a-rapid-sensitive-and-accurate-tool-for)]. The reference index essentially provides the transcriptome in a format that is **easily and rapidly searchable**. Therefore, it will allow us to quickly find the positions in the transcriptome where each of the reads originated.
+The "quasi-mapping" approach utilized by Salmon **requires a transcriptome reference index** to determine the position and orientation information for where the fragments best map prior to quantification [[2](https://academic.oup.com/bioinformatics/article/32/12/i192/2288985/RapMap-a-rapid-sensitive-and-accurate-tool-for)]. The reference index essentially provides the transcriptome in a format that is **easily and rapidly searchable**. Therefore, it will allow us to quickly find the positions in the transcriptome where each of the reads originated.
 
-> **NOTE:** Since we are searching against the transcriptome, Salmon would not be the appropriate tool to use if trying to detect **novel genes or isoforms, intron retention events, or other methods that require annotations not present in the transcriptome**.
+> **NOTE:** Since we are searching against only the transcripts (transcriptome), Salmon would not be the appropriate tool to use if trying to detect **novel genes or isoforms, intron retention events, or other methods that require a well annotated whole genome instead of only the transcriptome**.
 
 <p align="center">
 <img src="../img/salmon_workflow_subset.png" width="300">
@@ -39,21 +39,16 @@ The "quasi-mapping" approach utilized by Salmon **requires a reference index** t
 
 ### **Creating the transcriptome index** 
 
-This step involves creating an index to evaluate the sequences for all possible unique sequences of length k (k-mer) in the **transcriptome**, which includes all known transcripts/ splice isoforms for all genes.
+This step involves creating an index to evaluate the sequences for all possible unique sequences of length k (k-mer) in the **transcriptome**, which includes all known transcripts (i.e. splice isoforms) for all genes. **The index helps creates a signature for each transcript in our reference transcriptome.** 
 
-**The index helps creates a signature for each transcript in our reference transcriptome.** The Salmon index has two components:
-
+The Salmon index has two components:
 - a suffix array (SA) of the reference transcriptome
-- a hash table to map each transcript in the reference transcriptome to it's location in the SA (is not required, but improves the speed of mapping drastically)
+- a hash table to map each transcript in the reference transcriptome to it's location in the SA (is not required, but improves the speed of mapping dramatically)
 
-To create the index, we use the `salmon index` command as detailed in the code below. However, **we are not going to run this code in class** as it can take a few minutes to run. Instead, we will have you point to an index that we have genertaed for you located at `/n/groups/hbctraining/rna-seq_2019_02/reference_data/salmon.ensembl38.idx.09-06-2019`.
+To create the index, we use the `salmon index` command as detailed in the code below. However, **we are not going to run this code in class** as it can take a long time minutes to run and it requires a large amount of memory. Instead, we will have you point to an index that we have generated for you located at `/n/groups/hbctraining/rna-seq_2019_02/reference_data/salmon.ensembl38.idx.09-06-2019`.
 
-We will however, describe the parameters for the indexing step:
+Below is the code to run the indexing step, and a description of the parameters:
 
-- **`-t`:** the path to the transcriptome file (in FASTA format)
-- **`-i`:** the path to the folder to store the indices generated
-- **`-k`:** the length of kmer to use to create the indices (will output all sequences in transcriptome of length k)
-    
 ```bash
 ## DO NOT RUN THIS CODE
 $ salmon index \
@@ -62,8 +57,11 @@ $ salmon index \
 -k 31
 ```	
 
->
-> **NOTE:** Default for salmon is -k 31, so we do not need to include these parameters in the index command. However, the kmer default of 31 is optimized for 75bp or longer reads, so if your reads are shorter, you may want a smaller kmer to use with shorter reads (kmer size needs to be an odd number).
+- **`-t`:** the path to the transcriptome file (in FASTA format)
+- **`-i`:** the path to the folder to store the indices generated
+- **`-k`:** the length of kmer to use to create the indices (will output all sequences in transcriptome of length k)
+    
+> **NOTE:** Default kmer size for salmon is -k 31, so we do not need to include the `-k` parameter in the index command. However, the kmer default of 31 is optimized for read sizes of 75bp or longer and if your reads are shorter, you will want a smaller kmer (kmer size needs to be an odd number).
 
 > **Accessing transcriptome data:** We generated the index from transcript sequences for human obtained from the [Ensembl ftp site](https://useast.ensembl.org/info/data/ftp/index.html) with the following commands:
 >
@@ -90,7 +88,7 @@ In your RNA-seq experiment, you expressed a GFP transgene in your mice, and you 
 	
 ### **Quasi-mapping and quantification** 
 
-The quasi-mapping approach estimates where the reads best map to on the transcriptome through identifying where informative sequences within the read map to instead of performing base-by-base alignment. The quasi-mapping approach is described below, with details provided by the Rapmap tool [[3](https://academic.oup.com/bioinformatics/article/32/12/i192/2288985/RapMap-a-rapid-sensitive-and-accurate-tool-for)], which provides the underlying algorithm for the quasi-mapping.
+The quasi-mapping approach estimates where the reads best map to on the transcriptome through identifying where informative sequences within the read map instead of performing base-by-base alignment. The quasi-mapping approach is described below, with details provided by the Rapmap tool [[3](https://academic.oup.com/bioinformatics/article/32/12/i192/2288985/RapMap-a-rapid-sensitive-and-accurate-tool-for)], which provides the underlying algorithm for the quasi-mapping.
 
 - **Step 1: Quasi-mapping**
 
@@ -107,8 +105,6 @@ The quasi-mapping approach estimates where the reads best map to on the transcri
 	5. This process is repeated until the end of the read.
 	6. The final mappings are generated by determining the set of transcripts appearing in all MMPs for the read. The transcripts, orientation and transcript location are output for each read.
 	
-	
-		>
 		> **NOTE:** If there are k-mers in the reads that are not in the index, they are not counted. As such, trimming is not required when using this method. Accordingly, if there are reads from transcripts not present in the reference transcriptome, they will not be quantified. Quantification of the reads is only as good as the quality of the reference transcriptome.
 
 - **Step 2: Abundance quantification**
@@ -145,7 +141,6 @@ We see that there are no dependency modules and we can simply just load Salmon a
 
 ```bash
 $ module load salmon
-
 ```
 
 To perform the quasi-mapping and transcript abundance quantification, we will use the `salmon quant` command. The parameters for the command are described below (more information on parameters can be found [here](http://salmon.readthedocs.io/en/latest/salmon.html#id5)):
@@ -172,7 +167,7 @@ $ salmon quant -i /n/groups/hbctraining/rna-seq_2019_02/reference_data/salmon_in
 ```
 	
 > **NOTE:** Mapping validation can generally improve both the sensitivity and specificity of mapping, with only a moderate increase in use of computational resources. Unless there is a specific reason to do this (e.g. testing on clean simulated data), `--validateMappings` is generally recommended.
-
+>
 > **Paired-end data:** If using paired-end reads, then the command would require both sets of reads to be given:
 `salmon quant -i transcripts_index -l A -1 reads1.fq -2 reads2.fq -o transcripts_quant`
 > 
@@ -182,7 +177,6 @@ $ salmon quant -i /n/groups/hbctraining/rna-seq_2019_02/reference_data/salmon_in
 >
 > * `--gcBias` to learn and correct for fragment-level GC biases in the input data
 > * `--posBias` will enable modeling of a position-specific fragment start distribution
->
 
 ## Salmon output
 
@@ -190,9 +184,7 @@ You should see a new directory has been created that is named by the string valu
 
     $ ls -l Mov10_oe_1.subset.salmon/
     
-There is a logs directory, which contains all of the text that was printed to screen as Sailfish was running. Additionally, there is a file called `quant.sf`. 
-
-This is the **quantification file** in which each row corresponds to a transcript, listed by Ensembl ID. The columns correspond to metrics for each transcript:
+There is a logs directory, which contains all of the text that was printed to screen as Sailfish was running. Additionally, there is a file called **`quant.sf`**. This is the **quantification file** in which each row corresponds to a transcript, listed by Ensembl ID. The columns correspond to metrics for each transcript:
 
 ```bash
 Name    Length  EffectiveLength TPM     NumReads
@@ -205,7 +197,6 @@ ENST00000390567.1       20      3.18453 0       0
 ENST00000439842.1       11      2.95387 0       0
 
 ....
-
 ```
 
 *  The first two columns are self-explanatory, the **name** of the transcript and the **length of the transcript** in base pairs (bp). 
