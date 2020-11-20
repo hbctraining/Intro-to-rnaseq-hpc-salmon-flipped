@@ -54,7 +54,7 @@ Before you start with the self-learning portion of the workshop, please check th
 
 ### Self Learning #2
 * [Quantifying expression using alignment-free methods (Salmon on multiple samples)](../lessons/09_quasi_alignment_salmon_sbatch.md)
-* QC with Alignment Data
+* [QC with Alignment Data](../lessons/10_QC_Qualimap.md)
 * [Documenting Steps in the Workflow with MultiQC](../lessons/11_multiQC.md)
 
 ### Assignment #2
