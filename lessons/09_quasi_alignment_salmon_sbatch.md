@@ -31,9 +31,15 @@ Begin the script starting with the **shebang line**.
 #!/bin/bash
 
 ```
+***
+
 **Exercise 1**
 
-Next, add the Slurm directives requesting specific resources from O2 for our job. The resources we need are listed below. Use this [linked lesson](03_working_on_HPC.md#requesting-resources-from-slurm) as a resource to help figure out the correct Slurm directives ( i.e `#SBATCH`) to add to your script. The [HMS-RC's O2 Wiki](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic) is also a good reference guide.
+1. Add the Slurm directives ( i.e `#SBATCH`) to request specific resources for our job. The resources we need are listed below. 
+
+> **NOTE:** Helpful resources include:
+> * This [linked lesson](03_working_on_HPC.md#requesting-resources-from-slurm) 
+> * [HMS-RC's O2 Wiki](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic) 
 
 * Your job will use the `short` partition
 * Request 6 cores to take advantage of Salmon's multi-threading capabilities
@@ -42,17 +48,21 @@ Next, add the Slurm directives requesting specific resources from O2 for our job
 * Give your job the name `salmon_in_serial`
 * Add an email and request to be notified when the job is complete
 
+***
+
+Now that we have the resources requested, we can begin to **add the commands into our shell script**. 
+
+
+***
 
 **Exercise 2**
 
-Now that we have the resources requested, we can begin to **add the commands into our shell script**. Add lines of code to do the following:
-
-* Load the Salmon module
-* Change directories to where the Salmon results will be output (be sure to use a full path here).
+1. Add a line of code required to load the Salmon module
+2. Add a line of code to change directories to where the Salmon results will be output (be sure to use a full path here).
 
 > *Add comments to your script liberally, wherever you feel it's needed.*
 
-**Exercise 3**
+***
 
 The last piece of the shell script is the **for loop** code provided below. **Copy and paste this into your script**.
 
@@ -78,22 +88,26 @@ done
 
 Note, that our for loop is iterating over all FASTQ files in the `raw_fastq` directory. For each file, a prefix is generated to name the output file and then the Salmon command is run with the same parameters as used in the single sample run.
 
-**Now add two additional parameters to the current Salmon command (remember to use "`\`" if dissecting one command in multiple lines)**: 
+***
 
-* `-p`: specifies the number of processors or cores we would like to use for **multithreading**. What value will you provide here, knowing what we asked for in our Slurm directives?
-* `--numBootstraps`: specifies computation of bootstrapped abundance estimates. **Bootstraps are required for isoform level differential expression analysis for estimation of technical variance**. Here, you can set the value to 30.
+**Exercise 3**
+
+1. **Add two additional parameters to the current Salmon command (remember to use "`\`" if dissecting one command in multiple lines)**: 
+
+a.  `-p`: specifies the number of processors or cores we would like to use for **multithreading**. What value will you provide here, knowing what we asked for in our Slurm directives?
+b. `--numBootstraps`: specifies computation of bootstrapped abundance estimates. **Bootstraps are required for isoform level differential expression analysis for estimation of technical variance**. Here, you can set the value to 30.
 	
 > _**NOTE:** `--numBootstraps` is necessary if performing **isoform-level differential expression analysis** with Sleuth, but not for gene-level differential expression analysis. Due to the statistical procedure required to assign reads to gene isoforms, in addition to the random processes underlying RNA-Seq, there will be **technical variability in the abundance estimates** output from the pseudo-alignment tool [[2](https://rawgit.com/pachterlab/sleuth/master/inst/doc/intro.html), [3](https://www.nature.com/articles/nmeth.4324)] for the isoform level abundance estimates (not necessary for gene-level estimates). Therefore, **we would need technical replicates to distinguish technical variability from the biological variability** for gene isoforms._
 >
 > _The bootstraps estimate technical variation per gene by calculating the abundance estimates for all genes using a different sub-sample of reads during each round of bootstrapping. The variation in the abundance estimates output from each round of bootstrapping is used for the estimation of the technical variance for each gene._
 
-Save and close the script. This script is now ready to run.
+2. Save and close the script. This script is now ready to run.
 
 ```
 $ sbatch salmon_all_samples.sbatch
 ```
 
-**After you confirmed that the script runs as expected, copy and paste your final script to a txt file and submit that as part of your assignment.** 
+3. **After you confirmed that the script runs as expected, copy and paste your final script to a txt file and submit that as part of your assignment.** 
 
 ---
 
