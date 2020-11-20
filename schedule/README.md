@@ -44,7 +44,7 @@ Before you start with the self-learning portion of the workshop, please check th
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
 | 09:30 - 10:30 | Self-learning lessons review | All |
-| 10:30 - 11:10 | Sequence Alignment Theory | Meeta |
+| 10:30 - 11:10 | [Sequence Alignment Theory](../lectures/alignment_quantification.pdf) | Meeta |
 | 11:10 - 11:50 | Quantifying expression using alignment-free methods (Salmon) | Radhika |
 | 11:50 - 12:00 | Review of workflow | Radhika |
 
