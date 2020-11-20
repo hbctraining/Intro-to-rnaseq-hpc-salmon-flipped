@@ -92,10 +92,10 @@ Note, that our for loop is iterating over all FASTQ files in the `raw_fastq` dir
 
 **Exercise 3**
 
-1. **Add two additional parameters to the current Salmon command (remember to use "`\`" if dissecting one command in multiple lines)**: 
+1. **Add two additional parameters (as described below) to the current Salmon command (remember to use "`\`" if dissecting one command in multiple lines)**: 
 
-a.  `-p`: specifies the number of processors or cores we would like to use for **multithreading**. What value will you provide here, knowing what we asked for in our Slurm directives?
-b. `--numBootstraps`: specifies computation of bootstrapped abundance estimates. **Bootstraps are required for isoform level differential expression analysis for estimation of technical variance**. Here, you can set the value to 30.
+	1.  `-p`: specifies the number of processors or cores we would like to use for **multithreading**. What value will you provide here, knowing what we asked for in our Slurm directives?
+	1. `--numBootstraps`: specifies computation of bootstrapped abundance estimates. **Bootstraps are required for isoform level differential expression analysis for estimation of technical variance**. Here, you can set the value to 30.
 	
 > _**NOTE:** `--numBootstraps` is necessary if performing **isoform-level differential expression analysis** with Sleuth, but not for gene-level differential expression analysis. Due to the statistical procedure required to assign reads to gene isoforms, in addition to the random processes underlying RNA-Seq, there will be **technical variability in the abundance estimates** output from the pseudo-alignment tool [[2](https://rawgit.com/pachterlab/sleuth/master/inst/doc/intro.html), [3](https://www.nature.com/articles/nmeth.4324)] for the isoform level abundance estimates (not necessary for gene-level estimates). Therefore, **we would need technical replicates to distinguish technical variability from the biological variability** for gene isoforms._
 >
