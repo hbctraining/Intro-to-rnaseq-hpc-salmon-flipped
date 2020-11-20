@@ -1,7 +1,7 @@
 ---
 title: "QC with STAR and Qualimap"
-author: "Meeta Mistry, Mary Piper"
-date: Monday September 10, 2018
+author: "Meeta Mistry, Mary Piper, Radhika Khetani, Jihe Liu"
+date: Thursday November 19, 2020
 ---
 
 Approximate time: 50 minutes
