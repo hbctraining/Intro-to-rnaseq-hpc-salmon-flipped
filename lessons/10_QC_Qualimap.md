@@ -26,7 +26,7 @@ After running Salmon, we now have transcript-level abundance estimates for each 
 
 ## Qualimap 
 
-We will be using [Qualimap](http://qualimap.bioinfo.cipf.es/doc_html/intro.html#what-is-qualimap), a Java application that takes genome alignment data as input and explores the features of mapped reads and their genomic properties. It **provides an overall view of the data quality in an HTML report format**. The reports are comprehensive with mapping statistics summarized along with useful figures and tab-delimited files of metrics data. We will run Qualimap on a single sample, and then take a detailed look at the report and metrics in comparison to what we would expect for good data.
+We will be using [Qualimap](http://qualimap.bioinfo.cipf.es/doc_html/intro.html#what-is-qualimap), a Java application that takes genome alignment data as input and explores the features of mapped reads and their genomic properties. It **provides an overall view of the data quality in an HTML report**. The report is comprehensive with mapping statistics summarized along with useful figures and tab-delimited files of metrics data. We will run Qualimap on a single sample, and then take a detailed look at the report and metrics in comparison to what we would expect for good data.
 
 **Before we can use Qualimap, we need to use a genome alignment tool to get the required input with genomic coordinates**. Most aligners that work with NGS data generate a very specific file format wherein all the alignment results are organized systematically. This file format is called SAM/BAM (see below).
 
