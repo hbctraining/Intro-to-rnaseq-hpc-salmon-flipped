@@ -17,15 +17,15 @@ There are several metrics you can evaluate in the RNA-seq workflow. Below are 3 
 
 An important QC step is to make sure that these metrics are consistent across the samples for a given experiment, and any outliers should be investigated further.
 
-Manually tracking these metrics is tedious and error-prone. Many tools can help you with the documentation and QC assessment, some of which also have really nice visualizations to easily identify any issues, e.g. [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/), [Qualimap](http://qualimap.bioinfo.cipf.es/doc_html/index.html), [MultiQC](http://multiqc.info/). Some of these tools tend to focus on QC related to a specific step in the RNA-seq workflow, whereas MultiQC is able to make a report from the output of many different tools (for RNA-seq analysis and other NGS workflows). MultiQC is also a little simpler to use.
+Manually tracking these metrics is tedious and error-prone. Many tools can help you with the documentation and QC assessment, some of which also have really nice visualizations to easily identify any issues, e.g. [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/), [Qualimap](http://qualimap.bioinfo.cipf.es/doc_html/index.html), [MultiQC](http://multiqc.info/). Some of these tools tend to focus on a single sample at a time, and on QC for a specific step in the workflow. MultiQC, on the other hand, is able to make a report from the output of many different tools (for RNA-seq analysis and other NGS workflows) and it is able to combine the information for multiple samples.
 
 ### Tracking and aggregating results from workflow tools with *MultiQC*
 
-In this lesson, we will be using MultiQC, which aggregates results from several tools and generates a single HTML report with plots to visualize and compare various QC metrics between the samples.
+In this lesson, we will be using MultiQC to aggregate results from several tools and generates a single HTML report with plots to visualize and compare QC metrics between the samples.
 
-MultiQC can generate this report from 36 different bioinformatics tools, and these tools span various NGS analyses, e.g., basic QC, RNA-seq, ChIP-seq, variant calling, genome annotation, etc. We are going to use it to aggregate information from the results of [FastQC](http://multiqc.info/docs/#fastqc), [STAR](http://multiqc.info/docs/#star), [Qualimap](http://multiqc.info/docs/#qualimap), and [salmon](http://multiqc.info/docs/#salmon). MultiQC can parse the information from specific output files of these tools, and use them as input for MultiQC.
+MultiQC can generate this report from over 35 different bioinformatics tools, and these tools span various NGS analyses, e.g., basic QC, RNA-seq, ChIP-seq, variant calling, genome annotation, etc. We are going to use it to aggregate information from the results of [FastQC](http://multiqc.info/docs/#fastqc), [STAR](http://multiqc.info/docs/#star), [Qualimap](http://multiqc.info/docs/#qualimap), and [salmon](http://multiqc.info/docs/#salmon). MultiQC can parse the information from **specific output files** of these tools.
 
-We are going to start by creating a directory for our output called `multiqc_report`:
+Start by creating a directory for our output called `multiqc_report`:
 
 ```bash
 $ cd ~/rnaseq/
@@ -33,21 +33,26 @@ $ cd ~/rnaseq/
 $ mkdir results/multiqc_report
 ```
 
-and then navigate into that directory: 
+Then navigate into that directory: 
 
 ```bash
 $ cd results/multiqc_report
 ```
 
-We then load three necessary modules needed to run MultiQC: `gcc`, `python`, `multiqc`.
+Next, load the three modules needed to run MultiQC: `gcc`, `python`, `multiqc`.
 
 ```bash
 $ cd results/multiqc_report
 
 $ module load gcc/6.2.0 python/2.7.12 multiqc/1.5
 ```
+***
 
-> *How did we know which additional modules to load?*
+**Exercise**
+
+How did we know which modules to load in addition to multiqc?
+
+***
 
 We are going to run MultiQC on the following 4 outputs from our workflow:
 
@@ -56,16 +61,14 @@ We are going to run MultiQC on the following 4 outputs from our workflow:
 * `.qualimap` files from Qualimap
 * `.salmon` directories from salmon
 
-Generally we run MultiQC on the full set of samples in our datset so we can compare metrics. However, so far in this workshop we have only run FastQC, STAR, Qualimap, and salmon on the single `Mov10_oe_1` file. Additionally, the data we have been using is a subset of the full dataset.
+To create a more meaningful report to look at we thought it best to run MultiQC on the full dataset instead of the subset we have been working with so far. We have run each of the tools mentioned above on the full dataset and stored the result in the directory `/n/groups/hbctraining/rna-seq_2019_02/snapshots/full_dataset_results`. We will point to these files as input for our MultiQC analysis.
 
-To create a more meaningful report to look at we thought it best to run MultiQC on the full dataset. As such we have run each of these tools on the full dataset and stored the result in the directory `/n/groups/hbctraining/rna-seq_2019_02/snapshots/full_dataset_results`. We will point to these files as input for our MultiQC analysis.
-
-To run MultiQC, we can provide it two things at minimum:
+To run MultiQC, we can provide it two inputs at a minimum:
 
 1. a name for our output report and folder
 2. the paths to our results files
 
-> **NOTE:** MultiQC has additional parameters we could include; use `multiqc -h` to know more.
+> **NOTE:** MultiQC has additional parameters we could include; use `multiqc -h` to find out more.
 
 ```bash
 $ multiqc -n multiqc_report_rnaseq \
@@ -75,11 +78,11 @@ $ multiqc -n multiqc_report_rnaseq \
 /n/groups/hbctraining/rna-seq_2019_02/snapshots/full_dataset_results/salmon/*salmon
 ```
 
-> **NOTE**: You will see the progress of analysis printed out on the terminal as the tool runs. If you want to save this output into a log file (for future reference), you can use `2>` operator to redirect it to a file. For example, at the end of script, add `2> log.txt`.
+> **NOTE**: You will see the progress of analysis printed out on the terminal as the tool runs. If you want to save this output into a log file (for future reference), you can use `2>` operator to redirect it to a file. For example, at the end of script, add `2> log.txt`. `2>`redirects the output of so-called standard error.
 
-It takes a couple of minutes to generate the MultiQC report. The report provides nice visualizations across samples, to determine consistency and to identify problematic samples.
+It takes a couple of minutes to generate the MultiQC report. The report provides nice visualizations across samples, which is very useful to determine consistency and to identify problematic samples.
 
-The output of MultiQC is one HTML file (`multiqc_report_rnaseq.html`) and a data folder. Transfer the interactive HTML report over to our laptops using **FileZilla**, and visualize the outputs of the four tools we used to generate the report.
+The output of MultiQC is one HTML file (`multiqc_report_rnaseq.html`) and a data folder. Transfer the interactive HTML report over to your laptop using **FileZilla**, and visualize the outputs of the four tools we used to generate the report.
 
 > *For a refresher on using Filezilla, please refer back to our [FastQC assessment lesson](07_qc_fastqc_assessment.md).*
 
