@@ -11,7 +11,7 @@
 #SBATCH --mail-user=xyz10@harvard.edu
 
 # Load Salmon module
-module load salmon
+module load salmon/1.2.1
 
 # Change directory to where the Salmon results will be output
 cd ~/rnaseq/results/salmon
