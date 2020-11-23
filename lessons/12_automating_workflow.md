@@ -145,7 +145,7 @@ In the rest of the script, we can now call the fastq file using `$fq` instead of
 
 Next, we want to extract the name of the sample from `$fq` which contains the full name of the file and possibly the path to the file as well. The reason to extract the sample name is so that all the output files from this workflow are appropriately named with sample identifier.
 
-We can obtain the sample name by using the `basename` command on the `$fq` (or `$1`)  variable, and save it in a new variable called samplename.
+We can obtain the sample name by using the `basename` command on the `$fq` (or `$1`)  variable, and save it in a new variable called `samplename`.
 
 ```
 # grab base of filename for naming outputs
