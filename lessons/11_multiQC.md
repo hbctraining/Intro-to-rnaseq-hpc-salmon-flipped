@@ -23,7 +23,7 @@ Manually tracking these metrics is tedious and error-prone. Many tools can help 
 
 In this lesson, we will be using MultiQC to aggregate results from several tools and generates a single HTML report with plots to visualize and compare QC metrics between the samples.
 
-MultiQC can generate this report from over 35 different bioinformatics tools, and these tools span various NGS analyses, e.g., basic QC, RNA-seq, ChIP-seq, variant calling, genome annotation, etc. We are going to use it to aggregate information from the results of [FastQC](http://multiqc.info/docs/#fastqc), [STAR](http://multiqc.info/docs/#star), [Qualimap](http://multiqc.info/docs/#qualimap), and [salmon](http://multiqc.info/docs/#salmon). MultiQC can parse the information from **specific output files** of these tools.
+MultiQC can generate this report from 96 different bioinformatics tools, and these tools span various NGS analyses, e.g., basic QC, RNA-seq, ChIP-seq, variant calling, genome annotation, etc. We are going to use it to aggregate information from the results of [FastQC](http://multiqc.info/docs/#fastqc), [STAR](http://multiqc.info/docs/#star), [Qualimap](http://multiqc.info/docs/#qualimap), and [salmon](http://multiqc.info/docs/#salmon). MultiQC can parse the information from **specific output files** of these tools.
 
 Start by creating a directory for our output called `multiqc_report`:
 
