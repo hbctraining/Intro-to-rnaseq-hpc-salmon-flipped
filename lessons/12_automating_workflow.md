@@ -41,7 +41,7 @@ When you press enter you will see:
 Do you want to create a scratch3 directory under /n/scratch3/users? [y/N]
 ```
 
-Please say `y`. Next it will display the guidelines for this folder and ask you to verify that you have read them:
+Please say `y`. Next, it will display the guidelines for this folder and ask you to verify that you have read them:
 
 ```
 Do you want to create a scratch3 directory under /n/scratch3/users? [y/N]> y
@@ -63,7 +63,7 @@ This has a limit of 10TB of storage and 1 million files.
 You can check your scratch3 quota using the scratch3_quota.sh command.
 ```
 
-Great, now we all have created a work directory for ourselves in the `n/scratch3/` storage space! 
+Great, now we all have created a work directory for ourselves in the `/n/scratch3/` storage space! 
 
 Let's go ahead and create a folder within our `/n/scratch3/` storage space for the results of our analysis.
 
@@ -108,15 +108,11 @@ The variables $1, $2, $3,...$9 and so on are **positional parameters** in the co
 
 > [This is an example of a simple script that used the concept of positional parameters and the associated variables](http://steve-parker.org/sh/eg/var3.sh.txt). You should try this script out after the class to get a better handle on positional parameters for shell scripting.
 
-Let's use this new concept in the script we are writing. We want the first positional parameter ($1) to be the name of our fastq file. We could just use the variable `$1` throughout the script to refer to the fastq file, but this variable name is not intuitive, so we want to create a new variable called `fq` and copy the contents of `$1` into it.
+We will be using this concept in our automation script, wherein we will accept the full or relative path to a file as input.
 
-First, we need to start a new script called `rnaseq_analysis_on_input_file.sh` in the `~/rnaseq/scripts/` directory:
+### Writing the automation script!
 
-```bash
-$ cd ~/rnaseq/scripts/
-
-$ vim rnaseq_analysis_on_input_file.sh
-```
+We will start writing the script on our laptops using a simple text editor like Sublime Text or Notepad++. Let's being with the shebang line and a `cd` command so that our results are all written on `/n/scratch3/`. 
 
 ```bash
 #!/bin/bash/
@@ -124,12 +120,20 @@ $ vim rnaseq_analysis_on_input_file.sh
 # change directories to /n/scratch3/ so that all the analysis is stored there.
 
 cd /n/scratch3/users/r/$USER/rnaseq_hbc-workshop/
+```
+
+**We want users to input the path to the fastq file as input to the shell script.** To make this happen, we will use the `$1` positional parameter variable within the script. 
+
+Since `$1` will store the path to the fastq file, including the file name, we will be referring to it every time we need to specify the fastq file in any commands. We could just use the variable `$1`, but that is not an intuitive variable name for a fastq file, is it? So we want to create a new variable called `fq` and copy the contents of `$1` into it. 
 
 
+```bash
 # initialize a variable with an intuitive name to store the name of the input fastq file
 
 fq=$1
 ```
+
+In the rest of the script, we can now call the fastq file using `$fq` instead of `$1`!
 
 > When we set up variables we do not use the `$` before it, but when we *use the variable*, we always have to have the `$` before it. >
 >
@@ -139,19 +143,21 @@ fq=$1
 >
 > using the `fq` variable => `fastqc $fq`
 
-To ensure that all the output files from the workflow are properly named with sample IDs we should extract the "base name" (or sample ID) from the name of the input file.
+Next, we want to extract the name of the sample from `$fq` which contains the full name of the file and possibly the path to the file as well. The reason to extract the sample name is so that all the output files from this workflow are appropriately named with sample identifier.
+
+We can obtain the sample name by using the `basename` command on the `$fq` (or `$1`)  variable, and save it in a new variable called samplename.
 
 ```
 # grab base of filename for naming outputs
 
-base=`basename $fq .subset.fq`
-echo "Sample name is $base"           
+samplename=`basename $fq .subset.fq`
+echo "Sample name is $samplename"           
 ```
 
 > **Remember `basename`?**
 >
-> 1. the `basename` command: this command takes a path or a name and trims away all the information before the last `\` and if you specify the string to clear away at the end, it will do that as well. In this case, if the variable `$fq` contains the path *"~/rnaseq/raw_data/Mov10_oe_1.subset.fq"*, `basename $fq .subset.fq` will output "Mov10_oe_1".
-> 2. to assign the value of the `basename` command to the `base` variable, we encapsulate the `basename...` command in backticks. This syntax is necessary for assigning the output of a command to a variable.
+> 1. the `basename` command: this command takes a path or a name and trims away all the information before the last `/` and if you specify the string to clear away at the end, it will do that as well. In this case, if the variable `$fq` contains the path *"~/rnaseq/raw_data/Mov10_oe_1.subset.fq"*, `basename $fq .subset.fq` will output "Mov10_oe_1".
+> 2. to assign the value of the `basename` command to the `samplename` variable, we encapsulate the `basename...` command in backticks. This syntax is necessary for assigning the output of a command to a variable.
 
 Next we want to specify how many cores the script should use to run the analysis. This provides us with an easy way to modify the script to run with more or fewer cores without have to replace the number within all commands where cores are specified.
 
@@ -189,11 +195,11 @@ Now that we have already created our output directories, we can now specify vari
 # set up output filenames and locations
 
 fastqc_out=results/fastqc/
-align_out=results/STAR/${base}_
-align_out_bam=results/STAR/${base}_Aligned.sortedByCoord.out.bam
-qualimap_out=results/qualimap/${base}.qualimap
-salmon_out=results/salmon/${base}.salmon
-salmon_mappings=results/salmon/${base}_salmon.out
+align_out=results/STAR/${samplename}_
+align_out_bam=results/STAR/${samplename}_Aligned.sortedByCoord.out.bam
+qualimap_out=results/qualimap/${samplename}.qualimap
+salmon_out=results/salmon/${samplename}.salmon
+salmon_mappings=results/salmon/${samplename}_salmon.out
 ```
 
 ### Keeping track of tool versions
@@ -229,7 +235,7 @@ echo "Processing file $fq"
 ### Running the tools
 
 ```
-echo "Starting QC for $base"
+echo "Starting QC for $samplename"
 
 # Run FastQC and move output to the appropriate folder
 fastqc -o $fastqc_out $fq
@@ -249,7 +255,7 @@ qualimap rnaseq \
 
 # Run salmon
 
-echo "Starting Salmon run for $base"
+echo "Starting Salmon run for $samplename"
 
 salmon quant -i $transcriptome \
 -p $cores \
@@ -273,7 +279,7 @@ It is okay to specify this after everything else is set up, since you will have 
 
 ### Saving and running script
 
-To transfer the contents of the script to O2, you can copy and paste the contents into a new file using `vim`. 
+To transfer the contents of the script from your laptop to O2, you can copy and paste the contents into a new file called `rnaseq_analysis_on_input_file.sh` using `vim`. 
 
 ```bash
 $ cd ~/rnaseq/scripts/
@@ -378,6 +384,3 @@ Don't forget about the `scancel` command, should something go wrong and you need
 
 ---
 *This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
-
-* *The materials used in this lesson was derived from work that is Copyright © Data Carpentry (http://datacarpentry.org/). 
-All Data Carpentry instructional material is made available under the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0).*
