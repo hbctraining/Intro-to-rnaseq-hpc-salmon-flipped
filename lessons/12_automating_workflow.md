@@ -1,7 +1,7 @@
 ---
 title: "Automating the RNA-seq workflow"
-author: "Meeta Mistry, Radhika Khetani"
-date: "Wednesday, September 12, 2018"
+author: "Meeta Mistry, Radhika Khetani, Mary Piper, Jihe Liu"
+date: "Monday, November 23, 2020"
 ---
 
 ## Learning Objectives:
@@ -15,37 +15,73 @@ Once you have optimized all the tools and parameters using a single sample (like
 
 This will ensure that you run every sample with the exact same parameters, and will enable you to keep track of all the tools and their versions. In addition, the script is like a lab notebook; in the future, you (or your colleagues) can go back and check the workflow for methods, which enables efficiency and reproducibility.
 
-Before we start with the script, let's check how many cores our interactive session has by using `sacct`. 
-
-```bash
-$ sacct
-```
-
-We need to have an interactive session with 6 cores, if you already have one you are set. If you have a session with fewer cores then `exit` out of your current interactive session and start a new one with `-c 6`.
-
-```bash
-$ srun --pty -p interactive -t 0-12:00 -c 6 --mem 8G --reservation=HBC /bin/bash
-```
-
 ### Using "scratch space"
 
-Before we get started, let's talk a little bit about how data are stored on O2. O2, like many clusters, has several different storage options; each of which has different amounts of space available, and is differently backed up. One filesystem is the `/n/scratch2/` space. This directory has a lot of shared disk space available but, the files are not backed up and they will be deleted if left "untouched" for more than 30 days.
+Before we get started, let's talk a little bit about how data are stored on O2. O2, like many clusters, has several different storage options; each of which has different amounts of space available, and is differently backed up. One filesystem is the `/n/scratch3/` space. This directory has a lot of shared disk space available, but the files are not backed up and they will be deleted if left "untouched" for more than 30 days.
 
-By design `/n/scratch2/` is to be used for intermediate files that are created during any analysis. An example is in the schematic below. 
+By design `/n/scratch3/` is to be used for intermediate files that are created during any analysis. An example is in the schematic below. 
 
 <p align="center">
 <img src="../img/scratch_best-practice.png" width="600">
 </p>
 
-Today, we are going to learn how to use `/n/scratch2/` as we work on automating our workflow. In this context, we will be maintaining our data in our (backed up) home directories, but all of the output files will be in scratch space. When we are done, we can copy over only those output files that are essential.
+Today, we are going to learn how to use the `/n/scratch3/` storage location as we work on automating our workflow ([More information about scratch space on O2](https://wiki.rc.hms.harvard.edu/display/O2/Scratch3+Storage). We will be maintaining our data in our (backed up) home directories, but all of the output files will be in scratch space. When we are done, we can copy over only those output files that are essential.
 
-To get started, let's create a folder for ourselves in `/n/scratch2/` and within that a folder for this RNA-seq analysis.
+#### Creating a folder in `/n/scratch3/`
+
+To get started let's create a folder for ourselves in `/n/scratch3/` first. We can do so by running the existing script `/n/cluster/bin/scratch3_create.sh` from a login node.
 
 ```bash
-mkdir -p /n/scratch2/$USER/rnaseq_hbc-workshop/
+$ sh /n/cluster/bin/scratch3_create.sh
 ```
 
-When we create our script, we will make sure that all of the analysis output gets saved in the `/n/scratch2/$USER/rnaseq_hbc-workshop/` folder.
+When you press enter you will see:
+
+```
+Do you want to create a scratch3 directory under /n/scratch3/users? [y/N]
+```
+
+Please say `y`. Next it will display the guidelines for this folder and ask you to verify that you have read them:
+
+```
+Do you want to create a scratch3 directory under /n/scratch3/users? [y/N]> y
+
+By typing 'YES' I will comply with HMS RC guidelines for using Scratch3.
+I also confirm that I understand that files in my scratch directory WILL NOT BE BACKED UP IN ANY WAY.
+I also understand that THIRTY DAYS after I last access a given file or directory in my scratch directory,
+it will be DELETED with NO POSSIBILITY of retrieval.
+
+I understand HMS RC guidelines for using Scratch3:
+```
+
+Please answer `Yes` or `yes` here, once you do you will get some additional information and your command prompt back.
+
+```
+I understand HMS RC guidelines for using Scratch3: yes
+Your scratch3 directory was created at /n/scratch3/users/r/rc_trainingXX.
+This has a limit of 10TB of storage and 1 million files.
+You can check your scratch3 quota using the scratch3_quota.sh command.
+```
+
+Great, now we all have created a work directory for ourselves in the `n/scratch3/` storage space! 
+
+Let's go ahead and create a folder within our `/n/scratch3/` storage space for the results of our analysis.
+
+```bash
+mkdir /n/scratch2/users/r/$USER/rnaseq_hbc-workshop
+```
+
+When we create our script, we will make sure that all of the analysis output gets saved in the `/n/scratch3/users/r/$USER/rnaseq_hbc-workshop` folder.
+
+### Start an interactive session
+
+We will be working with an interactive session with 6 cores. 
+
+> If you have a session with fewer cores then `exit` out of your current interactive session and start a new one with `-c 6`.
+
+```bash
+$ srun --pty -p interactive -t 0-3:00 -c 6 --mem 8G --reservation=HBC3 /bin/bash
+```
 
 ### More Flexibility with variables
 
@@ -85,8 +121,10 @@ $ vim rnaseq_analysis_on_input_file.sh
 ```bash
 #!/bin/bash/
 
-# change directories to /n/scratch2/ so that all the analysis is stored there.
-cd /n/scratch2/$USER/rnaseq_hbc-workshop/
+# change directories to /n/scratch3/ so that all the analysis is stored there.
+
+cd /n/scratch3/users/r/$USER/rnaseq_hbc-workshop/
+
 
 # initialize a variable with an intuitive name to store the name of the input fastq file
 
@@ -163,14 +201,16 @@ salmon_mappings=results/salmon/${base}_salmon.out
 All of our variables are now staged. Next, let's make sure all the modules are loaded. This is also a good way to keep track of the versions of tools that you are using in the script:
 
 ```
-# set up the software environment
+# set up the software environment (use version numbers)
 
 module load fastqc/0.11.3
 module load gcc/6.2.0  
 module load star/2.7.0a
 module load samtools/1.3.1
+module load java/jdk-1.8u112
+module load qualimap/2.2.1
+module load salmon/1.2.1
 unset DISPLAY
-export PATH=/n/app/bcbio/dev/anaconda/bin:$PATH
 ```
 
 ### Preparing for future debugging
@@ -243,10 +283,10 @@ $ vim rnaseq_analysis_on_input_file.sh
 > *Alternatively, you can save the script on your computer and transfer it to `~/rnaseq/scripts/` using FileZilla.*
 
 
-We should all have an interactive session with 6 cores, so we can run the script as follows:
+We should all have an interactive session with 6 cores, so we can run the script as follows from the `~/rnaseq/` directory:
 
 ```bash
-$ cd ..     # pwd should be ~/rnaseq/
+$ cd ~/rnaseq/     
 
 $ sh scripts/rnaseq_analysis_on_input_file.sh ~/rnaseq/raw_data/Mov10_oe_1.subset.fq
 ```
@@ -329,7 +369,7 @@ You can use `O2sacct` to check progress. And we can check if there are any addit
 ```bash
 $ O2sacct
 
-$ ls -l /n/scratch2/$USER/rnaseq_hbc-workshop/
+$ ls -l /n/scratch3/users/r/$USER/rnaseq_hbc-workshop/
 ```
 
 Don't forget about the `scancel` command, should something go wrong and you need to cancel your jobs.
