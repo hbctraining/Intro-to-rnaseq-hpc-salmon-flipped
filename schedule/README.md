@@ -70,8 +70,8 @@ Before you start with the self-learning portion of the workshop, please check th
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
 | 09:30 - 10:10 | Self-learning lessons review | All |
-| 10:10 - 11:10 | Automating the RNA-seq workflow| Radhika |
-| 11:10 - 11:45 | Troubleshooting RNA-seq Data Analysis | Meeta |
+| 10:10 - 10:45 | Troubleshooting RNA-seq Data Analysis | Meeta |
+| 10:45 - 11:45 | Automating the RNA-seq workflow| Radhika |
 | 11:45 - 12:00 | Wrap up | Radhika |
 
 ***
