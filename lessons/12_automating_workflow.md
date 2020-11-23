@@ -147,7 +147,7 @@ Next, we want to extract the name of the sample from `$fq` which contains the fu
 
 We can obtain the sample name by using the `basename` command on the `$fq` (or `$1`)  variable, and save it in a new variable called `samplename`.
 
-```
+```bash
 # grab base of filename for naming outputs
 
 samplename=`basename $fq .subset.fq`
@@ -161,14 +161,14 @@ echo "Sample name is $samplename"
 
 Next we want to specify how many cores the script should use to run the analysis. This provides us with an easy way to modify the script to run with more or fewer cores without have to replace the number within all commands where cores are specified.
 
-```
+```bash
 # specify the number of cores to use
 
 cores=6
 ```
 Next we'll initialize 3 more variables named `genome`, `transcriptome` and `gtf`, these will contain the paths to where the reference files are stored. This makes it easier to modify the script for when you want to use a different genome, i.e. you'll just have to change the contents of these variable at the beginning of the script.
 
-```
+```bash
 # directory with the genome and transcriptome index files + name of the gene annotation file
 
 genome=/n/groups/hbctraining/intro_rnaseq_hpc/reference_data_ensembl38/ensembl38_STAR_index
@@ -178,7 +178,7 @@ gtf=/n/groups/hbctraining/intro_rnaseq_hpc/reference_data_ensembl38/Homo_sapiens
 
 We'll create output directories, but with the `-p` option. This will make sure that `mkdir` will create the directory only if it does not exist, and it won't throw an error if it does exist.
 
-```
+```bash
 # make all of the output directories
 # The -p option means mkdir will create the whole path if it 
 # does not exist and refrain from complaining if it does exist
@@ -191,7 +191,7 @@ mkdir -p results/salmon/
 
 Now that we have already created our output directories, we can now specify variables with the path to those directories both for convenience but also to make it easier to see what is going on in a long command.
 
-```
+```bash
 # set up output filenames and locations
 
 fastqc_out=results/fastqc/
@@ -206,7 +206,7 @@ salmon_mappings=results/salmon/${samplename}_salmon.out
 
 All of our variables are now staged. Next, let's make sure all the modules are loaded. This is also a good way to keep track of the versions of tools that you are using in the script:
 
-```
+```bash
 # set up the software environment (use version numbers)
 
 module load fastqc/0.11.3
@@ -223,7 +223,7 @@ unset DISPLAY
 
 In the script, it is a good idea to use `echo` for debugging. `echo` basically displays the string of characters specified within the quotations. When you have strategically place `echo` commands specifying what stage of the analysis is next, in case of failure you can determine the last `echo` statement displayed to troubleshoot the script.
 
-```
+```bash
 echo "Processing file $fq"
 ```
 
@@ -234,7 +234,7 @@ echo "Processing file $fq"
 
 ### Running the tools
 
-```
+```bash
 echo "Starting QC for $samplename"
 
 # Run FastQC and move output to the appropriate folder
@@ -270,7 +270,7 @@ salmon quant -i $transcriptome \
 
 It is best practice to have the script **usage** specified at the top any script. This should have information such that when your future self, or a co-worker, uses the script they know what it will do and what input(s) are needed. For our script, we should have the following lines of comments right at the top after `#!/bin/bash/`:
 
-```
+```bash
 # This script takes a fastq file of RNA-seq data, runs FastQC, STAR, Qualimap and Salmon.
 # USAGE: sh rnaseq_analysis_on_input_file.sh <name of fastq file>
 ```
@@ -308,7 +308,7 @@ To run the above script **"in serial"** for all of the files on a worker node vi
 
 Below is what this second script (`rnaseq_analysis_on_allfiles.slurm`) would look like **\[DO NOT RUN THIS\]**:
 
-```
+```bash
 #!/bin/bash
 
 #SBATCH -p medium 		# partition name
