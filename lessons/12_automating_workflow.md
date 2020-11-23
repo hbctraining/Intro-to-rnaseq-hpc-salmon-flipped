@@ -22,7 +22,7 @@ Before we get started, let's talk a little bit about how data are stored on O2. 
 By design `/n/scratch3/` is to be used for intermediate files that are created during any analysis. An example is in the schematic below. 
 
 <p align="center">
-<img src="../img/scratch_best-practice.png" width="600">
+<img src="../img/scratch3_best-practice.png" width="600">
 </p>
 
 Today, we are going to learn how to use the `/n/scratch3/` storage location as we work on automating our workflow ([More information about scratch space on O2](https://wiki.rc.hms.harvard.edu/display/O2/Scratch3+Storage). We will be maintaining our data in our (backed up) home directories, but all of the output files will be in scratch space. When we are done, we can copy over only those output files that are essential.
