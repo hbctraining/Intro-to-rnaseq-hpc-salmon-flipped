@@ -68,7 +68,7 @@ Great, now we all have created a work directory for ourselves in the `/n/scratch
 Let's go ahead and create a folder within our `/n/scratch3/` storage space for the results of our analysis.
 
 ```bash
-mkdir /n/scratch2/users/r/$USER/rnaseq_hbc-workshop
+mkdir /n/scratch3/users/r/$USER/rnaseq_hbc-workshop
 ```
 
 When we create our script, we will make sure that all of the analysis output gets saved in the `/n/scratch3/users/r/$USER/rnaseq_hbc-workshop` folder.
