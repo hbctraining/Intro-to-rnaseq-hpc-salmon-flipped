@@ -61,7 +61,7 @@ Before you start with the self-learning portion of the workshop, please check th
 * Once the self-learning lessons exercises are complete, please identify the apprpopriate files as specified in the lesson (i.e. Excel file, or text/script files) and **upload** to [Dropbox](https://www.dropbox.com/request/9fWybJi6KfW8jjZXOQqK) **day before the next class**.
 * [Email us](mailto:hbctraining@hsph.harvard.edu) about questions regarding the homework that you need answered before the next class.
 * Post questions that you would like to have reviewed in class [here](https://PollEv.com/hbctraining945).
-* Answer key
+* [Answer key](../answer_key/salmon_all_samples.sbatch)
 
 ***
 
