@@ -210,7 +210,7 @@ The Qualimap report in HTML folrmat should be present in the `results/qualimap` 
 
 #### **Read alignment summary**
 
-The first few numbers listed in the report are the mapping statistics. Qualimap also computes counts by assigning reads to genes and [reports associated statistics](http://qualimap.bioinfo.cipf.es/doc_html/analysis.html#id7). For example it computes the following:
+The first few numbers listed in the report are the mapping statistics. Qualimap also computes counts by assigning reads to genes and [reports associated statistics](http://qualimap.conesalab.org/doc_html/analysis.html#id7). For example it computes the following:
 * the number of reads aligned to genes
 * number of ambiguous alignments (reads matching several genes)
 * number of alignments without any feature (intronic and intergenic)
