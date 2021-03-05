@@ -6,8 +6,8 @@ We have downloaded the raw FASTQ files from the SRA for the sequencing data used
 1. Copy the compressed experimental data folder from `/n/groups/hbctraining/kidney_fibrosis_rnaseq.tar.gz` to your own `/n/scratch3/users/ecommonsID` directory.
 2. Extract the directory using the command `tar -xzvf kidney_fibrosis_rnaseq.tar.gz`. This command may take a while to run.
 3. Look inside the directory, you should find the following:
-  - a `raw_fastq` folder containing the raw fastq files
-  - a `meta` folder with a metadata file containing information about each of the samples
+    - a `raw_fastq` folder containing the raw fastq files
+    - a `meta` folder with a metadata file containing information about each of the samples
 4. Create a `reference_data` folder and download the transcriptome FASTA file for mouse to the folder. 
   - For Ensembl references, go to [http://useast.ensembl.org/info/data/ftp/index.html](http://useast.ensembl.org/info/data/ftp/index.html)
   - Find the mouse species row and click on the *FASTA* link in the **cDNA (FASTA)** column. 
