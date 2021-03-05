@@ -21,7 +21,8 @@ We have downloaded the raw FASTQ files from the SRA for the sequencing data used
 ### Analysis
 Using the workflow and submission scripts we generated in class, parallelize the RNA-Seq analysis of all files in this dataset. For each FASTQ file you will need to perform the following:
 
-    - Run FastQC
-    - Generate abundance estimates with Salmon
-    - Evaluate the MultiQC report
-    **HINT: You will need to create a mouse index for Salmon. 
+  - Run FastQC
+  - Generate abundance estimates with Salmon
+  - Evaluate the MultiQC report
+ 
+  **HINT: You will need to create a mouse index for Salmon. 
