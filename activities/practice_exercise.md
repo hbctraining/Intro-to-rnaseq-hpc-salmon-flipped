@@ -25,4 +25,4 @@ Using the workflow and submission scripts we generated in class, parallelize the
   - Generate abundance estimates with Salmon
   - Evaluate the MultiQC report
  
-  **HINT: You will need to create a mouse index for Salmon. 
+  **HINT: You will need to create a mouse index for Salmon.** 
