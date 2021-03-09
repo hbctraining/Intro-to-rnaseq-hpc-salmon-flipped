@@ -4,6 +4,8 @@ _**To perform this exercise you will need an O2 account. You can request an acco
 
 We have downloaded the raw FASTQ files from the SRA for the sequencing data used in the paper: [Silencing SMOC2 ameliorates kidney fibrosis by inhibiting fibroblast to myofibroblast transformation](https://pubmed.ncbi.nlm.nih.gov/28422762/). The paper explores kidney fibrosis in wildtype and SMOC2-overexpressing mice. 
 
+>_**NOTE:** If you are interested in downloading other datasets from the SRA, we have [materials](https://hbctraining.github.io/Accessing_public_genomic_data/lessons/downloading_from_SRA.html) available detailing how to do this.
+
 ### Set-up
 1. Copy the compressed experimental data folder from `/n/groups/hbctraining/kidney_fibrosis_rnaseq.tar.gz` to your own `/n/scratch3/users/ecommonsID` directory.
 2. Extract the directory using the command `tar -xzvf kidney_fibrosis_rnaseq.tar.gz`. This command may take a while to run.
