@@ -1,3 +1,5 @@
+_**To perform this exercise you will need an O2 account. You can request an account by following the instructions on [O2's account request page](https://harvardmed.service-now.com/stat?id=service_catalog_cards&sys_id=5165e1dbdb209050b642f27139961979&sysparm_category=991a7f2edb890c10b642f2713996196a).**_
+
 ## Running the RNA-seq workflow
 
 We have downloaded the raw FASTQ files from the SRA for the sequencing data used in the paper: [Silencing SMOC2 ameliorates kidney fibrosis by inhibiting fibroblast to myofibroblast transformation](https://pubmed.ncbi.nlm.nih.gov/28422762/). The paper explores kidney fibrosis in wildtype and SMOC2-overexpressing mice. 
