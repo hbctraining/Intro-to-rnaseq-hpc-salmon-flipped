@@ -18,7 +18,7 @@ We have downloaded the raw FASTQ files from the SRA for the sequencing data used
     - For Ensembl references, go to [http://useast.ensembl.org/info/data/ftp/index.html](http://useast.ensembl.org/info/data/ftp/index.html)
     - Find the mouse species row and click on the *FASTA* link in the **cDNA (FASTA)** column. 
     - Right-click on the link for the `*cdna.all.fa.gz` file to copy it.
-    - Navigate to the `reference_data` folder and run the command `wget <paste contents of link>. This should download the transcriptome FASTA file to the directory.
+    - Navigate to the `reference_data` folder and run the command `wget <paste contents of link>`. This should download the transcriptome FASTA file to the directory.
     - Extract the `*cdna.all.fa.gz` file by running the code: `gzip -d *cdna.all.fa.gz`.
 5. Set-up additional expected folders (e.g. results, etc.) for your project (i.e. create subdirectories and additional directories where you feel is necessary). 
 
