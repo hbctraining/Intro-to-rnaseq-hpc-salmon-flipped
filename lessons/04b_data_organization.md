@@ -42,6 +42,8 @@ Some relevant metadata for our dataset is provided below:
 
 ## Implementing data management best practices
 
+In a [previous lesson](../04a_data_organization.md) we describe the data lifecycle and the different aspects to consider when working on your own projects. Here, we implement some of those strategies to get ourselves setup before we begin with any analysis.
+
 ### Planning and organization
 
 For each experiment you work on and analyze data for, it is considered best practice to get organized by creating a planned storage space (directory structure). We will start by creating a directory that we can use for the rest of the workshop. First, make sure that you are in your home directory.
