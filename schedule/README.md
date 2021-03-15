@@ -10,12 +10,6 @@
 | 10:15 - 11:45 | RNA Sequencing Library Prep | [Dr. Sarah Boswell](https://scholar.harvard.edu/saboswell/home) |
 | 11:45 - 12:00 | Overview of self-learning materials and homework submission | Jihe/Mary |
 
-### Before the next class:
-
-Please **study the contents** and **work through all the code** within the following lessons:
- * [Shell basics review](../lessons/shell_review.md)
- * [Introduction to RNA-seq](../lessons/01_intro-to-RNAseq.md)
-
 ## Day 2
 
 | Time |  Topic  | Instructor |
