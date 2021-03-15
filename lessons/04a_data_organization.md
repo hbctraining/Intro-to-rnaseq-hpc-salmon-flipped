@@ -24,9 +24,9 @@ One of the most important parts of research that involves large amounts of data 
 
 Wait, don't leave this page just yet!
 
-We know that data management can be hard to get excited about. However, ignoring it can be detrimental to your research!
+We know that data management can be hard to get excited about. However, **ignoring it can be detrimental to your research.**
 
-You might be wondering if this content is even relevant to you and whether or not it's worth your time to read through this lesson. Well, here are just a few reasons **why it should matter to you**:
+Here are just a few reasons **why data management should matter to you**:
 
 * It will make your life easier. It's easier to analyze organized, and well documented data.
 * Your future self will thank you. Managing well from the get-go means it's easier to retrieve at a later date.
