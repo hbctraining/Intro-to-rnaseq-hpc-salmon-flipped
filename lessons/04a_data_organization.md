@@ -31,7 +31,7 @@ We know that data management can be hard to get excited about. However, **ignori
 * Data is precious. Thinking ahead about things like storage means you reduce risk of losing it.
 * Funding agencies are increasingly mandating that research projects are developed with a data management plan.
 
-### Data 
+### Data Lifecycle
 The data lifecycle displayed below, courtesy of the [HMS Data Management Working Group](https://datamanagement.hms.harvard.edu/), illustrates some things to consider beyond data creation and analysis. Below, we discuss components of the lifecycle and how they apply to an RNA-seq experiment.
 
 <p align="center">
