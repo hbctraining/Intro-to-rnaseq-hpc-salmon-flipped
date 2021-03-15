@@ -42,7 +42,7 @@ Some relevant metadata for our dataset is provided below:
 
 ## Implementing data management best practices
 
-In a [previous lesson](../04a_data_organization.md) we describe the **data lifecycle** and the different aspects to consider when working on your own projects. Here, we implement some of those strategies to get ourselves setup before we begin with any analysis.
+In a [previous lesson](../04a_data_organization.md) we describe the data lifecycle and the **different aspects to consider when working on your own projects**. Here, we implement some of those strategies to get ourselves setup before we begin with any analysis.
 
 <p align="center">
 <img src="../img/data-lifecycle-base.png" width="500">
