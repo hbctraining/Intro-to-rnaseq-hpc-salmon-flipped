@@ -2,48 +2,55 @@
 
 > **NOTE:** The *Basic Data Skills* [Introduction to the command-line interface](https://hbctraining.github.io/Intro-to-shell-flipped/schedule/) workshop is a prerequisite.
 
-## Pre-reading
-* [Shell basics review](../lessons/shell_review.md)
-* [Introduction to RNA-seq](../lessons/01_intro-to-RNAseq.md)
-
 ## Day 1
 
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
-| 09:30 - 09:45 | [Workshop introduction](../lectures/Intro_to_workshop.pdf) | Radhika |
-| 09:45 - 10:25 | [Working in an HPC environment - Review](../lessons/03_working_on_HPC.md) | Radhika |
-| 10:25 - 11:05 | [Project Organization and Best Practices in Data Management](../lessons/04_data_organization.md) | Meeta |
+| 10:00 - 10:15 | Workshop Introduction | Radhika |
+| 10:15 - 11:45 | RNA Sequencing Library Prep | [Dr. Sarah Boswell](https://scholar.harvard.edu/saboswell/home) |
+| 11:45 - 12:00 | Overview of self-learning materials and homework submission | Jihe/Meeta |
+
+### Before the next class:
+
+Please **study the contents** and **work through all the code** within the following lessons:
+ * [Shell basics review](../lessons/shell_review.md)
+ * [Introduction to RNA-seq](../lessons/01_intro-to-RNAseq.md)
+
+## Day 2
+
+| Time |  Topic  | Instructor |
+|:-----------:|:----------:|:--------:|
+| 09:30 - 10:15 | [Working in an HPC environment - Review](../lessons/03_working_on_HPC.md) | Radhika |
+| 10:15 - 11:05 | [Project Organization and Best Practices in Data Management](../lessons/04_data_organization.md) | Meeta |
 | 11:05 - 11:45 | [Quality Control of Sequence Data: Running FASTQC](../lessons/05_qc_running_fastqc_interactively.md) | Jihe |
 | 11:45 - 12:00 | Overview of self-learning materials and homework submission | Jihe/Meeta |
 
-### Self Learning #1
+### Before the next class:
 
-Before you start with the self-learning portion of the workshop, please check that **you are logged into O2** and **are working on a compute node** (i.e. your command prompt should have the word `compute` in it).
+1. Please **study the contents** and **work through all the code** within the following lessons:
 
-> If you are not logged into O2 or are not on a compute node, please follow the steps below as appropriate before you start with the self-learning lessons:
-> 1. Log in using `ssh rc_trainingXX@o2.hms.harvard.edu` and enter your password (HBCXXcluster) (replace the "XX" in both the username and the password with the number you were assigned in class). 
-> 2. Once you are on the login node, use `srun --pty -p interactive -t 0-2:00 --mem 1G /bin/bash` to get on a compute node. ***The lesson may have guidance on which arguments to modify, e.g. you may need to use more memory or more cores***.
->> ***NOTE: DO NOT specify a `reservation`.*** 
-> 3. Proceed with the self learning once your command prompt has the word `compute` in it.
+ * [Experimental design considerations](../lessons/02_experimental_planning_considerations.md)
+ * [Quality Control of Sequence Data: Running FASTQC on multiple samples](../lessons/06_qc_running_fastqc_sbatch.md)
+ * [Quality Control of Sequence Data: Evaluating FASTQC reports](../lessons/07_qc_fastqc_assessment.md)
+
+> **NOTE:** To run through the code above, you will need to be **logged into O2** and **working on a compute node** (i.e. your command prompt should have the word `compute` in it).
+> 1. Log in using `ssh rc_trainingXX@o2.hms.harvard.edu` and enter your password (replace the "XX" in the username with the number you were assigned in class). 
+> 2. Once you are on the login node, use `srun --pty -p interactive -t 0-2:30 --mem 1G /bin/bash` to get on a compute node or as specified in the lesson.
+> 3. Proceed only once your command prompt has the word `compute` in it.
 > 4. If you log out between lessons (using the `exit` command twice), please follow points 1. and 2. above to log back in and get on a compute node when you restart with the self learning.
 
-* [Experimental design considerations](../lessons/02_experimental_planning_considerations.md)
-* [Quality Control of Sequence Data: Running FASTQC on multiple samples](../lessons/06_qc_running_fastqc_sbatch.md)
-* [Quality Control of Sequence Data: Evaluating FASTQC reports](../lessons/07_qc_fastqc_assessment.md)
-
-### Assignment #1
-* Once the self-learning lessons exercises are complete, please identify the apprpopriate files as specified in the lesson (i.e. Excel file, or text/script files) and **upload** to [Dropbox](https://www.dropbox.com/request/iE82DOpC35d86Jh87zrG) the **day before the next class**.
-* [Email us](mailto:hbctraining@hsph.harvard.edu) about questions regarding the homework that you need answered before the next class.
-* Post questions that you would like to have reviewed in class [here](https://PollEv.com/hbctraining945).
-* Downloadable Answer Keys: 
-  * [Experimental design (one possible solution)](https://www.dropbox.com/s/524mevuyba34l5b/exp_design_table.xlsx?dl=1)
-  * [sbatch script](https://www.dropbox.com/s/9wdyhfqpic05l6p/mov10_fastqc.run?dl=1)
-  * [.out file](https://www.dropbox.com/s/l7puf8oahtbwmpk/22914006.out?dl=1)
-  * [.err file](https://www.dropbox.com/s/8a1g6o9t2kxit30/22914006.err?dl=1).
+2. **Complete the exercises**:
+   * Each lesson above contain exercises; please go through each of them.
+   * **Copy over** your code from the exercises into a text file. 
+   * **Upload the saved text file** to [Dropbox]() the **day before the next class**.
+   
+### Questions?
+* ***If you get stuck due to an error*** while runnning code in the lesson, [email us](mailto:hbctraining@hsph.harvard.edu) 
+* Post any **conceptual questions** that you would like to have **reviewed in class** [here](https://PollEv.com/hbctraining945).
 
 ***
 
-## Day 2
+## Day 3
 
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
@@ -52,20 +59,33 @@ Before you start with the self-learning portion of the workshop, please check th
 | 11:10 - 11:50 | [Quantifying expression using alignment-free methods (Salmon)](../lessons/08_quasi_alignment_salmon.md) | Radhika |
 | 11:50 - 12:00 | [Review of workflow](../lectures/workflow_overview.pdf) | Radhika |
 
-### Self Learning #2
-* [Quantifying expression using alignment-free methods (Salmon on multiple samples)](../lessons/09_quasi_alignment_salmon_sbatch.md)
-* [QC with Alignment Data](../lessons/10_QC_Qualimap.md)
-* [Documenting Steps in the Workflow with MultiQC](../lessons/11_multiQC.md)
+### Before the next class:
 
-### Assignment #2
-* Once the self-learning lessons exercises are complete, please identify the apprpopriate files as specified in the lesson (i.e. Excel file, or text/script files) and **upload** to [Dropbox](https://www.dropbox.com/request/9fWybJi6KfW8jjZXOQqK) **day before the next class**.
-* [Email us](mailto:hbctraining@hsph.harvard.edu) about questions regarding the homework that you need answered before the next class.
-* Post questions that you would like to have reviewed in class [here](https://PollEv.com/hbctraining945).
-* [Answer key](../answer_key/salmon_all_samples.sbatch)
+1. Please **study the contents** and **work through all the code** within the following lessons:
+
+ * [Quantifying expression using alignment-free methods (Salmon on multiple samples)](../lessons/09_quasi_alignment_salmon_sbatch.md)
+ * [QC with Alignment Data](../lessons/10_QC_Qualimap.md)
+ * [Documenting Steps in the Workflow with MultiQC](../lessons/11_multiQC.md)
+
+
+> **NOTE:** To run through the code above, you will need to be **logged into O2** and **working on a compute node** (i.e. your command prompt should have the word `compute` in it).
+> 1. Log in using `ssh rc_trainingXX@o2.hms.harvard.edu` and enter your password (replace the "XX" in the username with the number you were assigned in class). 
+> 2. Once you are on the login node, use `srun --pty -p interactive -t 0-2:30 --mem 1G /bin/bash` to get on a compute node or as specified in the lesson.
+> 3. Proceed only once your command prompt has the word `compute` in it.
+> 4. If you log out between lessons (using the `exit` command twice), please follow points 1. and 2. above to log back in and get on a compute node when you restart with the self learning.
+
+2. **Complete the exercises**:
+   * Each lesson above contain exercises; please go through each of them.
+   * **Copy over** your code from the exercises into a text file. 
+   * **Upload the saved text file** to [Dropbox]() the **day before the next class**.
+   
+### Questions?
+* ***If you get stuck due to an error*** while runnning code in the lesson, [email us](mailto:hbctraining@hsph.harvard.edu) 
+* Post any **conceptual questions** that you would like to have **reviewed in class** [here](https://PollEv.com/hbctraining945).
 
 ***
 
-## Day 3
+## Day 4
 
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
@@ -73,6 +93,14 @@ Before you start with the self-learning portion of the workshop, please check th
 | 10:10 - 10:45 | [Troubleshooting RNA-seq Data Analysis](../lectures/RNA-seq_troubleshooting.pdf) | Meeta |
 | 10:45 - 11:45 | [Automating the RNA-seq workflow](../lessons/12_automating_workflow.md)| Radhika |
 | 11:45 - 12:00 | [Wrap up](../lectures/workshop_wrapup.pdf) | Radhika |
+
+***
+
+* Downloadable Answer Keys: 
+  * [Experimental design (one possible solution)](https://www.dropbox.com/s/524mevuyba34l5b/exp_design_table.xlsx?dl=1)
+  * [sbatch script](https://www.dropbox.com/s/9wdyhfqpic05l6p/mov10_fastqc.run?dl=1)
+  * [.out file](https://www.dropbox.com/s/l7puf8oahtbwmpk/22914006.out?dl=1)
+  * [.err file](https://www.dropbox.com/s/8a1g6o9t2kxit30/22914006.err?dl=1).
 
 ***
 
