@@ -16,7 +16,7 @@ duration: 35
 
 ## What is data management?
 
-In this course we teach you how to independently analyze your own RNA-seq data, so naturally we should begin with what what to do once you get the FASTQ files back from the sequencing facility. Obviously, we begin with the analysis! Right?
+In this course we teach you how to independently analyze your own RNA-seq data, so naturally we should begin with what what to do once you get the raw data back from the sequencing facility. Obviously, we begin with the analysis! Right?
 
 Wrong. 
 
