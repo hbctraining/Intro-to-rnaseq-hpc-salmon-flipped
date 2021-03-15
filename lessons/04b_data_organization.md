@@ -48,6 +48,8 @@ In a [previous lesson](../04a_data_organization.md) we describe the **data lifec
 <img src="../img/data-lifecycle-base.png" width="500">
 </p>
 
+_Image acquired from the [Harvard Biomedical Data Management Website](https://datamanagement.hms.harvard.edu/data-lifecycle)_
+
 ### Planning and organization
 
 For each experiment you work on and analyze data for, it is considered best practice to get organized by creating a planned storage space (directory structure). We will start by creating a directory that we can use for the rest of the workshop. First, make sure that you are in your home directory.
