@@ -8,7 +8,7 @@
 |:-----------:|:----------:|:--------:|
 | 10:00 - 10:15 | Workshop Introduction | Radhika |
 | 10:15 - 11:45 | RNA Sequencing Library Prep | [Dr. Sarah Boswell](https://scholar.harvard.edu/saboswell/home) |
-| 11:45 - 12:00 | Overview of self-learning materials and homework submission | Jihe/Meeta |
+| 11:45 - 12:00 | Overview of self-learning materials and homework submission | Jihe/Mary |
 
 ### Before the next class:
 
@@ -21,9 +21,9 @@ Please **study the contents** and **work through all the code** within the follo
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
 | 09:30 - 10:15 | [Working in an HPC environment - Review](../lessons/03_working_on_HPC.md) | Radhika |
-| 10:15 - 11:05 | [Project Organization and Best Practices in Data Management](../lessons/04_data_organization.md) | Meeta |
+| 10:15 - 11:05 | [Project Organization and Best Practices in Data Management](../lessons/04_data_organization.md) | Mary |
 | 11:05 - 11:45 | [Quality Control of Sequence Data: Running FASTQC](../lessons/05_qc_running_fastqc_interactively.md) | Jihe |
-| 11:45 - 12:00 | Overview of self-learning materials and homework submission | Jihe/Meeta |
+| 11:45 - 12:00 | Overview of self-learning materials and homework submission | Jihe/Mary |
 
 ### Before the next class:
 
@@ -55,8 +55,8 @@ Please **study the contents** and **work through all the code** within the follo
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
 | 09:30 - 10:30 | Self-learning lessons review | All |
-| 10:30 - 11:10 | [Sequence Alignment Theory](../lectures/alignment_quantification.pdf) | Meeta |
-| 11:10 - 11:50 | [Quantifying expression using alignment-free methods (Salmon)](../lessons/08_quasi_alignment_salmon.md) | Radhika |
+| 10:30 - 11:10 | [Sequence Alignment Theory](../lectures/alignment_quantification.pdf) | Radhika |
+| 11:10 - 11:50 | [Quantifying expression using alignment-free methods (Salmon)](../lessons/08_quasi_alignment_salmon.md) | Mary |
 | 11:50 - 12:00 | [Review of workflow](../lectures/workflow_overview.pdf) | Radhika |
 
 ### Before the next class:
