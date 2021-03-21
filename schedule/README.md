@@ -10,12 +10,18 @@
 | 10:15 - 11:45 | RNA Sequencing Library Prep | [Dr. Sarah Boswell](https://scholar.harvard.edu/saboswell/home) |
 | 11:45 - 12:00 | Overview of self-learning materials and homework submission | Jihe/Mary |
 
+### Before the next class:
+
+* Please **study the contents** and **work through all the exercises** within the following lessons:
+  * [Shell basics review](../lessons/shell_review.md)
+  * [Best Practices in Research Data Management (RDM)](../lessons/04a_data_organization.md)
+
 ## Day 2
 
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
 | 09:30 - 10:15 | [Working in an HPC environment - Review](../lessons/03_working_on_HPC.md) | Radhika |
-| 10:15 - 11:05 | [Project Organization and Best Practices in Data Management](../lessons/04_data_organization.md) | Mary |
+| 10:15 - 11:05 | [Project Organization (using Data Management best practices)](../lessons/04b_data_organization.md) | Mary |
 | 11:05 - 11:45 | [Quality Control of Sequence Data: Running FASTQC](../lessons/05_qc_running_fastqc_interactively.md) | Jihe |
 | 11:45 - 12:00 | Overview of self-learning materials and homework submission | Jihe/Mary |
 
@@ -27,11 +33,11 @@
  * [Quality Control of Sequence Data: Running FASTQC on multiple samples](../lessons/06_qc_running_fastqc_sbatch.md)
  * [Quality Control of Sequence Data: Evaluating FASTQC reports](../lessons/07_qc_fastqc_assessment.md)
 
-> **NOTE:** To run through the code above, you will need to be **logged into O2** and **working on a compute node** (i.e. your command prompt should have the word `compute` in it).
-> 1. Log in using `ssh rc_trainingXX@o2.hms.harvard.edu` and enter your password (replace the "XX" in the username with the number you were assigned in class). 
-> 2. Once you are on the login node, use `srun --pty -p interactive -t 0-2:30 --mem 1G /bin/bash` to get on a compute node or as specified in the lesson.
-> 3. Proceed only once your command prompt has the word `compute` in it.
-> 4. If you log out between lessons (using the `exit` command twice), please follow points 1. and 2. above to log back in and get on a compute node when you restart with the self learning.
+    > **NOTE:** To run through the code above, you will need to be **logged into O2** and **working on a compute node** (i.e. your command prompt should have the word `compute` in it).
+    > 1. Log in using `ssh rc_trainingXX@o2.hms.harvard.edu` and enter your password (replace the "XX" in the username with the number you were assigned in class). 
+    > 2. Once you are on the login node, use `srun --pty -p interactive -t 0-2:30 --mem 1G /bin/bash` to get on a compute node or as specified in the lesson.
+    > 3. Proceed only once your command prompt has the word `compute` in it.
+    > 4. If you log out between lessons (using the `exit` command twice), please follow points 1. and 2. above to log back in and get on a compute node when you restart with the self learning.
 
 2. **Complete the exercises**:
    * Each lesson above contain exercises; please go through each of them.
@@ -61,12 +67,11 @@
  * [QC with Alignment Data](../lessons/10_QC_Qualimap.md)
  * [Documenting Steps in the Workflow with MultiQC](../lessons/11_multiQC.md)
 
-
-> **NOTE:** To run through the code above, you will need to be **logged into O2** and **working on a compute node** (i.e. your command prompt should have the word `compute` in it).
-> 1. Log in using `ssh rc_trainingXX@o2.hms.harvard.edu` and enter your password (replace the "XX" in the username with the number you were assigned in class). 
-> 2. Once you are on the login node, use `srun --pty -p interactive -t 0-2:30 --mem 1G /bin/bash` to get on a compute node or as specified in the lesson.
-> 3. Proceed only once your command prompt has the word `compute` in it.
-> 4. If you log out between lessons (using the `exit` command twice), please follow points 1. and 2. above to log back in and get on a compute node when you restart with the self learning.
+     > **NOTE:** To run through the code above, you will need to be **logged into O2** and **working on a compute node** (i.e. your command prompt should have the word `compute` in it).
+     > 1. Log in using `ssh rc_trainingXX@o2.hms.harvard.edu` and enter your password (replace the "XX" in the username with the number you were assigned in class). 
+     > 2. Once you are on the login node, use `srun --pty -p interactive -t 0-2:30 --mem 1G /bin/bash` to get on a compute node or as specified in the lesson.
+     > 3. Proceed only once your command prompt has the word `compute` in it.
+     > 4. If you log out between lessons (using the `exit` command twice), please follow points 1. and 2. above to log back in and get on a compute node when you restart with the self learning.
 
 2. **Complete the exercises**:
    * Each lesson above contain exercises; please go through each of them.
