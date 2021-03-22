@@ -10,8 +10,8 @@
 
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
-| 10:00 - 10:15 | Workshop Introduction | Radhika |
-| 10:15 - 11:45 | RNA Sequencing Library Prep | [Dr. Sarah Boswell](https://scholar.harvard.edu/saboswell/home) |
+| 10:00 - 10:15 | [Workshop Introduction](../lectures/Intro_to_workshop.pdf) | Radhika |
+| 10:15 - 11:45 | [RNA Sequencing Library Prep](https://www.dropbox.com/s/7qda2bso8c8r6yw/SB_Library_Prep_March-2021.pdf?dl=1) | [Dr. Sarah Boswell](https://scholar.harvard.edu/saboswell/home) |
 | 11:45 - 12:00 | Overview of self-learning materials and homework submission | Radhika|
 
 ### Before the next class:
