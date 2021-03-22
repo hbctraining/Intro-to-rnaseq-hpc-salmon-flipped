@@ -12,7 +12,7 @@
 |:-----------:|:----------:|:--------:|
 | 10:00 - 10:15 | Workshop Introduction | Radhika |
 | 10:15 - 11:45 | RNA Sequencing Library Prep | [Dr. Sarah Boswell](https://scholar.harvard.edu/saboswell/home) |
-| 11:45 - 12:00 | Overview of self-learning materials and homework submission | Jihe/Mary |
+| 11:45 - 12:00 | Overview of self-learning materials and homework submission | Radhika|
 
 ### Before the next class:
 
