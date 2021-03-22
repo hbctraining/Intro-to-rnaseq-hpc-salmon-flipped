@@ -99,7 +99,7 @@
 
 ***
 
-* Downloadable Answer Keys: 
+* Downloadable Answer Keys (Day 2 exercises): 
   * [Experimental design (one possible solution)](https://www.dropbox.com/s/524mevuyba34l5b/exp_design_table.xlsx?dl=1)
   * [sbatch script](https://www.dropbox.com/s/9wdyhfqpic05l6p/mov10_fastqc.run?dl=1)
   * [.out file](https://www.dropbox.com/s/l7puf8oahtbwmpk/22914006.out?dl=1)
