@@ -4,6 +4,7 @@
 
 ## Pre-reading
 
+* [Introduction to RNA-seq](../lessons/01_intro-to-RNAseq.md)
 
 ## Day 1
 
