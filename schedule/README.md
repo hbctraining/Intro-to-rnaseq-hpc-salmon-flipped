@@ -20,6 +20,10 @@
   * [Shell basics review](../lessons/shell_review.md)
   * [Best Practices in Research Data Management (RDM)](../lessons/04a_data_organization.md)
 
+### Questions?
+* ***If you get stuck due to an error*** while runnning code in the lesson, [email us](mailto:hbctraining@hsph.harvard.edu) 
+* Post any **conceptual questions** that you would like to have **reviewed in class** [here](https://PollEv.com/hbctraining945).
+
 ## Day 2
 
 | Time |  Topic  | Instructor |
