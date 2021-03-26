@@ -28,8 +28,9 @@
 
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
-| 09:30 - 10:15 | [Working in an HPC environment - Review](../lessons/03_working_on_HPC.md) | Radhika |
-| 10:15 - 11:05 | [Project Organization (using Data Management best practices)](../lessons/04b_data_organization.md) | Mary |
+| 09:30 - 09:40 | [Workshop Introduction (contd.)](../lectures/Intro_to_workshop.pdf) | Radhika |
+| 09:40 - 10:20 | [Working in an HPC environment - Review](../lessons/03_working_on_HPC.md) | Radhika |
+| 10:20 - 11:05 | [Project Organization (using Data Management best practices)](../lessons/04b_data_organization.md) | Mary |
 | 11:05 - 11:45 | [Quality Control of Sequence Data: Running FASTQC](../lessons/05_qc_running_fastqc_interactively.md) | Jihe |
 | 11:45 - 12:00 | Overview of self-learning materials and homework submission | Jihe |
 
