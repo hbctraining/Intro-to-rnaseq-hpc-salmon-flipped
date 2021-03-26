@@ -114,7 +114,7 @@ After setting up the directory structure it is useful to have a **[README file](
 ## This directory contains data generated during the Introduction to RNA-seq workshop
 ## Date: 
 
-There are six subdirectories in this directory:
+There are five subdirectories in this directory:
 
 raw_data : contains raw data
 meta:  contains...
