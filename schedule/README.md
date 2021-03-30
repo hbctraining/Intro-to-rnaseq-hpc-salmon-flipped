@@ -98,7 +98,7 @@
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
 | 09:30 - 10:10 | Self-learning lessons review | All |
-| 10:10 - 10:45 | [Troubleshooting RNA-seq Data Analysis](../lectures/RNA-seq_troubleshooting.pdf) | Meeta |
+| 10:10 - 10:45 | [Troubleshooting RNA-seq Data Analysis](../lectures/RNA-seq_troubleshooting.pdf) | Mary |
 | 10:45 - 11:45 | [Automating the RNA-seq workflow](../lessons/12_automating_workflow.md)| Radhika |
 | 11:45 - 12:00 | [Wrap up](../lectures/workshop_wrapup.pdf) | Radhika |
 
