@@ -134,13 +134,13 @@ $ cd ~/rnaseq/results/salmon
 Salmon is available as a module on O2. To find out more on how to use this module we can use `module spider`:
 
 ```bash
-$ module spider salmon
+$ module spider salmon/1.4.0
 ```
 
 We see that there are no dependency modules and we can simply just load Salmon and get started.
 
 ```bash
-$ module load salmon
+$ module load salmon/1.4.0
 ```
 
 To perform the quasi-mapping and transcript abundance quantification, we will use the `salmon quant` command. The parameters for the command are described below (more information on parameters can be found [here](http://salmon.readthedocs.io/en/latest/salmon.html#id5)):
