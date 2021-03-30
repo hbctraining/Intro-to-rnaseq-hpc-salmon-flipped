@@ -177,7 +177,7 @@ The **"Overrepresented sequences"** table is another important module as it disp
 Since our data is just a subset of the original data and it contains the over-expressed MOV10 gene, if we BLAST the sequences we will find they belong to MOV10. For this experiment, these over-represented sequences are not concerning.
 
 <p align="center">
-<img src="../img/FastQC_contam.png"
+<img src="../img/FastQC_contam.png" width="400">
 </p>
 
 ***
