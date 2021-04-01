@@ -215,7 +215,7 @@ module load star/2.7.0a
 module load samtools/1.3.1
 module load java/jdk-1.8u112
 module load qualimap/2.2.1
-module load salmon/1.2.1
+module load salmon/1.4.0
 unset DISPLAY
 ```
 
