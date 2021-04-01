@@ -78,7 +78,7 @@
 
      > **NOTE:** To run through the code above, you will need to be **logged into O2** and **working on a compute node** (i.e. your command prompt should have the word `compute` in it).
      > 1. Log in using `ssh rc_trainingXX@o2.hms.harvard.edu` and enter your password (replace the "XX" in the username with the number you were assigned in class). 
-     > 2. Once you are on the login node, use `srun --pty -p interactive -t 0-2:30 --mem 1G /bin/bash` to get on a compute node or as specified in the lesson.
+     > 2. Once you are on the login node, use `srun --pty -p interactive -t 0-2:30 -c 6 --mem 8G /bin/bash` to get on a compute node or as specified in the lesson.
      > 3. Proceed only once your command prompt has the word `compute` in it.
      > 4. If you log out between lessons (using the `exit` command twice), please follow points 1. and 2. above to log back in and get on a compute node when you restart with the self learning.
 
