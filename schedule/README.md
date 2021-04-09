@@ -110,7 +110,7 @@
   * [.out file](https://www.dropbox.com/s/l7puf8oahtbwmpk/22914006.out?dl=1)
   * [.err file](https://www.dropbox.com/s/8a1g6o9t2kxit30/22914006.err?dl=1).
 
-* Answer Keys (Day 3 exercises): 
+* Downloadable Answer Keys (Day 3 exercises): 
   * [sbatch script to run salmon for all samples](../answer_key/salmon_all_samples.sbatch)
 
 * [Automation Script](../scripts/rnaseq_analysis_on_input_file.sh)
