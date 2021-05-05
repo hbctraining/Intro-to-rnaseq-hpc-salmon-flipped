@@ -72,15 +72,13 @@ To run through the code in the lessons below, you will need to be **logged into 
 
 ***
 
-### Answer Keys for excersises
+### Answer Keys
 
-* Downloadable Answer Keys: 
-	* [Experimental design (one possible solution)](https://www.dropbox.com/s/524mevuyba34l5b/exp_design_table.xlsx?dl=1)
-	* [FASTQC sbatch script](https://www.dropbox.com/s/9wdyhfqpic05l6p/mov10_fastqc.run?dl=1)
-	* [FASTQC sbatch script .out file](https://www.dropbox.com/s/l7puf8oahtbwmpk/22914006.out?dl=1)
-	* [FASTQC sbatch script .err file](https://www.dropbox.com/s/8a1g6o9t2kxit30/22914006.err?dl=1).
-	* [sbatch script to run salmon for all samples](../answer_key/salmon_all_samples.sbatch)
-
+* [Experimental design (one possible solution)](https://www.dropbox.com/s/524mevuyba34l5b/exp_design_table.xlsx?dl=1)
+* [FASTQC sbatch script](https://www.dropbox.com/s/9wdyhfqpic05l6p/mov10_fastqc.run?dl=1)
+* [FASTQC sbatch script .out file](https://www.dropbox.com/s/l7puf8oahtbwmpk/22914006.out?dl=1)
+* [FASTQC sbatch script .err file](https://www.dropbox.com/s/8a1g6o9t2kxit30/22914006.err?dl=1).
+* [sbatch script to run salmon for all samples](../answer_key/salmon_all_samples.sbatch)
 * [Automation Script](../scripts/rnaseq_analysis_on_input_file.sh)
 
 ***
