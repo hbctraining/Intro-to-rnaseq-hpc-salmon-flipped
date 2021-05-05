@@ -19,7 +19,8 @@ This repository has teaching materials for a 2-day Introduction to RNA-sequencin
 
 ### Lessons
 
-[Click here](schedule/) for links to lessons and the suggested schedule.
+* [Workshop schedule (trainer-led learning)](schedule/)
+* [Self-learning](schedule/links-to-lessons.md)
 
 ### Installation Requirements
 
