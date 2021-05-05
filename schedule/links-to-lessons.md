@@ -1,4 +1,4 @@
-# Differential Gene Expression Analysis (bulk RNA-seq Part II)
+# Bulk RNA-seq Data Analysis using High-Performance Computing (bulk RNA-seq Part I)
 
 ## Learning Objectives
 
@@ -85,7 +85,7 @@ To run through the code in the lessons below, you will need to be **logged into 
    
 ## Building on this workshop
 * [Introduction to R workshop materials](https://hbctraining.github.io/Intro-to-R-flipped/schedule/links-to-lessons.html)
-* [Introduction to Differential Gene Expression analysis (bulk RNA-seq) workshop materials](https://hbctraining.github.io/DGE_workshop_salmon_online/schedule/links-to-lessons.html)
+* [Bulk RNA-seq Part II (differential gene expression analysis) materials](https://hbctraining.github.io/DGE_workshop_salmon_online/schedule/links-to-lessons.html)
 
 ***
 
