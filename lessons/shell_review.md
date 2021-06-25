@@ -10,7 +10,7 @@ date: "October 26, 2020"
 
 ## Setting up
 
-The Introduction to RNA-seq workshop assumes that you have either a) taken our [Introduction to command-line interface workshop](https://hbctraining.github.io/Intro-to-shell-flipped/schedule/) or b) been working on the command-line and are already fluent with shell/bash. **We ask that you complete the exercises below**, to refresh some basic commands that you will be using over the course of the workshop. For each section we have relevant materials linked as a helpful reference. 
+This workshop assumes that you have either a) taken our [Introduction to command-line interface workshop](https://hbctraining.github.io/Intro-to-shell-flipped/schedule/) or b) been working on the command-line and are already fluent with shell/bash. **We ask that you complete the exercises below**, to refresh some basic commands that you will be using over the course of the workshop. For each section we have relevant materials linked as a helpful reference. 
 
 ### Opening up a terminal window
 
