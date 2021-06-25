@@ -6,7 +6,6 @@ duration: 35
 ---
 
 [Data management slides]: https://github.com/hbc/NGS-Data-Analysis-long-course/raw/Fall_2016/sessionI/slides/data_management.pdf
-[SRA]: http://www.ncbi.nlm.nih.gov/sra  "Sequence Read Archive"
 
 ## Learning Objectives
 
@@ -16,7 +15,7 @@ duration: 35
 
 ## What is data management?
 
-In this course we teach you how to independently analyze your own RNA-seq data, so naturally we should begin with what what to do once you get the raw data back from the sequencing facility. Obviously, we begin with the analysis! Right?
+In this course we teach you how to independently analyze your own sequencing data, so naturally we should begin with what what to do once you get the raw data back from the sequencing facility. Obviously, we begin with the analysis! Right?
 
 Wrong. 
 
@@ -32,7 +31,7 @@ We know that data management can be hard to get excited about. However, **ignori
 * Funding agencies are increasingly mandating that research projects are developed with a data management plan.
 
 ### Data Lifecycle
-The data lifecycle displayed below, courtesy of the [HMS Data Management Working Group](https://datamanagement.hms.harvard.edu/), illustrates some things to consider beyond data creation and analysis. Below, we discuss components of the lifecycle and how they apply to an RNA-seq experiment.
+The data lifecycle displayed below, courtesy of the [HMS Data Management Working Group](https://datamanagement.hms.harvard.edu/), illustrates some things to consider beyond data creation and analysis. Below, we discuss components of the lifecycle and how they apply to any NGS experiment.
 
 <p align="center">
 <img src="../img/data-lifecycle-base.png" width="600">
