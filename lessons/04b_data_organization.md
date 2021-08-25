@@ -155,6 +155,7 @@ rnaseq
   │   ├── Mov10_oe_1.subset.fq
   │   ├── Mov10_oe_2.subset.fq
   │   └── Mov10_oe_3.subset.fq
+  ├── README.txt
   ├── results
   └── scripts
 ```
