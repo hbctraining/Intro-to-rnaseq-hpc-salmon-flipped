@@ -202,9 +202,9 @@ Some key LMOD commands are listed below:
 * There are 3 major groups on the cluster, each with their features and constraints:
    1. `/n/data1`, `/n/data2`, `/n/groups` - Large datasets are stored in these parent directories (see features/constraints in the image above).
    2. `/home` - the home directories of all users are under this parent directory (see features/constraints in the image above).
-   3. `/n/sctratch3` - scratch space for temporary storage.
+   3. `/n/scratch3` - scratch space for temporary storage.
 
-### More about `/n/sctratch3`
+### More about `/n/scratch3`
 
 * It is for data only needed temporarily during analyses.
 * Each user can use up to 10 TB and 1 million files/directories.
