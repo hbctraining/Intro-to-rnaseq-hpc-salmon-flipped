@@ -9,7 +9,7 @@ duration: 35
 
 ## Learning Objectives
 
-- Recognize the need for data management.
+- Explain the need for data management.
 - Describe strategies for managing your own projects.
 
 
