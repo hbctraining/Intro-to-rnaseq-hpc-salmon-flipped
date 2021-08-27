@@ -48,6 +48,8 @@ Within the 'Site Manager' window, do the following:
 6. Password: O2 password
 7. Click 'Connect'
 
+> NOTE: While using the HBC Training accounts on the O2 cluster, two-factor authentication ***IS NOT*** required. However, if you explore this lesson on your own account at a different time, two-factor authentication ***IS*** required. In order to connect FileZilla to the O2 cluster, follow steps 1-7 as outlined above. Once you have clicked 'Connect', you will receive a Duo push notification which you must approve within a short time window. Following Duo approval, FileZilla should connect to the O2 cluster rather quickly.
+
 <p align="center">
 <img src="../img/filezilla_login.png" width="500">
 </p>
