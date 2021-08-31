@@ -178,7 +178,7 @@ We recommend that you create something like this for your raw data so it does no
 
 ## Additional topics
 
-If you are interested in learning more about regular expressions (regex) and the tools `awk` and `sed1`, you can find more information in the ["extra_bash_tools"](extra_bash_tools.md) lesson.
+If you are interested in learning more about regular expressions (regex) and the tools `awk` and `sed1`, you can find more information in the ["extra_bash_tools"](https://hbctraining.github.io/Intro-to-shell-flipped/lessons/extra_bash_tools.html) lesson.
 
 
 ***
