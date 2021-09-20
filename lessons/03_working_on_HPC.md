@@ -62,7 +62,7 @@ About nodes:
 * A "node" on a cluster is essentially a computer in the cluster of computers. 
 * There are dedicated login nodes and compute nodes.
 * A login node's only function is to enable users to log in to a cluster, it is not meant to be used for any actual work/computing. There are 6 login nodes on O2.
-* There are several compute nodes on O2 available for performing your analysis/work. 
+* There are several hundred compute nodes on O2 available for performing your analysis/work. 
 
 ## Connect to a *compute* node on O2
 
@@ -86,7 +86,7 @@ In the above command the parameters we are using are requesting specific resourc
 * `--pty` - Start an interactive session
 * `-p interactive` - on the "partition" called "interactive" (a partition is a group of computers dedicated to certain types of jobs, interactive, long, short, high-memory, etc.)
 * `-t 0-8:00` - time needed for this work: 0 days, 8 hours, 0 minutes.
-* `--mem 1G` - memory needed - 1 gigabyte
+* `--mem 1G` - memory needed - 1 gibibyte (GiB)
 * `--reservation=HBC1` - *this is only for **in class** portions of this workshop, make sure you don't use it for self-learning or when you have your own accounts.*
 * `/bin/bash` - You want to interact with the compute node using the *bash* shell
 
@@ -115,9 +115,9 @@ Below is table with some of the arguments you can specify when requesting resour
 | Argument | Description / Input | Examples | Links |
 |:-----------:|:----------:|:--------:|:----------:|
 | -p | name of compute partition | short, medium, interactive | [O2 Wiki - Guidelines for choosing a partition](https://wiki.rc.hms.harvard.edu/display/O2/How+to+choose+a+partition+in+O2) | 
-| -t | how much time to allocate to job | 0-03:00, 5:00:00 | [O2 Wiki - Time limits for each partition](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-Timelimits) |
-| -c | max cores | 4, 8 | [O2 Wiki - How many cores?](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-Howmanycores?) |
-| --mem | max memory | 8G, 8000 | [O2 Wiki - Memory requirements](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-Memoryrequirements) |
+| -t | how much time to allocate to job | 0-03:00, 5:00:00 | [O2 Wiki - Time limits for each partition](https://harvardmed.atlassian.net/wiki/spaces/O2/pages/1586793632/Using+Slurm+Basic#Time-limits) |
+| -c | max cores | 4, 8 | [O2 Wiki - How many cores?](https://harvardmed.atlassian.net/wiki/spaces/O2/pages/1586793632/Using+Slurm+Basic#How-many-cores?) |
+| --mem | max memory | 8G, 8000 | [O2 Wiki - Memory requirements](https://harvardmed.atlassian.net/wiki/spaces/O2/pages/1586793632/Using+Slurm+Basic#Memory-requirements) |
 | -o | name of file to create with standard output | %j.out | [O2 Wiki](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-sbatchoptionsquickreference) |
 | -e | name of file to create with standard error | %j.err | [O2 Wiki](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-sbatchoptionsquickreference) |
 | -J | name of the job | Fastqc_run, rnaseq_workflow_mov10 | [O2 Wiki](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-sbatchoptionsquickreference) |
@@ -129,7 +129,7 @@ Below is table with some of the arguments you can specify when requesting resour
 An `sbatch` job submission script is essentially a normal shell script with the Slurm resource request specified at the top (Slurm directives) preceded by `#SBATCH`. Below is an example of an sbatch shell script that is requesting the following: 
 * the "short" partition for 2 hours 
 * on 4 cores (30 minutes for each core)
-* using 400MBs (100MB for each core)
+* using 400MiB (100MiB for each core)
 
 ***DO NOT RUN***
 ```
@@ -168,7 +168,7 @@ Some key LMOD commands are listed below:
 | `module spider modulename` | List all possible versions of that module |
 | `module avail` | List available modules available on the cluster |
 | `module avail string` | List available modules containing that string |
-| `module load modulename/version` | Add the full path to the tool to `$PATH` |
+| `module load modulename/version` | Add the full path to the tool to `$PATH` (and modify other environment variables)|
 | `module list` | List loaded modules | 
 | `module unload modulename/version` | Unload a specific module |
 | `module purge` | Unload all loaded modules |
@@ -199,10 +199,12 @@ Some key LMOD commands are listed below:
 * Each node on the cluster does not have storage; instead, it is on disks bundled together externally.
 * Storage filesystems can be quite complex, with large spaces dedicated to a pre-defined purpose.
 * Filesystems are accessed over the internal network by all the nodes on the cluster.
-* There are 3 major groups on the cluster, each with their features and constraints:
+* There are 3 major groups on the O2 cluster, each with their features and constraints:
    1. `/n/data1`, `/n/data2`, `/n/groups` - Large datasets are stored in these parent directories (see features/constraints in the image above).
    2. `/home` - the home directories of all users are under this parent directory (see features/constraints in the image above).
    3. `/n/scratch3` - scratch space for temporary storage.
+
+**[Please find more information about storage on O2 by clicking here.](https://it.hms.harvard.edu/our-services/research-computing/services/storage)**
 
 ### More about `/n/scratch3`
 
