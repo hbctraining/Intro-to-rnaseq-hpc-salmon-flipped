@@ -4,33 +4,17 @@
 
 ## Pre-reading
 
+* [Shell basics review](../lessons/shell_review.md)
+* [Best Practices in Research Data Management (RDM)](../lessons/04a_data_organization.md)
 * [Introduction to RNA-seq](../lessons/01_intro-to-RNAseq.md)
 
 ## Day 1
 
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
-| 10:00 - 10:15 | [Workshop Introduction](../lectures/Intro_to_workshop.pdf) | Radhika |
-| 10:15 - 11:45 | [RNA Sequencing Library Prep](https://www.dropbox.com/s/4g1rhfpm5uqjon1/SB_Library_Prep_March-2021-updated.pdf?dl=1) | [Dr. Sarah Boswell](https://scholar.harvard.edu/saboswell/home) |
-| 11:45 - 12:00 | Overview of self-learning materials and homework submission | Radhika|
-
-### Before the next class:
-
-* Please **study the contents** and **work through all the exercises** within the following lessons:
-  * [Shell basics review](../lessons/shell_review.md)
-  * [Best Practices in Research Data Management (RDM)](../lessons/04a_data_organization.md)
-
-### Questions?
-* ***If you get stuck due to an error*** while runnning code in the lesson, [email us](mailto:hbctraining@hsph.harvard.edu) 
-* Post any **conceptual questions** that you would like to have **reviewed in class** [here](https://PollEv.com/hbctraining945).
-
-## Day 2
-
-| Time |  Topic  | Instructor |
-|:-----------:|:----------:|:--------:|
-| 09:30 - 09:40 | [Workshop Introduction (contd.)](../lectures/Intro_to_workshop.pdf) | Radhika |
-| 09:40 - 10:20 | [Working in an HPC environment - Review](../lessons/03_working_on_HPC.md) | Radhika |
-| 10:20 - 11:05 | [Project Organization (using Data Management best practices)](../lessons/04b_data_organization.md) | Mary |
+| 09:30 - 09:45 | [Workshop Introduction](../lectures/Intro_to_workshop.pdf) | Radhika |
+| 09:45 - 10:25 | [Working in an HPC environment - Review](../lessons/03_working_on_HPC.md) | Radhika |
+| 10:25 - 11:05 | [Project Organization (using Data Management best practices)](../lessons/04b_data_organization.md) | Mary |
 | 11:05 - 11:45 | [Quality Control of Sequence Data: Running FASTQC](../lessons/05_qc_running_fastqc_interactively.md) | Jihe |
 | 11:45 - 12:00 | Overview of self-learning materials and homework submission | Jihe |
 
@@ -59,7 +43,7 @@
 
 ***
 
-## Day 3
+## Day 2
 
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
@@ -93,7 +77,7 @@
 
 ***
 
-## Day 4
+## Day 3
 
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
