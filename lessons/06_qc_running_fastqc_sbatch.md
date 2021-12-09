@@ -7,7 +7,7 @@ duration: 45 minutes
 
 ## Learning Objectives:
 
-* Create and run a job submission script to automate quality assessment
+* Create and run a SLURM job submission script to automate quality assessment
 
 ## Quality Control of FASTQ files
 
