@@ -8,7 +8,7 @@ Approximate time: 90 minutes
 
 ## Learning Objectives:
 
-* Understand what is RNA-sequencing
+* Describe applications of RNA sequencing
 * Describe the process of RNA-seq library preparation
 * Describe the Illumina sequencing method
 
