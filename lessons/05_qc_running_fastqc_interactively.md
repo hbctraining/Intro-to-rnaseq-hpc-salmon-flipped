@@ -7,7 +7,7 @@ duration: 45 minutes
 
 ## Learning Objectives:
 
-* Understand the quality values in a FASTQ file
+* Describe the contents and format of a FASTQ file
 * Create a quality report using FASTQC
  
 ## Quality Control of FASTQ files
