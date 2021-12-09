@@ -5,6 +5,10 @@ authors: Radhika Khetani, Mary Piper, Jihe Liu, Meeta Mistry
 
 Approximate time: 30 minutes
 
+## Learning Objectives
+* Run the multiQC tool to gather QC metrics from multiple tools for all samples
+* Assess and compare QC metrics among samples
+
 ## Documenting results and gathering QC metrics
 
 As you go through the RNA-seq workflow (or any data analysis workflow), it is important to document the parameters you used for running the analysis. In addition, it is also very important to document the metrics/results at every step. Careful evaluation of metrics is a form of QC, and it will enable you to identify any issues with the data and/or the parameters you are using, as well as alert you to the presence of contamination or systematic biases, etc.  
