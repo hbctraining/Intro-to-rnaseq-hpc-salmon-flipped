@@ -7,6 +7,14 @@ duration: 35
 
 # Working in an HPC environment
 
+## Learning Objectives
+* Define the basic components of a computing environment
+* Explain parallelization in computing
+* Log in to the FAS-RC cluster and start an interactive session
+* Describe the salient features of the SLURM job scheduling system
+* Describe the usage of the LMOD system
+* Discuss storage options on the cluster
+
 ## Clarifying some terminology
 
 ### Cores 
