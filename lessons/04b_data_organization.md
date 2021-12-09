@@ -10,7 +10,7 @@ duration: 35
 
 ## Learning Objectives
 
-- Describe the RNA-seq experiment and its objectives.
+- Describe the example RNA-seq experiment and its objectives.
 - Demonstrate strategies for good data management and project organization.
 
 ## The Dataset
