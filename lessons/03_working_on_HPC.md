@@ -28,6 +28,11 @@ Memory is a small amount of volatile or temporary information storage. This is d
 
 ## Why use the cluster or an HPC environment?
 
+<p align="center">
+<img src="https://github.com/hbctraining/Intro-to-shell-flipped/blob/master/img/compute_cluster.png" width="450">
+</p>
+
+
 1. A lot of software is designed to work with the resources on an HPC environment and is either unavailable for, or unusable on, a personal computer.
 2. If you are performing analysis on large data files (e.g. high-throughput sequencing data), you should work on the cluster to avoid issues with memory and to get the analysis done a lot faster with the superior processing capacity. Essentially, a cluster has:
     * 100s of cores for processing!
