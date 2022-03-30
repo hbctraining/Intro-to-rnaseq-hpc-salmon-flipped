@@ -102,6 +102,7 @@
 ***
 
 ## Resources
+* [Getting an O2 account](https://harvardmed.atlassian.net/wiki/spaces/O2/pages/1918304257/How+to+request+an+O2+account)
 * [Video about statistics behind salmon quantification](https://www.youtube.com/watch?v=TMLIxwDP7sk)
 * Advanced bash for working on O2:
   * [Creating shortcuts or aliases](https://hbctraining.github.io/In-depth-NGS-Data-Analysis-Course/sessionVI/lessons/more_bash.html#alias)
