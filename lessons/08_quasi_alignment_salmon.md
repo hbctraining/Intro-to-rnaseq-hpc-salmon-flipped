@@ -184,7 +184,7 @@ You should see a new directory has been created that is named by the string valu
 
     $ ls -l Mov10_oe_1.subset.salmon/
     
-There is a logs directory, which contains all of the text that was printed to screen as Sailfish was running. Additionally, there is a file called **`quant.sf`**. This is the **quantification file** in which each row corresponds to a transcript, listed by Ensembl ID. The columns correspond to metrics for each transcript:
+There is a logs directory, which contains all of the text that was printed to screen as Salmon was running. Additionally, there is a file called **`quant.sf`**. This is the **quantification file** in which each row corresponds to a transcript, listed by Ensembl ID. The columns correspond to metrics for each transcript:
 
 ```bash
 Name    Length  EffectiveLength TPM     NumReads
