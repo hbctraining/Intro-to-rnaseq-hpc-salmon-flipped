@@ -57,8 +57,24 @@
 1. Please **study the contents** and **work through all the code** within the following lessons:
 
  * [Quantifying expression using alignment-free methods (Salmon on multiple samples)](../lessons/09_quasi_alignment_salmon_sbatch.md)
+        <details>
+       <summary><i>Click here for a preview of this lesson</i></summary>
+         <br>Now that we know how to run the quantification of one sample with Salmon, this lesson will guide you to run multiple samples by creating a job submission script<br><br>
+        </details>
  * [QC with Alignment Data](../lessons/10_QC_Qualimap.md)
+        <details>
+       <summary><i>Click here for a preview of this lesson</i></summary>
+         <br>Besides transcript-level quantification, we also want to understand the quality of the mapping, which is not provided in Salmon output. <br><br>This lesson will cover:<br>
+             - Aligning the reads with an aligner, STAR<br>
+             - Assessing QC metrics among samples<br><br>
+        </details>
  * [Documenting Steps in the Workflow with MultiQC](../lessons/11_multiQC.md)
+        <details>
+       <summary><i>Click here for a preview of this lesson</i></summary>
+         <br>It would be great to have a summary document of all QC results from the previous analysis. <br><br>This lesson will cover:<br>
+             - Generating such a summary report with multiQC<br>
+             - Generating alignment metric with Qualimap<br><br>
+        </details>
 
      > **NOTE:** To run through the code above, you will need to be **logged into O2** and **working on a compute node** (i.e. your command prompt should have the word `compute` in it).
      > 1. Log in using `ssh rc_trainingXX@o2.hms.harvard.edu` and enter your password (replace the "XX" in the username with the number you were assigned in class). 
