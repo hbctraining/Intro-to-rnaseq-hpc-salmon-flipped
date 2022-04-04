@@ -127,15 +127,15 @@ Below is table with some of the arguments you can specify when requesting resour
 
 | Argument | Description / Input | Examples | Links |
 |:-----------:|:----------:|:--------:|:----------:|
-| -p | name of compute partition | short, medium, interactive | [O2 Wiki - Guidelines for choosing a partition](https://wiki.rc.hms.harvard.edu/display/O2/How+to+choose+a+partition+in+O2) | 
-| -t | how much time to allocate to job | 0-03:00, 5:00:00 | [O2 Wiki - Time limits for each partition](https://harvardmed.atlassian.net/wiki/spaces/O2/pages/1586793632/Using+Slurm+Basic#Time-limits) |
-| -c | max cores | 4, 8 | [O2 Wiki - How many cores?](https://harvardmed.atlassian.net/wiki/spaces/O2/pages/1586793632/Using+Slurm+Basic#How-many-cores?) |
-| --mem | max memory | 8G, 8000 | [O2 Wiki - Memory requirements](https://harvardmed.atlassian.net/wiki/spaces/O2/pages/1586793632/Using+Slurm+Basic#Memory-requirements) |
-| -o | name of file to create with standard output | %j.out | [O2 Wiki](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-sbatchoptionsquickreference) |
-| -e | name of file to create with standard error | %j.err | [O2 Wiki](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-sbatchoptionsquickreference) |
-| -J | name of the job | Fastqc_run, rnaseq_workflow_mov10 | [O2 Wiki](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-sbatchoptionsquickreference) |
-| --mail-type | send an email when job starts, ends or errors out  | END, ALL | [O2 Wiki](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-sbatchoptionsquickreference) |
-| --mail-user | send email to this address | xyz10@harvard.edu | [O2 Wiki](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-sbatchoptionsquickreference) |
+| `-p` | name of compute partition | short, medium, interactive | [O2 Wiki - Guidelines for choosing a partition](https://wiki.rc.hms.harvard.edu/display/O2/How+to+choose+a+partition+in+O2) | 
+| `-t` | how much time to allocate to job | 0-03:00, 5:00:00 | [O2 Wiki - Time limits for each partition](https://harvardmed.atlassian.net/wiki/spaces/O2/pages/1586793632/Using+Slurm+Basic#Time-limits) |
+| `-c` | max cores | 4, 8 | [O2 Wiki - How many cores?](https://harvardmed.atlassian.net/wiki/spaces/O2/pages/1586793632/Using+Slurm+Basic#How-many-cores?) |
+| `--mem` | max memory | 8G, 8000 | [O2 Wiki - Memory requirements](https://harvardmed.atlassian.net/wiki/spaces/O2/pages/1586793632/Using+Slurm+Basic#Memory-requirements) |
+| `-o` | name of file to create with standard output | %j.out | [O2 Wiki](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-sbatchoptionsquickreference) |
+| `-e` | name of file to create with standard error | %j.err | [O2 Wiki](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-sbatchoptionsquickreference) |
+| `-J` | name of the job | Fastqc_run, rnaseq_workflow_mov10 | [O2 Wiki](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-sbatchoptionsquickreference) |
+| `--mail-type` | send an email when job starts, ends or errors out  | END, ALL | [O2 Wiki](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-sbatchoptionsquickreference) |
+| `--mail-user` | send email to this address | xyz10@harvard.edu | [O2 Wiki](https://wiki.rc.hms.harvard.edu/display/O2/Using+Slurm+Basic#UsingSlurmBasic-sbatchoptionsquickreference) |
 
 ### `sbatch` job submission script
 
