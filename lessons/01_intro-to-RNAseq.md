@@ -43,7 +43,8 @@ To be translated into proteins, the RNA must undergo processing to generate the 
 
 The transcriptome is defined as a collection of all the transcript readouts present in a cell. RNA-seq data can be used to explore and/or quantify the transcriptome of an organism, which can be utilized for the following types of experiments:
 
-- **Differential Gene Expression**: *quantitative* evaluation and comparison of transcript levels
+- **Differential Gene Expression**: *quantitative* evaluation and comparison of transcript levels (bulk and single-cell)
+- **Experession profiling** of small cell populations (single cell)
 - **Transcriptome assembly**: building the profile of transcribed regions of the genome, a *qualitative* evaluation. 
 - Can be used to **help build better gene models**, and verify them using the assembly
 - **Metatranscriptomics** or community transcriptome analysis
