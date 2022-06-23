@@ -29,7 +29,7 @@ Memory is a small amount of volatile or temporary information storage. This is d
 ## Why use the cluster or an HPC environment?
 
 <p align="center">
-<img src="https://github.com/hbctraining/Intro-to-shell-flipped/blob/master/img/compute_cluster.png" width="450">
+<img src="https://github.com/hbctraining/Intro-to-shell-flipped/blob/master/img/compute_cluster.png?raw=true" width="450">
 </p>
 
 
