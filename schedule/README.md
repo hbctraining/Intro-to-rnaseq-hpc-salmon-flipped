@@ -12,11 +12,11 @@
 
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
-| 09:30 - 09:45 | [Workshop Introduction](../lectures/Intro_to_workshop.pdf) | Jihe |
+| 09:30 - 09:45 | [Workshop Introduction](../lectures/Intro_to_workshop.pdf) | Will |
 | 09:45 - 10:25 | [Working in an HPC environment - Review](../lessons/03_working_on_HPC.md) | Radhika |
 | 10:25 - 11:05 | [Project Organization (using Data Management best practices)](../lessons/04b_data_organization.md) | Radhika |
-| 11:05 - 11:45 | [Quality Control of Sequence Data: Running FASTQC](../lessons/05_qc_running_fastqc_interactively.md) | Jihe |
-| 11:45 - 12:00 | Overview of self-learning materials and homework submission | Jihe |
+| 11:05 - 11:45 | [Quality Control of Sequence Data: Running FASTQC](../lessons/05_qc_running_fastqc_interactively.md) | Will |
+| 11:45 - 12:00 | Overview of self-learning materials and homework submission | Will |
 
 ### Before the next class:
 
@@ -100,7 +100,7 @@
 | 09:30 - 10:10 | Self-learning lessons review | All |
 | 10:10 - 11:10 | [Automating the RNA-seq workflow](../lessons/12_automating_workflow.md) | Radhika |
 | 11:10 - 11:45 | [Troubleshooting RNA-seq Data Analysis](../lectures/RNA-seq_troubleshooting.pdf)| Meeta |
-| 11:45 - 12:00 | [Wrap up](../lectures/workshop_wrapup.pdf) | Jihe |
+| 11:45 - 12:00 | [Wrap up](../lectures/workshop_wrapup.pdf) | Will |
 
 ***
 
