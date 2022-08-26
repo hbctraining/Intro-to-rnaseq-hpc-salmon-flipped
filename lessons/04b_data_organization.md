@@ -160,7 +160,7 @@ rnaseq
   └── scripts
 ```
 
-Okay we are all set to begin the analysis!
+Okay, we are all set to begin the analysis!
 
 
 ---
