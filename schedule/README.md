@@ -48,7 +48,7 @@
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
 | 09:30 - 10:30 | Self-learning lessons review | All |
-| 10:30 - 11:10 | [Sequence Alignment Theory](../lectures/expression_quantification.pdf) | Radhika |
+| 10:30 - 11:10 | [Expression quantification: Theory and Tools](../lectures/expression_quantification.pdf) | Radhika |
 | 11:10 - 11:50 | [Quantifying expression using alignment-free methods (Salmon)](../lessons/08_quasi_alignment_salmon.md) | Jihe |
 | 11:50 - 12:00 | [Review of workflow](../lectures/workflow_overview.pdf) | Radhika |
 
