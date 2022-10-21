@@ -189,7 +189,8 @@ Some key LMOD commands are listed below:
 > Note: On O2, a lot of tools used for analysis of sequencing data need to have the `gcc` compiler module loaded (`module load gcc/6.2.0`) prior to loading the tool of interest.
 
 *** 
-**Exercise**
+
+#### Exercises
 
 1. What are the contents of the `$PATH` environment variable?
 1. Try running the `multiqc` command. What do you get as output?
