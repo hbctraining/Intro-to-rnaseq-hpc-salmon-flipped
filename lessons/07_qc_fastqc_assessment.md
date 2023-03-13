@@ -33,7 +33,7 @@ We will only need to look at the HTML report for a given input file. It is not p
 Open up *FileZilla*, and click on the File tab. Choose 'Site Manager'.
 
 <p align="center">
-<img src="../img/filezilla_setup.png" width="500">
+<img src="../img/FileZilla_click.gif" width="900">
 </p>
 
 ### Filezilla - Step 2
