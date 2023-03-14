@@ -53,7 +53,7 @@ Within the 'Site Manager' window, do the following:
 > In order to connect your laptop using FileZilla to the O2 cluster, follow steps 1-7 as outlined above. Once you have clicked 'Connect', you will receive a Duo push notification (but no indication in Filezilla) which you must approve within the short time window. Following Duo approval, FileZilla will connect to the O2 cluster.
 
 <p align="center">
-<img src="../img/filezilla_login.png" width="500">
+<img src="../img/FileZilla_information.gif" width="900">
 </p>
 
 ### Filezilla Interface
