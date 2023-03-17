@@ -65,6 +65,11 @@ ssh username@o2.hms.harvard.edu
 
 You will receive a prompt for your password, and you should type in your associated password; **note that the cursor will *not move* as you type in your password**.
 
+
+<p align="center">
+<img src="../img/O2_login.gif" width="800"">
+</p>
+
 A warning might pop up the first time you try to connect to a remote machine, type "Yes" or "Y". 
 
 Once logged in, you should see the O2 icon, some news, and the command prompt, e.g. `[rc_training10@login01 ~]$`.
