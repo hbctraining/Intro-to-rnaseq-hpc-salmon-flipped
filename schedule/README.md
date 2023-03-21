@@ -125,7 +125,9 @@
   * [Copying files from other remote locations to O2](https://hbctraining.github.io/In-depth-NGS-Data-Analysis-Course/sessionVI/lessons/more_bash.html#rsync)
   * [Creating symbolic links](https://hbctraining.github.io/In-depth-NGS-Data-Analysis-Course/sessionVI/lessons/more_bash.html#symlink)
 * [Obtaining reference genomes or transcriptomes](https://hbctraining.github.io/Accessing_public_genomic_data/lessons/accessing_genome_reference_data.html)
-
+* Youtube videos
+    * [Hash tables - Paul Programming](https://www.youtube.com/watch?v=MfhjkfocRR0&ab_channel=PaulProgramming)
+    * [Suffix arrays - William Fiset](https://www.youtube.com/watch?v=zqKlL3ZpTqs)
 ***
 
 ## Building on this workshop
