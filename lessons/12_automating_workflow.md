@@ -101,7 +101,7 @@ sh  run_rnaseq.sh  input.fq  input.gtf  12
 
 `$3` => 12
 
-The variables $1, $2, $3,...$9 and so on are **positional parameters** in the context of the shell script, and can be used within the script to refer to the files/number specified on the command line. Basically, the script is written with the expectation that $1 will be a fastq file and $2 will be a GTF file, and so on. Note that`$1`, which you may have seen before, is actually a short form of `${1}` and we can only use `$1` when it is **not** followed by a letter, digit or an underscore but we can always use `${1}`. Using `${1}` is best practic and what we will use for the rest of this lesson.
+The variables $1, $2, $3,...$9 and so on are **positional parameters** in the context of the shell script, and can be used within the script to refer to the files/number specified on the command line. Basically, the script is written with the expectation that $1 will be a fastq file and $2 will be a GTF file, and so on. Note that`$1`, which you may have seen before, is actually a short form of `${1}` and we can only use `$1` when it is **not** followed by a letter, digit or an underscore but we can always use `${1}`. Using `${1}` is best practice and what we will use for the rest of this lesson.
 
 
 *There can be virtually unlimited numbers of inputs to a shell script, but it is wise to only have a few inputs to avoid errors and confusion when running a script that used positional parameters.*
@@ -297,13 +297,13 @@ $ cd ~/rnaseq/
 $ sh scripts/rnaseq_analysis_on_input_file.sh ~/rnaseq/raw_data/Mov10_oe_1.subset.fq
 ```
 
-## Running the script to submit jobs in parallel to the SLURM scheduler
+## Running the script to submit jobs in parallel to the Slurm scheduler
 
 The above script will run in an interactive session **one file at a time**. But the whole point of writing this script was to run it on all files at once. How do you think we can do this?
 
 To run the above script **"in serial"** for all of the files on a worker node via the job scheduler, we can create a separate submission script that will need 2 components:
 
-1. **SLURM directives** at the **beginning** of the script. This is so that the scheduler knows what resources we need in order to run our job on the compute node(s).
+1. **Slurm directives** at the **beginning** of the script. This is so that the scheduler knows what resources we need in order to run our job on the compute node(s).
 2. a **`for`** loop that iterates through and runs the above script for all the fastq files.
 
 Below is what this second script (`rnaseq_analysis_on_allfiles.slurm`) would look like **\[DO NOT RUN THIS\]**:
@@ -329,7 +329,7 @@ done
 
 **But we don't want to run the analysis on these 6 samples one after the other!** We want to run them "in parallel" as 6 separate jobs. 
 
-**Note:** If you create and run the above script, or something similar to it, i.e. with SLURM directives at the top, you should give the script name `.run` or `.slurm` as the extension. This will make it obvious that it is meant to submit jobs to the SLURM scheduler. 
+**Note:** If you create and run the above script, or something similar to it, i.e. with Slurm directives at the top, you should give the script name `.run` or `.slurm` as the extension. This will make it obvious that it is meant to submit jobs to the Slurm scheduler. 
 
 ***
 **Exercise**
@@ -340,7 +340,9 @@ How would you run `rnaseq_analysis_on_allfiles.slurm`, i.e. the above script?
 
 ## Parallelizing the analysis for efficiency
 
-Parallelization will save you a lot of time with real (large) datasets. To parallelize our analysis, we will still need to write a second script that will call the script we just wrote that takes a fastq file as input (rnaseq_analysis_on_input_file.sh). We will still use a `for` loop, but we will be creating a regular shell script and we will be specifying the SLURM directives differently. Alternatively, this could also be done using a SLURM array which you can learn about [here](https://hbctraining.github.io/Training-modules/Intermediate_shell/lessons/arrays_in_slurm.html).
+Parallelization will save you a lot of time with real (large) datasets. To parallelize our analysis, we will still need to write a second script that will call the script we just wrote that takes a fastq file as input (rnaseq_analysis_on_input_file.sh). We will still use a `for` loop, but we will be creating a regular shell script and we will be specifying the Slurm directives differently. 
+
+> Alternatively, this could also be done using a ***Slurm array***, which lets you submit a collection of similar jobs easily and quickly. You can learn more about Slurm arrays [here](https://hbctraining.github.io/Training-modules/Intermediate_shell/lessons/arrays_in_slurm.html).
 
 Use `vim` to start a new shell script called `rnaseq_analysis_on_allfiles-for_slurm.sh`: 
 
@@ -348,7 +350,7 @@ Use `vim` to start a new shell script called `rnaseq_analysis_on_allfiles-for_sl
 $ vim rnaseq_analysis_on_allfiles_for-slurm.sh
 ```
 
-This script loops through the same files as in the previous (demo) script, but the command being submitted within the `for` loop is `sbatch` with SLURM directives specified on the same line:
+This script loops through the same files as in the previous (demo) script, but the command being submitted within the `for` loop is `sbatch` with Slurm directives specified on the same line:
 
 ```bash
 #! /bin/bash
