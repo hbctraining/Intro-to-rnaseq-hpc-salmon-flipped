@@ -101,8 +101,9 @@ sh  run_rnaseq.sh  input.fq  input.gtf  12
 
 `$3` => 12
 
-The variables $1, $2, $3,...$9 and so on are **positional parameters** in the context of the shell script, and can be used within the script to refer to the files/number specified on the command line. Basically, the script is written with the expectation that $1 will be a fastq file and $2 will be a GTF file, and so on. Note that`$1`, which you may have seen before, is actually a short form of `${1}` and we can only use `$1` when it is **not** followed by a letter, digit or an underscore but we can always use `${1}`. Using `${1}` is best practice and what we will use for the rest of this lesson.
+The variables `$1`, `$2`, `$3`,...`$9` and so on are **positional parameters** in the context of the shell script, and can be used within the script to refer to the files/number specified on the command line. Basically, the script is written with the expectation that `$1` will be a fastq file and `$2` will be a GTF file, and so on. 
 
+Note that `$1`, which you may have seen before, is actually a short form of `${1}` and we can only use `$1` when it is **not** followed by a letter, digit or an underscore but we can always use `${1}`. Using `${1}` is best practice and what we will use for the rest of this lesson.
 
 *There can be virtually unlimited numbers of inputs to a shell script, but it is wise to only have a few inputs to avoid errors and confusion when running a script that used positional parameters.*
 
