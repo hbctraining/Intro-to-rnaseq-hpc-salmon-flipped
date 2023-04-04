@@ -101,11 +101,12 @@ sh  run_rnaseq.sh  input.fq  input.gtf  12
 
 `$3` => 12
 
-The variables $1, $2, $3,...$9 and so on are **positional parameters** in the context of the shell script, and can be used within the script to refer to the files/number specified on the command line. Basically, the script is written with the expectation that $1 will be a fastq file and $2 will be a GTF file, and so on.
+The variables $1, $2, $3,...$9 and so on are **positional parameters** in the context of the shell script, and can be used within the script to refer to the files/number specified on the command line. Basically, the script is written with the expectation that $1 will be a fastq file and $2 will be a GTF file, and so on. Note that`$1`, which you may have seen before, is actually a short form of `${1}` and we can only use `$1` when it is **not** followed by a letter, digit or an underscore but we can always use `${1}`. Using `${1}` is best practic and what we will use for the rest of this lesson.
+
 
 *There can be virtually unlimited numbers of inputs to a shell script, but it is wise to only have a few inputs to avoid errors and confusion when running a script that used positional parameters.*
 
-> [This is an example of a simple script that used the concept of positional parameters and the associated variables](http://steve-parker.org/sh/eg/var3.sh.txt). You should try this script out after the class to get a better handle on positional parameters for shell scripting.
+> [This is an example of a simple script that used the concept of positional parameters and the associated variables](http://steve-parker.org/sh/eg/var3.sh.txt). You should try this script out after the class to get a better handle on positional parameters for shell scripting. You can also learn more about positional parameters [here](https://hbctraining.github.io/Training-modules/Intermediate_shell/lessons/positional_params.html)
 
 We will be using this concept in our automation script, wherein we will accept the full or relative path to a file as input.
 
@@ -121,9 +122,9 @@ We will start writing the script on our laptops using a simple text editor like 
 cd /n/scratch3/users/r/$USER/rnaseq_hbc-workshop/
 ```
 
-**We want users to input the path to the fastq file as input to the shell script.** To make this happen, we will use the `$1` positional parameter variable within the script. 
+**We want users to input the path to the fastq file as input to the shell script.** To make this happen, we will use the `${1}` positional parameter variable within the script. 
 
-Since `$1` will store the path to the fastq file, including the file name, we will be referring to it every time we need to specify the fastq file in any commands. We could just use the variable `$1`, but that is not an intuitive variable name for a fastq file, is it? So we want to create a new variable called `fq` and copy the contents of `$1` into it. 
+Since `${1}` will store the path to the fastq file, including the file name, we will be referring to it every time we need to specify the fastq file in any commands. We could just use the variable `${1}`, but that is not an intuitive variable name for a fastq file, is it? So we want to create a new variable called `fq` and copy the contents of `${1}` into it. 
 
 
 ```bash
@@ -132,7 +133,7 @@ Since `$1` will store the path to the fastq file, including the file name, we wi
 fq=$1
 ```
 
-In the rest of the script, we can now call the fastq file using `$fq` instead of `$1`!
+In the rest of the script, we can now call the fastq file using `${fq}` instead of `${1}`!
 
 > When we set up variables we do not use the `$` before it, but when we *use the variable*, we always have to have the `$` before it. >
 >
@@ -140,22 +141,22 @@ In the rest of the script, we can now call the fastq file using `$fq` instead of
 >
 > initializing the `fq` variable => `fq=$1`
 >
-> using the `fq` variable => `fastqc $fq`
+> using the `fq` variable => `fastqc ${fq}`
 
-Next, we want to extract the name of the sample from `$fq` which contains the full name of the file and possibly the path to the file as well. The reason to extract the sample name is so that all the output files from this workflow are appropriately named with sample identifier.
+Next, we want to extract the name of the sample from `${fq}` which contains the full name of the file and possibly the path to the file as well. The reason to extract the sample name is so that all the output files from this workflow are appropriately named with sample identifier.
 
-We can obtain the sample name by using the `basename` command on the `$fq` (or `$1`)  variable, and save it in a new variable called `samplename`.
+We can obtain the sample name by using the `basename` command on the `${fq}` (or `${1}`)  variable, and save it in a new variable called `samplename`.
 
 ```bash
 # grab base of filename for naming outputs
 
-samplename=`basename $fq .subset.fq`
-echo "Sample name is $samplename"           
+samplename=`basename ${fq} .subset.fq`
+echo "Sample name is ${samplename}"           
 ```
 
 > **Remember `basename`?**
 >
-> 1. the `basename` command: this command takes a path or a name and trims away all the information before the last `/` and if you specify the string to clear away at the end, it will do that as well. In this case, if the variable `$fq` contains the path *"~/rnaseq/raw_data/Mov10_oe_1.subset.fq"*, `basename $fq .subset.fq` will output "Mov10_oe_1".
+> 1. the `basename` command: this command takes a path or a name and trims away all the information before the last `/` and if you specify the string to clear away at the end, it will do that as well. In this case, if the variable `${fq}` contains the path *"~/rnaseq/raw_data/Mov10_oe_1.subset.fq"*, `basename ${fq} .subset.fq` will output "Mov10_oe_1".
 > 2. to assign the value of the `basename` command to the `samplename` variable, we encapsulate the `basename...` command in backticks. This syntax is necessary for assigning the output of a command to a variable.
 
 Next we want to specify how many cores the script should use to run the analysis. This provides us with an easy way to modify the script to run with more or fewer cores without have to replace the number within all commands where cores are specified.
@@ -223,7 +224,7 @@ unset DISPLAY
 In the script, it is a good idea to use `echo` for debugging. `echo` basically displays the string of characters specified within the quotations. When you have strategically place `echo` commands specifying what stage of the analysis is next, in case of failure you can determine the last `echo` statement displayed to troubleshoot the script.
 
 ```bash
-echo "Processing file $fq"
+echo "Processing file ${fq}"
 ```
 
 > You can also use `set -x`:
@@ -234,33 +235,33 @@ echo "Processing file $fq"
 ### Running the tools
 
 ```bash
-echo "Starting QC for $samplename"
+echo "Starting QC for ${samplename}"
 
 # Run FastQC and move output to the appropriate folder
-fastqc -o $fastqc_out $fq
+fastqc -o ${fastqc_out} ${fq}
 
 
 # Run STAR
-STAR --runThreadN $cores --genomeDir $genome --readFilesIn $fq --outFileNamePrefix $align_out --outSAMtype BAM SortedByCoordinate --outSAMunmapped Within --outSAMattributes Standard
+STAR --runThreadN ${cores} --genomeDir ${genome} --readFilesIn ${fq} --outFileNamePrefix ${align_out} --outSAMtype BAM SortedByCoordinate --outSAMunmapped Within --outSAMattributes Standard
 
 # Run Qualimap
 qualimap rnaseq \
--outdir $qualimap_out \
+-outdir ${qualimap_out} \
 -a proportional \
--bam $align_out_bam \
+-bam ${align_out_bam} \
 -p strand-specific-reverse \
--gtf $gtf \
+-gtf ${gtf} \
 --java-mem-size=8G
 
 # Run salmon
 
-echo "Starting Salmon run for $samplename"
+echo "Starting Salmon run for ${samplename}"
 
-salmon quant -i $transcriptome \
--p $cores \
+salmon quant -i ${transcriptome} \
+-p ${cores} \
 -l A \
--r $fq \
--o $salmon_out \
+-r ${fq} \
+-o ${salmon_out} \
 --seqBias \
 --useVBOpt
 ```
@@ -321,8 +322,8 @@ Below is what this second script (`rnaseq_analysis_on_allfiles.slurm`) would loo
 # this `for` loop, will take the fastq files as input and run the script for all of them one after the other. 
 for fq in ~/rnaseq/raw_data/*.fq
 do
-  echo "running analysis on $fq"
-  sh ~/rnaseq/scripts/rnaseq_analysis_on_input_file.sh $fq
+  echo "running analysis on ${fq}"
+  sh ~/rnaseq/scripts/rnaseq_analysis_on_input_file.sh ${fq}
 done
 ```
 
@@ -339,7 +340,7 @@ How would you run `rnaseq_analysis_on_allfiles.slurm`, i.e. the above script?
 
 ## Parallelizing the analysis for efficiency
 
-Parallelization will save you a lot of time with real (large) datasets. To parallelize our analysis, we will still need to write a second script that will call the script we just wrote that takes a fastq file as input (rnaseq_analysis_on_input_file.sh). We will still use a `for` loop, but we will be creating a regular shell script and we will be specifying the SLURM directives differently. 
+Parallelization will save you a lot of time with real (large) datasets. To parallelize our analysis, we will still need to write a second script that will call the script we just wrote that takes a fastq file as input (rnaseq_analysis_on_input_file.sh). We will still use a `for` loop, but we will be creating a regular shell script and we will be specifying the SLURM directives differently. Alternatively, this could also be done using a SLURM array which you can learn about [here](https://hbctraining.github.io/Training-modules/Intermediate_shell/lessons/arrays_in_slurm.html).
 
 Use `vim` to start a new shell script called `rnaseq_analysis_on_allfiles-for_slurm.sh`: 
 
@@ -355,12 +356,12 @@ This script loops through the same files as in the previous (demo) script, but t
 for fq in ~/rnaseq/raw_data/*.fq
 do
 
-sbatch -p short -t 0-2:00 -c 6 --job-name rnaseq-workflow --mem 8G --wrap="sh ~/rnaseq/scripts/rnaseq_analysis_on_input_file.sh $fq"
+sbatch -p short -t 0-2:00 -c 6 --job-name rnaseq-workflow --mem 8G --wrap="sh ~/rnaseq/scripts/rnaseq_analysis_on_input_file.sh ${fq}"
 sleep 1	# wait 1 second between each job submission
   
 done
 ```
-> Please note that after the `sbatch` directives the command `sh ~/rnaseq/scripts/rnaseq_analysis_on_input_file.sh $fq` is in quotes.
+> Please note that after the `sbatch` directives the command `sh ~/rnaseq/scripts/rnaseq_analysis_on_input_file.sh ${fq}` is in quotes.
 
 ```bash
 $ cd ~/rnaseq/scripts/
