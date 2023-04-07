@@ -67,7 +67,7 @@ You will receive a prompt for your password, and you should type in your associa
 
 
 <p align="center">
-<img src="../img/O2_login.gif" width="800"">
+<img src="../img/O2_login.gif" width="800">
 </p>
 
 A warning might pop up the first time you try to connect to a remote machine, type "Yes" or "Y". 
