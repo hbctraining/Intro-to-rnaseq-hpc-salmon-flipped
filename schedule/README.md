@@ -34,12 +34,10 @@
 
 2. **Complete the exercises**:
    * Each lesson above contain exercises; please go through each of them.
-   * **Copy over** your code from the exercises into a text file. 
-   * **Upload the saved text file** to [Dropbox](https://www.dropbox.com/request/ZPp5f8rfN4xVZu8mxVQ5) the **day before the next class**.
+   * Add your answers to the questions to [Google forms](https://docs.google.com/forms/d/e/1FAIpQLSdxdSM4528uYTWT7k5c8gYAuCUaTqRkUSI88eUmKg7qyQZZAQ/viewform?usp=sf_link) the **day before the next class**.
    
 ### Questions?
 * ***If you get stuck due to an error*** while runnning code in the lesson, [email us](mailto:hbctraining@hsph.harvard.edu) 
-* Post any **conceptual questions** that you would like to have **reviewed in class** [here](https://PollEv.com/hbctraining945).
 
 ***
 
@@ -84,12 +82,10 @@
 
 2. **Complete the exercises**:
    * Each lesson above contain exercises; please go through each of them.
-   * **Copy over** your code from the exercises into a text file. 
-   * **Upload the saved text file** to [Dropbox](https://www.dropbox.com/request/TbmIcseoS71NiIcd8kVs) the **day before the next class**.
+   * Add your answers to the questions to [Google forms](https://docs.google.com/forms/d/e/1FAIpQLScxaj3IIO4Bx7FCRw87cCeuTPQyhD_7WR2QU638y8IZDv5r1A/viewform?usp=sf_link) the **day before the next class**.
    
 ### Questions?
 * ***If you get stuck due to an error*** while runnning code in the lesson, [email us](mailto:hbctraining@hsph.harvard.edu) 
-* Post any **conceptual questions** that you would like to have **reviewed in class** [here](https://PollEv.com/hbctraining945).
 
 ***
 
