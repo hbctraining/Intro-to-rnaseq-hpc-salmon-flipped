@@ -107,7 +107,7 @@ Note, that our for loop is iterating over all FASTQ files in the `raw_fastq` dir
 $ sbatch salmon_all_samples.sbatch
 ```
 
-3. **After you confirmed that the script runs as expected, copy and paste your final script to a txt file and submit that as part of your assignment.** 
+3. **After you confirmed that the script runs as expected, copy and paste your final script to [Google forms](https://docs.google.com/forms/d/e/1FAIpQLScxaj3IIO4Bx7FCRw87cCeuTPQyhD_7WR2QU638y8IZDv5r1A/viewform?usp=sf_link).** 
 
 ---
 
