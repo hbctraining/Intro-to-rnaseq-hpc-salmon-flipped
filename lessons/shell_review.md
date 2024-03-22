@@ -34,28 +34,61 @@ Please find and open Git BASH.
 
 ### Downloading the example data folder
 
-The data you will be working with can be downloaded using the link below. Clicking on the link will automatically place a file called `unix_lesson.zip` to your `Downloads` folder on your computer.
+We will be exploring the capabilities of the shell by working with some RNA-Seq data. We need to **download the data to our current folder** using the link below. To do so, follow the step-by-step instructions below.
 
-- [Introduction to Shell: Dataset](https://github.com/hbctraining/Training-modules/blob/master/Intro_shell/data/unix_lesson.zip?raw=true)
-
-Now, in you terminal window change directories into your `Downloads` folder and check that the file is listed there:
+**1. Find out what folder we are currently inside**. To do this, we can use the 'print working directory' command:
 
 ```bash
-$ cd ~/Downloads
-$ ls -l unix_lesson.zip 
+$ pwd
 ```
 
-To decompress the file into a folder called `unix_lesson` we use the `unzip` command:
+> On a **Mac** your current folder should be something starting with `/Users/`, like `/Users/marypiper/`.
+> 
+> On a **Windows** machine your current folder should be something starting with `/c/Users/marypiper`. To find this in your File explorer try clicking on PC and navigating to that path.
+
+_Once you have identified which folder you are in, this is where we will be downloading your data._
+
+**2. Click on the link below then go to file > download to download the data"**. This will automatically download the folder to your downloads folder. If you downloaded the data previously as a part of the Basic Shell workshop, you do not need to download it again unless you have deleted it.
+
+* Download data by [clicking here](https://www.dropbox.com/s/x66jksdd4jklpdw/unix_lesson.zip?dl=0).
+
+**3.** Once you have downloaded the file to the correct location, go back to your **terminal window and type the 'list' command**:
 
 ```bash
-$ unzip unix_lesson.zip
+$ ls
 ```
 
-Check to see that you have the folder `unix_lesson` before proceeding.
+> `ls` stands for 'list' and it lists the contents of a directory.
+
+_You should see `unix_lesson.zip` as part of the output to the screen._
+
+**4.** Finally, to **decompress the folder**:
+
+* Double click on unix_lesson.zip on a mac. This will automatically inflate the folder.
+* If you are on windows, press and hold (or right-click) the folder, select Extract All..., and then follow the instructions.
+
+
+**5.** Now when you **run the `ls` command** again you should see a folder called `unix_lesson`, which means you are all set with the data download!
 
 ```bash
-$ ls -l unix_lesson
+$ ls
 ```
+
+**6.** Go into the folder for the lesson
+
+on mac type: 
+```bash
+$ cd unix_lesson
+```
+
+on windows type:
+
+```bash
+$ cd unix_lesson/unix_lesson
+```
+
+***
+
 
 ## Reviewing shell commands
 
