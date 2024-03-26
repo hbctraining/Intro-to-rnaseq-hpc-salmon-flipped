@@ -12,10 +12,10 @@
 
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
-| 09:30 - 09:45 | [Workshop Introduction](../lectures/Intro_to_workshop.pdf) | Radhika |
-| 09:45 - 10:25 | [Working in an HPC environment - Review](../lessons/03_working_on_HPC.md) | Radhika |
+| 09:30 - 09:45 | [Workshop Introduction](../lectures/Intro_to_workshop.pdf) | Meeta |
+| 09:45 - 10:25 | [Working in an HPC environment - Review](../lessons/03_working_on_HPC.md) | Emma |
 | 10:25 - 11:05 | [Project Organization (using Data Management best practices)](../lessons/04b_data_organization.md) | Meeta |
-| 11:05 - 11:45 | [Quality Control of Sequence Data: Running FASTQC](../lessons/05_qc_running_fastqc_interactively.md) | Radhika |
+| 11:05 - 11:45 | [Quality Control of Sequence Data: Running FASTQC](../lessons/05_qc_running_fastqc_interactively.md) | Emma |
 | 11:45 - 12:00 | Overview of self-learning materials and homework submission | Meeta |
 
 ### Before the next class:
@@ -46,9 +46,9 @@
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
 | 09:30 - 10:30 | Self-learning lessons review | All |
-| 10:30 - 11:10 | [Expression quantification: Theory and Tools](../lectures/expression_quantification.pdf) | Radhika |
+| 10:30 - 11:10 | [Expression quantification: Theory and Tools](../lectures/expression_quantification.pdf) | Meeta |
 | 11:10 - 11:50 | [Quantifying expression using alignment-free methods (Salmon)](../lessons/08_quasi_alignment_salmon.md) | Emma |
-| 11:50 - 12:00 | [Review of workflow](../lectures/workflow_overview.pdf) | Radhika |
+| 11:50 - 12:00 | [Review of workflow](../lectures/workflow_overview.pdf) | Emma |
 
 ### Before the next class:
 
@@ -94,9 +94,9 @@
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
 | 09:30 - 10:10 | Self-learning lessons review | All |
-| 10:10 - 11:10 | [Automating the RNA-seq workflow](../lessons/12_automating_workflow.md) | Radhika |
+| 10:10 - 11:10 | [Automating the RNA-seq workflow](../lessons/12_automating_workflow.md) | Meeta |
 | 11:10 - 11:45 | [Troubleshooting RNA-seq Data Analysis](../lectures/RNA-seq_troubleshooting.pdf)| Emma |
-| 11:45 - 12:00 | [Wrap up](../lectures/workshop_wrapup.pdf) | Radhika |
+| 11:45 - 12:00 | [Wrap up](../lectures/workshop_wrapup.pdf) | Meeta |
 
 ***
 
