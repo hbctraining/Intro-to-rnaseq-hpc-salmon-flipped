@@ -112,10 +112,10 @@ To run the FastQC program, we first need to load the appropriate module, so it p
 $ module spider fastqc
 ```
 
-Once we know which version we want to use (0.11.3), we can load the FastQC module:
+Once we know which version we want to use (0.12.1), we can load the FastQC module:
 
 ```bash
-$ module load fastqc/0.11.3
+$ module load fastqc/0.12.1
 ```
 
 Once a module for a tool is loaded, you have essentially made it directly available to you like any other basic shell command.
@@ -167,7 +167,7 @@ $ O2squeue
 Now that we are in a new interactive session with the appropriate resources, we will need to load the module again for this new session.
 
 ```bash
-$ module load fastqc/0.11.3  #reload the module for the new (6-core) interactive session
+$ module load fastqc/0.12.1  #reload the module for the new (6-core) interactive session
 ```
 
 We will also move into the `raw_data` directory (remember we are on a new compute node now):
