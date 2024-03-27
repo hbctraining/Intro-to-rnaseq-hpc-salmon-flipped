@@ -11,7 +11,7 @@
 #SBATCH --mail-user=xyz10@harvard.edu
 
 # Load Salmon module
-module load salmon/1.2.1
+module load salmon/1.8.0
 
 # Change directory to where the Salmon results will be output
 cd ~/rnaseq/results/salmon
@@ -34,7 +34,6 @@ salmon quant -i /n/groups/hbctraining/rna-seq_2019_02/reference_data/salmon_inde
  --useVBOpt \
  --validateMappings \
  -p 6 \
- --numBootstraps 30
 
 done
 
