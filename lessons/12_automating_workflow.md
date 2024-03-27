@@ -28,7 +28,7 @@ Today, we are going to learn how to use the `/n/scratch/` storage location as we
 
 #### Creating a folder in `/n/scratch/`
 
-To get started let's create a folder for ourselves in `/n/scratch/` first. We can do so by running the existing script `/n/cluster/bin/scratch3_create.sh` from a login node.
+To get started let's create a folder for ourselves in `/n/scratch/` first. We can do so by running the existing script `/n/cluster/bin/scratch_create_directory.sh` from a login node.
 
 ```bash
 $ sh /n/cluster/bin/scratch_create_directory.sh
@@ -113,14 +113,14 @@ We will be using this concept in our automation script, wherein we will accept t
 
 ### Writing the automation script!
 
-We will start writing the script on our laptops using a simple text editor like Sublime Text or Notepad++. Let's being with the shebang line and a `cd` command so that our results are all written on `/n/scratch3/`. 
+We will start writing the script on our laptops using a simple text editor like Sublime Text or Notepad++. Let's being with the shebang line and a `cd` command so that our results are all written on `/n/scratch/`. 
 
 ```bash
 #!/bin/bash/
 
-# change directories to /n/scratch3/ so that all the analysis is stored there.
+# change directories to /n/scratch/ so that all the analysis is stored there.
 
-cd /n/scratch3/users/r/$USER/rnaseq_hbc-workshop/
+cd /n/scratch/users/r/$USER/rnaseq_hbc-workshop/
 ```
 
 **We want users to input the path to the fastq file as input to the shell script.** To make this happen, we will use the `${1}` positional parameter variable within the script. 
@@ -378,7 +378,7 @@ You can use `O2sacct` to check progress. And we can check if there are any addit
 ```bash
 $ O2sacct
 
-$ ls -l /n/scratch3/users/r/$USER/rnaseq_hbc-workshop/
+$ ls -l /n/scratch/users/r/$USER/rnaseq_hbc-workshop/
 ```
 
 Don't forget about the `scancel` command, should something go wrong and you need to cancel your jobs.
