@@ -48,7 +48,7 @@ Next, load the three modules needed to run MultiQC: `gcc`, `python`, `multiqc`.
 ```bash
 $ cd results/multiqc_report
 
-$ module load gcc/6.2.0 python/2.7.12 multiqc/1.5
+$ module load gcc/9.2.0 python/2.7.12 multiqc/1.21
 ```
 ***
 
