@@ -67,7 +67,7 @@ Now in the body of the script, we can include any commands we want to run. In th
 cd ~/rnaseq/raw_data
 
 ## Load modules required for script commands
-module load fastqc/0.11.3
+module load fastqc/0.12.1
 
 ## Run FASTQC
 fastqc -o ~/rnaseq/results/fastqc/ -t 6 *.fq
