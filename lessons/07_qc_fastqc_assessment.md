@@ -185,11 +185,7 @@ Since our data is just a subset of the original data and it contains the over-ex
 </p>
 
 ***
-**Exercise**
 
-* **Upload your HTML report for Mov10_oe2 to the DropBox link on the schedule page.**
-
-***
 
 ## Summary
 
