@@ -70,7 +70,7 @@ rnaseq
 To use the STAR aligner, load the module: 
 
 ```bash
-$ module load gcc/6.2.0 star/2.7.9a
+$ module load gcc/6.2.0 star/2.5.4a
 ```
 
 Similar to Salmon, aligning reads using STAR is **a two step process**:   
