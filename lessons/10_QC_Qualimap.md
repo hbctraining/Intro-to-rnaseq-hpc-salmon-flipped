@@ -205,7 +205,7 @@ $ qualimap rnaseq \
 
 ### The Qualimap report
 
-The Qualimap report in HTML folrmat should be present in the `results/qualimap` directory. To view this report you need a web browser, so you would need to transfer it over to your laptop. However, you don't need to do that. We generated this report on a subset of data, to get a better idea of the metrics let's **take a look at the report of the full dataset for `Mov_oe_1`**, available [in this zipped folder](https://www.dropbox.com/s/ck2qdzasthjx7wl/Mov10_oe_1.fastq.qualimap.zip?dl=1). Please download and unzip the folder; find the HTML report within and open it in your browser.
+The Qualimap report in HTML folrmat should be present in the `results/qualimap` directory. To view this report you need a web browser, so you would need to transfer it over to your laptop. However, you don't need to do that. We generated this report on a subset of data, to get a better idea of the metrics let's **take a look at the report of the full dataset for `Mov_oe_1`**, available [in this zipped folder](https://www.dropbox.com/scl/fi/t3t41hjubytbce6d9g29h/Mov10_oe_1_fulldata_qualimap.zip?rlkey=aum3nw3jym3t4f3l31p6564jn&dl=1). Please download and unzip the folder; find the HTML report within and open it in your browser.
 
 #### **Read alignment summary**
 
