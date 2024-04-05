@@ -212,7 +212,7 @@ All of our variables are now staged. Next, let's make sure all the modules are l
 
 module load fastqc/0.12.1
 module load gcc/6.2.0  
-module load star/2.7.9a
+module load star/2.5.4a
 module load samtools/1.15.1
 module load java/jdk-1.8u112
 module load qualimap/2.2.1
