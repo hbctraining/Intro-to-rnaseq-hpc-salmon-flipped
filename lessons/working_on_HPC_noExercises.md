@@ -196,17 +196,17 @@ Some key LMOD commands are listed below:
 * There are 3 major groups on the O2 cluster, each with their features and constraints:
    1. `/n/data1`, `/n/data2`, `/n/groups` - Large datasets are stored in these parent directories (see features/constraints in the image above).
    2. `/home` - the home directories of all users are under this parent directory (see features/constraints in the image above).
-   3. `/n/scratch3` - scratch space for temporary storage.
+   3. `/n/scratch` - scratch space for temporary storage.
 
 **[Please find more information about storage on O2 by clicking here.](https://it.hms.harvard.edu/our-services/research-computing/services/storage)**
 
-### More about `/n/scratch3`
+### More about `/n/scratch`
 
 * It is for data only needed temporarily during analyses.
-* Each user can use up to 10 TB and 1 million files/directories.
-* Files not accessed for 30 days are automatically deleted.
+* Each user can use up to 25 TB and 2.5 million files/directories.
+* Files not accessed for 45 days are automatically deleted.
 * **No backups!**
-* You can create your own folder using this command `/n/cluster/bin/scratch3_create.sh`
+* You can create your own folder using this command `/n/cluster/bin/scratch_create_directory.sh`
 
 ***
 *This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
