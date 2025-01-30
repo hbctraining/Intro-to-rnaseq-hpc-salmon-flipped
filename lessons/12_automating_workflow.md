@@ -368,6 +368,9 @@ $ cd ~/rnaseq/
 $ sh scripts/rnaseq_analysis_on_input_file.sh ~/rnaseq/raw_data/Mov10_oe_1.subset.fq
 ```
 
+> ### How can I modify my script for paired-end data?
+> If you are interested, we have created a script for paired-end data analysis [linked here](https://github.com/hbctraining/Intro-to-rnaseq-hpc-salmon-flipped/blob/main/scripts/PE-rnaseq_analysis_on_input_file.sh). Be sure to read the usage text at the top of the script and modify the script as necessary.
+
 ## Running the script to submit jobs in parallel to the Slurm scheduler
 
 The above script will run in an interactive session **one file at a time**. But the whole point of writing this script was to run it on all files at once. How do you think we can do this?
