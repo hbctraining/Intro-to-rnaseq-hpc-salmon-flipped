@@ -356,6 +356,7 @@ salmon quant -i ${transcriptome} \
 &emsp;--seqBias \
 &emsp;--useVBOpt
 </pre>
+<hr />
 </details>
 
 
@@ -412,7 +413,7 @@ How would you run `rnaseq_analysis_on_allfiles.slurm`, i.e. the above script?
 
 Parallelization will save you a lot of time with real (large) datasets. To parallelize our analysis, we will still need to write a second script that will call the script we just wrote that takes a fastq file as input (rnaseq_analysis_on_input_file.sh). We will still use a `for` loop, but we will be creating a regular shell script and we will be specifying the Slurm directives differently. 
 
-> Alternatively, this could also be done using a ***Slurm array***, which lets you submit a collection of similar jobs easily and quickly. You can learn more about Slurm arrays [here](https://hbctraining.github.io/Training-modules/Intermediate_shell/lessons/arrays_in_slurm.html).
+> Alternatively, this could also be done using a ***Slurm array***, which lets you submit a collection of similar jobs easily and quickly. You can learn more about Slurm arrays [here](https://hbctraining.github.io/Training-modules/Accelerate_with_automation/lessons/arrays_in_slurm.html).
 
 Use `vim` to start a new shell script called `rnaseq_analysis_on_allfiles-for_slurm.sh`: 
 
