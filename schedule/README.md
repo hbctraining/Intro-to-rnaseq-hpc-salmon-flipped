@@ -96,7 +96,7 @@
 | 09:30 - 10:10 | Self-learning lessons review | All |
 | 10:10 - 11:10 | [Automating the RNA-seq workflow](../lessons/12_automating_workflow.md) | Will |
 | 11:10 - 11:45 | [Troubleshooting RNA-seq Data Analysis](../lectures/RNA-seq_troubleshooting.pdf)| Upen |
-| 11:45 - 12:00 | [Wrap up](../lectures/workshop_wrapup.pdf) | Will |
+| 11:45 - 12:00 | [Wrap up](../lectures/workshop_wrapup_slides.pdf) | Will |
 
 ***
 
