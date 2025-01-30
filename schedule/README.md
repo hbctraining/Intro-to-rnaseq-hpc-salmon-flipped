@@ -12,7 +12,7 @@
 
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
-| 09:30 - 09:45 | [Workshop Introduction](../lectures/Intro_to_workshop.pdf) | Will |
+| 09:30 - 09:45 | [Workshop Introduction](../lectures/workshop_intro_slides.pdf) | Will |
 | 09:45 - 10:25 | [Working in an HPC environment - Review](../lessons/03_working_on_HPC.md) | Upen |
 | 10:25 - 11:05 | [Project Organization (using Data Management best practices)](../lessons/04b_data_organization.md) | Will |
 | 11:05 - 11:45 | [Quality Control of Sequence Data: Running FASTQC](../lessons/05_qc_running_fastqc_interactively.md) | Upen |
