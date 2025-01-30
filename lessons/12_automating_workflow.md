@@ -247,24 +247,24 @@ STAR --runThreadN ${cores} --genomeDir ${genome} --readFilesIn ${fq} --outFileNa
 
 # Run Qualimap
 qualimap rnaseq \
--outdir ${qualimap_out} \
--a proportional \
--bam ${align_out_bam} \
--p strand-specific-reverse \
--gtf ${gtf} \
---java-mem-size=8G
+  -outdir ${qualimap_out} \
+  -a proportional \
+  -bam ${align_out_bam} \
+  -p strand-specific-reverse \
+  -gtf ${gtf} \
+  --java-mem-size=8G
 
 # Run salmon
 
 echo "Starting Salmon run for ${samplename}"
 
 salmon quant -i ${transcriptome} \
--p ${cores} \
--l A \
--r ${fq} \
--o ${salmon_out} \
---seqBias \
---useVBOpt
+  -p ${cores} \
+  -l A \
+  -r ${fq} \
+  -o ${salmon_out} \
+  --seqBias \
+  --useVBOpt
 ```
 
 ### Last addition to the script
