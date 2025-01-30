@@ -21,7 +21,7 @@ Before we get started, let's talk a little bit about how data are stored on O2. 
 By design `/n/scratch/` is to be used for intermediate files that are created during any analysis. An example is in the schematic below. 
 
 <p align="center">
-<img src="../img/scratch3_best-practice.png" width="600">
+<img src="../img/scratch_recommended_practice.png" width="600">
 </p>
 
 Today, we are going to learn how to use the `/n/scratch/` storage location as we work on automating our workflow ([More information about scratch space on O2](https://harvardmed.atlassian.net/wiki/spaces/O2/pages/2652045313/Scratch+Storage). We will be maintaining our data in our (backed up) home directories, but all of the output files will be in scratch space. When we are done, we can copy over only those output files that are essential.
