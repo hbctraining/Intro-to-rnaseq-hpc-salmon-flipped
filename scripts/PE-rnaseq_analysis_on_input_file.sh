@@ -5,7 +5,7 @@
 # OR
 # - {sample}_1.fastq and {sample}_2.fastq
 
-# You will need to identify which format matches your data and **modify line 23 and line 27 accordingly!**
+# You will need to identify which format matches your data (i.e .fastq, .fq, .fq.gz) and **modify line 22 and line 26 accordingly!**
 
 
 # USAGE: sh PE-rnaseq_analysis_on_input_file.sh <path/to/sample_file/sample_R1.fastq>
