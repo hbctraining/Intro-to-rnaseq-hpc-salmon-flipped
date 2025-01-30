@@ -21,10 +21,20 @@ duration: 35
 CPUs (Central Processing Units) are composed of a single or multiple cores. If I have a processor with 4 "cores", i.e. a "quad-core" processor. This means that my processor can do 4 distinct computations at the same time. 
 
 ### Data Storage
-Data storage is measured in bytes, usually Gigabytes (GB), Terabytes (TB), Petabytes (PB). My laptop has 1 TB of storage, which is pretty standard for laptops.
+Data storage is measured in bytes, usually Gibibytes (GiB), Tebibytes (TiB), Pebibytes (PiB). My laptop has 500 GiB of storage, which is pretty standard for laptops.
+
+> Note: You might be confused by these units. Generally speaking, you can think of a KiB =~ kB, MiB =~ MB, GiB =~ GB and TiB =~ TB. This nonmenclature comes from the difference that computers measure space in binary (base 2), while the prefixes are derived from a metric (base 10) system. So, a KiB is actually 1024 bytes worth of space, while a KB is 1000 bytes worth of space. The table below can help further demonstrate these differences.
+>
+> | Unit | Size in Bytes | Unit | Size in Bytes |
+> |------|---------------|------|---------------|
+> | Kilobyte (kB) |1,000<sup>1</sup> = 1,000 | Kibibyte (KiB) | 1,024<sup>1</sup> = 1,024 |
+> | Megabyte (MB) |1,000<sup>2</sup> = 1,000,000 | Mebibyte (MiB) | 1,024<sup>2</sup> = 1,048,576 |
+> | Gigabyte (GB) |1,000<sup>3</sup> = 1,000,000,000 | Gibibyte (GiB) | 1,024<sup>3</sup> = 1,073,741,824 |
+> | Terabyte (TB) |1,000<sup>4</sup> = 1,000,000,000,000 | Tebibyte (TiB) | 1,024<sup>4</sup> = 1,099,511,627,776 |
+> | Petabyte (PB) |1,000<sup>5</sup> = 1,000,000,000,000,000 | Pebibyte (TiB) | 1,024<sup>5</sup> = 1,125,899,906,842,620 |
 
 ### Memory
-Memory is a small amount of volatile or temporary information storage. This is distinct from data storage we discussed in the previous point. It is an essential component of any computer, as this is where data is stored *when some computation is being performed* on it. If you have ever used R, all the objects in your environment are usually stored in memory until you save your environment. My laptop has 16 GB of memory, which is a little higher than average.
+Memory is a small amount of volatile or temporary information storage. This is distinct from data storage we discussed in the previous point. It is an essential component of any computer, as this is where data is stored *when some computation is being performed* on it. If you have ever used R, all the objects in your environment are usually stored in memory until you save your environment. My laptop has 16 GiB of memory, which is a little higher than average.
 
 ## Why use the cluster or an HPC environment?
 
@@ -36,8 +46,8 @@ Memory is a small amount of volatile or temporary information storage. This is d
 1. A lot of software is designed to work with the resources on an HPC environment and is either unavailable for, or unusable on, a personal computer.
 2. If you are performing analysis on large data files (e.g. high-throughput sequencing data), you should work on the cluster to avoid issues with memory and to get the analysis done a lot faster with the superior processing capacity. Essentially, a cluster has:
     * 100s of cores for processing!
-    * 100s of Gigabytes or Petabytes of storage!
-    * 100s of Gigabytes of memory!
+    * 100s of Gibibytes or Petabytes of storage!
+    * 100s of Gibibytes of memory!
 
 ### Parallelization
 
@@ -228,10 +238,11 @@ Some key LMOD commands are listed below:
 ### More about `/n/scratch`
 
 * It is for data only needed temporarily during analyses.
-* Each user can use up to 10 TB and 1 million files/directories.
-* Files not accessed for 30 days are automatically deleted.
+* Each user can use up to 25 TiB and 2.5 million files/directories.
+* Files not accessed for 45 days are automatically deleted.
 * **No backups!**
 * You can create your own folder using this command `/n/cluster/bin/scratch_create_directory.sh`
+* Your scratch directory can only be created from the login node
 
 ***
 *This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
