@@ -52,7 +52,7 @@ Below is the code to run the indexing step, and a description of the parameters:
 ```bash
 ## DO NOT RUN THIS CODE
 $ salmon index \
--t /n/groups/hbctraining/rna-seq_2019_02/reference_data/Homo_sapiens.GRCh38.cdna.all.fa \
+-t /n/groups/hbctraining/rna-seq_2023_02/reference_data/Homo_sapiens.GRCh38.cdna.all.fa \
 -i salmon_index \
 -k 31
 ```	
@@ -124,7 +124,7 @@ The quasi-mapping approach estimates where the reads best map to on the transcri
 Now we know a little bit about how it works, let's map our data using Salmon. We can begin by opening up an interactive session and creating a new directory in our `results` folder for the Salmon output:
 
 ```bash
-$ srun --pty -p interactive -t 0-3:00 --mem 8G --reservation=HBC2 /bin/bash
+$ srun --pty -p interactive -t 0-3:00 --mem 8G /bin/bash
 
 $ mkdir ~/rnaseq/results/salmon
 
@@ -145,7 +145,7 @@ $ module load salmon/1.8.0
 
 To perform the quasi-mapping and transcript abundance quantification, we will use the `salmon quant` command. The parameters for the command are described below (more information on parameters can be found [here](http://salmon.readthedocs.io/en/latest/salmon.html#id5)):
 
-* `-i`: specify the location of the index directory; for us it is `/n/groups/hbctraining/rna-seq_2019_02/reference_data/salmon_index`
+* `-i`: specify the location of the index directory; for us it is `/n/groups/hbctraining/rna-seq_2023_02/salmon_index/`
 * `-l A`: Format string describing the library. `A` will automatically infer the most likely library type (more info available [here](http://salmon.readthedocs.io/en/latest/salmon.html#what-s-this-libtype))
 * `-r`: sample file
 * `-o`: output quantification file name
@@ -157,7 +157,7 @@ To perform the quasi-mapping and transcript abundance quantification, we will us
 To run the quantification step on a single sample we have the command provided below. Let's try running it on the `Mov10_oe_1.subset.fq` sample:
 
 ```bash
-$ salmon quant -i /n/groups/hbctraining/rna-seq_2019_02/reference_data/salmon_index \
+$ salmon quant -i /n/groups/hbctraining/rna-seq_2023_02/salmon_index/ \
         -l A \
  	-r ~/rnaseq/raw_data/Mov10_oe_1.subset.fq \
  	-o Mov10_oe_1.subset.salmon \
