@@ -157,7 +157,7 @@ To perform the quasi-mapping and transcript abundance quantification, we will us
 To run the quantification step on a single sample we have the command provided below. Let's try running it on the `Mov10_oe_1.subset.fq` sample:
 
 ```bash
-$ salmon quant -i /n/groups/hbctraining/rna-seq_2023_02/salmon_index/ \
+$ salmon quant -i /n/groups/hbctraining/rna-seq_2023_02/salmon_index/ref-transcripts \
         -l A \
  	-r ~/rnaseq/raw_data/Mov10_oe_1.subset.fq \
  	-o Mov10_oe_1.subset.salmon \
