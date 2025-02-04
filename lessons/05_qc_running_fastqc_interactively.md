@@ -155,7 +155,7 @@ Exit the interactive session and start a new one with 6 cores:
 ```bash
 $ exit  #exit the current interactive session (you will be back on a login node)
 
-$ srun --pty -c 6 -p interactive -t 0-3:00 --mem 2G --reservation=HBC1 /bin/bash  #start a new one with 6 cores (-c 6) and 2GB RAM (--mem 2G)
+$ srun --pty -c 6 -p interactive -t 0-3:00 --mem 2G /bin/bash  #start a new one with 6 cores (-c 6) and 2GB RAM (--mem 2G)
 ```
 
 Once you are on the compute node, check what job(s) you have running and what resources you are using.
