@@ -79,7 +79,7 @@ FastQC does the following:
 > NOTE: Before we run FastQC, **you should be on a compute node** in an interactive session. Please run the following `srun` command if you are not on a compute node.
 > 
 > ```bash
-> $ srun --pty -p interactive -t 0-3:00 --mem 1G --reservation=HBC1 /bin/bash
+> $ srun --pty -p interactive -t 0-3:00 --mem 1G /bin/bash
 > ```
 >
 > ***An interactive session is very useful to test tools and workflows.***
