@@ -1,21 +1,23 @@
-# Introduction to RNA-seq using high-performance computing (HPC)
+# Introduction to bulk RNA-seq: From reads to count matrix
 
 | Audience | Computational skills required | Duration |
 :----------|:----------|:----------|
-| Biologists | None | 3-session online workshop (~7.5 hours of trainer-led time) |
+| Biologists | [Shell for Bioinformatics](https://hbctraining.github.io/Shell-for-bioinformatics/) | 3-session online workshop (~7.5 hours of trainer-led time) |
 
 ### Description
 
-This repository has teaching materials for a 3-day Introduction to RNA-sequencing data analysis workshop. This workshop focuses on teaching basic computational skills to enable the effective use of an high-performance computing environment to implement an RNA-seq data analysis workflow. It includes an introduction to shell (bash) and shell scripting. In addition to running the RNA-seq workflow from FASTQ files to count data using Salmon, the workshop covers best practice guidelines for RNA-seq experimental design and data organization/management.
+This repository has teaching materials for a 3-day **Introduction to bulk RNA-sequencing data analysis** workshop. This workshop focuses on teaching basic computational skills to enable the effective use of an high-performance computing environment to implement an RNA-seq data analysis workflow. In addition to running the RNA-seq workflow from FASTQ files to count data using Salmon, the workshop covers best practice guidelines for RNA-seq experimental design and data organization/management.
 
-**Note for Trainers:** Please note that the schedule linked below assumes that learners will spend between 3-4 hours on reading through, and completing exercises from selected lessons between classes. The online component of the workshop focuses on more exercises and discussion/Q & A.
+**Note for Trainers:** Please note that the schedule linked below assumes that learners will spend between 3-4 hours on reading through, and completing exercises from selected lessons between classes. 
 
 > These materials were developed for a trainer-led workshop, but are also amenable to self-guided learning.
 
 ### Learning Objectives
 
-1.	Understand the necessity for, and use of, the command line interface (bash) and HPC for analyzing high-throughput sequencing data.
-2.	Understand best practices for designing an RNA-seq experiment and analyzing the resulting data.
+1.	Utilize the command line interface (bash) and HPC for analyzing high-throughput sequencing data.
+2.	Understand best practices for designing an RNA-seq experiment
+3.	Perform read-level QC on bulk RNA-seq data
+4.	Quantify reads from bulk RNA-seq to generat a counts matrix
 
 ### Lessons
 
