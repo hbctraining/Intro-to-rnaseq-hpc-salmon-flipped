@@ -107,7 +107,7 @@ You can access compute nodes in 2 ways using a job scheduler or resource manager
 For now let's start an interactive session on O2 using `srun`. 
 
 ```bash
-$ srun --pty -p interactive -t 0-3:00 --mem 1G --reservation=HBC1 /bin/bash
+$ srun --pty -p interactive -t 0-3:00 --mem 1G /bin/bash
 ```
 
 In the above command the parameters we are using are requesting specific resources:
