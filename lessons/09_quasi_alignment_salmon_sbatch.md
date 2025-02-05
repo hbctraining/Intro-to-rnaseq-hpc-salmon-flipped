@@ -75,7 +75,7 @@ do
 samplename=`basename $fq .fq`
 
 # run salmon
-salmon quant -i /n/groups/hbctraining/rna-seq_2019_02/reference_data/salmon_index \
+salmon quant -i /n/groups/hbctraining/rna-seq_2023_02/salmon_index/ref-transcripts \
  -l A \
  -r $fq \
  -o ${samplename}_salmon \
