@@ -65,7 +65,7 @@ We are going to run MultiQC on the following 4 outputs from our workflow:
 * `.qualimap` files from Qualimap
 * `.salmon` directories from salmon
 
-To create a more meaningful report to look at we thought it best to run MultiQC on the full dataset instead of the subset we have been working with so far. We have run each of the tools mentioned above on the full dataset and stored the result in the directory `/n/groups/hbctraining/rna-seq_2019_02/snapshots/full_dataset_results`. We will point to these files as input for our MultiQC analysis.
+To create a more meaningful report to look at we thought it best to run MultiQC on the full dataset instead of the subset we have been working with so far. We have run each of the tools mentioned above on the full dataset and stored the result in the directory `/n/groups/hbctraining/intro_rnaseq_hpc/full_dataset`. We will point to these files as input for our MultiQC analysis.
 
 To run MultiQC, we can provide it two inputs at a minimum:
 
