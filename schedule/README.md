@@ -104,7 +104,7 @@
   * [Experimental design (one possible solution)](https://www.dropbox.com/scl/fi/vk6g9qvvosgmjjonoqint/exp_design_table.xlsx?rlkey=rbxkeln9mm0lxf4kdjbrqsidt&st=6sf562u3&dl=0)
   * [sbatch script](https://www.dropbox.com/scl/fi/3y7oa5i1eub7dzajfpko7/mov10_fastqc.run?rlkey=4eii6tc6nrludbjagcdgs1qxi&st=ipmbrx9y&dl=0)
   * [.out file](https://www.dropbox.com/scl/fi/m0f1ux4522sw2flt73aje/22914006.out?rlkey=sizy0vkm0r5fz14uyswrtdeew&st=sk7gh4i5&dl=0)
-  * [.err file](https://www.dropbox.com/scl/fi/iye10ysh780danfo6r6v6/22914006.err?rlkey=maeny1p52dmio5ovli8c5ipss&st=lu0iuvcw&dl=0).
+  * [.err file](https://www.dropbox.com/scl/fi/iye10ysh780danfo6r6v6/22914006.err?rlkey=maeny1p52dmio5ovli8c5ipss&st=lu0iuvcw&dl=0)
 
 * Downloadable Answer Keys (Day 3 exercises): 
   * [sbatch script to run salmon for all samples](../answer_key/salmon_all_samples.sbatch)
