@@ -101,7 +101,7 @@ The main metrics to explore first are:
 > Note: If you don't see exact columns as ours, you may need to configure the columns, which is a button just underneath the 'General Statistics' heading. 
 
 <p align="center">
-<img src="../img/multiqc_table.png" width="750">
+<img src="../img/multiqc_table1.png" width="750">
   </p>
 
 Using `Configure Columns` button, we are going to choose the following columns:
@@ -117,7 +117,7 @@ STAR provides information about *uniquely mapping reads* in the `%Aligned` colum
 The 'STAR: Alignment Scores' plot visually represents this mapping information. The % uniquely mapped, multimapped, and unmapped reads can be easily compared between samples to get a nice overview of the quality of the samples.
 
 <p align="center">
-<img src="../img/multiqc_alignment_scores.png" width="600">
+<img src="../img/multiqc_alignment_scores1.png" width="600">
   </p>
 
 > NOTE: The thresholds suggested above will vary depending on the organism that you are working with. Much of what is discussed here is in the context of working with human or mouse data. For example, 75% of mapped reads holds true only if the genome is good or mature. For badly assembled genomes, we may not observe a high mapping rate, even if the actual sequences from the sample are good.
@@ -136,7 +136,7 @@ Within this report, we can also explore the bias metrics output by Qualimap and 
 The transcript position plot can also help identify 5' or 3' bias, in addition to other coverage issues. We generally expect roughly even coverage.
 
 <p align="center">
-<img src="../img/multiqc_coverage_profile.png" width="600">
+<img src="../img/multiqc_coverage_profile1.png" width="600">
   </p>
 
 In addition, we can see whether our different samples have differences in `%GC` column. GC bias could be caused by low-complexity libraries, differences in amplification, or library-specific issues. We expect to observe similar GC content aross samples.
@@ -146,7 +146,7 @@ In addition, we can see whether our different samples have differences in `%GC` 
 We can also identify possible contamination of our samples by inspecting the percentage of reads that are exonic, intronic or intergenic. High levels of intergenic reads is indicative of DNA contamination (>30%). Also, if polyA selection of messenger RNAs was performed in library preparation, then high percentages of intronic reads would also be concerning. 
 
 <p align="center">
-<img src="../img/qualimap_genomic_origin.png" width="600">
+<img src="../img/qualimap_genomic_origin1.png" width="600">
   </p>
 
 Generally speaking, in a good library, we expect over 60% of reads to be mapped to exons for mouse or human organisms. For other organisms, the percentage depends on how well the genome is annotated.
@@ -158,7 +158,7 @@ The auxiliary directory generated from Salmon will contain a file called `fld.gz
 > **NOTE:** For single end data (which is what we have), Salmon reports a fixed insert length distribution. Therefore, the values are identical for all samples, and we only observe one distribution curve in the plot.
 
 <p align="center">
-<img src="../img/salmon_plot_multiqc.png" width="600">
+<img src="../img/salmon_plot_multiqc1.png" width="600">
 </p>
 
 ---
