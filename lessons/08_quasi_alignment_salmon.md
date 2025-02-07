@@ -45,7 +45,7 @@ The Salmon index has two components:
 - a suffix array (SA) of the reference transcriptome
 - a hash table to map each transcript in the reference transcriptome to it's location in the SA (is not required, but improves the speed of mapping dramatically)
 
-To create the index, we use the `salmon index` command as detailed in the code below. However, **we are not going to run this code in class** as it can take a long time to run and it requires a large amount of memory. Instead, we will have you point to an index that we have generated for you located at `/n/groups/hbctraining/rna-seq_2023_02/salmon_index/`.
+To create the index, we use the `salmon index` command as detailed in the code below. However, **we are not going to run this code in class** as it can take a long time to run and it requires a large amount of memory. Instead, we will have you point to an index that we have generated for you located at `/n/groups/hbctraining/rna-seq_2023_02/salmon_index/ref-transcripts/`.
 
 Below is the code to run the indexing step, and a description of the parameters:
 
