@@ -62,8 +62,8 @@ We are going to run MultiQC on the following 4 outputs from our workflow:
 
 * `.zip` files from FastQC
 * `.Log.final.out` files from STAR
-* `.qualimap` files from Qualimap
-* `.salmon` directories from salmon
+* `qualimap/*` directories from Qualimap
+* `salmon/*` directories from salmon
 
 To create a more meaningful report to look at we thought it best to run MultiQC on the full dataset instead of the subset we have been working with so far. We have run each of the tools mentioned above on the full dataset and stored the result in the directory `/n/groups/hbctraining/intro_rnaseq_hpc/full_dataset`. We will point to these files as input for our MultiQC analysis.
 
@@ -76,10 +76,10 @@ To run MultiQC, we can provide it two inputs at a minimum:
 
 ```bash
 $ multiqc -n multiqc_report_rnaseq \
-/n/groups/hbctraining/rna-seq_2019_02/snapshots/full_dataset_results/fastqc/*zip \
-/n/groups/hbctraining/rna-seq_2019_02/snapshots/full_dataset_results/STAR/*Log.final.out \
-/n/groups/hbctraining/rna-seq_2019_02/snapshots/full_dataset_results/qualimap/* \
-/n/groups/hbctraining/rna-seq_2019_02/snapshots/full_dataset_results/salmon/*salmon
+/n/groups/hbctraining/RNA_seq_part_1/full_dataset_results/fastqc/*zip \
+/n/groups/hbctraining/RNA_seq_part_1/full_dataset_results/STAR/*Log.final.out \
+/n/groups/hbctraining/RNA_seq_part_1/full_dataset_results/qualimap/* \
+/n/groups/hbctraining/RNA_seq_part_1/full_dataset_results/salmon/*
 ```
 
 > **NOTE**: You will see the progress of analysis printed out on the terminal as the tool runs. If you want to save this output into a log file (for future reference), you can use `2>` operator to redirect it to a file. For example, at the end of script, add `2> log.txt`. `2>`redirects the output of so-called standard error.
