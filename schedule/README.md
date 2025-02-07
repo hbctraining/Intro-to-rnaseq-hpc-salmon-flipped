@@ -101,7 +101,7 @@
 ***
 
 * Downloadable Answer Keys (Day 2 exercises): 
-  * [Experimental design (one possible solution)](https://www.dropbox.com/s/524mevuyba34l5b/exp_design_table.xlsx?dl=1)
+  * [Experimental design (one possible solution)](https://www.dropbox.com/scl/fi/vk6g9qvvosgmjjonoqint/exp_design_table.xlsx?rlkey=rbxkeln9mm0lxf4kdjbrqsidt&st=6sf562u3&dl=0)
   * [sbatch script](https://www.dropbox.com/s/9wdyhfqpic05l6p/mov10_fastqc.run?dl=1)
   * [.out file](https://www.dropbox.com/s/l7puf8oahtbwmpk/22914006.out?dl=1)
   * [.err file](https://www.dropbox.com/s/8a1g6o9t2kxit30/22914006.err?dl=1).
