@@ -340,21 +340,21 @@ fastqc -o ${fastqc_out} ${fq}<br><br>
 STAR --runThreadN ${cores} --genomeDir ${genome} --readFilesIn ${fq} --outFileNamePrefix ${align_out} --outSAMtype BAM SortedByCoordinate --outSAMunmapped Within --outSAMattributes Standard<br>
 &#35; Run Qualimap
 qualimap rnaseq \
-&emsp;-outdir ${qualimap_out} \
-&emsp;-a proportional \
-&emsp;-bam ${align_out_bam} \
-&emsp;-p strand-specific-reverse \
-&emsp;-gtf ${gtf} \
-&emsp;--java-mem-size=8G<br>
+  -outdir ${qualimap_out} \
+  -a proportional \
+  -bam ${align_out_bam} \
+  -p strand-specific-reverse \
+  -gtf ${gtf} \
+  --java-mem-size=8G<br>
 &#35; Run salmon<br>
 echo "Starting Salmon run for ${samplename}"<br>
 salmon quant -i ${transcriptome} \
-&emsp;-p ${cores} \
-&emsp;-l A \
-&emsp;-r ${fq} \
-&emsp;-o ${salmon_out} \
-&emsp;--seqBias \
-&emsp;--useVBOpt
+  -p ${cores} \
+  -l A \
+  -r ${fq} \
+  -o ${salmon_out} \
+  --seqBias \
+  --useVBOpt
 </pre>
 <hr />
 </details>
