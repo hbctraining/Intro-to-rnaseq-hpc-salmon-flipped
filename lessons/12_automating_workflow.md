@@ -16,7 +16,7 @@ This will ensure that you run every sample with the exact same parameters, and w
 
 ### Using "scratch space"
 
-Before we get started, let's talk a little bit about how data are stored on O2. O2, like many clusters, has several different storage options; each of which has different amounts of space available, and is differently backed up. One filesystem is the `/n/scratch/` space. This directory has a lot of shared disk space available, but the files are not backed up and they will be deleted if left "untouched" for more than 30 days.
+Before we get started, let's talk a little bit about how data are stored on O2. O2, like many clusters, has several different storage options; each of which has different amounts of space available, and is differently backed up. One filesystem is the `/n/scratch/` space. This directory has a lot of shared disk space available, but the files are not backed up and they will be deleted if left "untouched" for more than 45 days.
 
 By design `/n/scratch/` is to be used for intermediate files that are created during any analysis. An example is in the schematic below. 
 
