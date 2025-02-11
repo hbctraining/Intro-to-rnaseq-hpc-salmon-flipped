@@ -173,7 +173,7 @@ Next we'll initialize 3 more variables named `genome`, `transcriptome` and `gtf`
 # directory with the genome and transcriptome index files + name of the gene annotation file
 
 genome=/n/groups/hbctraining/intro_rnaseq_hpc/reference_data_ensembl38/ensembl38_STAR_index
-transcriptome=/n/groups/hbctraining/rna-seq_2019_02/reference_data/salmon_index
+transcriptome=/n/groups/hbctraining/rna-seq_2023_02/salmon_index/ref-transcripts
 gtf=/n/groups/hbctraining/intro_rnaseq_hpc/reference_data_ensembl38/Homo_sapiens.GRCh38.92.1.gtf
 ```
 
@@ -295,7 +295,7 @@ The <code>rnaseq_analysis_on_input_file.sh</code> should look like:
 <pre>
 &#35;!/bin/bash/
 &#35; This script takes a FASTQ file of RNA-seq data, runs FastQC, STAR, Qualimap and Salmon.
-&#35; USAGE: sh rnaseq_analysis_on_input_file.sh <name of FASTQ file>
+&#35; USAGE: sh rnaseq_analysis_on_input_file.sh &lt;name of FASTQ file&gt;
 &#35; change directories to /n/scratch/ so that all the analysis is stored there.<br>
 cd /n/scratch/users/r/$USER/rnaseq_hbc-workshop/<br>
 &#35; initialize a variable with an intuitive name to store the name of the input FASTQ file<br>
@@ -307,7 +307,7 @@ echo "Sample name is ${samplename}"<br>
 cores=6<br>
 &#35; directory with the genome and transcriptome index files + name of the gene annotation file<br>
 genome=/n/groups/hbctraining/intro_rnaseq_hpc/reference_data_ensembl38/ensembl38_STAR_index
-transcriptome=/n/groups/hbctraining/rna-seq_2019_02/reference_data/salmon_index
+transcriptome=/n/groups/hbctraining/rna-seq_2023_02/salmon_index/ref-transcripts
 gtf=/n/groups/hbctraining/intro_rnaseq_hpc/reference_data_ensembl38/Homo_sapiens.GRCh38.92.1.gtf<br>
 &#35; make all of the output directories
 &#35; The -p option means mkdir will create the whole path if it 
