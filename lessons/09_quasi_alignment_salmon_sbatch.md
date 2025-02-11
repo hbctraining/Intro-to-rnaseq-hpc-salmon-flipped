@@ -15,7 +15,7 @@ Approximate time: 30 minutes
 
 In class we talked in depth about how the Salmon algorithm works, and provided the command required to run Salmon on a single sample. In this lesson we walk through the steps required to **efficiently run Salmon on all samples** in the dataset. Unlike our experience with FastQC, where we could use one command and simply provide all files with the use of a wildcard (`*`), Salmon is only able to take a single file as input.
 
-Rather than typing out the Salmon command six times, we will use **a for loop to iterate over all FASTQ files in our dataset** (inside the `raw_fastq` directory). Furthermore, rather than running this `for` loop interactively, we will put the it inside a text file and create a **job submission script**.
+Rather than typing out the Salmon command six times, we will use **a for loop to iterate over all FASTQ files in our dataset** (inside the `raw_fastq` directory). Furthermore, rather than running this `for` loop interactively, we will put it inside a text file and create a **job submission script**.
 
 ### Create a job submission script to run Salmon in serial
 
