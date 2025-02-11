@@ -136,7 +136,7 @@ fq=$1
 
 In the rest of the script, we can now call the FASTQ file using `${fq}` instead of `${1}`!
 
-> When we set up variables we do not use the `$` before it, but when we *use the variable*, we always have to have the `$` before it. >
+> When we set up variables we do not use the `$` before it, but when we *use the variable*, we always have to have the `$` before it.
 >
 > For example: 
 >
