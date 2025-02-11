@@ -84,7 +84,7 @@ $ srun --pty -p interactive -t 0-3:00 -c 6 --mem 8G /bin/bash
 
 ### More Flexibility with variables
 
-We can write a shell script that will run on a specific file, but to make it more flexible and efficient we would prefer that it lets us give it an input fastq file when we run the script. To be able to provide an input to any shell script, we need to use **Positional Parameters**.
+We can write a shell script that will run on a specific file, but to make it more flexible and efficient we would prefer that it lets us give it an input FASTQ file when we run the script. To be able to provide an input to any shell script, we need to use **Positional Parameters**.
 
 For example, we can refer to the components of the following command as numbered variables **within** the actual script:
 
@@ -101,7 +101,7 @@ sh  run_rnaseq.sh  input.fq  input.gtf  12
 
 `$3` => 12
 
-The variables `$1`, `$2`, `$3`,...`$9` and so on are **positional parameters** in the context of the shell script, and can be used within the script to refer to the files/number specified on the command line. Basically, the script is written with the expectation that `$1` will be a fastq file and `$2` will be a GTF file, and so on. 
+The variables `$1`, `$2`, `$3`,...`$9` and so on are **positional parameters** in the context of the shell script, and can be used within the script to refer to the files/number specified on the command line. Basically, the script is written with the expectation that `$1` will be a FASTQ file and `$2` will be a GTF file, and so on. 
 
 Note that `$1`, which you may have seen before, is actually a short form of `${1}` and we can only use `$1` when it is **not** followed by a letter, digit or an underscore but we can always use `${1}`. Using `${1}` is best practice and what we will use for the rest of this lesson.
 
@@ -113,7 +113,7 @@ We will be using this concept in our automation script, wherein we will accept t
 
 ### Writing the automation script!
 
-We will start writing the script on our laptops using a simple text editor like Sublime Text or Notepad++. Let's being with the shebang line and a `cd` command so that our results are all written on `/n/scratch/`. 
+We will start writing the script on our laptops using a simple text editor like Sublime Text or Notepad++. Let's begin with the shebang line and a `cd` command so that our results are all written on `/n/scratch/`. 
 
 ```bash
 #!/bin/bash/
@@ -123,18 +123,18 @@ We will start writing the script on our laptops using a simple text editor like 
 cd /n/scratch/users/r/$USER/rnaseq_hbc-workshop/
 ```
 
-**We want users to input the path to the fastq file as input to the shell script.** To make this happen, we will use the `${1}` positional parameter variable within the script. 
+**We want users to input the path to the FASTQ file as input to the shell script.** To make this happen, we will use the `${1}` positional parameter variable within the script. 
 
-Since `${1}` will store the path to the fastq file, including the file name, we will be referring to it every time we need to specify the fastq file in any commands. We could just use the variable `${1}`, but that is not an intuitive variable name for a fastq file, is it? So we want to create a new variable called `fq` and copy the contents of `${1}` into it. 
+Since `${1}` will store the path to the FASTQ file, including the file name, we will be referring to it every time we need to specify the FASTQ file in any commands. We could just use the variable `${1}`, but that is not an intuitive variable name for a FASTQ file, is it? So we want to create a new variable called `fq` and copy the contents of `${1}` into it. 
 
 
 ```bash
-# initialize a variable with an intuitive name to store the name of the input fastq file
+# initialize a variable with an intuitive name to store the name of the input FASTQ file
 
 fq=$1
 ```
 
-In the rest of the script, we can now call the fastq file using `${fq}` instead of `${1}`!
+In the rest of the script, we can now call the FASTQ file using `${fq}` instead of `${1}`!
 
 > When we set up variables we do not use the `$` before it, but when we *use the variable*, we always have to have the `$` before it. >
 >
@@ -272,8 +272,8 @@ salmon quant -i ${transcriptome} \
 It is best practice to have the script **usage** specified at the top any script. This should have information such that when your future self, or a co-worker, uses the script they know what it will do and what input(s) are needed. For our script, we should have the following lines of comments right at the top after `#!/bin/bash/`:
 
 ```bash
-# This script takes a fastq file of RNA-seq data, runs FastQC, STAR, Qualimap and Salmon.
-# USAGE: sh rnaseq_analysis_on_input_file.sh <name of fastq file>
+# This script takes a FASTQ file of RNA-seq data, runs FastQC, STAR, Qualimap and Salmon.
+# USAGE: sh rnaseq_analysis_on_input_file.sh <name of FASTQ file>
 ```
 
 It is okay to specify this after everything else is set up, since you will have most clarity about the script only once it is fully done.
@@ -294,11 +294,11 @@ $ vim rnaseq_analysis_on_input_file.sh
 The <code>rnaseq_analysis_on_input_file.sh</code> should look like:
 <pre>
 &#35;!/bin/bash/
-&#35; This script takes a fastq file of RNA-seq data, runs FastQC, STAR, Qualimap and Salmon.
-&#35; USAGE: sh rnaseq_analysis_on_input_file.sh <name of fastq file>
+&#35; This script takes a FASTQ file of RNA-seq data, runs FastQC, STAR, Qualimap and Salmon.
+&#35; USAGE: sh rnaseq_analysis_on_input_file.sh <name of FASTQ file>
 &#35; change directories to /n/scratch/ so that all the analysis is stored there.<br>
 cd /n/scratch/users/r/$USER/rnaseq_hbc-workshop/<br>
-&#35; initialize a variable with an intuitive name to store the name of the input fastq file<br>
+&#35; initialize a variable with an intuitive name to store the name of the input FASTQ file<br>
 fq=$1<br>
 &#35; grab base of filename for naming outputs<br>
 samplename=`basename ${fq} .subset.fq`
@@ -378,7 +378,7 @@ The above script will run in an interactive session **one file at a time**. But 
 To run the above script **"in serial"** for all of the files on a worker node via the job scheduler, we can create a separate submission script that will need 2 components:
 
 1. **Slurm directives** at the **beginning** of the script. This is so that the scheduler knows what resources we need in order to run our job on the compute node(s).
-2. a **`for`** loop that iterates through and runs the above script for all the fastq files.
+2. a **`for`** loop that iterates through and runs the above script for all the FASTQ files.
 
 Below is what this second script (`rnaseq_analysis_on_allfiles.slurm`) would look like **\[DO NOT RUN THIS\]**:
 
@@ -393,7 +393,7 @@ Below is what this second script (`rnaseq_analysis_on_allfiles.slurm`) would loo
 #SBATCH -o %j.out			# File to which standard out will be written
 #SBATCH -e %j.err 		# File to which standard err will be written
 
-# this `for` loop, will take the fastq files as input and run the script for all of them one after the other. 
+# this `for` loop, will take the FASTQ files as input and run the script for all of them one after the other. 
 for fq in ~/rnaseq/raw_data/*.fq
 do
   echo "running analysis on ${fq}"
@@ -414,7 +414,7 @@ How would you run `rnaseq_analysis_on_allfiles.slurm`, i.e. the above script?
 
 ## Parallelizing the analysis for efficiency
 
-Parallelization will save you a lot of time with real (large) datasets. To parallelize our analysis, we will still need to write a second script that will call the script we just wrote that takes a fastq file as input (rnaseq_analysis_on_input_file.sh). We will still use a `for` loop, but we will be creating a regular shell script and we will be specifying the Slurm directives differently. 
+Parallelization will save you a lot of time with real (large) datasets. To parallelize our analysis, we will still need to write a second script that will call the script we just wrote that takes a FASTQ file as input (rnaseq_analysis_on_input_file.sh). We will still use a `for` loop, but we will be creating a regular shell script and we will be specifying the Slurm directives differently. 
 
 > Alternatively, this could also be done using a ***Slurm array***, which lets you submit a collection of similar jobs easily and quickly. You can learn more about Slurm arrays [here](https://hbctraining.github.io/Training-modules/Accelerate_with_automation/lessons/arrays_in_slurm.html).
 
